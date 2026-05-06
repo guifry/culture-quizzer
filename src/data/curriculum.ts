@@ -359,6 +359,6 @@ export const topics: Topic[] = [
   { id: 'us-states', title: 'US States and Capitals', group: 'Geography', description: 'Place all 50 states as center targets and drill their capitals.', modes: ['map-click', 'map-type', 'type', 'choice'], mapScope: 'usa', mapKind: 'points', items: usStates, coverage: 'All 50 states with capitals.' },
   { id: 'rivers', title: 'Major World, UK, and French Rivers', group: 'Geography', description: 'Locate the world great rivers plus UK and France anchors.', modes: ['map-click', 'map-type'], mapScope: 'world', mapKind: 'points', items: riversAndRanges, coverage: 'Top world rivers plus Thames, Seine, and Loire anchors.' },
   { id: 'mountain-ranges', title: 'Top 20 Mountain Ranges', group: 'Geography', description: 'Place the main mountain systems of the world.', modes: ['map-click', 'map-type'], mapScope: 'world', mapKind: 'points', items: mountainRanges, coverage: 'Top 20 global range deck.' },
-  { id: 'paintings', title: 'Famous Paintings Recognition', group: 'Art', description: 'See the painting; name the work or the artist.', modes: ['image', 'choice', 'type'], items: paintings, coverage: 'Core image-recognition deck with public-domain/open Wikimedia images where available.' },
+  { id: 'paintings', title: 'Famous Paintings Recognition', group: 'Art', description: 'See the painting; name the work or the artist.', modes: ['image', 'choice'], items: paintings, coverage: 'Core image-recognition deck with public-domain/open Wikimedia images where available.' },
   ...knowledgeQuestions,
 ]

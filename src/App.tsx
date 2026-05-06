@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react'
 import { feature } from 'topojson-client'
 import { geoAlbersUsa, geoEqualEarth, geoMercator, geoPath } from 'd3-geo'
-import { BookOpen, Check, ChevronRight, Globe2, Image, MapPinned, RotateCcw, Target, X } from 'lucide-react'
+import { BookOpen, Check, ChevronRight, Globe2, Image, MapPinned, RotateCcw, X } from 'lucide-react'
 import countries110m from 'world-atlas/countries-110m.json'
 import frDepartments from './data/geo/fr-departments.json'
 import frRegions from './data/geo/fr-regions.json'
@@ -25,15 +25,29 @@ type Feedback = {
   detail?: string
 }
 
+type RoundState = {
+  index: number
+  roundId: number
+}
+
 const WIDTH = 960
 const HEIGHT = 560
 
-const modeLabels: Record<QuizMode, string> = {
-  'map-click': 'Click map',
-  'map-type': 'Name target',
-  type: 'Type answer',
+const defaultModeLabels: Record<QuizMode, string> = {
+  'map-click': 'Click location',
+  'map-type': 'Name highlighted',
+  type: 'Typed recall',
   choice: 'Multiple choice',
-  image: 'Image',
+  image: 'Image typing',
+}
+
+function modeLabel(topic: Topic, mode: QuizMode) {
+  if (topic.id === 'paintings') {
+    if (mode === 'image') return 'Image: type title or artist'
+    if (mode === 'choice') return 'Image: choose artist'
+  }
+
+  return defaultModeLabels[mode]
 }
 
 function normalize(value: string) {
@@ -63,6 +77,10 @@ function shuffle<T>(items: T[]) {
 
 function scoreKey(topic: Topic, mode: QuizMode) {
   return `${topic.id}:${mode}`
+}
+
+function roundKey(topic: Topic, mode: QuizMode) {
+  return scoreKey(topic, mode)
 }
 
 function loadScores(): Record<string, Score> {
@@ -257,19 +275,23 @@ function QuizPanel({
   }, [item, mode, pool])
 
   const title =
-    mode === 'map-click'
-      ? `Click: ${item.name}`
-      : mode === 'map-type'
-        ? 'Name the highlighted target'
-        : mode === 'image'
-          ? item.prompt ?? 'Name this work or artist'
-          : item.prompt ?? `Answer for ${item.name}`
+    topic.id === 'paintings' && mode === 'image'
+      ? 'Name this painting or artist'
+      : topic.id === 'paintings' && mode === 'choice'
+        ? 'Choose the artist'
+        : mode === 'map-click'
+          ? `Click: ${item.name}`
+          : mode === 'map-type'
+            ? 'Name the highlighted target'
+            : mode === 'image'
+              ? item.prompt ?? 'Name this work or artist'
+              : item.prompt ?? `Answer for ${item.name}`
 
   return (
     <section className="quiz-panel">
       <div className="prompt-row">
         <div>
-          <span className="eyebrow">{modeLabels[mode]}</span>
+          <span className="eyebrow">{modeLabel(topic, mode)}</span>
           <h2>{title}</h2>
         </div>
         <button className="icon-button" type="button" onClick={onNext} aria-label="Skip">
@@ -277,7 +299,7 @@ function QuizPanel({
         </button>
       </div>
 
-      {mode === 'image' && item.imageUrl ? <img className="quiz-image" src={item.imageUrl} alt={item.name} /> : null}
+      {mode === 'image' && item.imageUrl && topic.mapKind ? <img className="quiz-image" src={item.imageUrl} alt="Quiz prompt" /> : null}
 
       {mode === 'choice' ? (
         <div className="choice-grid">
@@ -338,15 +360,14 @@ function App() {
   const [mode, setMode] = useState<QuizMode>(activeTopic.modes[0])
   const [scores, setScores] = useState<Record<string, Score>>(() => loadScores())
   const [feedback, setFeedback] = useState<Feedback | null>(null)
-  const [roundState, setRoundState] = useState(() => ({
-    topicId: fullTopics[0].id,
-    mode: fullTopics[0].modes[0],
-    index: 0,
-    roundId: 0,
+  const [roundStates, setRoundStates] = useState<Record<string, RoundState>>(() => ({
+    [roundKey(fullTopics[0], fullTopics[0].modes[0])]: { index: 0, roundId: 0 },
   }))
 
   const pool = activeTopic.items
-  const current = pool[Math.min(roundState.index, Math.max(pool.length - 1, 0))] ?? pool[0]
+  const activeRoundKey = roundKey(activeTopic, mode)
+  const activeRound = roundStates[activeRoundKey] ?? { index: 0, roundId: 0 }
+  const current = pool[Math.min(activeRound.index, Math.max(pool.length - 1, 0))] ?? pool[0]
   const activeScore = scores[scoreKey(activeTopic, mode)] ?? { attempts: 0, correct: 0, streak: 0, bestStreak: 0 }
   const accuracy = activeScore.attempts ? Math.round((activeScore.correct / activeScore.attempts) * 100) : 0
 
@@ -380,12 +401,41 @@ function App() {
 
   function nextRound() {
     setFeedback(null)
-    setRoundState((previous) => ({
-      topicId: activeTopic.id,
-      mode,
-      index: Math.floor(Math.random() * pool.length),
-      roundId: previous.roundId + 1,
+    setRoundStates((previous) => ({
+      ...previous,
+      [activeRoundKey]: {
+        index: Math.floor(Math.random() * pool.length),
+        roundId: (previous[activeRoundKey]?.roundId ?? 0) + 1,
+      },
     }))
+  }
+
+  function activateMode(topic: Topic, nextMode: QuizMode) {
+    const nextKey = roundKey(topic, nextMode)
+    setMode(nextMode)
+    setFeedback(null)
+    setRoundStates((previous) => {
+      if (previous[nextKey]) return previous
+      return {
+        ...previous,
+        [nextKey]: { index: Math.min(current ? pool.indexOf(current) : 0, Math.max(topic.items.length - 1, 0)), roundId: 0 },
+      }
+    })
+  }
+
+  function activateTopic(topic: Topic) {
+    const nextMode = topic.modes[0]
+    const nextKey = roundKey(topic, nextMode)
+    setTopicId(topic.id)
+    setMode(nextMode)
+    setFeedback(null)
+    setRoundStates((previous) => {
+      if (previous[nextKey]) return previous
+      return {
+        ...previous,
+        [nextKey]: { index: Math.floor(Math.random() * topic.items.length), roundId: 0 },
+      }
+    })
   }
 
   function resetScores() {
@@ -421,17 +471,7 @@ function App() {
                   key={topic.id}
                   className={topic.id === activeTopic.id ? 'topic-button active' : 'topic-button'}
                   type="button"
-                  onClick={() => {
-                    setTopicId(topic.id)
-                    setMode(topic.modes[0])
-                    setFeedback(null)
-                    setRoundState((previous) => ({
-                      topicId: topic.id,
-                      mode: topic.modes[0],
-                      index: Math.floor(Math.random() * topic.items.length),
-                      roundId: previous.roundId + 1,
-                    }))
-                  }}
+                  onClick={() => activateTopic(topic)}
                 >
                   <TopicIcon topic={topic} />
                   <span>{topic.title}</span>
@@ -454,26 +494,20 @@ function App() {
           </button>
         </header>
 
-        <div className="mode-row" role="tablist" aria-label="Quiz mode">
-          {activeTopic.modes.map((availableMode) => (
-            <button
-              key={availableMode}
-              className={availableMode === mode ? 'mode-button active' : 'mode-button'}
-              type="button"
-              onClick={() => {
-                setMode(availableMode)
-                setFeedback(null)
-                setRoundState((previous) => ({
-                  topicId: activeTopic.id,
-                  mode: availableMode,
-                  index: Math.floor(Math.random() * pool.length),
-                  roundId: previous.roundId + 1,
-                }))
-              }}
-            >
-              {modeLabels[availableMode]}
-            </button>
-          ))}
+        <div className="mode-control">
+          <span>Quiz type</span>
+          <div className="mode-row" role="tablist" aria-label="Quiz type">
+            {activeTopic.modes.map((availableMode) => (
+              <button
+                key={availableMode}
+                className={availableMode === mode ? 'mode-button active' : 'mode-button'}
+                type="button"
+                onClick={() => activateMode(activeTopic, availableMode)}
+              >
+                {modeLabel(activeTopic, availableMode)}
+              </button>
+            ))}
+          </div>
         </div>
 
         <section className="score-strip" aria-label="Current score">
@@ -488,15 +522,20 @@ function App() {
           {activeTopic.mapKind ? (
             <CultureMap topic={activeTopic} mode={mode} current={current} items={pool} countries={countryFeatures} onPick={pickMapItem} feedback={feedback} />
           ) : (
-            <section className="study-surface">
-              <Target size={36} />
-              <h2>{current.name}</h2>
-              <p>{current.detail ?? 'Use the quiz panel to test recall. This deck is deliberately concise and meant for repetition.'}</p>
+            <section className={current.imageUrl ? 'study-surface image-surface' : 'study-surface'}>
+              {current.imageUrl ? <img src={current.imageUrl} alt="Quiz prompt" /> : null}
+              {!current.imageUrl ? (
+                <>
+                  <BookOpen size={36} />
+                  <h2>Question ready</h2>
+                  <p>Use the quiz panel to answer. The correct answer appears only after you submit.</p>
+                </>
+              ) : null}
             </section>
           )}
 
           <QuizPanel
-            key={`${roundState.topicId}:${roundState.mode}:${roundState.roundId}`}
+            key={`${activeRoundKey}:${activeRound.roundId}`}
             topic={activeTopic}
             mode={mode}
             item={current}
