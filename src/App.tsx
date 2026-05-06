@@ -19,8 +19,11 @@ type Score = {
   bestStreak: number
 }
 
-type Feedback = {
+type AnswerResult = {
+  id: string
   ok: boolean
+  prompt: string
+  submitted: string
   expected: string
   detail?: string
 }
@@ -65,9 +68,14 @@ function itemAnswer(item: QuizItem, mode: QuizMode) {
   return item.name
 }
 
+function displayAnswer(item: QuizItem, mode: QuizMode) {
+  if (mode === 'image' && item.answer) return `${item.name} / ${item.answer}`
+  return itemAnswer(item, mode)
+}
+
 function matchesAnswer(input: string, item: QuizItem, mode: QuizMode) {
   const clean = normalize(input)
-  const answers = [itemAnswer(item, mode), item.name, ...(item.aliases ?? [])].map(normalize)
+  const answers = [itemAnswer(item, mode), item.name, item.answer, ...(item.aliases ?? [])].filter(Boolean).map((answer) => normalize(String(answer)))
   return answers.includes(clean)
 }
 
@@ -131,6 +139,14 @@ function boundaryName(featureItem: BoundaryFeature) {
   return String(properties.nom ?? properties.CTYUA22NM ?? properties.name ?? '')
 }
 
+function promptLabel(topic: Topic, mode: QuizMode, item: QuizItem) {
+  if (topic.id === 'paintings' && mode === 'image') return 'Painting image'
+  if (topic.id === 'paintings' && mode === 'choice') return 'Painting artist'
+  if (mode === 'map-click') return `Click ${item.name}`
+  if (mode === 'map-type') return 'Highlighted target'
+  return item.prompt ?? item.name
+}
+
 function Stat({ label, value }: { label: string; value: string | number }) {
   return (
     <div className="stat">
@@ -153,7 +169,6 @@ function CultureMap({
   items,
   countries,
   onPick,
-  feedback,
 }: {
   topic: Topic
   mode: QuizMode
@@ -161,7 +176,6 @@ function CultureMap({
   items: QuizItem[]
   countries: CountryFeature[]
   onPick: (item: QuizItem) => void
-  feedback?: Feedback | null
 }) {
   const projection = useMemo(() => buildProjection(topic.mapScope ?? 'world'), [topic.mapScope])
   const path = useMemo(() => geoPath(projection), [projection])
@@ -186,7 +200,6 @@ function CultureMap({
               'country',
               isInteractive ? 'country-clickable' : '',
               mode === 'map-type' && isTarget ? 'target-country' : '',
-              feedback && isTarget ? (feedback.ok ? 'correct-country' : 'wrong-country') : '',
             ].join(' ')
 
             return (
@@ -210,7 +223,6 @@ function CultureMap({
                 'boundary-area',
                 canClickBoundaries ? 'boundary-clickable' : '',
                 mode === 'map-type' && isTarget ? 'target-boundary' : '',
-                feedback && isTarget ? (feedback.ok ? 'correct-boundary' : 'wrong-boundary') : '',
               ].join(' ')
 
               return <path key={`${name}-${index}`} className={klass} d={path(boundary) ?? undefined} onClick={canClickBoundaries ? () => onPick(matchedItem) : undefined} />
@@ -234,7 +246,6 @@ function CultureMap({
                 'map-point',
                 mode === 'map-click' ? 'map-point-clickable' : '',
                 mode === 'map-type' && isTarget ? 'map-point-target' : '',
-                feedback && isTarget ? (feedback.ok ? 'map-point-correct' : 'map-point-wrong') : '',
               ].join(' ')
               return (
                 <g key={item.id} transform={`translate(${point[0]} ${point[1]})`} onClick={mode === 'map-click' ? () => onPick(item) : undefined}>
@@ -255,17 +266,17 @@ function QuizPanel({
   mode,
   item,
   pool,
+  history,
   onSubmit,
   onNext,
-  feedback,
 }: {
   topic: Topic
   mode: QuizMode
   item: QuizItem
   pool: QuizItem[]
+  history: AnswerResult[]
   onSubmit: (value: string) => void
   onNext: () => void
-  feedback: Feedback | null
 }) {
   const [input, setInput] = useState('')
   const options = useMemo(() => {
@@ -304,7 +315,7 @@ function QuizPanel({
       {mode === 'choice' ? (
         <div className="choice-grid">
           {options.map((option) => (
-            <button key={option} type="button" onClick={() => onSubmit(option)} disabled={Boolean(feedback)}>
+            <button key={option} type="button" onClick={() => onSubmit(option)}>
               {option}
             </button>
           ))}
@@ -319,27 +330,43 @@ function QuizPanel({
             if (input.trim()) onSubmit(input)
           }}
         >
-          <input value={input} onChange={(event) => setInput(event.target.value)} placeholder="Type the answer" autoComplete="off" />
-          <button type="submit" disabled={!input.trim() || Boolean(feedback)}>
+          <input
+            value={input}
+            onChange={(event) => setInput(event.target.value)}
+            onKeyDown={(event) => {
+              if (event.key === 'Enter' && input.trim()) {
+                event.preventDefault()
+                onSubmit(input)
+              }
+            }}
+            placeholder="Type the answer"
+            autoComplete="off"
+            autoFocus
+          />
+          <button type="submit" disabled={!input.trim()}>
             Check
           </button>
         </form>
       ) : null}
 
-      {feedback ? (
-        <div className={feedback.ok ? 'feedback feedback-ok' : 'feedback feedback-bad'}>
-          <span>{feedback.ok ? <Check size={18} /> : <X size={18} />}</span>
-          <div>
-            <strong>{feedback.ok ? 'Correct' : `Answer: ${feedback.expected}`}</strong>
-            {feedback.detail ? <p>{feedback.detail}</p> : null}
-          </div>
-          <button type="button" onClick={onNext}>
-            Next
-          </button>
+      <p className="coverage">{topic.coverage}</p>
+
+      {history.length ? (
+        <div className="answer-history" aria-label="Answer history">
+          {history.map((result) => (
+            <article key={result.id} className={result.ok ? 'history-card history-ok' : 'history-card history-bad'}>
+              <span>{result.ok ? <Check size={16} /> : <X size={16} />}</span>
+              <div>
+                <strong>{result.prompt}</strong>
+                <p>
+                  You answered <b>{result.submitted}</b>. {result.ok ? 'Correct.' : `Answer: ${result.expected}.`}
+                </p>
+                {result.detail ? <small>{result.detail}</small> : null}
+              </div>
+            </article>
+          ))}
         </div>
       ) : null}
-
-      <p className="coverage">{topic.coverage}</p>
     </section>
   )
 }
@@ -359,7 +386,7 @@ function App() {
   const activeTopic = fullTopics.find((topic) => topic.id === topicId) ?? fullTopics[0]
   const [mode, setMode] = useState<QuizMode>(activeTopic.modes[0])
   const [scores, setScores] = useState<Record<string, Score>>(() => loadScores())
-  const [feedback, setFeedback] = useState<Feedback | null>(null)
+  const [histories, setHistories] = useState<Record<string, AnswerResult[]>>({})
   const [roundStates, setRoundStates] = useState<Record<string, RoundState>>(() => ({
     [roundKey(fullTopics[0], fullTopics[0].modes[0])]: { index: 0, roundId: 0 },
   }))
@@ -369,9 +396,20 @@ function App() {
   const activeRound = roundStates[activeRoundKey] ?? { index: 0, roundId: 0 }
   const current = pool[Math.min(activeRound.index, Math.max(pool.length - 1, 0))] ?? pool[0]
   const activeScore = scores[scoreKey(activeTopic, mode)] ?? { attempts: 0, correct: 0, streak: 0, bestStreak: 0 }
+  const activeHistory = histories[activeRoundKey] ?? []
   const accuracy = activeScore.attempts ? Math.round((activeScore.correct / activeScore.attempts) * 100) : 0
 
-  function record(ok: boolean, expected: string, detail?: string) {
+  function advanceRound() {
+    setRoundStates((previous) => ({
+      ...previous,
+      [activeRoundKey]: {
+        index: Math.floor(Math.random() * pool.length),
+        roundId: (previous[activeRoundKey]?.roundId ?? 0) + 1,
+      },
+    }))
+  }
+
+  function record(submitted: string, ok: boolean, expected: string, detail?: string) {
     const key = scoreKey(activeTopic, mode)
     const previous = scores[key] ?? { attempts: 0, correct: 0, streak: 0, bestStreak: 0 }
     const streak = ok ? previous.streak + 1 : 0
@@ -386,34 +424,38 @@ function App() {
     }
     setScores(updated)
     saveScores(updated)
-    setFeedback({ ok, expected, detail })
+    setHistories((previousHistories) => ({
+      ...previousHistories,
+      [activeRoundKey]: [
+        {
+          id: `${activeRoundKey}:${activeRound.roundId}:${Date.now()}`,
+          ok,
+          prompt: promptLabel(activeTopic, mode, current),
+          submitted,
+          expected,
+          detail,
+        },
+        ...(previousHistories[activeRoundKey] ?? []),
+      ].slice(0, 20),
+    }))
+    advanceRound()
   }
 
   function submit(value: string) {
-    if (feedback) return
-    record(matchesAnswer(value, current, mode), itemAnswer(current, mode), current.detail)
+    record(value, matchesAnswer(value, current, mode), displayAnswer(current, mode), current.detail)
   }
 
   function pickMapItem(item: QuizItem) {
-    if (feedback) return
-    record(matchesAnswer(item.name, current, mode), current.name, current.detail)
+    record(item.name, matchesAnswer(item.name, current, mode), current.name, current.detail)
   }
 
   function nextRound() {
-    setFeedback(null)
-    setRoundStates((previous) => ({
-      ...previous,
-      [activeRoundKey]: {
-        index: Math.floor(Math.random() * pool.length),
-        roundId: (previous[activeRoundKey]?.roundId ?? 0) + 1,
-      },
-    }))
+    advanceRound()
   }
 
   function activateMode(topic: Topic, nextMode: QuizMode) {
     const nextKey = roundKey(topic, nextMode)
     setMode(nextMode)
-    setFeedback(null)
     setRoundStates((previous) => {
       if (previous[nextKey]) return previous
       return {
@@ -428,7 +470,6 @@ function App() {
     const nextKey = roundKey(topic, nextMode)
     setTopicId(topic.id)
     setMode(nextMode)
-    setFeedback(null)
     setRoundStates((previous) => {
       if (previous[nextKey]) return previous
       return {
@@ -441,6 +482,7 @@ function App() {
   function resetScores() {
     localStorage.removeItem('culture-quizzer-scores')
     setScores({})
+    setHistories({})
   }
 
   const grouped = useMemo(() => {
@@ -520,7 +562,7 @@ function App() {
 
         <div className={activeTopic.mapKind ? 'practice-grid with-map' : 'practice-grid'}>
           {activeTopic.mapKind ? (
-            <CultureMap topic={activeTopic} mode={mode} current={current} items={pool} countries={countryFeatures} onPick={pickMapItem} feedback={feedback} />
+            <CultureMap topic={activeTopic} mode={mode} current={current} items={pool} countries={countryFeatures} onPick={pickMapItem} />
           ) : (
             <section className={current.imageUrl ? 'study-surface image-surface' : 'study-surface'}>
               {current.imageUrl ? <img src={current.imageUrl} alt="Quiz prompt" /> : null}
@@ -540,9 +582,9 @@ function App() {
             mode={mode}
             item={current}
             pool={pool}
+            history={activeHistory}
             onSubmit={submit}
             onNext={nextRound}
-            feedback={feedback}
           />
         </div>
       </section>

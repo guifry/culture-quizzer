@@ -461,6 +461,48 @@
   color: #8b1d1d;
 }
 
+.answer-history {
+  display: grid;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.history-card {
+  display: grid;
+  grid-template-columns: 22px 1fr;
+  gap: 8px;
+  padding: 10px;
+  border-radius: 7px;
+  font-size: 13px;
+  line-height: 1.35;
+}
+
+.history-card strong,
+.history-card p,
+.history-card small {
+  display: block;
+  margin: 0;
+}
+
+.history-card p {
+  margin-top: 2px;
+}
+
+.history-card small {
+  margin-top: 4px;
+  opacity: 0.82;
+}
+
+.history-ok {
+  background: #e7f5eb;
+  color: #17633a;
+}
+
+.history-bad {
+  background: #fae8e8;
+  color: #8b1d1d;
+}
+
 .coverage {
   margin-top: 14px;
   color: #75706b;
