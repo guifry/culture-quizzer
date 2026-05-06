@@ -1,3 +1,5 @@
+import countries from 'world-countries'
+
 export type MapScope = 'world' | 'europe' | 'uk' | 'france' | 'usa'
 
 export type QuizMode = 'map-click' | 'map-type' | 'type' | 'choice' | 'image'
@@ -33,38 +35,47 @@ export type Topic = {
   modes: QuizMode[]
   mapScope?: MapScope
   mapKind?: 'country-polygons' | 'points'
+  boundaryLayer?: 'fr-departments' | 'fr-regions' | 'uk-admin'
   items: QuizItem[]
   coverage: string
 }
 
-export const worldCountryKnowledge: QuizItem[] = [
-  { id: 'france', name: 'France', answer: 'Paris', prompt: 'Capital of France', detail: 'Second city to know: Marseille.', lat: 46.2, lon: 2.2, aliases: ['French Republic'] },
-  { id: 'uk', name: 'United Kingdom', answer: 'London', prompt: 'Capital of the United Kingdom', detail: 'Second city by many urban-area measures: Birmingham.', lat: 55.4, lon: -3.4, aliases: ['UK', 'Great Britain'] },
-  { id: 'usa', name: 'United States of America', answer: 'Washington, D.C.', prompt: 'Capital of the United States', detail: 'Second city by municipality: Los Angeles.', lat: 39.8, lon: -98.6, aliases: ['United States', 'USA', 'US'] },
-  { id: 'canada', name: 'Canada', answer: 'Ottawa', prompt: 'Capital of Canada', detail: 'Largest city: Toronto. Second city: Montreal.', lat: 56.1, lon: -106.3 },
-  { id: 'brazil', name: 'Brazil', answer: 'Brasilia', prompt: 'Capital of Brazil', detail: 'Largest city: Sao Paulo. Second city: Rio de Janeiro.', lat: -14.2, lon: -51.9, aliases: ['Brasil'] },
-  { id: 'argentina', name: 'Argentina', answer: 'Buenos Aires', prompt: 'Capital of Argentina', detail: 'Second city: Cordoba.', lat: -38.4, lon: -63.6 },
-  { id: 'mexico', name: 'Mexico', answer: 'Mexico City', prompt: 'Capital of Mexico', detail: 'Second city: Guadalajara.', lat: 23.6, lon: -102.5 },
-  { id: 'germany', name: 'Germany', answer: 'Berlin', prompt: 'Capital of Germany', detail: 'Second city: Hamburg.', lat: 51.1, lon: 10.4 },
-  { id: 'italy', name: 'Italy', answer: 'Rome', prompt: 'Capital of Italy', detail: 'Second city: Milan.', lat: 42.8, lon: 12.5 },
-  { id: 'spain', name: 'Spain', answer: 'Madrid', prompt: 'Capital of Spain', detail: 'Second city: Barcelona.', lat: 40.5, lon: -3.7 },
-  { id: 'netherlands', name: 'Netherlands', answer: 'Amsterdam', prompt: 'Capital of the Netherlands', detail: 'Seat of government: The Hague. Second city: Rotterdam.', lat: 52.1, lon: 5.3, aliases: ['Holland'] },
-  { id: 'belgium', name: 'Belgium', answer: 'Brussels', prompt: 'Capital of Belgium', detail: 'Second city: Antwerp.', lat: 50.5, lon: 4.5 },
-  { id: 'switzerland', name: 'Switzerland', answer: 'Bern', prompt: 'Capital of Switzerland', detail: 'Largest city: Zurich. Second city: Geneva.', lat: 46.8, lon: 8.2 },
-  { id: 'austria', name: 'Austria', answer: 'Vienna', prompt: 'Capital of Austria', detail: 'Second city: Graz.', lat: 47.5, lon: 14.6 },
-  { id: 'poland', name: 'Poland', answer: 'Warsaw', prompt: 'Capital of Poland', detail: 'Second city: Krakow.', lat: 52, lon: 19.1 },
-  { id: 'ukraine', name: 'Ukraine', answer: 'Kyiv', prompt: 'Capital of Ukraine', detail: 'Second city before the full-scale war: Kharkiv.', lat: 49, lon: 32 },
-  { id: 'russia', name: 'Russia', answer: 'Moscow', prompt: 'Capital of Russia', detail: 'Second city: Saint Petersburg.', lat: 61.5, lon: 105.3, aliases: ['Russian Federation'] },
-  { id: 'china', name: 'China', answer: 'Beijing', prompt: 'Capital of China', detail: 'Largest city by municipality: Shanghai.', lat: 35.9, lon: 104.2 },
-  { id: 'india', name: 'India', answer: 'New Delhi', prompt: 'Capital of India', detail: 'Largest city: Mumbai. Second city: Delhi by urban area measures varies by definition.', lat: 20.6, lon: 78.9 },
-  { id: 'japan', name: 'Japan', answer: 'Tokyo', prompt: 'Capital of Japan', detail: 'Second city: Yokohama by municipality; Osaka by metro weight.', lat: 36.2, lon: 138.2 },
-  { id: 'south-korea', name: 'South Korea', answer: 'Seoul', prompt: 'Capital of South Korea', detail: 'Second city: Busan.', lat: 36.5, lon: 127.8, aliases: ['Republic of Korea'] },
-  { id: 'indonesia', name: 'Indonesia', answer: 'Jakarta', prompt: 'Capital of Indonesia', detail: 'Nusantara is planned as the future capital; Jakarta remains the practical quiz answer until transition completes.', lat: -2.5, lon: 118 },
-  { id: 'australia', name: 'Australia', answer: 'Canberra', prompt: 'Capital of Australia', detail: 'Largest city: Sydney. Second city: Melbourne.', lat: -25.3, lon: 133.8 },
-  { id: 'egypt', name: 'Egypt', answer: 'Cairo', prompt: 'Capital of Egypt', detail: 'Second city: Alexandria.', lat: 26.8, lon: 30.8 },
-  { id: 'nigeria', name: 'Nigeria', answer: 'Abuja', prompt: 'Capital of Nigeria', detail: 'Largest city: Lagos. Second city: Kano.', lat: 9.1, lon: 8.7 },
-  { id: 'south-africa', name: 'South Africa', answer: 'Pretoria', prompt: 'Executive capital of South Africa', detail: 'Legislative capital: Cape Town. Judicial capital: Bloemfontein.', lat: -30.6, lon: 22.9 },
-]
+const majorCountryNotes: Record<string, string> = {
+  France: 'Second city to know: Marseille.',
+  'United Kingdom': 'Second city by many urban-area measures: Birmingham.',
+  'United States': 'Second city by municipality: Los Angeles.',
+  Canada: 'Largest city: Toronto. Second city: Montreal.',
+  Brazil: 'Largest city: Sao Paulo. Second city: Rio de Janeiro.',
+  Argentina: 'Second city: Cordoba.',
+  Mexico: 'Second city: Guadalajara.',
+  Germany: 'Second city: Hamburg.',
+  Italy: 'Second city: Milan.',
+  Spain: 'Second city: Barcelona.',
+  Netherlands: 'Seat of government: The Hague. Second city: Rotterdam.',
+  Switzerland: 'Largest city: Zurich. Second city: Geneva.',
+  Russia: 'Second city: Saint Petersburg.',
+  China: 'Largest city by municipality: Shanghai.',
+  India: 'Largest city: Mumbai. Second city varies by urban-area definition.',
+  Japan: 'Second city: Yokohama by municipality; Osaka by metro weight.',
+  Australia: 'Largest city: Sydney. Second city: Melbourne.',
+  Egypt: 'Second city: Alexandria.',
+  Nigeria: 'Largest city: Lagos. Second city: Kano.',
+  'South Africa': 'Executive capital answer: Pretoria. Legislative capital: Cape Town. Judicial capital: Bloemfontein.',
+}
+
+export const worldCountryKnowledge: QuizItem[] = countries
+  .filter((country) => country.capital?.length && country.latlng?.length)
+  .map((country) => ({
+    id: country.cca3.toLowerCase(),
+    name: country.name.common,
+    answer: country.capital[0],
+    prompt: `Capital of ${country.name.common}`,
+    detail: majorCountryNotes[country.name.common] ?? `Official name: ${country.name.official}.`,
+    lat: country.latlng[0],
+    lon: country.latlng[1],
+    aliases: [country.name.official, ...(country.altSpellings ?? [])],
+  }))
+  .sort((a, b) => a.name.localeCompare(b.name))
 
 const scotlandHistoricCounties: QuizItem[] = [
   ['Aberdeenshire', 57.2, -2.6], ['Angus', 56.7, -2.9], ['Argyll', 56.1, -5.3], ['Ayrshire', 55.5, -4.6], ['Banffshire', 57.6, -2.8],
@@ -197,14 +208,13 @@ const mountainRanges: QuizItem[] = [
 ].map(([name, lat, lon]) => ({ id: String(name).toLowerCase().replaceAll(' ', '-'), name: String(name), lat: Number(lat), lon: Number(lon) }))
 
 const paintings: QuizItem[] = [
-  { id: 'mona-lisa', name: 'Mona Lisa', answer: 'Leonardo da Vinci', prompt: 'Name this painting or its artist', imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Mona%20Lisa%2C%20by%20Leonardo%20da%20Vinci%2C%20from%20C2RMF%20retouched.jpg', detail: 'Renaissance portrait, Louvre.' },
-  { id: 'starry-night', name: 'The Starry Night', answer: 'Vincent van Gogh', prompt: 'Name this painting or its artist', imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Van%20Gogh%20-%20Starry%20Night%20-%20Google%20Art%20Project.jpg', detail: 'Post-Impressionism, 1889.' },
-  { id: 'girl-pearl', name: 'Girl with a Pearl Earring', answer: 'Johannes Vermeer', imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Meisje%20met%20de%20parel.jpg', detail: 'Dutch Golden Age.' },
-  { id: 'guernica', name: 'Guernica', answer: 'Pablo Picasso', imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/PicassoGuernica.jpg', detail: 'Anti-war painting, 1937.' },
-  { id: 'venus', name: 'The Birth of Venus', answer: 'Sandro Botticelli', imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Sandro%20Botticelli%20-%20La%20nascita%20di%20Venere%20-%20Google%20Art%20Project%20-%20edited.jpg' },
-  { id: 'las-meninas', name: 'Las Meninas', answer: 'Diego Velazquez', imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Las%20Meninas%2C%20by%20Diego%20Vel%C3%A1zquez%2C%20from%20Prado%20in%20Google%20Earth.jpg' },
-  { id: 'scream', name: 'The Scream', answer: 'Edvard Munch', imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/The%20Scream.jpg' },
-  { id: 'american-gothic', name: 'American Gothic', answer: 'Grant Wood', imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Grant%20Wood%20-%20American%20Gothic%20-%20Google%20Art%20Project.jpg' },
+  { id: 'mona-lisa', name: 'Mona Lisa', answer: 'Leonardo da Vinci', prompt: 'Name this painting or its artist', imageUrl: '/images/paintings/mona-lisa.jpg', detail: 'Renaissance portrait, Louvre.' },
+  { id: 'starry-night', name: 'The Starry Night', answer: 'Vincent van Gogh', prompt: 'Name this painting or its artist', imageUrl: '/images/paintings/starry-night.jpg', detail: 'Post-Impressionism, 1889.' },
+  { id: 'girl-pearl', name: 'Girl with a Pearl Earring', answer: 'Johannes Vermeer', imageUrl: '/images/paintings/girl-pearl.jpg', detail: 'Dutch Golden Age.' },
+  { id: 'venus', name: 'The Birth of Venus', answer: 'Sandro Botticelli', imageUrl: '/images/paintings/birth-venus.jpg' },
+  { id: 'las-meninas', name: 'Las Meninas', answer: 'Diego Velazquez', imageUrl: '/images/paintings/las-meninas.jpg' },
+  { id: 'scream', name: 'The Scream', answer: 'Edvard Munch', imageUrl: '/images/paintings/the-scream.jpg' },
+  { id: 'american-gothic', name: 'American Gothic', answer: 'Grant Wood', imageUrl: '/images/paintings/american-gothic.jpg' },
 ]
 
 const knowledgeQuestions: Topic[] = [
@@ -337,15 +347,15 @@ const knowledgeQuestions: Topic[] = [
 
 export const topics: Topic[] = [
   { id: 'world-countries', title: 'Countries of the World', group: 'Geography', description: 'Click every country on a vector world map, or identify the highlighted country.', modes: ['map-click', 'map-type'], mapScope: 'world', mapKind: 'country-polygons', items: [], coverage: 'All country polygons available in the Natural Earth world-atlas deck.' },
-  { id: 'world-capitals', title: 'World Capitals and Second Cities', group: 'Geography', description: 'Capital recall with second-city notes for the countries you are most likely to encounter.', modes: ['type', 'choice', 'map-click'], mapScope: 'world', mapKind: 'points', items: worldCountryKnowledge, coverage: 'Seeded major-country deck; designed to expand to all sovereign states.' },
-  { id: 'scotland-historic-counties', title: 'Historic Counties of Scotland', group: 'Geography', description: 'Learn the historic counties as map targets before adding boundary polygons.', modes: ['map-click', 'map-type'], mapScope: 'uk', mapKind: 'points', items: scotlandHistoricCounties, coverage: 'All traditional Scottish counties as target coordinates.' },
-  { id: 'gb-historic-counties', title: 'Historic Counties of Great Britain', group: 'Geography', description: 'Practice the historic county names of England, Wales, and Scotland as map targets.', modes: ['map-click', 'map-type'], mapScope: 'uk', mapKind: 'points', items: greatBritainHistoricCounties, coverage: 'Historic counties target deck for Great Britain.' },
-  { id: 'uk-cities', title: 'Top UK Cities', group: 'Geography', description: 'Place the main cities and learn the population anchors for the top five.', modes: ['map-click', 'map-type'], mapScope: 'uk', mapKind: 'points', items: ukCities, coverage: 'Top-city starter deck with population notes.' },
-  { id: 'scotland-settlements', title: 'Top 20 Scottish Settlements', group: 'Geography', description: 'Place Scotland’s major cities and towns on the map.', modes: ['map-click', 'map-type'], mapScope: 'uk', mapKind: 'points', items: scottishSettlements, coverage: 'Top 20 settlement deck.' },
-  { id: 'england-settlements', title: 'Top 20 English Settlements', group: 'Geography', description: 'Place England’s major cities and famous university/port settlements.', modes: ['map-click', 'map-type'], mapScope: 'uk', mapKind: 'points', items: englishSettlements, coverage: 'Top 20 practical deck.' },
-  { id: 'french-departments', title: 'French Departments and Biggest Cities', group: 'Geography', description: 'Name departments, place their approximate location, and recall the biggest city.', modes: ['map-click', 'map-type', 'type', 'choice'], mapScope: 'france', mapKind: 'points', items: frenchDepartments, coverage: 'All current departments with biggest-city prompts; coordinates are departmental targets.' },
-  { id: 'french-regions', title: 'French Regions and Biggest Cities', group: 'Geography', description: 'Name each region and recall the biggest city for every region.', modes: ['map-click', 'map-type', 'type', 'choice'], mapScope: 'france', mapKind: 'points', items: frenchRegions, coverage: 'All current French regions, including overseas regions.' },
-  { id: 'france-cities', title: 'Top 20 French Cities', group: 'Geography', description: 'Place France’s largest communes and remember the top-five population anchors.', modes: ['map-click', 'map-type'], mapScope: 'france', mapKind: 'points', items: frenchCities, coverage: 'Top 20 commune deck.' },
+  { id: 'world-capitals', title: 'World Capitals and Second Cities', group: 'Geography', description: 'Capital recall with second-city notes for every country and territory in the source deck.', modes: ['type', 'choice', 'map-click'], mapScope: 'world', mapKind: 'points', items: worldCountryKnowledge, coverage: 'All entries with capitals from the world-countries dataset.' },
+  { id: 'scotland-historic-counties', title: 'Historic Counties of Scotland', group: 'Geography', description: 'Learn the historic counties as map targets over a detailed modern UK boundary layer.', modes: ['map-click', 'map-type'], mapScope: 'uk', mapKind: 'points', boundaryLayer: 'uk-admin', items: scotlandHistoricCounties, coverage: 'Historic county names with modern ONS county/unitary outlines as geographic reference.' },
+  { id: 'gb-historic-counties', title: 'Historic Counties of Great Britain', group: 'Geography', description: 'Practice the historic county names of England, Wales, and Scotland over detailed modern UK outlines.', modes: ['map-click', 'map-type'], mapScope: 'uk', mapKind: 'points', boundaryLayer: 'uk-admin', items: greatBritainHistoricCounties, coverage: 'Historic counties target deck for Great Britain, with modern ONS outlines for map detail.' },
+  { id: 'uk-cities', title: 'Top UK Cities', group: 'Geography', description: 'Place the main cities and learn the population anchors for the top five.', modes: ['map-click', 'map-type'], mapScope: 'uk', mapKind: 'points', boundaryLayer: 'uk-admin', items: ukCities, coverage: 'Top-city starter deck with population notes.' },
+  { id: 'scotland-settlements', title: 'Top 20 Scottish Settlements', group: 'Geography', description: 'Place Scotland’s major cities and towns on the map.', modes: ['map-click', 'map-type'], mapScope: 'uk', mapKind: 'points', boundaryLayer: 'uk-admin', items: scottishSettlements, coverage: 'Top 20 settlement deck.' },
+  { id: 'england-settlements', title: 'Top 20 English Settlements', group: 'Geography', description: 'Place England’s major cities and famous university/port settlements.', modes: ['map-click', 'map-type'], mapScope: 'uk', mapKind: 'points', boundaryLayer: 'uk-admin', items: englishSettlements, coverage: 'Top 20 practical deck.' },
+  { id: 'french-departments', title: 'French Departments and Biggest Cities', group: 'Geography', description: 'Click departments on real boundaries, name their location, and recall the biggest city.', modes: ['map-click', 'map-type', 'type', 'choice'], mapScope: 'france', mapKind: 'points', boundaryLayer: 'fr-departments', items: frenchDepartments, coverage: 'All current departments with biggest-city prompts; metropolitan department polygons are rendered from GeoJSON.' },
+  { id: 'french-regions', title: 'French Regions and Biggest Cities', group: 'Geography', description: 'Click regions on real boundaries and recall the biggest city for every region.', modes: ['map-click', 'map-type', 'type', 'choice'], mapScope: 'france', mapKind: 'points', boundaryLayer: 'fr-regions', items: frenchRegions, coverage: 'Current French regions with region polygons rendered from GeoJSON.' },
+  { id: 'france-cities', title: 'Top 20 French Cities', group: 'Geography', description: 'Place France’s largest communes and remember the top-five population anchors.', modes: ['map-click', 'map-type'], mapScope: 'france', mapKind: 'points', boundaryLayer: 'fr-departments', items: frenchCities, coverage: 'Top 20 commune deck.' },
   { id: 'us-states', title: 'US States and Capitals', group: 'Geography', description: 'Place all 50 states as center targets and drill their capitals.', modes: ['map-click', 'map-type', 'type', 'choice'], mapScope: 'usa', mapKind: 'points', items: usStates, coverage: 'All 50 states with capitals.' },
   { id: 'rivers', title: 'Major World, UK, and French Rivers', group: 'Geography', description: 'Locate the world great rivers plus UK and France anchors.', modes: ['map-click', 'map-type'], mapScope: 'world', mapKind: 'points', items: riversAndRanges, coverage: 'Top world rivers plus Thames, Seine, and Loire anchors.' },
   { id: 'mountain-ranges', title: 'Top 20 Mountain Ranges', group: 'Geography', description: 'Place the main mountain systems of the world.', modes: ['map-click', 'map-type'], mapScope: 'world', mapKind: 'points', items: mountainRanges, coverage: 'Top 20 global range deck.' },

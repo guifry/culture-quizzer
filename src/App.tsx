@@ -3,10 +3,14 @@ import { feature } from 'topojson-client'
 import { geoAlbersUsa, geoEqualEarth, geoMercator, geoPath } from 'd3-geo'
 import { BookOpen, Check, ChevronRight, Globe2, Image, MapPinned, RotateCcw, Target, X } from 'lucide-react'
 import countries110m from 'world-atlas/countries-110m.json'
+import frDepartments from './data/geo/fr-departments.json'
+import frRegions from './data/geo/fr-regions.json'
+import ukAdmin from './data/geo/uk-counties-unitaries-2022.json'
 import './App.css'
 import { topics, type MapScope, type QuizItem, type QuizMode, type Topic } from './data/curriculum'
 
 type CountryFeature = GeoJSON.Feature<GeoJSON.Geometry, { name: string }>
+type BoundaryFeature = GeoJSON.Feature<GeoJSON.Geometry, Record<string, string | number | null>>
 
 type Score = {
   attempts: number
@@ -94,6 +98,21 @@ function countryItemsFromFeatures(features: CountryFeature[]): QuizItem[] {
     .sort((a, b) => a.name.localeCompare(b.name))
 }
 
+function asFeatures(collection: unknown): BoundaryFeature[] {
+  return (collection as GeoJSON.FeatureCollection<GeoJSON.Geometry, Record<string, string | number | null>>).features
+}
+
+const boundaryFeatures = {
+  'fr-departments': asFeatures(frDepartments),
+  'fr-regions': asFeatures(frRegions),
+  'uk-admin': asFeatures(ukAdmin),
+}
+
+function boundaryName(featureItem: BoundaryFeature) {
+  const properties = featureItem.properties
+  return String(properties.nom ?? properties.CTYUA22NM ?? properties.name ?? '')
+}
+
 function Stat({ label, value }: { label: string; value: string | number }) {
   return (
     <div className="stat">
@@ -129,8 +148,12 @@ function CultureMap({
   const projection = useMemo(() => buildProjection(topic.mapScope ?? 'world'), [topic.mapScope])
   const path = useMemo(() => geoPath(projection), [projection])
   const countriesByName = useMemo(() => new Map(countries.map((country) => [normalize(country.properties.name), country])), [countries])
+  const boundaries = useMemo(() => (topic.boundaryLayer ? boundaryFeatures[topic.boundaryLayer] : []), [topic.boundaryLayer])
+  const itemsByName = useMemo(() => new Map(items.map((item) => [normalize(item.name), item])), [items])
+  const currentBoundary = useMemo(() => boundaries.find((boundary) => normalize(boundaryName(boundary)) === normalize(current.name)), [boundaries, current.name])
 
   const currentCountry = topic.mapKind === 'country-polygons' ? countriesByName.get(normalize(current.name)) : undefined
+  const canClickBoundaries = Boolean(topic.boundaryLayer?.startsWith('fr-') && mode === 'map-click')
 
   return (
     <div className="map-shell">
@@ -154,16 +177,34 @@ function CultureMap({
                 className={klass}
                 d={path(country) ?? undefined}
                 onClick={isInteractive ? () => onPick({ id: normalize(name), name }) : undefined}
-              >
-                <title>{name}</title>
-              </path>
+              />
             )
           })}
         </g>
 
+        {boundaries.length ? (
+          <g className="boundary-layer">
+            {boundaries.map((boundary, index) => {
+              const name = boundaryName(boundary)
+              const isTarget = normalize(name) === normalize(current.name)
+              const matchedItem = itemsByName.get(normalize(name)) ?? { id: normalize(name), name }
+              const klass = [
+                'boundary-area',
+                canClickBoundaries ? 'boundary-clickable' : '',
+                mode === 'map-type' && isTarget ? 'target-boundary' : '',
+                feedback && isTarget ? (feedback.ok ? 'correct-boundary' : 'wrong-boundary') : '',
+              ].join(' ')
+
+              return <path key={`${name}-${index}`} className={klass} d={path(boundary) ?? undefined} onClick={canClickBoundaries ? () => onPick(matchedItem) : undefined} />
+            })}
+          </g>
+        ) : null}
+
         {topic.mapKind === 'country-polygons' && mode === 'map-type' && currentCountry ? (
           <path className="target-outline" d={path(currentCountry) ?? undefined} />
         ) : null}
+
+        {topic.mapKind === 'points' && mode === 'map-type' && currentBoundary ? <path className="target-outline" d={path(currentBoundary) ?? undefined} /> : null}
 
         {topic.mapKind === 'points'
           ? items.map((item) => {
@@ -179,9 +220,9 @@ function CultureMap({
               ].join(' ')
               return (
                 <g key={item.id} transform={`translate(${point[0]} ${point[1]})`} onClick={mode === 'map-click' ? () => onPick(item) : undefined}>
-                  <circle className={pointClass} r={isTarget && mode !== 'map-click' ? 8 : 5} />
-                  {isTarget && mode !== 'map-click' ? <circle className="map-point-pulse" r={15} /> : null}
-                  <title>{item.name}</title>
+                  {mode === 'map-click' ? <circle className="map-point-hit" r={9} /> : null}
+                  <circle className={pointClass} r={isTarget && mode !== 'map-click' ? 5 : 3} />
+                  {isTarget && mode !== 'map-click' ? <circle className="map-point-pulse" r={10} /> : null}
                 </g>
               )
             })
