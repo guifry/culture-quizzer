@@ -162,6 +162,33 @@ function TopicIcon({ topic }: { topic: Topic }) {
   return <BookOpen size={18} />
 }
 
+function CoursePanel({ topic }: { topic: Topic }) {
+  return (
+    <section className="course-surface">
+      <div className="course-header">
+        <span className="eyebrow">Course</span>
+        <h2>{topic.title}</h2>
+        <p>{topic.description}</p>
+      </div>
+
+      <div className="course-list">
+        {topic.items.map((item) => {
+          const answer = item.answer && normalize(item.answer) !== normalize(item.name) ? item.answer : undefined
+          return (
+            <article key={item.id} className="course-row">
+              <div>
+                <strong>{item.name}</strong>
+                {answer ? <span>{answer}</span> : null}
+              </div>
+              <p>{item.detail ?? item.era ?? item.prompt ?? topic.coverage}</p>
+            </article>
+          )
+        })}
+      </div>
+    </section>
+  )
+}
+
 function CultureMap({
   topic,
   mode,
@@ -563,17 +590,12 @@ function App() {
         <div className={activeTopic.mapKind ? 'practice-grid with-map' : 'practice-grid'}>
           {activeTopic.mapKind ? (
             <CultureMap topic={activeTopic} mode={mode} current={current} items={pool} countries={countryFeatures} onPick={pickMapItem} />
-          ) : (
-            <section className={current.imageUrl ? 'study-surface image-surface' : 'study-surface'}>
-              {current.imageUrl ? <img src={current.imageUrl} alt="Quiz prompt" /> : null}
-              {!current.imageUrl ? (
-                <>
-                  <BookOpen size={36} />
-                  <h2>Question ready</h2>
-                  <p>Use the quiz panel to answer. The correct answer appears only after you submit.</p>
-                </>
-              ) : null}
+          ) : current.imageUrl ? (
+            <section className="study-surface image-surface">
+              <img src={current.imageUrl} alt="Quiz prompt" />
             </section>
+          ) : (
+            <CoursePanel topic={activeTopic} />
           )}
 
           <QuizPanel

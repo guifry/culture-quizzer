@@ -213,7 +213,8 @@
 
 .map-shell,
 .quiz-panel,
-.study-surface {
+.study-surface,
+.course-surface {
   border: 1px solid var(--border);
   background: #fff;
   border-radius: 8px;
@@ -532,6 +533,72 @@
   line-height: 1.5;
 }
 
+.course-surface {
+  padding: 18px;
+}
+
+.course-header {
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 14px;
+  margin-bottom: 12px;
+}
+
+.course-header h2 {
+  margin: 0 0 6px;
+  color: var(--text-h);
+  font-size: 22px;
+  line-height: 1.15;
+  letter-spacing: 0;
+}
+
+.course-header p {
+  max-width: 840px;
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.course-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--border);
+}
+
+.course-row {
+  background: #fff;
+  min-height: 86px;
+  padding: 12px;
+}
+
+.course-row div {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 7px;
+  margin-bottom: 6px;
+}
+
+.course-row strong {
+  color: var(--text-h);
+  font-size: 15px;
+  line-height: 1.2;
+}
+
+.course-row span {
+  color: #0f766e;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.course-row p {
+  margin: 0;
+  color: #625d56;
+  font-size: 13px;
+  line-height: 1.38;
+}
+
 .image-surface {
   min-height: 520px;
   padding: 0;
@@ -572,6 +639,10 @@
 
   .practice-grid,
   .practice-grid:not(.with-map) {
+    grid-template-columns: 1fr;
+  }
+
+  .course-list {
     grid-template-columns: 1fr;
   }
 }
