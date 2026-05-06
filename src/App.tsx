@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { feature } from 'topojson-client'
 import { geoAlbersUsa, geoEqualEarth, geoMercator, geoPath } from 'd3-geo'
 import { BookOpen, Check, ChevronRight, Globe2, Image, MapPinned, RotateCcw, X } from 'lucide-react'
@@ -25,6 +25,8 @@ type AnswerResult = {
   prompt: string
   submitted: string
   expected: string
+  expectedName: string
+  submittedName: string
   detail?: string
 }
 
@@ -195,6 +197,7 @@ function CultureMap({
   current,
   items,
   countries,
+  review,
   onPick,
 }: {
   topic: Topic
@@ -202,6 +205,7 @@ function CultureMap({
   current: QuizItem
   items: QuizItem[]
   countries: CountryFeature[]
+  review?: AnswerResult
   onPick: (item: QuizItem) => void
 }) {
   const projection = useMemo(() => buildProjection(topic.mapScope ?? 'world'), [topic.mapScope])
@@ -213,6 +217,8 @@ function CultureMap({
 
   const currentCountry = topic.mapKind === 'country-polygons' ? countriesByName.get(normalize(current.name)) : undefined
   const canClickBoundaries = Boolean(topic.boundaryLayer?.startsWith('fr-') && mode === 'map-click')
+  const expectedName = review ? normalize(review.expectedName) : ''
+  const submittedName = review ? normalize(review.submittedName) : ''
 
   return (
     <div className="map-shell">
@@ -222,11 +228,15 @@ function CultureMap({
           {countries.map((country) => {
             const name = country.properties.name
             const isTarget = normalize(name) === normalize(current.name)
+            const isExpected = review && normalize(name) === expectedName
+            const isWrongPick = review && !review.ok && normalize(name) === submittedName
             const isInteractive = topic.mapKind === 'country-polygons' && mode === 'map-click'
             const klass = [
               'country',
-              isInteractive ? 'country-clickable' : '',
+              isInteractive && !review ? 'country-clickable' : '',
               mode === 'map-type' && isTarget ? 'target-country' : '',
+              isExpected ? 'correct-country' : '',
+              isWrongPick ? 'wrong-country' : '',
             ].join(' ')
 
             return (
@@ -234,7 +244,7 @@ function CultureMap({
                 key={name}
                 className={klass}
                 d={path(country) ?? undefined}
-                onClick={isInteractive ? () => onPick({ id: normalize(name), name }) : undefined}
+                onClick={isInteractive && !review ? () => onPick({ id: normalize(name), name }) : undefined}
               />
             )
           })}
@@ -245,14 +255,18 @@ function CultureMap({
             {boundaries.map((boundary, index) => {
               const name = boundaryName(boundary)
               const isTarget = normalize(name) === normalize(current.name)
+              const isExpected = review && normalize(name) === expectedName
+              const isWrongPick = review && !review.ok && normalize(name) === submittedName
               const matchedItem = itemsByName.get(normalize(name)) ?? { id: normalize(name), name }
               const klass = [
                 'boundary-area',
-                canClickBoundaries ? 'boundary-clickable' : '',
+                canClickBoundaries && !review ? 'boundary-clickable' : '',
                 mode === 'map-type' && isTarget ? 'target-boundary' : '',
+                isExpected ? 'correct-boundary' : '',
+                isWrongPick ? 'wrong-boundary' : '',
               ].join(' ')
 
-              return <path key={`${name}-${index}`} className={klass} d={path(boundary) ?? undefined} onClick={canClickBoundaries ? () => onPick(matchedItem) : undefined} />
+              return <path key={`${name}-${index}`} className={klass} d={path(boundary) ?? undefined} onClick={canClickBoundaries && !review ? () => onPick(matchedItem) : undefined} />
             })}
           </g>
         ) : null}
@@ -269,14 +283,18 @@ function CultureMap({
               const point = projection([item.lon, item.lat])
               if (!point) return null
               const isTarget = item.id === current.id
+              const isExpected = review && normalize(item.name) === expectedName
+              const isWrongPick = review && !review.ok && normalize(item.name) === submittedName
               const pointClass = [
                 'map-point',
-                mode === 'map-click' ? 'map-point-clickable' : '',
+                mode === 'map-click' && !review ? 'map-point-clickable' : '',
                 mode === 'map-type' && isTarget ? 'map-point-target' : '',
+                isExpected ? 'map-point-correct' : '',
+                isWrongPick ? 'map-point-wrong' : '',
               ].join(' ')
               return (
-                <g key={item.id} transform={`translate(${point[0]} ${point[1]})`} onClick={mode === 'map-click' ? () => onPick(item) : undefined}>
-                  {mode === 'map-click' ? <circle className="map-point-hit" r={9} /> : null}
+                <g key={item.id} transform={`translate(${point[0]} ${point[1]})`} onClick={mode === 'map-click' && !review ? () => onPick(item) : undefined}>
+                  {mode === 'map-click' && !review ? <circle className="map-point-hit" r={9} /> : null}
                   <circle className={pointClass} r={isTarget && mode !== 'map-click' ? 5 : 3} />
                   {isTarget && mode !== 'map-click' ? <circle className="map-point-pulse" r={10} /> : null}
                 </g>
@@ -294,6 +312,7 @@ function QuizPanel({
   item,
   pool,
   history,
+  review,
   onSubmit,
   onNext,
 }: {
@@ -302,6 +321,7 @@ function QuizPanel({
   item: QuizItem
   pool: QuizItem[]
   history: AnswerResult[]
+  review?: AnswerResult
   onSubmit: (value: string) => void
   onNext: () => void
 }) {
@@ -342,7 +362,7 @@ function QuizPanel({
       {mode === 'choice' ? (
         <div className="choice-grid">
           {options.map((option) => (
-            <button key={option} type="button" onClick={() => onSubmit(option)}>
+            <button key={option} type="button" onClick={() => onSubmit(option)} disabled={Boolean(review)}>
               {option}
             </button>
           ))}
@@ -354,6 +374,10 @@ function QuizPanel({
           className="answer-form"
           onSubmit={(event) => {
             event.preventDefault()
+            if (review) {
+              onNext()
+              return
+            }
             if (input.trim()) onSubmit(input)
           }}
         >
@@ -361,6 +385,12 @@ function QuizPanel({
             value={input}
             onChange={(event) => setInput(event.target.value)}
             onKeyDown={(event) => {
+              if (event.key === 'Enter' && review) {
+                event.preventDefault()
+                event.stopPropagation()
+                onNext()
+                return
+              }
               if (event.key === 'Enter' && input.trim()) {
                 event.preventDefault()
                 onSubmit(input)
@@ -368,15 +398,18 @@ function QuizPanel({
             }}
             placeholder="Type the answer"
             autoComplete="off"
+            readOnly={Boolean(review)}
             autoFocus
           />
-          <button type="submit" disabled={!input.trim()}>
-            Check
+          <button type="submit" disabled={!review && !input.trim()}>
+            {review ? 'Next' : 'Check'}
           </button>
         </form>
       ) : null}
 
       <p className="coverage">{topic.coverage}</p>
+
+      {review ? <p className="review-hint">Press Enter or the arrow button for the next question.</p> : null}
 
       {history.length ? (
         <div className="answer-history" aria-label="Answer history">
@@ -414,6 +447,7 @@ function App() {
   const [mode, setMode] = useState<QuizMode>(activeTopic.modes[0])
   const [scores, setScores] = useState<Record<string, Score>>(() => loadScores())
   const [histories, setHistories] = useState<Record<string, AnswerResult[]>>({})
+  const [reviews, setReviews] = useState<Record<string, AnswerResult | undefined>>({})
   const [roundStates, setRoundStates] = useState<Record<string, RoundState>>(() => ({
     [roundKey(fullTopics[0], fullTopics[0].modes[0])]: { index: 0, roundId: 0 },
   }))
@@ -424,9 +458,11 @@ function App() {
   const current = pool[Math.min(activeRound.index, Math.max(pool.length - 1, 0))] ?? pool[0]
   const activeScore = scores[scoreKey(activeTopic, mode)] ?? { attempts: 0, correct: 0, streak: 0, bestStreak: 0 }
   const activeHistory = histories[activeRoundKey] ?? []
+  const activeReview = reviews[activeRoundKey]
   const accuracy = activeScore.attempts ? Math.round((activeScore.correct / activeScore.attempts) * 100) : 0
 
   function advanceRound() {
+    setReviews((previous) => ({ ...previous, [activeRoundKey]: undefined }))
     setRoundStates((previous) => ({
       ...previous,
       [activeRoundKey]: {
@@ -437,6 +473,7 @@ function App() {
   }
 
   function record(submitted: string, ok: boolean, expected: string, detail?: string) {
+    if (activeReview) return
     const key = scoreKey(activeTopic, mode)
     const previous = scores[key] ?? { attempts: 0, correct: 0, streak: 0, bestStreak: 0 }
     const streak = ok ? previous.streak + 1 : 0
@@ -451,21 +488,24 @@ function App() {
     }
     setScores(updated)
     saveScores(updated)
+    const result = {
+      id: `${activeRoundKey}:${activeRound.roundId}:${Date.now()}`,
+      ok,
+      prompt: promptLabel(activeTopic, mode, current),
+      submitted,
+      expected,
+      expectedName: current.name,
+      submittedName: submitted,
+      detail,
+    }
     setHistories((previousHistories) => ({
       ...previousHistories,
       [activeRoundKey]: [
-        {
-          id: `${activeRoundKey}:${activeRound.roundId}:${Date.now()}`,
-          ok,
-          prompt: promptLabel(activeTopic, mode, current),
-          submitted,
-          expected,
-          detail,
-        },
+        result,
         ...(previousHistories[activeRoundKey] ?? []),
       ].slice(0, 20),
     }))
-    advanceRound()
+    setReviews((previous) => ({ ...previous, [activeRoundKey]: result }))
   }
 
   function submit(value: string) {
@@ -510,7 +550,29 @@ function App() {
     localStorage.removeItem('culture-quizzer-scores')
     setScores({})
     setHistories({})
+    setReviews({})
   }
+
+  useEffect(() => {
+    if (!activeReview) return undefined
+
+    function handleKeyDown(event: KeyboardEvent) {
+      if (event.defaultPrevented) return
+      if (event.key !== 'Enter') return
+      event.preventDefault()
+      setReviews((previous) => ({ ...previous, [activeRoundKey]: undefined }))
+      setRoundStates((previous) => ({
+        ...previous,
+        [activeRoundKey]: {
+          index: Math.floor(Math.random() * pool.length),
+          roundId: (previous[activeRoundKey]?.roundId ?? 0) + 1,
+        },
+      }))
+    }
+
+    window.addEventListener('keydown', handleKeyDown)
+    return () => window.removeEventListener('keydown', handleKeyDown)
+  }, [activeReview, activeRoundKey, pool.length])
 
   const grouped = useMemo(() => {
     return fullTopics.reduce<Record<string, Topic[]>>((acc, topic) => {
@@ -589,7 +651,7 @@ function App() {
 
         <div className={activeTopic.mapKind ? 'practice-grid with-map' : 'practice-grid'}>
           {activeTopic.mapKind ? (
-            <CultureMap topic={activeTopic} mode={mode} current={current} items={pool} countries={countryFeatures} onPick={pickMapItem} />
+            <CultureMap topic={activeTopic} mode={mode} current={current} items={pool} countries={countryFeatures} review={activeReview} onPick={pickMapItem} />
           ) : current.imageUrl ? (
             <section className="study-surface image-surface">
               <img src={current.imageUrl} alt="Quiz prompt" />
@@ -605,6 +667,7 @@ function App() {
             item={current}
             pool={pool}
             history={activeHistory}
+            review={activeReview}
             onSubmit={submit}
             onNext={nextRound}
           />

@@ -511,6 +511,13 @@
   line-height: 1.4;
 }
 
+.review-hint {
+  margin-top: 8px;
+  color: #4f6f64;
+  font-size: 13px;
+  font-weight: 700;
+}
+
 .study-surface {
   min-height: 430px;
   display: grid;
