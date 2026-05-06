@@ -1,0 +1,354 @@
+export type MapScope = 'world' | 'europe' | 'uk' | 'france' | 'usa'
+
+export type QuizMode = 'map-click' | 'map-type' | 'type' | 'choice' | 'image'
+
+export type TopicGroup =
+  | 'Geography'
+  | 'History'
+  | 'Politics'
+  | 'Music'
+  | 'Art'
+  | 'Literature'
+  | 'Philosophy'
+
+export type QuizItem = {
+  id: string
+  name: string
+  answer?: string
+  prompt?: string
+  detail?: string
+  lat?: number
+  lon?: number
+  aliases?: string[]
+  imageUrl?: string
+  options?: string[]
+  era?: string
+}
+
+export type Topic = {
+  id: string
+  title: string
+  group: TopicGroup
+  description: string
+  modes: QuizMode[]
+  mapScope?: MapScope
+  mapKind?: 'country-polygons' | 'points'
+  items: QuizItem[]
+  coverage: string
+}
+
+export const worldCountryKnowledge: QuizItem[] = [
+  { id: 'france', name: 'France', answer: 'Paris', prompt: 'Capital of France', detail: 'Second city to know: Marseille.', lat: 46.2, lon: 2.2, aliases: ['French Republic'] },
+  { id: 'uk', name: 'United Kingdom', answer: 'London', prompt: 'Capital of the United Kingdom', detail: 'Second city by many urban-area measures: Birmingham.', lat: 55.4, lon: -3.4, aliases: ['UK', 'Great Britain'] },
+  { id: 'usa', name: 'United States of America', answer: 'Washington, D.C.', prompt: 'Capital of the United States', detail: 'Second city by municipality: Los Angeles.', lat: 39.8, lon: -98.6, aliases: ['United States', 'USA', 'US'] },
+  { id: 'canada', name: 'Canada', answer: 'Ottawa', prompt: 'Capital of Canada', detail: 'Largest city: Toronto. Second city: Montreal.', lat: 56.1, lon: -106.3 },
+  { id: 'brazil', name: 'Brazil', answer: 'Brasilia', prompt: 'Capital of Brazil', detail: 'Largest city: Sao Paulo. Second city: Rio de Janeiro.', lat: -14.2, lon: -51.9, aliases: ['Brasil'] },
+  { id: 'argentina', name: 'Argentina', answer: 'Buenos Aires', prompt: 'Capital of Argentina', detail: 'Second city: Cordoba.', lat: -38.4, lon: -63.6 },
+  { id: 'mexico', name: 'Mexico', answer: 'Mexico City', prompt: 'Capital of Mexico', detail: 'Second city: Guadalajara.', lat: 23.6, lon: -102.5 },
+  { id: 'germany', name: 'Germany', answer: 'Berlin', prompt: 'Capital of Germany', detail: 'Second city: Hamburg.', lat: 51.1, lon: 10.4 },
+  { id: 'italy', name: 'Italy', answer: 'Rome', prompt: 'Capital of Italy', detail: 'Second city: Milan.', lat: 42.8, lon: 12.5 },
+  { id: 'spain', name: 'Spain', answer: 'Madrid', prompt: 'Capital of Spain', detail: 'Second city: Barcelona.', lat: 40.5, lon: -3.7 },
+  { id: 'netherlands', name: 'Netherlands', answer: 'Amsterdam', prompt: 'Capital of the Netherlands', detail: 'Seat of government: The Hague. Second city: Rotterdam.', lat: 52.1, lon: 5.3, aliases: ['Holland'] },
+  { id: 'belgium', name: 'Belgium', answer: 'Brussels', prompt: 'Capital of Belgium', detail: 'Second city: Antwerp.', lat: 50.5, lon: 4.5 },
+  { id: 'switzerland', name: 'Switzerland', answer: 'Bern', prompt: 'Capital of Switzerland', detail: 'Largest city: Zurich. Second city: Geneva.', lat: 46.8, lon: 8.2 },
+  { id: 'austria', name: 'Austria', answer: 'Vienna', prompt: 'Capital of Austria', detail: 'Second city: Graz.', lat: 47.5, lon: 14.6 },
+  { id: 'poland', name: 'Poland', answer: 'Warsaw', prompt: 'Capital of Poland', detail: 'Second city: Krakow.', lat: 52, lon: 19.1 },
+  { id: 'ukraine', name: 'Ukraine', answer: 'Kyiv', prompt: 'Capital of Ukraine', detail: 'Second city before the full-scale war: Kharkiv.', lat: 49, lon: 32 },
+  { id: 'russia', name: 'Russia', answer: 'Moscow', prompt: 'Capital of Russia', detail: 'Second city: Saint Petersburg.', lat: 61.5, lon: 105.3, aliases: ['Russian Federation'] },
+  { id: 'china', name: 'China', answer: 'Beijing', prompt: 'Capital of China', detail: 'Largest city by municipality: Shanghai.', lat: 35.9, lon: 104.2 },
+  { id: 'india', name: 'India', answer: 'New Delhi', prompt: 'Capital of India', detail: 'Largest city: Mumbai. Second city: Delhi by urban area measures varies by definition.', lat: 20.6, lon: 78.9 },
+  { id: 'japan', name: 'Japan', answer: 'Tokyo', prompt: 'Capital of Japan', detail: 'Second city: Yokohama by municipality; Osaka by metro weight.', lat: 36.2, lon: 138.2 },
+  { id: 'south-korea', name: 'South Korea', answer: 'Seoul', prompt: 'Capital of South Korea', detail: 'Second city: Busan.', lat: 36.5, lon: 127.8, aliases: ['Republic of Korea'] },
+  { id: 'indonesia', name: 'Indonesia', answer: 'Jakarta', prompt: 'Capital of Indonesia', detail: 'Nusantara is planned as the future capital; Jakarta remains the practical quiz answer until transition completes.', lat: -2.5, lon: 118 },
+  { id: 'australia', name: 'Australia', answer: 'Canberra', prompt: 'Capital of Australia', detail: 'Largest city: Sydney. Second city: Melbourne.', lat: -25.3, lon: 133.8 },
+  { id: 'egypt', name: 'Egypt', answer: 'Cairo', prompt: 'Capital of Egypt', detail: 'Second city: Alexandria.', lat: 26.8, lon: 30.8 },
+  { id: 'nigeria', name: 'Nigeria', answer: 'Abuja', prompt: 'Capital of Nigeria', detail: 'Largest city: Lagos. Second city: Kano.', lat: 9.1, lon: 8.7 },
+  { id: 'south-africa', name: 'South Africa', answer: 'Pretoria', prompt: 'Executive capital of South Africa', detail: 'Legislative capital: Cape Town. Judicial capital: Bloemfontein.', lat: -30.6, lon: 22.9 },
+]
+
+const scotlandHistoricCounties: QuizItem[] = [
+  ['Aberdeenshire', 57.2, -2.6], ['Angus', 56.7, -2.9], ['Argyll', 56.1, -5.3], ['Ayrshire', 55.5, -4.6], ['Banffshire', 57.6, -2.8],
+  ['Berwickshire', 55.8, -2.4], ['Bute', 55.8, -5.1], ['Caithness', 58.5, -3.4], ['Clackmannanshire', 56.1, -3.8], ['Dumfriesshire', 55.1, -3.5],
+  ['Dunbartonshire', 56.0, -4.4], ['East Lothian', 55.9, -2.7, 'Haddingtonshire'], ['Fife', 56.2, -3.1], ['Inverness-shire', 57.1, -4.8], ['Kincardineshire', 56.9, -2.4],
+  ['Kinross-shire', 56.2, -3.4], ['Kirkcudbrightshire', 54.9, -4.1], ['Lanarkshire', 55.7, -3.8], ['Midlothian', 55.9, -3.1], ['Moray', 57.5, -3.3, 'Elginshire'],
+  ['Nairnshire', 57.6, -3.9], ['Orkney', 59.0, -3.0], ['Peeblesshire', 55.6, -3.2], ['Perthshire', 56.6, -4.0], ['Renfrewshire', 55.8, -4.6],
+  ['Ross and Cromarty', 57.7, -4.8], ['Roxburghshire', 55.5, -2.6], ['Selkirkshire', 55.6, -2.9], ['Shetland', 60.3, -1.3], ['Stirlingshire', 56.2, -4.1],
+  ['Sutherland', 58.1, -4.5], ['West Lothian', 55.9, -3.6, 'Linlithgowshire'], ['Wigtownshire', 54.8, -4.8],
+].map(([name, lat, lon, alias]) => ({ id: String(name).toLowerCase().replaceAll(' ', '-'), name: String(name), lat: Number(lat), lon: Number(lon), aliases: alias ? [String(alias)] : undefined }))
+
+const greatBritainHistoricCounties: QuizItem[] = [
+  ['Bedfordshire', 52.1, -0.45], ['Berkshire', 51.45, -1.0], ['Buckinghamshire', 51.8, -0.8], ['Cambridgeshire', 52.3, 0.1],
+  ['Cheshire', 53.2, -2.6], ['Cornwall', 50.4, -4.8], ['Cumberland', 54.6, -3.2], ['Derbyshire', 53.1, -1.6], ['Devon', 50.7, -3.9],
+  ['Dorset', 50.8, -2.3], ['Durham', 54.7, -1.8], ['Essex', 51.8, 0.6], ['Gloucestershire', 51.8, -2.2], ['Hampshire', 51.0, -1.2],
+  ['Herefordshire', 52.1, -2.8], ['Hertfordshire', 51.8, -0.2], ['Huntingdonshire', 52.35, -0.2], ['Kent', 51.2, 0.7], ['Lancashire', 53.8, -2.6],
+  ['Leicestershire', 52.7, -1.2], ['Lincolnshire', 53.1, -0.2], ['Middlesex', 51.5, -0.4], ['Norfolk', 52.7, 0.9], ['Northamptonshire', 52.3, -0.8],
+  ['Northumberland', 55.2, -2.0], ['Nottinghamshire', 53.1, -1.0], ['Oxfordshire', 51.8, -1.3], ['Rutland', 52.65, -0.6], ['Shropshire', 52.6, -2.7],
+  ['Somerset', 51.1, -2.8], ['Staffordshire', 52.8, -2.0], ['Suffolk', 52.2, 1.0], ['Surrey', 51.3, -0.4], ['Sussex', 50.9, -0.4],
+  ['Warwickshire', 52.3, -1.6], ['Westmorland', 54.5, -2.7], ['Wiltshire', 51.3, -1.9], ['Worcestershire', 52.2, -2.2], ['Yorkshire', 54.0, -1.4],
+  ['Anglesey', 53.25, -4.35], ['Breconshire', 51.95, -3.4], ['Caernarfonshire', 53.05, -4.15], ['Cardiganshire', 52.25, -4.0], ['Carmarthenshire', 51.85, -4.2],
+  ['Denbighshire', 53.05, -3.35], ['Flintshire', 53.2, -3.1], ['Glamorgan', 51.55, -3.55], ['Merionethshire', 52.8, -3.8], ['Monmouthshire', 51.75, -2.9],
+  ['Montgomeryshire', 52.55, -3.4], ['Pembrokeshire', 51.75, -4.9], ['Radnorshire', 52.25, -3.3],
+  ...scotlandHistoricCounties.map((county) => [county.name, county.lat, county.lon] as [string, number | undefined, number | undefined]),
+].map(([name, lat, lon]) => ({ id: String(name).toLowerCase().replaceAll(' ', '-'), name: String(name), lat: Number(lat), lon: Number(lon) }))
+
+const ukCities: QuizItem[] = [
+  ['London', 51.5072, -0.1276, 'Top UK city: about 8.8 million in Greater London by recent census/estimate usage.'],
+  ['Birmingham', 52.4862, -1.8904, 'Top five UK city by local-authority population: about 1.15 million.'],
+  ['Glasgow', 55.8642, -4.2518, 'Largest city in Scotland by local-authority population: about 0.63 million.'],
+  ['Leeds', 53.8008, -1.5491, 'Top five by local-authority population: about 0.81 million.'],
+  ['Manchester', 53.4808, -2.2426, 'Top five by local-authority population: about 0.55 million.'],
+  ['Liverpool', 53.4084, -2.9916], ['Edinburgh', 55.9533, -3.1883], ['Bristol', 51.4545, -2.5879], ['Sheffield', 53.3811, -1.4701],
+  ['Cardiff', 51.4816, -3.1791], ['Newcastle upon Tyne', 54.9783, -1.6178], ['Nottingham', 52.9548, -1.1581], ['Leicester', 52.6369, -1.1398],
+  ['Coventry', 52.4068, -1.5197], ['Bradford', 53.795, -1.7594], ['Belfast', 54.5973, -5.9301], ['Aberdeen', 57.1497, -2.0943],
+  ['Dundee', 56.462, -2.9707], ['Swansea', 51.6214, -3.9436], ['Portsmouth', 50.8198, -1.088],
+].map(([name, lat, lon, detail]) => ({ id: String(name).toLowerCase().replaceAll(' ', '-'), name: String(name), lat: Number(lat), lon: Number(lon), detail: detail ? String(detail) : undefined }))
+
+const scottishSettlements: QuizItem[] = [
+  ['Glasgow', 55.8642, -4.2518], ['Edinburgh', 55.9533, -3.1883], ['Aberdeen', 57.1497, -2.0943], ['Dundee', 56.462, -2.9707], ['Paisley', 55.8473, -4.4401],
+  ['East Kilbride', 55.7644, -4.1769], ['Livingston', 55.9029, -3.5226], ['Hamilton', 55.7776, -4.0537], ['Cumbernauld', 55.9457, -3.9925],
+  ['Dunfermline', 56.0717, -3.4522], ['Kirkcaldy', 56.111, -3.158], ['Ayr', 55.4586, -4.6292], ['Perth', 56.394, -3.43],
+  ['Inverness', 57.4778, -4.2247], ['Kilmarnock', 55.6117, -4.4958], ['Greenock', 55.9565, -4.7719], ['Stirling', 56.1165, -3.9369],
+  ['Falkirk', 56.0019, -3.7839], ['Motherwell', 55.7891, -3.9919], ['Irvine', 55.6116, -4.6696],
+].map(([name, lat, lon]) => ({ id: String(name).toLowerCase().replaceAll(' ', '-'), name: String(name), lat: Number(lat), lon: Number(lon) }))
+
+const englishSettlements: QuizItem[] = [
+  ['London', 51.5072, -0.1276], ['Birmingham', 52.4862, -1.8904], ['Manchester', 53.4808, -2.2426], ['Leeds', 53.8008, -1.5491], ['Liverpool', 53.4084, -2.9916],
+  ['Newcastle upon Tyne', 54.9783, -1.6178], ['Sheffield', 53.3811, -1.4701], ['Bristol', 51.4545, -2.5879], ['Nottingham', 52.9548, -1.1581],
+  ['Leicester', 52.6369, -1.1398], ['Coventry', 52.4068, -1.5197], ['Bradford', 53.795, -1.7594], ['Southampton', 50.9097, -1.4044],
+  ['Portsmouth', 50.8198, -1.088], ['Plymouth', 50.3755, -4.1427], ['Brighton and Hove', 50.8225, -0.1372], ['Norwich', 52.6309, 1.2974],
+  ['York', 53.959, -1.0815], ['Cambridge', 52.2053, 0.1218], ['Oxford', 51.752, -1.2577],
+].map(([name, lat, lon]) => ({ id: String(name).toLowerCase().replaceAll(' ', '-'), name: String(name), lat: Number(lat), lon: Number(lon) }))
+
+const frenchRegions: QuizItem[] = [
+  ['Auvergne-Rhone-Alpes', 'Lyon', 45.7, 4.8], ['Bourgogne-Franche-Comte', 'Dijon', 47.3, 5.0], ['Brittany', 'Rennes', 48.1, -1.7],
+  ['Centre-Val de Loire', 'Tours', 47.4, 0.7], ['Corsica', 'Ajaccio', 42.0, 8.7], ['Grand Est', 'Strasbourg', 48.6, 7.8],
+  ['Hauts-de-France', 'Lille', 50.6, 3.1], ['Ile-de-France', 'Paris', 48.9, 2.4], ['Normandy', 'Le Havre', 49.5, 0.1],
+  ['Nouvelle-Aquitaine', 'Bordeaux', 44.8, -0.6], ['Occitanie', 'Toulouse', 43.6, 1.4], ['Pays de la Loire', 'Nantes', 47.2, -1.6],
+  ['Provence-Alpes-Cote d Azur', 'Marseille', 43.3, 5.4], ['Guadeloupe', 'Les Abymes', 16.3, -61.5], ['Martinique', 'Fort-de-France', 14.6, -61.0],
+  ['French Guiana', 'Cayenne', 4.9, -52.3], ['Reunion', 'Saint-Denis', -20.9, 55.5], ['Mayotte', 'Mamoudzou', -12.8, 45.2],
+].map(([name, answer, lat, lon]) => ({ id: String(name).toLowerCase().replaceAll(' ', '-'), name: String(name), answer: String(answer), prompt: `Largest city in ${name}`, lat: Number(lat), lon: Number(lon) }))
+
+const frenchDepartments: QuizItem[] = [
+  ['Ain', 'Bourg-en-Bresse', 46.1, 5.2], ['Aisne', 'Saint-Quentin', 49.5, 3.5], ['Allier', 'Montlucon', 46.3, 3.2], ['Alpes-de-Haute-Provence', 'Manosque', 44.1, 6.2],
+  ['Hautes-Alpes', 'Gap', 44.6, 6.1], ['Alpes-Maritimes', 'Nice', 43.9, 7.2], ['Ardeche', 'Annonay', 44.7, 4.4], ['Ardennes', 'Charleville-Mezieres', 49.7, 4.7],
+  ['Ariege', 'Pamiers', 42.9, 1.5], ['Aube', 'Troyes', 48.3, 4.1], ['Aude', 'Narbonne', 43.1, 2.4], ['Aveyron', 'Rodez', 44.3, 2.6],
+  ['Bouches-du-Rhone', 'Marseille', 43.5, 5.1], ['Calvados', 'Caen', 49.0, -0.3], ['Cantal', 'Aurillac', 45.0, 2.7], ['Charente', 'Angouleme', 45.7, 0.2],
+  ['Charente-Maritime', 'La Rochelle', 45.8, -0.8], ['Cher', 'Bourges', 47.0, 2.5], ['Correze', 'Brive-la-Gaillarde', 45.3, 1.8], ['Corse-du-Sud', 'Ajaccio', 41.9, 8.9],
+  ['Haute-Corse', 'Bastia', 42.4, 9.2], ['Cote-d Or', 'Dijon', 47.4, 4.8], ['Cotes-d Armor', 'Saint-Brieuc', 48.4, -2.9], ['Creuse', 'Gueret', 46.1, 2.0],
+  ['Dordogne', 'Perigueux', 45.1, 0.7], ['Doubs', 'Besancon', 47.2, 6.3], ['Drome', 'Valence', 44.7, 5.1], ['Eure', 'Evreux', 49.1, 1.0],
+  ['Eure-et-Loir', 'Chartres', 48.4, 1.4], ['Finistere', 'Brest', 48.3, -4.1], ['Gard', 'Nimes', 43.9, 4.2], ['Haute-Garonne', 'Toulouse', 43.3, 1.2],
+  ['Gers', 'Auch', 43.7, 0.5], ['Gironde', 'Bordeaux', 44.8, -0.6], ['Herault', 'Montpellier', 43.6, 3.4], ['Ille-et-Vilaine', 'Rennes', 48.2, -1.6],
+  ['Indre', 'Chateauroux', 46.8, 1.6], ['Indre-et-Loire', 'Tours', 47.3, 0.7], ['Isere', 'Grenoble', 45.3, 5.6], ['Jura', 'Dole', 46.7, 5.7],
+  ['Landes', 'Mont-de-Marsan', 43.9, -0.8], ['Loir-et-Cher', 'Blois', 47.6, 1.4], ['Loire', 'Saint-Etienne', 45.7, 4.2], ['Haute-Loire', 'Le Puy-en-Velay', 45.1, 3.8],
+  ['Loire-Atlantique', 'Nantes', 47.4, -1.7], ['Loiret', 'Orleans', 47.9, 2.3], ['Lot', 'Cahors', 44.6, 1.6], ['Lot-et-Garonne', 'Agen', 44.4, 0.5],
+  ['Lozere', 'Mende', 44.5, 3.5], ['Maine-et-Loire', 'Angers', 47.4, -0.6], ['Manche', 'Cherbourg-en-Cotentin', 49.1, -1.3], ['Marne', 'Reims', 49.0, 4.2],
+  ['Haute-Marne', 'Saint-Dizier', 48.1, 5.2], ['Mayenne', 'Laval', 48.2, -0.6], ['Meurthe-et-Moselle', 'Nancy', 48.8, 6.2], ['Meuse', 'Verdun', 49.0, 5.4],
+  ['Morbihan', 'Lorient', 47.8, -2.8], ['Moselle', 'Metz', 49.0, 6.7], ['Nievre', 'Nevers', 47.1, 3.5], ['Nord', 'Lille', 50.4, 3.2],
+  ['Oise', 'Beauvais', 49.4, 2.4], ['Orne', 'Alencon', 48.6, 0.1], ['Pas-de-Calais', 'Calais', 50.5, 2.3], ['Puy-de-Dome', 'Clermont-Ferrand', 45.7, 3.2],
+  ['Pyrenees-Atlantiques', 'Pau', 43.2, -0.8], ['Hautes-Pyrenees', 'Tarbes', 43.1, 0.1], ['Pyrenees-Orientales', 'Perpignan', 42.6, 2.6], ['Bas-Rhin', 'Strasbourg', 48.6, 7.6],
+  ['Haut-Rhin', 'Mulhouse', 47.9, 7.3], ['Rhone', 'Lyon', 45.8, 4.6], ['Haute-Saone', 'Vesoul', 47.6, 6.1], ['Saone-et-Loire', 'Chalon-sur-Saone', 46.6, 4.5],
+  ['Sarthe', 'Le Mans', 48.0, 0.2], ['Savoie', 'Chambery', 45.5, 6.4], ['Haute-Savoie', 'Annecy', 46.0, 6.5], ['Paris', 'Paris', 48.9, 2.3],
+  ['Seine-Maritime', 'Le Havre', 49.6, 1.0], ['Seine-et-Marne', 'Meaux', 48.6, 2.9], ['Yvelines', 'Versailles', 48.8, 1.9], ['Deux-Sevres', 'Niort', 46.5, -0.3],
+  ['Somme', 'Amiens', 49.9, 2.3], ['Tarn', 'Albi', 43.8, 2.2], ['Tarn-et-Garonne', 'Montauban', 44.1, 1.3], ['Var', 'Toulon', 43.5, 6.3],
+  ['Vaucluse', 'Avignon', 44.0, 5.2], ['Vendee', 'La Roche-sur-Yon', 46.7, -1.3], ['Vienne', 'Poitiers', 46.5, 0.5], ['Haute-Vienne', 'Limoges', 45.9, 1.2],
+  ['Vosges', 'Epinal', 48.2, 6.4], ['Yonne', 'Auxerre', 47.8, 3.6], ['Territoire de Belfort', 'Belfort', 47.6, 6.9], ['Essonne', 'Evry-Courcouronnes', 48.5, 2.2],
+  ['Hauts-de-Seine', 'Boulogne-Billancourt', 48.8, 2.2], ['Seine-Saint-Denis', 'Saint-Denis', 48.9, 2.5], ['Val-de-Marne', 'Vitry-sur-Seine', 48.8, 2.5], ['Val-d Oise', 'Argenteuil', 49.1, 2.1],
+  ['Guadeloupe', 'Les Abymes', 16.2, -61.6], ['Martinique', 'Fort-de-France', 14.6, -61.0], ['Guyane', 'Cayenne', 4.0, -53.0], ['La Reunion', 'Saint-Denis', -21.1, 55.5], ['Mayotte', 'Mamoudzou', -12.8, 45.2],
+].map(([name, answer, lat, lon]) => ({ id: String(name).toLowerCase().replaceAll(' ', '-'), name: String(name), answer: String(answer), prompt: `Biggest city in ${name}`, lat: Number(lat), lon: Number(lon) }))
+
+const frenchCities: QuizItem[] = [
+  ['Paris', 48.8566, 2.3522, 'Top French commune: about 2.1 million.'], ['Marseille', 43.2965, 5.3698, 'Top five: about 0.89 million.'],
+  ['Lyon', 45.764, 4.8357, 'Top five: about 0.52 million.'], ['Toulouse', 43.6047, 1.4442, 'Top five: about 0.52 million.'],
+  ['Nice', 43.7102, 7.262, 'Top five: about 0.35 million.'], ['Nantes', 47.2184, -1.5536], ['Montpellier', 43.611, 3.8767],
+  ['Strasbourg', 48.5734, 7.7521], ['Bordeaux', 44.8378, -0.5792], ['Lille', 50.6292, 3.0573], ['Rennes', 48.1173, -1.6778],
+  ['Reims', 49.2583, 4.0317], ['Saint-Etienne', 45.4397, 4.3872], ['Le Havre', 49.4944, 0.1079], ['Toulon', 43.1242, 5.928],
+  ['Grenoble', 45.1885, 5.7245], ['Dijon', 47.322, 5.0415], ['Angers', 47.4784, -0.5632], ['Nimes', 43.8367, 4.3601], ['Villeurbanne', 45.7719, 4.8902],
+].map(([name, lat, lon, detail]) => ({ id: String(name).toLowerCase().replaceAll(' ', '-'), name: String(name), lat: Number(lat), lon: Number(lon), detail: detail ? String(detail) : undefined }))
+
+const usStates: QuizItem[] = [
+  ['Alabama', 'Montgomery', 32.8, -86.8], ['Alaska', 'Juneau', 64.2, -149.5], ['Arizona', 'Phoenix', 34.1, -111.9], ['Arkansas', 'Little Rock', 35.2, -92.4],
+  ['California', 'Sacramento', 36.8, -119.4], ['Colorado', 'Denver', 39.0, -105.5], ['Connecticut', 'Hartford', 41.6, -72.7], ['Delaware', 'Dover', 39.0, -75.5],
+  ['Florida', 'Tallahassee', 27.8, -81.7], ['Georgia', 'Atlanta', 32.2, -83.4], ['Hawaii', 'Honolulu', 19.9, -155.6], ['Idaho', 'Boise', 44.1, -114.7],
+  ['Illinois', 'Springfield', 40.0, -89.2], ['Indiana', 'Indianapolis', 40.3, -86.1], ['Iowa', 'Des Moines', 42.0, -93.1], ['Kansas', 'Topeka', 38.5, -98.4],
+  ['Kentucky', 'Frankfort', 37.8, -85.8], ['Louisiana', 'Baton Rouge', 31.2, -91.9], ['Maine', 'Augusta', 45.3, -69.4], ['Maryland', 'Annapolis', 39.0, -76.8],
+  ['Massachusetts', 'Boston', 42.4, -71.4], ['Michigan', 'Lansing', 44.3, -85.6], ['Minnesota', 'Saint Paul', 46.7, -94.7], ['Mississippi', 'Jackson', 32.7, -89.7],
+  ['Missouri', 'Jefferson City', 38.5, -92.5], ['Montana', 'Helena', 47.0, -110.4], ['Nebraska', 'Lincoln', 41.5, -99.9], ['Nevada', 'Carson City', 39.5, -116.9],
+  ['New Hampshire', 'Concord', 43.2, -71.6], ['New Jersey', 'Trenton', 40.1, -74.7], ['New Mexico', 'Santa Fe', 34.5, -106.0], ['New York', 'Albany', 43.0, -75.0],
+  ['North Carolina', 'Raleigh', 35.5, -79.0], ['North Dakota', 'Bismarck', 47.5, -100.5], ['Ohio', 'Columbus', 40.4, -82.8], ['Oklahoma', 'Oklahoma City', 35.6, -97.5],
+  ['Oregon', 'Salem', 44.0, -120.6], ['Pennsylvania', 'Harrisburg', 41.2, -77.2], ['Rhode Island', 'Providence', 41.7, -71.5], ['South Carolina', 'Columbia', 33.8, -80.9],
+  ['South Dakota', 'Pierre', 44.4, -100.2], ['Tennessee', 'Nashville', 35.9, -86.5], ['Texas', 'Austin', 31.0, -99.9], ['Utah', 'Salt Lake City', 39.3, -111.7],
+  ['Vermont', 'Montpelier', 44.1, -72.7], ['Virginia', 'Richmond', 37.5, -78.7], ['Washington', 'Olympia', 47.4, -120.7], ['West Virginia', 'Charleston', 38.6, -80.5],
+  ['Wisconsin', 'Madison', 44.5, -89.5], ['Wyoming', 'Cheyenne', 43.0, -107.6],
+].map(([name, answer, lat, lon]) => ({ id: String(name).toLowerCase().replaceAll(' ', '-'), name: String(name), answer: String(answer), prompt: `Capital of ${name}`, lat: Number(lat), lon: Number(lon) }))
+
+const riversAndRanges: QuizItem[] = [
+  ['Nile', 30.0, 31.2, 'Longest-river contender; northeast Africa.'], ['Amazon', -3.1, -60.0, 'Largest discharge; South America.'], ['Yangtze', 31.2, 121.5, 'Longest river in Asia.'],
+  ['Mississippi-Missouri', 29.9, -90.1, 'Great river system of North America.'], ['Yenisei', 61.7, 89.0], ['Yellow River', 36.1, 103.8], ['Ob-Irtysh', 61.0, 69.0],
+  ['Congo', -4.3, 15.3], ['Amur', 50.6, 137.0], ['Lena', 62.0, 129.7], ['Mekong', 15.9, 104.8], ['Mackenzie', 67.5, -133.7],
+  ['Niger', 13.5, 2.1], ['Danube', 45.2, 29.7], ['Volga', 48.7, 44.5], ['Ganges', 25.3, 83.0], ['Indus', 24.9, 67.0],
+  ['Thames', 51.5, -0.1, 'Main UK river through London.'], ['Seine', 48.9, 2.3, 'Main French river through Paris.'], ['Loire', 47.4, 0.7, 'Longest river entirely in France.'],
+].map(([name, lat, lon, detail]) => ({ id: String(name).toLowerCase().replaceAll(' ', '-'), name: String(name), lat: Number(lat), lon: Number(lon), detail: detail ? String(detail) : undefined }))
+
+const mountainRanges: QuizItem[] = [
+  ['Himalayas', 28, 86], ['Andes', -16, -70], ['Rocky Mountains', 44, -110], ['Alps', 46.5, 10.5], ['Atlas Mountains', 31.1, -7.9],
+  ['Pyrenees', 42.7, 0.5], ['Carpathians', 47.0, 25.5], ['Caucasus', 43.4, 42.5], ['Urals', 60.0, 60.0], ['Appalachians', 37.5, -81],
+  ['Great Dividing Range', -27, 152], ['Drakensberg', -29.5, 29.3], ['Karakoram', 35.8, 76.5], ['Tian Shan', 42.0, 80.0], ['Zagros', 32, 51],
+  ['Sierra Nevada', 37, -119], ['Scandinavian Mountains', 63, 13], ['Altai Mountains', 49, 88], ['Cascades', 45, -121], ['Apennines', 43.5, 12.5],
+].map(([name, lat, lon]) => ({ id: String(name).toLowerCase().replaceAll(' ', '-'), name: String(name), lat: Number(lat), lon: Number(lon) }))
+
+const paintings: QuizItem[] = [
+  { id: 'mona-lisa', name: 'Mona Lisa', answer: 'Leonardo da Vinci', prompt: 'Name this painting or its artist', imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Mona%20Lisa%2C%20by%20Leonardo%20da%20Vinci%2C%20from%20C2RMF%20retouched.jpg', detail: 'Renaissance portrait, Louvre.' },
+  { id: 'starry-night', name: 'The Starry Night', answer: 'Vincent van Gogh', prompt: 'Name this painting or its artist', imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Van%20Gogh%20-%20Starry%20Night%20-%20Google%20Art%20Project.jpg', detail: 'Post-Impressionism, 1889.' },
+  { id: 'girl-pearl', name: 'Girl with a Pearl Earring', answer: 'Johannes Vermeer', imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Meisje%20met%20de%20parel.jpg', detail: 'Dutch Golden Age.' },
+  { id: 'guernica', name: 'Guernica', answer: 'Pablo Picasso', imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/PicassoGuernica.jpg', detail: 'Anti-war painting, 1937.' },
+  { id: 'venus', name: 'The Birth of Venus', answer: 'Sandro Botticelli', imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Sandro%20Botticelli%20-%20La%20nascita%20di%20Venere%20-%20Google%20Art%20Project%20-%20edited.jpg' },
+  { id: 'las-meninas', name: 'Las Meninas', answer: 'Diego Velazquez', imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Las%20Meninas%2C%20by%20Diego%20Vel%C3%A1zquez%2C%20from%20Prado%20in%20Google%20Earth.jpg' },
+  { id: 'scream', name: 'The Scream', answer: 'Edvard Munch', imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/The%20Scream.jpg' },
+  { id: 'american-gothic', name: 'American Gothic', answer: 'Grant Wood', imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Grant%20Wood%20-%20American%20Gothic%20-%20Google%20Art%20Project.jpg' },
+]
+
+const knowledgeQuestions: Topic[] = [
+  {
+    id: 'political-systems',
+    title: 'Political Systems: France, UK, EU, US',
+    group: 'Politics',
+    description: 'Mechanisms, institutions, checks, elections, and common traps.',
+    modes: ['choice', 'type'],
+    coverage: 'Core constitutional mechanics and gotcha questions for repeated practice.',
+    items: [
+      { id: 'fr-semi-pres', name: 'France is a semi-presidential republic', prompt: 'France is best described as what kind of system?', answer: 'Semi-presidential republic', options: ['Semi-presidential republic', 'Pure parliamentary monarchy', 'Federal presidential republic', 'Directorial republic'], detail: 'The president is directly elected and appoints the prime minister, but government also depends on the National Assembly.' },
+      { id: 'cohabitation', name: 'Cohabitation', prompt: 'In France, what is cohabitation?', answer: 'A president and parliamentary majority from opposing camps', options: ['A president and parliamentary majority from opposing camps', 'A coalition inside the Senate', 'A referendum-only government', 'A temporary military cabinet'], detail: 'It shifts day-to-day domestic power toward the prime minister.' },
+      { id: 'uk-confidence', name: 'Confidence of Commons', prompt: 'In the UK, what keeps a government in office?', answer: 'Confidence of the House of Commons', options: ['Confidence of the House of Commons', 'Direct election of the prime minister', 'Approval by the monarch every year', 'A fixed coalition treaty'], detail: 'The monarch appoints the person best able to command Commons confidence.' },
+      { id: 'eu-commission', name: 'European Commission', prompt: 'Which EU institution proposes most EU legislation?', answer: 'European Commission', options: ['European Commission', 'European Council', 'Court of Justice of the EU', 'European Central Bank'] },
+      { id: 'us-judicial-review', name: 'Judicial review', prompt: 'What power is associated with Marbury v. Madison?', answer: 'Judicial review', options: ['Judicial review', 'The filibuster', 'The two-term limit', 'Federal income tax'] },
+      { id: 'us-amendment-1', name: 'First Amendment', prompt: 'Which US amendment protects speech, religion, press, assembly, and petition?', answer: 'First Amendment', options: ['First Amendment', 'Second Amendment', 'Fifth Amendment', 'Fourteenth Amendment'] },
+    ],
+  },
+  {
+    id: 'history-outline',
+    title: 'History Outlines: Scotland, England, France',
+    group: 'History',
+    description: 'Broad chapters, dynasties, battles, empires, and modern leaders.',
+    modes: ['choice', 'type'],
+    coverage: 'High-level scaffolding: chapters first, dates and rulers second.',
+    items: [
+      { id: 'scot-chapter-1', name: 'Early Scotland', prompt: 'Which broad chapter comes before the Wars of Independence?', answer: 'Picts, Gaels, Vikings, and the making of Alba', options: ['Picts, Gaels, Vikings, and the making of Alba', 'Union of the Crowns', 'Industrial Scotland', 'Devolution'] },
+      { id: 'scot-independence', name: 'Wars of Scottish Independence', prompt: 'Which pair anchors the Wars of Scottish Independence in memory?', answer: 'William Wallace and Robert the Bruce', options: ['William Wallace and Robert the Bruce', 'Oliver Cromwell and Charles II', 'Henry VIII and Wolsey', 'Pitt and Fox'] },
+      { id: 'eng-chapter-1066', name: 'Norman Conquest', prompt: 'What year is the Norman Conquest of England?', answer: '1066', options: ['1066', '1215', '1485', '1688'] },
+      { id: 'fr-dynasties', name: 'French royal dynasties', prompt: 'Put the core French royal dynastic order in one line.', answer: 'Merovingian, Carolingian, Capetian, Valois, Bourbon, Bonaparte', detail: 'For broad culture, know the hinge from Franks to Capetians to Valois/Bourbons to Revolution/Empire.' },
+      { id: 'battle-hastings', name: 'Battle of Hastings', prompt: 'Who fought at Hastings in 1066?', answer: 'William of Normandy and Harold Godwinson', options: ['William of Normandy and Harold Godwinson', 'Caesar and Vercingetorix', 'Napoleon and Wellington', 'Saladin and Richard I'] },
+      { id: 'battle-waterloo', name: 'Waterloo', prompt: 'What did Waterloo end?', answer: 'Napoleon Bonaparte’s final return to power', options: ['Napoleon Bonaparte’s final return to power', 'The Hundred Years War', 'The Roman Republic', 'The English Civil War'] },
+      { id: 'empire-roman', name: 'Roman Empire', prompt: 'Which empire centered on the Mediterranean from the 1st century BCE onward?', answer: 'Roman Empire', options: ['Roman Empire', 'Mali Empire', 'Mughal Empire', 'Aztec Empire'] },
+      { id: 'uk-pm-current', name: 'Keir Starmer', prompt: 'Who became UK Prime Minister on 5 July 2024?', answer: 'Keir Starmer', options: ['Keir Starmer', 'Rishi Sunak', 'Liz Truss', 'Boris Johnson'], detail: 'Current as checked on 6 May 2026.' },
+      { id: 'fr-president-current', name: 'Emmanuel Macron', prompt: 'Who is President of France in May 2026?', answer: 'Emmanuel Macron', options: ['Emmanuel Macron', 'Francois Hollande', 'Nicolas Sarkozy', 'Jacques Chirac'], detail: 'Current as checked on 6 May 2026.' },
+    ],
+  },
+  {
+    id: 'empires-battles',
+    title: 'Empires and Battles',
+    group: 'History',
+    description: 'Big empires, rough locations, chronology, rulers, and decisive battles.',
+    modes: ['choice', 'type'],
+    coverage: 'Top-level deck for 20 empires and 15 battle anchors; anecdotes can be deepened item by item.',
+    items: [
+      { id: 'empire-roman-peak', name: 'Roman Empire', prompt: 'Which empire reached from Britain to Egypt under Trajan?', answer: 'Roman Empire', options: ['Roman Empire', 'Achaemenid Empire', 'Mali Empire', 'Inca Empire'], era: '27 BCE-476 CE in the West' },
+      { id: 'empire-mongol', name: 'Mongol Empire', prompt: 'Which land empire was built by Genghis Khan and his successors?', answer: 'Mongol Empire', options: ['Mongol Empire', 'Ottoman Empire', 'Songhai Empire', 'Spanish Empire'], era: '13th-14th centuries' },
+      { id: 'empire-ottoman', name: 'Ottoman Empire', prompt: 'Which empire conquered Constantinople in 1453?', answer: 'Ottoman Empire', options: ['Ottoman Empire', 'Byzantine Empire', 'Portuguese Empire', 'Mughal Empire'] },
+      { id: 'empire-british', name: 'British Empire', prompt: 'Which empire is remembered for the phrase “the empire on which the sun never sets”?', answer: 'British Empire', options: ['British Empire', 'Persian Empire', 'Aztec Empire', 'Han Empire'] },
+      { id: 'empire-spanish', name: 'Spanish Empire', prompt: 'Which empire ruled vast American territories after Columbus and the conquistadors?', answer: 'Spanish Empire', options: ['Spanish Empire', 'Dutch Empire', 'Safavid Empire', 'Maurya Empire'] },
+      { id: 'empire-abbasid', name: 'Abbasid Caliphate', prompt: 'Which empire-caliphate is associated with Baghdad’s House of Wisdom?', answer: 'Abbasid Caliphate', options: ['Abbasid Caliphate', 'Holy Roman Empire', 'Macedonian Empire', 'Qing Empire'] },
+      { id: 'battle-marathon', name: 'Battle of Marathon', prompt: 'Marathon was fought between Athens and which empire?', answer: 'Persian Empire', options: ['Persian Empire', 'Roman Empire', 'Carthage', 'Macedon'] },
+      { id: 'battle-tours', name: 'Battle of Tours', prompt: 'Which Frankish leader is linked to the Battle of Tours in 732?', answer: 'Charles Martel', options: ['Charles Martel', 'Charlemagne', 'Clovis', 'Hugh Capet'] },
+      { id: 'battle-agincourt', name: 'Agincourt', prompt: 'Which English king won at Agincourt in 1415?', answer: 'Henry V', options: ['Henry V', 'Henry VIII', 'Edward I', 'Richard III'] },
+      { id: 'battle-yorktown', name: 'Yorktown', prompt: 'Yorktown in 1781 was decisive in which war?', answer: 'American Revolutionary War', options: ['American Revolutionary War', 'Seven Years War', 'US Civil War', 'War of 1812'] },
+      { id: 'battle-stalingrad', name: 'Stalingrad', prompt: 'Stalingrad was a turning point on which front of World War II?', answer: 'Eastern Front', options: ['Eastern Front', 'Western Front', 'North Africa', 'Pacific'] },
+    ],
+  },
+  {
+    id: 'modern-leaders',
+    title: 'France and UK Leaders Since 1960',
+    group: 'History',
+    description: 'Prime ministers and presidents from 1960 to the present.',
+    modes: ['choice', 'type'],
+    coverage: 'UK prime ministers and French presidents from 1960 through leaders current on 6 May 2026.',
+    items: [
+      { id: 'pm-macmillan', name: 'Harold Macmillan', prompt: 'Who was UK Prime Minister at the start of 1960?', answer: 'Harold Macmillan', options: ['Harold Macmillan', 'Harold Wilson', 'Edward Heath', 'Alec Douglas-Home'] },
+      { id: 'pm-wilson', name: 'Harold Wilson', prompt: 'Which Labour PM served 1964-1970 and 1974-1976?', answer: 'Harold Wilson', options: ['Harold Wilson', 'James Callaghan', 'Tony Blair', 'Clement Attlee'] },
+      { id: 'pm-thatcher', name: 'Margaret Thatcher', prompt: 'Who was UK Prime Minister from 1979 to 1990?', answer: 'Margaret Thatcher', options: ['Margaret Thatcher', 'Theresa May', 'Liz Truss', 'Barbara Castle'] },
+      { id: 'pm-blair', name: 'Tony Blair', prompt: 'Which Labour PM won landslides in 1997, 2001, and 2005?', answer: 'Tony Blair', options: ['Tony Blair', 'Gordon Brown', 'John Major', 'David Cameron'] },
+      { id: 'pm-starmer', name: 'Keir Starmer', prompt: 'Which Labour leader became UK Prime Minister on 5 July 2024?', answer: 'Keir Starmer', options: ['Keir Starmer', 'Rishi Sunak', 'Boris Johnson', 'David Cameron'] },
+      { id: 'fr-de-gaulle', name: 'Charles de Gaulle', prompt: 'Who was President of France at the start of the Fifth Republic period after 1958?', answer: 'Charles de Gaulle', options: ['Charles de Gaulle', 'Georges Pompidou', 'Valery Giscard d Estaing', 'Francois Mitterrand'] },
+      { id: 'fr-mitterrand', name: 'Francois Mitterrand', prompt: 'Which French president served from 1981 to 1995?', answer: 'Francois Mitterrand', options: ['Francois Mitterrand', 'Jacques Chirac', 'Nicolas Sarkozy', 'Emmanuel Macron'] },
+      { id: 'fr-chirac', name: 'Jacques Chirac', prompt: 'Which French president served from 1995 to 2007?', answer: 'Jacques Chirac', options: ['Jacques Chirac', 'Francois Hollande', 'Georges Pompidou', 'Emmanuel Macron'] },
+      { id: 'fr-macron', name: 'Emmanuel Macron', prompt: 'Who is President of France as of 6 May 2026?', answer: 'Emmanuel Macron', options: ['Emmanuel Macron', 'Nicolas Sarkozy', 'Francois Hollande', 'Gabriel Attal'] },
+    ],
+  },
+  {
+    id: 'classical-music',
+    title: 'Classical Music Movements',
+    group: 'Music',
+    description: 'Movements, representative composers, and one anchor piece each.',
+    modes: ['choice', 'type'],
+    coverage: 'Medieval to modern, with five-composer anchors across the main eras.',
+    items: [
+      { id: 'baroque-bach', name: 'Baroque: Bach', prompt: 'Which composer is tied to the Brandenburg Concertos?', answer: 'Johann Sebastian Bach', options: ['Johann Sebastian Bach', 'Claude Debussy', 'Giuseppe Verdi', 'Igor Stravinsky'] },
+      { id: 'classical-mozart', name: 'Classical: Mozart', prompt: 'Who composed The Marriage of Figaro?', answer: 'Wolfgang Amadeus Mozart', options: ['Wolfgang Amadeus Mozart', 'Antonio Vivaldi', 'Franz Liszt', 'Gustav Mahler'] },
+      { id: 'romantic-chopin', name: 'Romantic: Chopin', prompt: 'Which composer is the essential piano nocturne figure?', answer: 'Frederic Chopin', options: ['Frederic Chopin', 'Palestrina', 'John Cage', 'Monteverdi'] },
+      { id: 'impressionism-debussy', name: 'Impressionism: Debussy', prompt: 'Who composed Prelude to the Afternoon of a Faun?', answer: 'Claude Debussy', options: ['Claude Debussy', 'Haydn', 'Wagner', 'Schoenberg'] },
+      { id: 'modern-stravinsky', name: 'Modernism: Stravinsky', prompt: 'Which ballet famously caused a Paris scandal in 1913?', answer: 'The Rite of Spring', options: ['The Rite of Spring', 'Messiah', 'Eine kleine Nachtmusik', 'La traviata'] },
+    ],
+  },
+  {
+    id: 'art-movements-sculpture',
+    title: 'Painting Movements and Sculpture',
+    group: 'Art',
+    description: 'Art movements, key artists, masterpieces, sculptors, and sculpture anchors.',
+    modes: ['choice', 'type'],
+    coverage: 'Core movement and sculpture deck; image recognition lives in the paintings deck.',
+    items: [
+      { id: 'renaissance', name: 'Renaissance', prompt: 'Which movement includes Leonardo, Michelangelo, and Raphael?', answer: 'Renaissance', options: ['Renaissance', 'Surrealism', 'Rococo', 'Abstract Expressionism'] },
+      { id: 'baroque-art', name: 'Baroque', prompt: 'Caravaggio, Rubens, and Rembrandt are central to which movement?', answer: 'Baroque', options: ['Baroque', 'Impressionism', 'Cubism', 'Neoclassicism'] },
+      { id: 'impressionism', name: 'Impressionism', prompt: 'Monet, Renoir, and Degas are central to which movement?', answer: 'Impressionism', options: ['Impressionism', 'Mannerism', 'Dada', 'Realism'] },
+      { id: 'cubism', name: 'Cubism', prompt: 'Picasso and Braque are central to which movement?', answer: 'Cubism', options: ['Cubism', 'Romanticism', 'Gothic', 'Fauvism'] },
+      { id: 'surrealism', name: 'Surrealism', prompt: 'Dali and Magritte are central to which movement?', answer: 'Surrealism', options: ['Surrealism', 'Pop Art', 'Symbolism', 'High Renaissance'] },
+      { id: 'sculptor-michelangelo', name: 'Michelangelo', prompt: 'Who sculpted David and Pieta?', answer: 'Michelangelo', options: ['Michelangelo', 'Rodin', 'Bernini', 'Donatello'] },
+      { id: 'sculptor-rodin', name: 'Auguste Rodin', prompt: 'Who sculpted The Thinker?', answer: 'Auguste Rodin', options: ['Auguste Rodin', 'Phidias', 'Brancusi', 'Henry Moore'] },
+      { id: 'sculptor-bernini', name: 'Gian Lorenzo Bernini', prompt: 'Who sculpted Apollo and Daphne?', answer: 'Gian Lorenzo Bernini', options: ['Gian Lorenzo Bernini', 'Canova', 'Ghiberti', 'Cellini'] },
+    ],
+  },
+  {
+    id: 'philosophy-literature',
+    title: 'Philosophy, Poetry, Books',
+    group: 'Philosophy',
+    description: 'Movements, famous philosophers, poets, and books to know by heart.',
+    modes: ['choice', 'type'],
+    coverage: 'Canonical Western and global anchors: names, works, and movements.',
+    items: [
+      { id: 'plato', name: 'Plato', prompt: 'Which philosopher wrote The Republic?', answer: 'Plato', options: ['Plato', 'Aristotle', 'Descartes', 'Nietzsche'] },
+      { id: 'kant', name: 'Immanuel Kant', prompt: 'Which philosopher wrote Critique of Pure Reason?', answer: 'Immanuel Kant', options: ['Immanuel Kant', 'David Hume', 'Jean-Paul Sartre', 'Simone de Beauvoir'] },
+      { id: 'existentialism', name: 'Existentialism', prompt: 'Which movement emphasizes freedom, responsibility, anxiety, and meaning?', answer: 'Existentialism', options: ['Existentialism', 'Scholasticism', 'Logical positivism', 'Stoicism'] },
+      { id: 'homer', name: 'Homer', prompt: 'Who is traditionally credited with the Iliad and the Odyssey?', answer: 'Homer', options: ['Homer', 'Virgil', 'Dante', 'Goethe'] },
+      { id: 'shakespeare', name: 'William Shakespeare', prompt: 'Which poet-playwright wrote Hamlet and the Sonnets?', answer: 'William Shakespeare', options: ['William Shakespeare', 'John Milton', 'T. S. Eliot', 'Pablo Neruda'] },
+      { id: 'don-quixote', name: 'Don Quixote', prompt: 'Who wrote Don Quixote?', answer: 'Miguel de Cervantes', options: ['Miguel de Cervantes', 'Leo Tolstoy', 'Jane Austen', 'Murasaki Shikibu'] },
+      { id: 'war-peace', name: 'War and Peace', prompt: 'Who wrote War and Peace?', answer: 'Leo Tolstoy', options: ['Leo Tolstoy', 'Fyodor Dostoevsky', 'Victor Hugo', 'Charles Dickens'] },
+    ],
+  },
+]
+
+export const topics: Topic[] = [
+  { id: 'world-countries', title: 'Countries of the World', group: 'Geography', description: 'Click every country on a vector world map, or identify the highlighted country.', modes: ['map-click', 'map-type'], mapScope: 'world', mapKind: 'country-polygons', items: [], coverage: 'All country polygons available in the Natural Earth world-atlas deck.' },
+  { id: 'world-capitals', title: 'World Capitals and Second Cities', group: 'Geography', description: 'Capital recall with second-city notes for the countries you are most likely to encounter.', modes: ['type', 'choice', 'map-click'], mapScope: 'world', mapKind: 'points', items: worldCountryKnowledge, coverage: 'Seeded major-country deck; designed to expand to all sovereign states.' },
+  { id: 'scotland-historic-counties', title: 'Historic Counties of Scotland', group: 'Geography', description: 'Learn the historic counties as map targets before adding boundary polygons.', modes: ['map-click', 'map-type'], mapScope: 'uk', mapKind: 'points', items: scotlandHistoricCounties, coverage: 'All traditional Scottish counties as target coordinates.' },
+  { id: 'gb-historic-counties', title: 'Historic Counties of Great Britain', group: 'Geography', description: 'Practice the historic county names of England, Wales, and Scotland as map targets.', modes: ['map-click', 'map-type'], mapScope: 'uk', mapKind: 'points', items: greatBritainHistoricCounties, coverage: 'Historic counties target deck for Great Britain.' },
+  { id: 'uk-cities', title: 'Top UK Cities', group: 'Geography', description: 'Place the main cities and learn the population anchors for the top five.', modes: ['map-click', 'map-type'], mapScope: 'uk', mapKind: 'points', items: ukCities, coverage: 'Top-city starter deck with population notes.' },
+  { id: 'scotland-settlements', title: 'Top 20 Scottish Settlements', group: 'Geography', description: 'Place Scotland’s major cities and towns on the map.', modes: ['map-click', 'map-type'], mapScope: 'uk', mapKind: 'points', items: scottishSettlements, coverage: 'Top 20 settlement deck.' },
+  { id: 'england-settlements', title: 'Top 20 English Settlements', group: 'Geography', description: 'Place England’s major cities and famous university/port settlements.', modes: ['map-click', 'map-type'], mapScope: 'uk', mapKind: 'points', items: englishSettlements, coverage: 'Top 20 practical deck.' },
+  { id: 'french-departments', title: 'French Departments and Biggest Cities', group: 'Geography', description: 'Name departments, place their approximate location, and recall the biggest city.', modes: ['map-click', 'map-type', 'type', 'choice'], mapScope: 'france', mapKind: 'points', items: frenchDepartments, coverage: 'All current departments with biggest-city prompts; coordinates are departmental targets.' },
+  { id: 'french-regions', title: 'French Regions and Biggest Cities', group: 'Geography', description: 'Name each region and recall the biggest city for every region.', modes: ['map-click', 'map-type', 'type', 'choice'], mapScope: 'france', mapKind: 'points', items: frenchRegions, coverage: 'All current French regions, including overseas regions.' },
+  { id: 'france-cities', title: 'Top 20 French Cities', group: 'Geography', description: 'Place France’s largest communes and remember the top-five population anchors.', modes: ['map-click', 'map-type'], mapScope: 'france', mapKind: 'points', items: frenchCities, coverage: 'Top 20 commune deck.' },
+  { id: 'us-states', title: 'US States and Capitals', group: 'Geography', description: 'Place all 50 states as center targets and drill their capitals.', modes: ['map-click', 'map-type', 'type', 'choice'], mapScope: 'usa', mapKind: 'points', items: usStates, coverage: 'All 50 states with capitals.' },
+  { id: 'rivers', title: 'Major World, UK, and French Rivers', group: 'Geography', description: 'Locate the world great rivers plus UK and France anchors.', modes: ['map-click', 'map-type'], mapScope: 'world', mapKind: 'points', items: riversAndRanges, coverage: 'Top world rivers plus Thames, Seine, and Loire anchors.' },
+  { id: 'mountain-ranges', title: 'Top 20 Mountain Ranges', group: 'Geography', description: 'Place the main mountain systems of the world.', modes: ['map-click', 'map-type'], mapScope: 'world', mapKind: 'points', items: mountainRanges, coverage: 'Top 20 global range deck.' },
+  { id: 'paintings', title: 'Famous Paintings Recognition', group: 'Art', description: 'See the painting; name the work or the artist.', modes: ['image', 'choice', 'type'], items: paintings, coverage: 'Core image-recognition deck with public-domain/open Wikimedia images where available.' },
+  ...knowledgeQuestions,
+]
