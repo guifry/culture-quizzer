@@ -479,19 +479,13 @@
 }
 
 .history-card strong,
-.history-card p,
-.history-card small {
+.history-card p {
   display: block;
   margin: 0;
 }
 
 .history-card p {
   margin-top: 2px;
-}
-
-.history-card small {
-  margin-top: 4px;
-  opacity: 0.82;
 }
 
 .history-ok {
@@ -516,6 +510,35 @@
   color: #4f6f64;
   font-size: 13px;
   font-weight: 700;
+}
+
+.insight-card {
+  margin-top: 12px;
+  padding: 12px;
+  border: 1px solid #d8d2c8;
+  border-radius: 7px;
+  background: #fffaf0;
+  color: #3f3a33;
+}
+
+.insight-card .eyebrow {
+  color: #8a6a24;
+}
+
+.insight-card p {
+  margin: 8px 0 0;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.insight-card strong,
+.insight-card span {
+  display: block;
+}
+
+.insight-card strong {
+  margin-bottom: 2px;
+  color: #1f2b2e;
 }
 
 .study-surface {

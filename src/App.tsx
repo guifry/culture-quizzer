@@ -3,6 +3,7 @@ import { feature } from 'topojson-client'
 import { geoAlbersUsa, geoEqualEarth, geoMercator, geoPath } from 'd3-geo'
 import { BookOpen, Check, ChevronRight, Globe2, Image, MapPinned, RotateCcw, X } from 'lucide-react'
 import countries110m from 'world-atlas/countries-110m.json'
+import usStatesAtlas from 'us-atlas/states-10m.json'
 import frDepartments from './data/geo/fr-departments.json'
 import frRegions from './data/geo/fr-regions.json'
 import ukAdmin from './data/geo/uk-counties-unitaries-2022.json'
@@ -27,7 +28,13 @@ type AnswerResult = {
   expected: string
   expectedName: string
   submittedName: string
-  detail?: string
+  insight?: AnswerInsight
+}
+
+type AnswerInsight = {
+  location?: string
+  fact?: string
+  note?: string
 }
 
 type RoundState = {
@@ -77,9 +84,19 @@ function displayAnswer(item: QuizItem, mode: QuizMode) {
   return itemAnswer(item, mode)
 }
 
-function answerDetail(item: QuizItem) {
+function removeLabel(value: string, label: string) {
+  return value.replace(new RegExp(`^${label}:\\s*`, 'i'), '')
+}
+
+function answerInsight(item: QuizItem): AnswerInsight | undefined {
   const randomFact = item.facts?.length ? item.facts[Math.floor(Math.random() * item.facts.length)] : undefined
-  return [item.location, randomFact, item.detail].filter(Boolean).join(' ')
+  const insight = {
+    location: item.location ? removeLabel(item.location, 'Location') : undefined,
+    fact: randomFact,
+    note: item.detail,
+  }
+
+  return insight.location || insight.fact || insight.note ? insight : undefined
 }
 
 function matchesAnswer(input: string, item: QuizItem, mode: QuizMode) {
@@ -137,7 +154,7 @@ function saveScores(scores: Record<string, Score>) {
 
 function buildProjection(scope: MapScope) {
   if (scope === 'usa') {
-    return geoAlbersUsa().translate([WIDTH / 2, HEIGHT / 2]).scale(1080)
+    return geoAlbersUsa().translate([WIDTH / 2, HEIGHT / 2]).scale(980)
   }
 
   const projection = scope === 'world' ? geoEqualEarth() : geoMercator()
@@ -160,10 +177,16 @@ function asFeatures(collection: unknown): BoundaryFeature[] {
   return (collection as GeoJSON.FeatureCollection<GeoJSON.Geometry, Record<string, string | number | null>>).features
 }
 
+function usStateFeatures() {
+  const collection = feature(usStatesAtlas as never, (usStatesAtlas as never as { objects: { states: never } }).objects.states)
+  return (collection as unknown as GeoJSON.FeatureCollection<GeoJSON.Geometry, Record<string, string | number | null>>).features
+}
+
 const boundaryFeatures = {
   'fr-departments': asFeatures(frDepartments),
   'fr-regions': asFeatures(frRegions),
   'uk-admin': asFeatures(ukAdmin),
+  'us-states': usStateFeatures(),
 }
 
 function boundaryName(featureItem: BoundaryFeature) {
@@ -241,12 +264,18 @@ function CultureMap({
   const projection = useMemo(() => buildProjection(topic.mapScope ?? 'world'), [topic.mapScope])
   const path = useMemo(() => geoPath(projection), [projection])
   const countriesByName = useMemo(() => new Map(countries.map((country) => [normalize(country.properties.name), country])), [countries])
-  const boundaries = useMemo(() => (topic.boundaryLayer ? boundaryFeatures[topic.boundaryLayer] : []), [topic.boundaryLayer])
+  const itemNameSet = useMemo(() => new Set(items.map((item) => normalize(item.name))), [items])
+  const boundaries = useMemo(() => {
+    const allBoundaries = topic.boundaryLayer ? boundaryFeatures[topic.boundaryLayer] : []
+    if (topic.boundaryLayer !== 'us-states') return allBoundaries
+    return allBoundaries.filter((boundary) => itemNameSet.has(normalize(boundaryName(boundary))))
+  }, [itemNameSet, topic.boundaryLayer])
   const itemsByName = useMemo(() => new Map(items.map((item) => [normalize(item.name), item])), [items])
   const currentBoundary = useMemo(() => boundaries.find((boundary) => normalize(boundaryName(boundary)) === normalize(current.name)), [boundaries, current.name])
 
   const currentCountry = topic.mapKind === 'country-polygons' ? countriesByName.get(normalize(current.name)) : undefined
-  const canClickBoundaries = Boolean(topic.boundaryLayer?.startsWith('fr-') && mode === 'map-click')
+  const canClickBoundaries = Boolean((topic.boundaryLayer?.startsWith('fr-') || topic.boundaryLayer === 'us-states') && mode === 'map-click')
+  const showCountryLayer = topic.boundaryLayer !== 'us-states'
   const expectedName = review ? normalize(review.expectedName) : ''
   const submittedName = review ? normalize(review.submittedName) : ''
 
@@ -254,31 +283,33 @@ function CultureMap({
     <div className="map-shell">
       <svg className="map" viewBox={`0 0 ${WIDTH} ${HEIGHT}`} role="img" aria-label={`${topic.title} map quiz`}>
         <rect width={WIDTH} height={HEIGHT} rx="0" className="ocean" />
-        <g>
-          {countries.map((country) => {
-            const name = country.properties.name
-            const isTarget = normalize(name) === normalize(current.name)
-            const isExpected = review && normalize(name) === expectedName
-            const isWrongPick = review && !review.ok && normalize(name) === submittedName
-            const isInteractive = topic.mapKind === 'country-polygons' && mode === 'map-click'
-            const klass = [
-              'country',
-              isInteractive && !review ? 'country-clickable' : '',
-              mode === 'map-type' && isTarget ? 'target-country' : '',
-              isExpected ? 'correct-country' : '',
-              isWrongPick ? 'wrong-country' : '',
-            ].join(' ')
+        {showCountryLayer ? (
+          <g>
+            {countries.map((country) => {
+              const name = country.properties.name
+              const isTarget = normalize(name) === normalize(current.name)
+              const isExpected = review && normalize(name) === expectedName
+              const isWrongPick = review && !review.ok && normalize(name) === submittedName
+              const isInteractive = topic.mapKind === 'country-polygons' && mode === 'map-click'
+              const klass = [
+                'country',
+                isInteractive && !review ? 'country-clickable' : '',
+                mode === 'map-type' && isTarget ? 'target-country' : '',
+                isExpected ? 'correct-country' : '',
+                isWrongPick ? 'wrong-country' : '',
+              ].join(' ')
 
-            return (
-              <path
-                key={name}
-                className={klass}
-                d={path(country) ?? undefined}
-                onClick={isInteractive && !review ? () => onPick({ id: normalize(name), name }) : undefined}
-              />
-            )
-          })}
-        </g>
+              return (
+                <path
+                  key={name}
+                  className={klass}
+                  d={path(country) ?? undefined}
+                  onClick={isInteractive && !review ? () => onPick({ id: normalize(name), name }) : undefined}
+                />
+              )
+            })}
+          </g>
+        ) : null}
 
         {boundaries.length ? (
           <g className="boundary-layer">
@@ -374,6 +405,13 @@ function QuizPanel({
             : mode === 'image'
               ? item.prompt ?? 'Name this work or artist'
               : item.prompt ?? `Answer for ${item.name}`
+  const insightRows = review?.insight
+    ? [
+        ['Location', review.insight.location],
+        ['Fact', review.insight.fact],
+        ['Note', review.insight.note],
+      ].filter((row): row is [string, string] => Boolean(row[1]))
+    : []
 
   return (
     <section className="quiz-panel">
@@ -441,6 +479,18 @@ function QuizPanel({
 
       {review ? <p className="review-hint">Press Enter, Space, or the arrow button for the next question.</p> : null}
 
+      {insightRows.length ? (
+        <aside className="insight-card" aria-label="Did you know">
+          <span className="eyebrow">Did you know?</span>
+          {insightRows.map(([label, value]) => (
+            <p key={label}>
+              <strong>{label}</strong>
+              <span>{value}</span>
+            </p>
+          ))}
+        </aside>
+      ) : null}
+
       {history.length ? (
         <div className="answer-history" aria-label="Answer history">
           {history.map((result) => (
@@ -451,7 +501,6 @@ function QuizPanel({
                 <p>
                   You answered <b>{result.submitted}</b>. {result.ok ? 'Correct.' : `Answer: ${result.expected}.`}
                 </p>
-                {result.detail ? <small>{result.detail}</small> : null}
               </div>
             </article>
           ))}
@@ -517,7 +566,7 @@ function App() {
     })
   }, [activeRoundKey, pool])
 
-  function record(submitted: string, ok: boolean, expected: string, detail?: string) {
+  function record(submitted: string, ok: boolean, expected: string, insight?: AnswerInsight) {
     if (activeReview) return
     const key = scoreKey(activeTopic, mode)
     const previous = scores[key] ?? { attempts: 0, correct: 0, streak: 0, bestStreak: 0 }
@@ -541,7 +590,7 @@ function App() {
       expected,
       expectedName: current.name,
       submittedName: submitted,
-      detail,
+      insight,
     }
     setHistories((previousHistories) => ({
       ...previousHistories,
@@ -554,11 +603,11 @@ function App() {
   }
 
   function submit(value: string) {
-    record(value, matchesAnswer(value, current, mode), displayAnswer(current, mode), answerDetail(current) || undefined)
+    record(value, matchesAnswer(value, current, mode), displayAnswer(current, mode), answerInsight(current))
   }
 
   function pickMapItem(item: QuizItem) {
-    record(item.name, matchesAnswer(item.name, current, mode), current.name, answerDetail(current) || undefined)
+    record(item.name, matchesAnswer(item.name, current, mode), current.name, answerInsight(current))
   }
 
   function nextRound() {
