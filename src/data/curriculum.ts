@@ -146,7 +146,7 @@ const frenchDepartments: QuizItem[] = [
   ['Hautes-Alpes', 'Gap', 44.6, 6.1], ['Alpes-Maritimes', 'Nice', 43.9, 7.2], ['Ardeche', 'Annonay', 44.7, 4.4], ['Ardennes', 'Charleville-Mezieres', 49.7, 4.7],
   ['Ariege', 'Pamiers', 42.9, 1.5], ['Aube', 'Troyes', 48.3, 4.1], ['Aude', 'Narbonne', 43.1, 2.4], ['Aveyron', 'Rodez', 44.3, 2.6],
   ['Bouches-du-Rhone', 'Marseille', 43.5, 5.1], ['Calvados', 'Caen', 49.0, -0.3], ['Cantal', 'Aurillac', 45.0, 2.7], ['Charente', 'Angouleme', 45.7, 0.2],
-  ['Charente-Maritime', 'La Rochelle', 45.8, -0.8], ['Cher', 'Bourges', 47.0, 2.5], ['Correze', 'Brive-la-Gaillarde', 45.3, 1.8], ['Corse-du-Sud', 'Ajaccio', 41.9, 8.9],
+  ['Charente-Maritime', 'La Rochelle', 46.1603, -1.1511], ['Cher', 'Bourges', 47.0, 2.5], ['Correze', 'Brive-la-Gaillarde', 45.3, 1.8], ['Corse-du-Sud', 'Ajaccio', 41.9, 8.9],
   ['Haute-Corse', 'Bastia', 42.4, 9.2], ['Cote-d Or', 'Dijon', 47.4, 4.8], ['Cotes-d Armor', 'Saint-Brieuc', 48.4, -2.9], ['Creuse', 'Gueret', 46.1, 2.0],
   ['Dordogne', 'Perigueux', 45.1, 0.7], ['Doubs', 'Besancon', 47.2, 6.3], ['Drome', 'Valence', 44.7, 5.1], ['Eure', 'Evreux', 49.1, 1.0],
   ['Eure-et-Loir', 'Chartres', 48.4, 1.4], ['Finistere', 'Brest', 48.3, -4.1], ['Gard', 'Nimes', 43.9, 4.2], ['Haute-Garonne', 'Toulouse', 43.3, 1.2],
