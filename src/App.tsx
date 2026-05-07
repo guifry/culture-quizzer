@@ -385,7 +385,7 @@ function QuizPanel({
             value={input}
             onChange={(event) => setInput(event.target.value)}
             onKeyDown={(event) => {
-              if (event.key === 'Enter' && review) {
+              if ((event.key === 'Enter' || event.key === ' ') && review) {
                 event.preventDefault()
                 event.stopPropagation()
                 onNext()
@@ -409,7 +409,7 @@ function QuizPanel({
 
       <p className="coverage">{topic.coverage}</p>
 
-      {review ? <p className="review-hint">Press Enter or the arrow button for the next question.</p> : null}
+      {review ? <p className="review-hint">Press Enter, Space, or the arrow button for the next question.</p> : null}
 
       {history.length ? (
         <div className="answer-history" aria-label="Answer history">
@@ -558,7 +558,7 @@ function App() {
 
     function handleKeyDown(event: KeyboardEvent) {
       if (event.defaultPrevented) return
-      if (event.key !== 'Enter') return
+      if (event.key !== 'Enter' && event.key !== ' ') return
       event.preventDefault()
       setReviews((previous) => ({ ...previous, [activeRoundKey]: undefined }))
       setRoundStates((previous) => ({
