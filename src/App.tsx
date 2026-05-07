@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
 import { feature } from 'topojson-client'
 import { geoAlbersUsa, geoEqualEarth, geoMercator, geoPath } from 'd3-geo'
 import { BookOpen, Check, ChevronRight, Globe2, Image, MapPinned, RotateCcw, X } from 'lucide-react'
@@ -33,6 +33,8 @@ type AnswerResult = {
 type RoundState = {
   index: number
   roundId: number
+  order: number[]
+  position: number
 }
 
 const WIDTH = 960
@@ -75,6 +77,11 @@ function displayAnswer(item: QuizItem, mode: QuizMode) {
   return itemAnswer(item, mode)
 }
 
+function answerDetail(item: QuizItem) {
+  const randomFact = item.facts?.length ? item.facts[Math.floor(Math.random() * item.facts.length)] : undefined
+  return [item.location, randomFact, item.detail].filter(Boolean).join(' ')
+}
+
 function matchesAnswer(input: string, item: QuizItem, mode: QuizMode) {
   const clean = normalize(input)
   const answers = [itemAnswer(item, mode), item.name, item.answer, ...(item.aliases ?? [])].filter(Boolean).map((answer) => normalize(String(answer)))
@@ -83,6 +90,29 @@ function matchesAnswer(input: string, item: QuizItem, mode: QuizMode) {
 
 function shuffle<T>(items: T[]) {
   return [...items].sort(() => Math.random() - 0.5)
+}
+
+function createRoundState(pool: QuizItem[], roundId = 0, firstIndex?: number): RoundState {
+  const indexes = pool.map((_, index) => index)
+  const order = shuffle(indexes)
+  const validFirstIndex = typeof firstIndex === 'number' && firstIndex >= 0 && firstIndex < pool.length ? firstIndex : undefined
+  const ordered = validFirstIndex === undefined ? order : [validFirstIndex, ...order.filter((index) => index !== validFirstIndex)]
+  const fallbackOrder = ordered.length ? ordered : [0]
+
+  return {
+    index: fallbackOrder[0],
+    roundId,
+    order: fallbackOrder,
+    position: 0,
+  }
+}
+
+function ensureRoundState(state: RoundState | undefined, pool: QuizItem[]) {
+  if (!state?.order?.length || state.position < 0 || state.position >= state.order.length || state.order.some((index) => index >= pool.length)) {
+    return createRoundState(pool, state?.roundId ?? 0, state?.index)
+  }
+
+  return state
 }
 
 function scoreKey(topic: Topic, mode: QuizMode) {
@@ -182,7 +212,7 @@ function CoursePanel({ topic }: { topic: Topic }) {
                 <strong>{item.name}</strong>
                 {answer ? <span>{answer}</span> : null}
               </div>
-              <p>{item.detail ?? item.era ?? item.prompt ?? topic.coverage}</p>
+              <p>{item.detail ?? item.location ?? item.era ?? item.prompt ?? topic.coverage}</p>
             </article>
           )
         })}
@@ -449,28 +479,43 @@ function App() {
   const [histories, setHistories] = useState<Record<string, AnswerResult[]>>({})
   const [reviews, setReviews] = useState<Record<string, AnswerResult | undefined>>({})
   const [roundStates, setRoundStates] = useState<Record<string, RoundState>>(() => ({
-    [roundKey(fullTopics[0], fullTopics[0].modes[0])]: { index: 0, roundId: 0 },
+    [roundKey(fullTopics[0], fullTopics[0].modes[0])]: createRoundState(fullTopics[0].items),
   }))
 
   const pool = activeTopic.items
   const activeRoundKey = roundKey(activeTopic, mode)
-  const activeRound = roundStates[activeRoundKey] ?? { index: 0, roundId: 0 }
+  const activeRound = ensureRoundState(roundStates[activeRoundKey], pool)
   const current = pool[Math.min(activeRound.index, Math.max(pool.length - 1, 0))] ?? pool[0]
   const activeScore = scores[scoreKey(activeTopic, mode)] ?? { attempts: 0, correct: 0, streak: 0, bestStreak: 0 }
   const activeHistory = histories[activeRoundKey] ?? []
   const activeReview = reviews[activeRoundKey]
   const accuracy = activeScore.attempts ? Math.round((activeScore.correct / activeScore.attempts) * 100) : 0
 
-  function advanceRound() {
+  const advanceRound = useCallback(() => {
     setReviews((previous) => ({ ...previous, [activeRoundKey]: undefined }))
-    setRoundStates((previous) => ({
-      ...previous,
-      [activeRoundKey]: {
-        index: Math.floor(Math.random() * pool.length),
-        roundId: (previous[activeRoundKey]?.roundId ?? 0) + 1,
-      },
-    }))
-  }
+    setRoundStates((previous) => {
+      const previousRound = ensureRoundState(previous[activeRoundKey], pool)
+      const nextPosition = previousRound.position + 1
+      const nextRoundId = previousRound.roundId + 1
+
+      if (nextPosition < previousRound.order.length) {
+        return {
+          ...previous,
+          [activeRoundKey]: {
+            ...previousRound,
+            index: previousRound.order[nextPosition],
+            position: nextPosition,
+            roundId: nextRoundId,
+          },
+        }
+      }
+
+      return {
+        ...previous,
+        [activeRoundKey]: createRoundState(pool, nextRoundId),
+      }
+    })
+  }, [activeRoundKey, pool])
 
   function record(submitted: string, ok: boolean, expected: string, detail?: string) {
     if (activeReview) return
@@ -509,11 +554,11 @@ function App() {
   }
 
   function submit(value: string) {
-    record(value, matchesAnswer(value, current, mode), displayAnswer(current, mode), current.detail)
+    record(value, matchesAnswer(value, current, mode), displayAnswer(current, mode), answerDetail(current) || undefined)
   }
 
   function pickMapItem(item: QuizItem) {
-    record(item.name, matchesAnswer(item.name, current, mode), current.name, current.detail)
+    record(item.name, matchesAnswer(item.name, current, mode), current.name, answerDetail(current) || undefined)
   }
 
   function nextRound() {
@@ -527,7 +572,7 @@ function App() {
       if (previous[nextKey]) return previous
       return {
         ...previous,
-        [nextKey]: { index: Math.min(current ? pool.indexOf(current) : 0, Math.max(topic.items.length - 1, 0)), roundId: 0 },
+        [nextKey]: createRoundState(topic.items, 0, Math.min(current ? pool.indexOf(current) : 0, Math.max(topic.items.length - 1, 0))),
       }
     })
   }
@@ -541,7 +586,7 @@ function App() {
       if (previous[nextKey]) return previous
       return {
         ...previous,
-        [nextKey]: { index: Math.floor(Math.random() * topic.items.length), roundId: 0 },
+        [nextKey]: createRoundState(topic.items),
       }
     })
   }
@@ -560,19 +605,12 @@ function App() {
       if (event.defaultPrevented) return
       if (event.key !== 'Enter' && event.key !== ' ') return
       event.preventDefault()
-      setReviews((previous) => ({ ...previous, [activeRoundKey]: undefined }))
-      setRoundStates((previous) => ({
-        ...previous,
-        [activeRoundKey]: {
-          index: Math.floor(Math.random() * pool.length),
-          roundId: (previous[activeRoundKey]?.roundId ?? 0) + 1,
-        },
-      }))
+      advanceRound()
     }
 
     window.addEventListener('keydown', handleKeyDown)
     return () => window.removeEventListener('keydown', handleKeyDown)
-  }, [activeReview, activeRoundKey, pool.length])
+  }, [activeReview, advanceRound])
 
   const grouped = useMemo(() => {
     return fullTopics.reduce<Record<string, Topic[]>>((acc, topic) => {

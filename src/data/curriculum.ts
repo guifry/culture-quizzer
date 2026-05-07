@@ -19,6 +19,8 @@ export type QuizItem = {
   answer?: string
   prompt?: string
   detail?: string
+  location?: string
+  facts?: string[]
   lat?: number
   lon?: number
   aliases?: string[]
@@ -201,11 +203,167 @@ const riversAndRanges: QuizItem[] = [
 ].map(([name, lat, lon, detail]) => ({ id: String(name).toLowerCase().replaceAll(' ', '-'), name: String(name), lat: Number(lat), lon: Number(lon), detail: detail ? String(detail) : undefined }))
 
 const mountainRanges: QuizItem[] = [
-  ['Himalayas', 28, 86], ['Andes', -16, -70], ['Rocky Mountains', 44, -110], ['Alps', 46.5, 10.5], ['Atlas Mountains', 31.1, -7.9],
-  ['Pyrenees', 42.7, 0.5], ['Carpathians', 47.0, 25.5], ['Caucasus', 43.4, 42.5], ['Urals', 60.0, 60.0], ['Appalachians', 37.5, -81],
-  ['Great Dividing Range', -27, 152], ['Drakensberg', -29.5, 29.3], ['Karakoram', 35.8, 76.5], ['Tian Shan', 42.0, 80.0], ['Zagros', 32, 51],
-  ['Sierra Nevada', 37, -119], ['Scandinavian Mountains', 63, 13], ['Altai Mountains', 49, 88], ['Cascades', 45, -121], ['Apennines', 43.5, 12.5],
-].map(([name, lat, lon]) => ({ id: String(name).toLowerCase().replaceAll(' ', '-'), name: String(name), lat: Number(lat), lon: Number(lon) }))
+  {
+    id: 'himalayas',
+    name: 'Himalayas',
+    lat: 28,
+    lon: 86,
+    location: 'Location: South Asia, mainly Nepal, India, Bhutan, China/Tibet, and Pakistan.',
+    facts: ['It contains Mount Everest, the highest summit on Earth.', 'It is still rising because the Indian Plate keeps pushing into Eurasia.', 'Its glaciers feed major Asian rivers including the Ganges, Indus, and Brahmaputra.'],
+  },
+  {
+    id: 'andes',
+    name: 'Andes',
+    lat: -16,
+    lon: -70,
+    location: 'Location: Western South America, from Venezuela and Colombia down to Chile and Argentina.',
+    facts: ['It is the longest continental mountain range in the world.', 'Aconcagua is the highest mountain outside Asia.', 'The range runs along a very active Pacific volcanic margin.'],
+  },
+  {
+    id: 'rocky-mountains',
+    name: 'Rocky Mountains',
+    lat: 44,
+    lon: -110,
+    location: 'Location: Western North America, from British Columbia and Alberta through the western United States to New Mexico.',
+    facts: ['The Continental Divide follows much of the range.', 'Yellowstone, Rocky Mountain, and Banff national parks all sit in the Rockies.', 'Many of its peaks were raised during the Laramide mountain-building period.'],
+  },
+  {
+    id: 'alps',
+    name: 'Alps',
+    lat: 46.5,
+    lon: 10.5,
+    location: 'Location: Central Europe, across France, Switzerland, Italy, Austria, Germany, Slovenia, Liechtenstein, and Monaco.',
+    facts: ['Mont Blanc is the highest summit in the Alps.', 'Alpine passes shaped European trade and military routes for centuries.', 'The range forms a major climatic barrier between northern Europe and the Mediterranean.'],
+  },
+  {
+    id: 'atlas-mountains',
+    name: 'Atlas Mountains',
+    lat: 31.1,
+    lon: -7.9,
+    location: 'Location: Northwest Africa, across Morocco, Algeria, and Tunisia.',
+    facts: ['The range separates the Mediterranean and Atlantic coasts from the Sahara.', 'Toubkal in Morocco is its highest peak.', 'It is closely associated with Amazigh, or Berber, highland cultures.'],
+  },
+  {
+    id: 'pyrenees',
+    name: 'Pyrenees',
+    lat: 42.7,
+    lon: 0.5,
+    location: 'Location: On the France-Spain border, with Andorra in the eastern Pyrenees.',
+    facts: ['The range is a natural barrier between Iberia and the rest of Europe.', 'Aneto is the highest peak in the Pyrenees.', 'Small valleys helped preserve distinct languages and local identities.'],
+  },
+  {
+    id: 'carpathians',
+    name: 'Carpathians',
+    lat: 47,
+    lon: 25.5,
+    location: 'Location: Central and eastern Europe, including Slovakia, Poland, Ukraine, Romania, and nearby countries.',
+    facts: ['The range forms a great arc around Transylvania.', 'The Tatras are its highest section.', 'It contains some of Europe\'s strongest remaining habitats for bears, wolves, and lynx.'],
+  },
+  {
+    id: 'caucasus',
+    name: 'Caucasus',
+    lat: 43.4,
+    lon: 42.5,
+    location: 'Location: Between the Black Sea and Caspian Sea, across Russia, Georgia, Azerbaijan, and Armenia.',
+    facts: ['Mount Elbrus is often counted as Europe\'s highest mountain.', 'The region is famous for extraordinary linguistic and cultural diversity.', 'Some geographic conventions use the range as part of the Europe-Asia boundary.'],
+  },
+  {
+    id: 'urals',
+    name: 'Urals',
+    lat: 60,
+    lon: 60,
+    location: 'Location: Russia, running north-south from the Arctic toward Kazakhstan.',
+    facts: ['It is the traditional boundary between Europe and Asia.', 'The range is rich in minerals and helped power Russian industry.', 'The Urals are very old and much more eroded than the Alps or Himalayas.'],
+  },
+  {
+    id: 'appalachians',
+    name: 'Appalachians',
+    lat: 37.5,
+    lon: -81,
+    location: 'Location: Eastern North America, from Canada through the eastern United States to Alabama and Georgia.',
+    facts: ['The Appalachians are ancient, rounded mountains worn down by erosion.', 'The Appalachian Trail runs for more than 2,000 miles along the range.', 'Its coalfields shaped the industrial history of the eastern United States.'],
+  },
+  {
+    id: 'great-dividing-range',
+    name: 'Great Dividing Range',
+    lat: -27,
+    lon: 152,
+    location: 'Location: Eastern Australia, mainly Queensland, New South Wales, and Victoria.',
+    facts: ['It is Australia\'s longest mountain system.', 'It separates short coastal rivers from inland river basins.', 'The Australian Alps are part of this broad range system.'],
+  },
+  {
+    id: 'drakensberg',
+    name: 'Drakensberg',
+    lat: -29.5,
+    lon: 29.3,
+    location: 'Location: Southern Africa, mainly South Africa and Lesotho.',
+    facts: ['The name is often translated as Dragon Mountains.', 'The escarpment helps form the high plateau of Lesotho.', 'The area is known for dramatic basalt cliffs and ancient rock art.'],
+  },
+  {
+    id: 'karakoram',
+    name: 'Karakoram',
+    lat: 35.8,
+    lon: 76.5,
+    location: 'Location: High Asia, across Pakistan\'s Gilgit-Baltistan, India\'s Ladakh, and China\'s Xinjiang.',
+    facts: ['K2, the world\'s second-highest mountain, is in the Karakoram.', 'It has some of the largest glaciers outside the polar regions.', 'The Karakoram Highway crosses one of the world\'s most dramatic high-mountain corridors.'],
+  },
+  {
+    id: 'tian-shan',
+    name: 'Tian Shan',
+    lat: 42,
+    lon: 80,
+    location: 'Location: Central Asia, mainly Kyrgyzstan, Kazakhstan, China/Xinjiang, and Uzbekistan.',
+    facts: ['The name is usually translated as Heavenly Mountains.', 'Jengish Chokusu, also called Tomur, is its highest peak.', 'It was a major natural barrier along Silk Road routes.'],
+  },
+  {
+    id: 'zagros',
+    name: 'Zagros',
+    lat: 32,
+    lon: 51,
+    location: 'Location: Western Iran, with extensions into eastern Iraq and southeastern Turkey.',
+    facts: ['It is a long fold-and-thrust mountain belt.', 'The Zagros foothills were important in early farming and domestication.', 'Its geology is closely tied to major oil and gas fields.'],
+  },
+  {
+    id: 'sierra-nevada',
+    name: 'Sierra Nevada',
+    lat: 37,
+    lon: -119,
+    location: 'Location: Western United States, mainly California with an edge in Nevada.',
+    facts: ['Mount Whitney is the highest summit in the contiguous United States.', 'Yosemite Valley sits on the western side of the range.', 'Snowpack from the Sierra Nevada is crucial to California\'s water supply.'],
+  },
+  {
+    id: 'scandinavian-mountains',
+    name: 'Scandinavian Mountains',
+    lat: 63,
+    lon: 13,
+    location: 'Location: Scandinavia, mainly Norway and Sweden, with a northern extension toward Finland.',
+    facts: ['The range helps create Norway\'s fjords and a strong rain shadow to the east.', 'Galdhopiggen in Norway is its highest peak.', 'It is tied to the ancient Caledonian mountain-building event.'],
+  },
+  {
+    id: 'altai-mountains',
+    name: 'Altai Mountains',
+    lat: 49,
+    lon: 88,
+    location: 'Location: Central Asia, where Russia, Kazakhstan, Mongolia, and China meet.',
+    facts: ['The name is often linked to the idea of gold or golden mountains.', 'The region feeds major river systems including the Irtysh and Ob.', 'It has long been a crossroads between steppe, forest, and high-mountain cultures.'],
+  },
+  {
+    id: 'cascades',
+    name: 'Cascades',
+    lat: 45,
+    lon: -121,
+    location: 'Location: Western North America, from British Columbia through Washington, Oregon, and northern California.',
+    facts: ['The Cascades are a volcanic arc above the Cascadia subduction zone.', 'Mount St Helens erupted dramatically in 1980.', 'Mount Rainier and Mount Hood are two of its best-known volcanoes.'],
+  },
+  {
+    id: 'apennines',
+    name: 'Apennines',
+    lat: 43.5,
+    lon: 12.5,
+    location: 'Location: Italy, running down the spine of the Italian peninsula.',
+    facts: ['The Apennines are often called the backbone of Italy.', 'Gran Sasso is one of the highest and most famous massifs in the range.', 'The mountains helped create strong regional identities across Italy.'],
+  },
+]
 
 const paintings: QuizItem[] = [
   { id: 'mona-lisa', name: 'Mona Lisa', answer: 'Leonardo da Vinci', prompt: 'Name this painting or its artist', imageUrl: '/images/paintings/mona-lisa.jpg', detail: 'Renaissance portrait, Louvre.' },
