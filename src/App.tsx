@@ -136,7 +136,12 @@ function matchesAsteroidBelt(input: string) {
 }
 
 function shuffle<T>(items: T[]) {
-  return [...items].sort(() => Math.random() - 0.5)
+  const shuffled = [...items]
+  for (let index = shuffled.length - 1; index > 0; index -= 1) {
+    const swapIndex = Math.floor(Math.random() * (index + 1))
+    ;[shuffled[index], shuffled[swapIndex]] = [shuffled[swapIndex], shuffled[index]]
+  }
+  return shuffled
 }
 
 function createRoundState(pool: QuizItem[], roundId = 0, firstIndex?: number): RoundState {
