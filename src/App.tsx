@@ -206,8 +206,8 @@ function scoreKey(topic: Topic, mode: QuizMode) {
   return `${topic.id}:${mode}`
 }
 
-function roundKey(topic: Topic, mode: QuizMode) {
-  return scoreKey(topic, mode)
+function roundKey(topic: Topic) {
+  return topic.id
 }
 
 function loadScores(): Record<string, Score> {
@@ -807,20 +807,21 @@ function App() {
   const [histories, setHistories] = useState<Record<string, AnswerResult[]>>({})
   const [reviews, setReviews] = useState<Record<string, AnswerResult | undefined>>({})
   const [roundStates, setRoundStates] = useState<Record<string, RoundState>>(() => ({
-    [roundKey(fullTopics[0], fullTopics[0].modes[0])]: createRoundState(fullTopics[0].items),
+    [roundKey(fullTopics[0])]: createRoundState(fullTopics[0].items),
   }))
 
   const pool = activeTopic.items
-  const activeRoundKey = roundKey(activeTopic, mode)
+  const activeRoundKey = roundKey(activeTopic)
+  const activePracticeKey = scoreKey(activeTopic, mode)
   const activeRound = ensureRoundState(roundStates[activeRoundKey], pool)
   const current = pool[Math.min(activeRound.index, Math.max(pool.length - 1, 0))] ?? pool[0]
-  const activeScore = scores[scoreKey(activeTopic, mode)] ?? { attempts: 0, correct: 0, streak: 0, bestStreak: 0 }
-  const activeHistory = histories[activeRoundKey] ?? []
-  const activeReview = reviews[activeRoundKey]
+  const activeScore = scores[activePracticeKey] ?? { attempts: 0, correct: 0, streak: 0, bestStreak: 0 }
+  const activeHistory = histories[activePracticeKey] ?? []
+  const activeReview = reviews[activePracticeKey]
   const accuracy = activeScore.attempts ? Math.round((activeScore.correct / activeScore.attempts) * 100) : 0
 
   const advanceRound = useCallback(() => {
-    setReviews((previous) => ({ ...previous, [activeRoundKey]: undefined }))
+    setReviews((previous) => ({ ...previous, [activePracticeKey]: undefined }))
     setRoundStates((previous) => {
       const previousRound = ensureRoundState(previous[activeRoundKey], pool)
       const nextPosition = previousRound.position + 1
@@ -843,11 +844,11 @@ function App() {
         [activeRoundKey]: createRoundState(pool, nextRoundId),
       }
     })
-  }, [activeRoundKey, pool])
+  }, [activePracticeKey, activeRoundKey, pool])
 
   function record(submitted: string, ok: boolean, expected: string, insight?: AnswerInsight) {
     if (activeReview) return
-    const key = scoreKey(activeTopic, mode)
+    const key = activePracticeKey
     const previous = scores[key] ?? { attempts: 0, correct: 0, streak: 0, bestStreak: 0 }
     const streak = ok ? previous.streak + 1 : 0
     const updated = {
@@ -862,7 +863,7 @@ function App() {
     setScores(updated)
     saveScores(updated)
     const result = {
-      id: `${activeRoundKey}:${activeRound.roundId}:${Date.now()}`,
+      id: `${activePracticeKey}:${activeRound.roundId}:${Date.now()}`,
       ok,
       prompt: promptLabel(activeTopic, mode, current),
       submitted,
@@ -873,12 +874,12 @@ function App() {
     }
     setHistories((previousHistories) => ({
       ...previousHistories,
-      [activeRoundKey]: [
+      [activePracticeKey]: [
         result,
-        ...(previousHistories[activeRoundKey] ?? []),
+        ...(previousHistories[activePracticeKey] ?? []),
       ].slice(0, 20),
     }))
-    setReviews((previous) => ({ ...previous, [activeRoundKey]: result }))
+    setReviews((previous) => ({ ...previous, [activePracticeKey]: result }))
   }
 
   function submit(value: string) {
@@ -890,7 +891,7 @@ function App() {
   }
 
   function recordSequence(sequence: SequenceResult) {
-    const key = scoreKey(activeTopic, mode)
+    const key = activePracticeKey
     const previous = scores[key] ?? { attempts: 0, correct: 0, streak: 0, bestStreak: 0 }
     const perfect = sequence.correctCount === sequence.total
     const streak = perfect ? previous.streak + 1 : 0
@@ -907,7 +908,7 @@ function App() {
     saveScores(updated)
 
     const result = {
-      id: `${activeRoundKey}:sequence:${Date.now()}`,
+      id: `${activePracticeKey}:sequence:${Date.now()}`,
       ok: perfect,
       prompt: 'Solar system order',
       submitted: `${sequence.correctCount}/${sequence.total} correct`,
@@ -919,9 +920,9 @@ function App() {
 
     setHistories((previousHistories) => ({
       ...previousHistories,
-      [activeRoundKey]: [
+      [activePracticeKey]: [
         result,
-        ...(previousHistories[activeRoundKey] ?? []),
+        ...(previousHistories[activePracticeKey] ?? []),
       ].slice(0, 10),
     }))
   }
@@ -929,7 +930,7 @@ function App() {
   function clearSequenceResult() {
     setHistories((previousHistories) => ({
       ...previousHistories,
-      [activeRoundKey]: [],
+      [activePracticeKey]: [],
     }))
   }
 
@@ -938,7 +939,7 @@ function App() {
   }
 
   function activateMode(topic: Topic, nextMode: QuizMode) {
-    const nextKey = roundKey(topic, nextMode)
+    const nextKey = roundKey(topic)
     setMode(nextMode)
     setRoundStates((previous) => {
       if (isRoundStateValid(previous[nextKey], topic.items)) return previous
@@ -951,7 +952,7 @@ function App() {
 
   function activateTopic(topic: Topic) {
     const nextMode = topic.modes[0]
-    const nextKey = roundKey(topic, nextMode)
+    const nextKey = roundKey(topic)
     setTopicId(topic.id)
     setMode(nextMode)
     setRoundStates((previous) => {
@@ -1074,7 +1075,7 @@ function App() {
             )}
 
             <QuizPanel
-              key={`${activeRoundKey}:${activeRound.roundId}`}
+              key={`${activePracticeKey}:${activeRound.roundId}`}
               topic={activeTopic}
               mode={mode}
               item={current}
