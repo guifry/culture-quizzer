@@ -548,10 +548,12 @@ function SolarSystemQuiz({
   topic,
   history,
   onSubmitSequence,
+  onClearResult,
 }: {
   topic: Topic
   history: AnswerResult[]
   onSubmitSequence: (sequence: SequenceResult) => void
+  onClearResult: () => void
 }) {
   const planetItems = topic.items.filter((item) => item.id !== 'asteroid-belt')
   const beltItem = topic.items.find((item) => item.id === 'asteroid-belt')
@@ -566,6 +568,7 @@ function SolarSystemQuiz({
   function resetPractice() {
     setPlanetAnswers(planetItems.map(() => ''))
     setBeltAnswer('')
+    onClearResult()
   }
 
   function submitSequence(event: FormEvent<HTMLFormElement>) {
@@ -795,6 +798,13 @@ function App() {
     }))
   }
 
+  function clearSequenceResult() {
+    setHistories((previousHistories) => ({
+      ...previousHistories,
+      [activeRoundKey]: [],
+    }))
+  }
+
   function nextRound() {
     advanceRound()
   }
@@ -922,7 +932,7 @@ function App() {
         </section>
 
         {activeTopic.id === 'solar-system' ? (
-          <SolarSystemQuiz topic={activeTopic} history={activeHistory} onSubmitSequence={recordSequence} />
+          <SolarSystemQuiz topic={activeTopic} history={activeHistory} onSubmitSequence={recordSequence} onClearResult={clearSequenceResult} />
         ) : (
           <div className={activeTopic.mapKind ? 'practice-grid with-map' : 'practice-grid'}>
             {activeTopic.mapKind ? (
