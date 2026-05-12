@@ -2,7 +2,7 @@ import countries from 'world-countries'
 
 export type MapScope = 'world' | 'europe' | 'uk' | 'france' | 'usa'
 
-export type QuizMode = 'map-click' | 'map-type' | 'type' | 'choice' | 'image'
+export type QuizMode = 'map-click' | 'map-type' | 'type' | 'choice' | 'image' | 'sequence'
 
 export type TopicGroup =
   | 'Geography'
@@ -12,6 +12,7 @@ export type TopicGroup =
   | 'Art'
   | 'Literature'
   | 'Philosophy'
+  | 'Science'
 
 export type QuizItem = {
   id: string
@@ -375,6 +376,18 @@ const paintings: QuizItem[] = [
   { id: 'american-gothic', name: 'American Gothic', answer: 'Grant Wood', imageUrl: '/images/paintings/american-gothic.jpg' },
 ]
 
+const solarSystemItems: QuizItem[] = [
+  { id: 'mercury', name: 'Mercury', detail: 'Smallest planet and closest to the Sun.' },
+  { id: 'venus', name: 'Venus', detail: 'Second planet from the Sun.' },
+  { id: 'earth', name: 'Earth', detail: 'Third planet from the Sun.' },
+  { id: 'mars', name: 'Mars', detail: 'Fourth planet from the Sun; the asteroid belt comes after it.' },
+  { id: 'jupiter', name: 'Jupiter', detail: 'Fifth planet from the Sun and first beyond the asteroid belt.' },
+  { id: 'saturn', name: 'Saturn', detail: 'Sixth planet from the Sun.' },
+  { id: 'uranus', name: 'Uranus', detail: 'Seventh planet from the Sun.' },
+  { id: 'neptune', name: 'Neptune', detail: 'Eighth planet from the Sun.' },
+  { id: 'asteroid-belt', name: 'Asteroid belt', answer: 'Mars and Jupiter', prompt: 'Between which two planets is the main asteroid belt?', aliases: ['between mars and jupiter', 'mars jupiter', 'jupiter and mars', 'jupiter mars'] },
+]
+
 const knowledgeQuestions: Topic[] = [
   {
     id: 'political-systems',
@@ -517,6 +530,7 @@ export const topics: Topic[] = [
   { id: 'us-states', title: 'US States and Capitals', group: 'Geography', description: 'Place all 50 states as center targets and drill their capitals.', modes: ['map-click', 'map-type', 'type', 'choice'], mapScope: 'usa', mapKind: 'points', boundaryLayer: 'us-states', items: usStates, coverage: 'All 50 states with capitals.' },
   { id: 'rivers', title: 'Major World, UK, and French Rivers', group: 'Geography', description: 'Locate the world great rivers plus UK and France anchors.', modes: ['map-click', 'map-type'], mapScope: 'world', mapKind: 'points', items: riversAndRanges, coverage: 'Top world rivers plus Thames, Seine, and Loire anchors.' },
   { id: 'mountain-ranges', title: 'Top 20 Mountain Ranges', group: 'Geography', description: 'Place the main mountain systems of the world.', modes: ['map-click', 'map-type'], mapScope: 'world', mapKind: 'points', items: mountainRanges, coverage: 'Top 20 global range deck.' },
+  { id: 'solar-system', title: 'Planets of the Solar System', group: 'Science', description: 'Name the planets from the Sun outward, and recall where the asteroid belt sits.', modes: ['sequence'], items: solarSystemItems, coverage: 'Eight planets in order plus the main asteroid belt between Mars and Jupiter.' },
   { id: 'paintings', title: 'Famous Paintings Recognition', group: 'Art', description: 'See the painting; name the work or the artist.', modes: ['image', 'choice'], items: paintings, coverage: 'Core image-recognition deck with public-domain/open Wikimedia images where available.' },
   ...knowledgeQuestions,
 ]

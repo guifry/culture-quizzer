@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useState, type FormEvent } from 'react'
 import { feature } from 'topojson-client'
 import { geoAlbersUsa, geoEqualEarth, geoMercator, geoPath } from 'd3-geo'
 import { BookOpen, Check, ChevronRight, Globe2, Image, MapPinned, RotateCcw, X } from 'lucide-react'
@@ -29,12 +29,28 @@ type AnswerResult = {
   expectedName: string
   submittedName: string
   insight?: AnswerInsight
+  sequence?: SequenceResult
 }
 
 type AnswerInsight = {
   location?: string
   fact?: string
   note?: string
+}
+
+type SequenceResult = {
+  planets: Array<{
+    expected: string
+    submitted: string
+    ok: boolean
+  }>
+  belt: {
+    expected: string
+    submitted: string
+    ok: boolean
+  }
+  correctCount: number
+  total: number
 }
 
 type RoundState = {
@@ -53,6 +69,7 @@ const defaultModeLabels: Record<QuizMode, string> = {
   type: 'Typed recall',
   choice: 'Multiple choice',
   image: 'Image typing',
+  sequence: 'Order quiz',
 }
 
 function modeLabel(topic: Topic, mode: QuizMode) {
@@ -103,6 +120,11 @@ function matchesAnswer(input: string, item: QuizItem, mode: QuizMode) {
   const clean = normalize(input)
   const answers = [itemAnswer(item, mode), item.name, item.answer, ...(item.aliases ?? [])].filter(Boolean).map((answer) => normalize(String(answer)))
   return answers.includes(clean)
+}
+
+function matchesAsteroidBelt(input: string) {
+  const clean = normalize(input)
+  return clean.includes('mars') && clean.includes('jupiter')
 }
 
 function shuffle<T>(items: T[]) {
@@ -214,6 +236,7 @@ function Stat({ label, value }: { label: string; value: string | number }) {
 function TopicIcon({ topic }: { topic: Topic }) {
   if (topic.group === 'Art') return <Image size={18} />
   if (topic.group === 'Geography') return <MapPinned size={18} />
+  if (topic.group === 'Science') return <Globe2 size={18} />
   return <BookOpen size={18} />
 }
 
@@ -510,6 +533,131 @@ function QuizPanel({
   )
 }
 
+const planetVisuals = [
+  { name: 'Mercury', color: '#8d8780', size: 20 },
+  { name: 'Venus', color: '#d9b26f', size: 28 },
+  { name: 'Earth', color: '#3579b8', size: 30 },
+  { name: 'Mars', color: '#b35a3c', size: 24 },
+  { name: 'Jupiter', color: '#d7b184', size: 48 },
+  { name: 'Saturn', color: '#d8c28a', size: 44 },
+  { name: 'Uranus', color: '#7bc7cf', size: 34 },
+  { name: 'Neptune', color: '#496fc4', size: 34 },
+]
+
+function SolarSystemQuiz({
+  topic,
+  history,
+  onSubmitSequence,
+}: {
+  topic: Topic
+  history: AnswerResult[]
+  onSubmitSequence: (sequence: SequenceResult) => void
+}) {
+  const planetItems = topic.items.filter((item) => item.id !== 'asteroid-belt')
+  const beltItem = topic.items.find((item) => item.id === 'asteroid-belt')
+  const latestResult = history.find((result) => result.sequence)?.sequence
+  const [planetAnswers, setPlanetAnswers] = useState(() => planetItems.map(() => ''))
+  const [beltAnswer, setBeltAnswer] = useState('')
+
+  function updatePlanetAnswer(index: number, value: string) {
+    setPlanetAnswers((previous) => previous.map((answer, answerIndex) => (answerIndex === index ? value : answer)))
+  }
+
+  function resetPractice() {
+    setPlanetAnswers(planetItems.map(() => ''))
+    setBeltAnswer('')
+  }
+
+  function submitSequence(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault()
+    const planets = planetItems.map((planet, index) => {
+      const submitted = planetAnswers[index]?.trim() ?? ''
+      return {
+        expected: planet.name,
+        submitted,
+        ok: matchesAnswer(submitted, planet, 'sequence'),
+      }
+    })
+    const submittedBelt = beltAnswer.trim()
+    const belt = {
+      expected: beltItem?.answer ?? 'Mars and Jupiter',
+      submitted: submittedBelt,
+      ok: matchesAsteroidBelt(submittedBelt),
+    }
+    const correctCount = planets.filter((planet) => planet.ok).length + (belt.ok ? 1 : 0)
+
+    onSubmitSequence({
+      planets,
+      belt,
+      correctCount,
+      total: planets.length + 1,
+    })
+  }
+
+  return (
+    <section className="solar-surface">
+      <form onSubmit={submitSequence}>
+        <div className="solar-diagram" aria-label="Planets from the Sun outward">
+          <div className="sun-marker">
+            <span />
+            <strong>Sun</strong>
+          </div>
+          <div className="planet-sequence">
+            {planetItems.map((planet, index) => {
+              const visual = planetVisuals[index] ?? planetVisuals[0]
+              const result = latestResult?.planets[index]
+              const slotClass = ['planet-slot', result ? (result.ok ? 'slot-ok' : 'slot-bad') : ''].join(' ')
+
+              return (
+                <label key={planet.id} className={slotClass}>
+                  <span className="planet-orb" style={{ background: visual.color, width: visual.size, height: visual.size }} />
+                  <span className="slot-number">{index + 1}</span>
+                  <input
+                    value={planetAnswers[index] ?? ''}
+                    onChange={(event) => updatePlanetAnswer(index, event.target.value)}
+                    placeholder={`Planet ${index + 1}`}
+                    autoComplete="off"
+                  />
+                  {result && !result.ok ? <small>{result.expected}</small> : null}
+                </label>
+              )
+            })}
+          </div>
+        </div>
+
+        <div className="belt-quiz">
+          <div>
+            <span className="eyebrow">Asteroid belt</span>
+            <h2>{beltItem?.prompt ?? 'Between which two planets is the main asteroid belt?'}</h2>
+            <p>The belt is deliberately not drawn on the planet line.</p>
+          </div>
+          <div className={latestResult ? (latestResult.belt.ok ? 'belt-answer belt-ok' : 'belt-answer belt-bad') : 'belt-answer'}>
+            <input value={beltAnswer} onChange={(event) => setBeltAnswer(event.target.value)} placeholder="Example: Mars and Jupiter" autoComplete="off" />
+            {latestResult ? <span>{latestResult.belt.ok ? 'Correct' : `Answer: ${latestResult.belt.expected}`}</span> : null}
+          </div>
+        </div>
+
+        <div className="solar-actions">
+          <button type="submit">Check sequence</button>
+          <button type="button" onClick={resetPractice}>
+            Clear
+          </button>
+        </div>
+      </form>
+
+      {latestResult ? (
+        <section className={latestResult.correctCount === latestResult.total ? 'solar-result result-ok' : 'solar-result result-bad'}>
+          <strong>
+            {latestResult.correctCount}/{latestResult.total} correct
+          </strong>
+          <p>Planet order: Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune.</p>
+          <p>Asteroid belt: between Mars and Jupiter.</p>
+        </section>
+      ) : null}
+    </section>
+  )
+}
+
 function App() {
   const countryFeatures = useMemo(() => {
     const collection = feature(countries110m as never, (countries110m as never as { objects: { countries: never } }).objects.countries)
@@ -608,6 +756,43 @@ function App() {
 
   function pickMapItem(item: QuizItem) {
     record(item.name, matchesAnswer(item.name, current, mode), current.name, answerInsight(current))
+  }
+
+  function recordSequence(sequence: SequenceResult) {
+    const key = scoreKey(activeTopic, mode)
+    const previous = scores[key] ?? { attempts: 0, correct: 0, streak: 0, bestStreak: 0 }
+    const perfect = sequence.correctCount === sequence.total
+    const streak = perfect ? previous.streak + 1 : 0
+    const updated = {
+      ...scores,
+      [key]: {
+        attempts: previous.attempts + sequence.total,
+        correct: previous.correct + sequence.correctCount,
+        streak,
+        bestStreak: Math.max(previous.bestStreak, streak),
+      },
+    }
+    setScores(updated)
+    saveScores(updated)
+
+    const result = {
+      id: `${activeRoundKey}:sequence:${Date.now()}`,
+      ok: perfect,
+      prompt: 'Solar system order',
+      submitted: `${sequence.correctCount}/${sequence.total} correct`,
+      expected: 'Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune; asteroid belt between Mars and Jupiter.',
+      expectedName: 'Solar system order',
+      submittedName: 'Solar system order',
+      sequence,
+    }
+
+    setHistories((previousHistories) => ({
+      ...previousHistories,
+      [activeRoundKey]: [
+        result,
+        ...(previousHistories[activeRoundKey] ?? []),
+      ].slice(0, 10),
+    }))
   }
 
   function nextRound() {
@@ -736,29 +921,33 @@ function App() {
           <Stat label="Best streak" value={activeScore.bestStreak} />
         </section>
 
-        <div className={activeTopic.mapKind ? 'practice-grid with-map' : 'practice-grid'}>
-          {activeTopic.mapKind ? (
-            <CultureMap topic={activeTopic} mode={mode} current={current} items={pool} countries={countryFeatures} review={activeReview} onPick={pickMapItem} />
-          ) : current.imageUrl ? (
-            <section className="study-surface image-surface">
-              <img src={current.imageUrl} alt="Quiz prompt" />
-            </section>
-          ) : (
-            <CoursePanel topic={activeTopic} />
-          )}
+        {activeTopic.id === 'solar-system' ? (
+          <SolarSystemQuiz topic={activeTopic} history={activeHistory} onSubmitSequence={recordSequence} />
+        ) : (
+          <div className={activeTopic.mapKind ? 'practice-grid with-map' : 'practice-grid'}>
+            {activeTopic.mapKind ? (
+              <CultureMap topic={activeTopic} mode={mode} current={current} items={pool} countries={countryFeatures} review={activeReview} onPick={pickMapItem} />
+            ) : current.imageUrl ? (
+              <section className="study-surface image-surface">
+                <img src={current.imageUrl} alt="Quiz prompt" />
+              </section>
+            ) : (
+              <CoursePanel topic={activeTopic} />
+            )}
 
-          <QuizPanel
-            key={`${activeRoundKey}:${activeRound.roundId}`}
-            topic={activeTopic}
-            mode={mode}
-            item={current}
-            pool={pool}
-            history={activeHistory}
-            review={activeReview}
-            onSubmit={submit}
-            onNext={nextRound}
-          />
-        </div>
+            <QuizPanel
+              key={`${activeRoundKey}:${activeRound.roundId}`}
+              topic={activeTopic}
+              mode={mode}
+              item={current}
+              pool={pool}
+              history={activeHistory}
+              review={activeReview}
+              onSubmit={submit}
+              onNext={nextRound}
+            />
+          </div>
+        )}
       </section>
     </main>
   )

@@ -541,6 +541,213 @@
   color: #1f2b2e;
 }
 
+.solar-surface {
+  border: 1px solid var(--border);
+  background: #fff;
+  border-radius: 8px;
+  padding: 18px;
+}
+
+.solar-diagram {
+  display: grid;
+  grid-template-columns: 96px minmax(0, 1fr);
+  gap: 16px;
+  align-items: stretch;
+  overflow-x: auto;
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #f7f7f4;
+}
+
+.sun-marker {
+  min-height: 170px;
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  gap: 10px;
+  color: #332c1e;
+}
+
+.sun-marker span {
+  width: 72px;
+  height: 72px;
+  display: block;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #fff1a8, #f1b431 58%, #b66a16);
+  box-shadow: 0 0 18px rgb(241 180 49 / 45%);
+}
+
+.sun-marker strong {
+  font-size: 14px;
+}
+
+.planet-sequence {
+  min-width: 830px;
+  display: grid;
+  grid-template-columns: repeat(8, minmax(92px, 1fr));
+  gap: 10px;
+  align-items: end;
+}
+
+.planet-slot {
+  min-height: 170px;
+  display: grid;
+  grid-template-rows: 54px 20px auto 18px;
+  justify-items: center;
+  align-items: center;
+  gap: 7px;
+  padding: 10px 8px;
+  border: 1px solid #dedbd4;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.planet-orb {
+  display: block;
+  border-radius: 50%;
+  box-shadow: inset -8px -8px 12px rgb(0 0 0 / 18%), 0 1px 2px rgb(0 0 0 / 12%);
+}
+
+.slot-number {
+  width: 22px;
+  height: 22px;
+  display: inline-grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #243238;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.planet-slot input,
+.belt-answer input {
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  padding: 9px 10px;
+  font: inherit;
+  font-size: 14px;
+  color: var(--text-h);
+  background: #fff;
+}
+
+.planet-slot small {
+  color: #8b1d1d;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.slot-ok {
+  border-color: #7bc99b;
+  background: #eefaf1;
+}
+
+.slot-bad {
+  border-color: #dfa2a2;
+  background: #fff1f1;
+}
+
+.belt-quiz {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 360px);
+  gap: 16px;
+  align-items: end;
+  margin-top: 14px;
+  padding: 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.belt-quiz h2 {
+  margin: 0 0 6px;
+  color: var(--text-h);
+  font-size: 22px;
+  line-height: 1.15;
+  letter-spacing: 0;
+}
+
+.belt-quiz p {
+  max-width: 620px;
+  color: #75706b;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.belt-answer {
+  display: grid;
+  gap: 6px;
+}
+
+.belt-answer span {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.belt-ok span {
+  color: #17633a;
+}
+
+.belt-bad span {
+  color: #8b1d1d;
+}
+
+.solar-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.solar-actions button {
+  min-height: 40px;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  padding: 9px 12px;
+  background: #fff;
+  color: var(--text-h);
+  cursor: pointer;
+  font: inherit;
+}
+
+.solar-actions button[type='submit'] {
+  background: #243238;
+  border-color: #243238;
+  color: #fff;
+}
+
+.solar-result {
+  margin-top: 14px;
+  padding: 13px;
+  border-radius: 8px;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.solar-result strong,
+.solar-result p {
+  display: block;
+  margin: 0;
+}
+
+.solar-result p {
+  margin-top: 4px;
+}
+
+.result-ok {
+  background: #e7f5eb;
+  color: #17633a;
+}
+
+.result-bad {
+  background: #fae8e8;
+  color: #8b1d1d;
+}
+
 .study-surface {
   min-height: 430px;
   display: grid;
