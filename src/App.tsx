@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState, type FormEvent } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState, type FormEvent, type PointerEvent as ReactPointerEvent, type WheelEvent as ReactWheelEvent } from 'react'
 import { feature } from 'topojson-client'
 import { geoAlbersUsa, geoEqualEarth, geoMercator, geoPath } from 'd3-geo'
 import { BookOpen, Check, ChevronRight, Globe2, Image, MapPinned, RotateCcw, X } from 'lucide-react'
@@ -58,10 +58,18 @@ type RoundState = {
   roundId: number
   order: number[]
   position: number
+  deckKey: string
+}
+
+type MapView = {
+  scale: number
+  x: number
+  y: number
 }
 
 const WIDTH = 960
 const HEIGHT = 560
+const defaultMapView: MapView = { scale: 1, x: 0, y: 0 }
 
 const defaultModeLabels: Record<QuizMode, string> = {
   'map-click': 'Click location',
@@ -132,26 +140,66 @@ function shuffle<T>(items: T[]) {
 }
 
 function createRoundState(pool: QuizItem[], roundId = 0, firstIndex?: number): RoundState {
+  if (!pool.length) {
+    return {
+      index: 0,
+      roundId,
+      order: [],
+      position: 0,
+      deckKey: deckKey(pool),
+    }
+  }
+
   const indexes = pool.map((_, index) => index)
   const order = shuffle(indexes)
   const validFirstIndex = typeof firstIndex === 'number' && firstIndex >= 0 && firstIndex < pool.length ? firstIndex : undefined
   const ordered = validFirstIndex === undefined ? order : [validFirstIndex, ...order.filter((index) => index !== validFirstIndex)]
-  const fallbackOrder = ordered.length ? ordered : [0]
 
   return {
-    index: fallbackOrder[0],
+    index: ordered[0],
     roundId,
-    order: fallbackOrder,
+    order: ordered,
     position: 0,
+    deckKey: deckKey(pool),
   }
 }
 
 function ensureRoundState(state: RoundState | undefined, pool: QuizItem[]) {
-  if (!state?.order?.length || state.position < 0 || state.position >= state.order.length || state.order.some((index) => index >= pool.length)) {
+  if (!isRoundStateValid(state, pool)) {
     return createRoundState(pool, state?.roundId ?? 0, state?.index)
   }
 
-  return state
+  return state as RoundState
+}
+
+function isRoundStateValid(state: RoundState | undefined, pool: QuizItem[]) {
+  if (!state?.order?.length) return false
+  const uniqueOrder = new Set(state?.order ?? [])
+
+  return (
+    state.deckKey === deckKey(pool) &&
+    state.order.length === pool.length &&
+    uniqueOrder.size === state.order.length &&
+    state.position >= 0 &&
+    state.position < state.order.length &&
+    state.order.every((index) => index >= 0 && index < pool.length)
+  )
+}
+
+function deckKey(pool: QuizItem[]) {
+  return pool.map((item) => item.id).join('|')
+}
+
+function clampMapView(view: MapView): MapView {
+  if (view.scale <= 1) return defaultMapView
+  const minX = WIDTH - WIDTH * view.scale
+  const minY = HEIGHT - HEIGHT * view.scale
+
+  return {
+    scale: view.scale,
+    x: Math.min(0, Math.max(minX, view.x)),
+    y: Math.min(0, Math.max(minY, view.y)),
+  }
 }
 
 function scoreKey(topic: Topic, mode: QuizMode) {
@@ -286,6 +334,9 @@ function CultureMap({
 }) {
   const projection = useMemo(() => buildProjection(topic.mapScope ?? 'world'), [topic.mapScope])
   const path = useMemo(() => geoPath(projection), [projection])
+  const svgRef = useRef<SVGSVGElement | null>(null)
+  const dragRef = useRef<{ pointerId: number; clientX: number; clientY: number; view: MapView } | null>(null)
+  const [mapView, setMapView] = useState<MapView>(defaultMapView)
   const countriesByName = useMemo(() => new Map(countries.map((country) => [normalize(country.properties.name), country])), [countries])
   const itemNameSet = useMemo(() => new Set(items.map((item) => normalize(item.name))), [items])
   const boundaries = useMemo(() => {
@@ -301,90 +352,167 @@ function CultureMap({
   const showCountryLayer = topic.boundaryLayer !== 'us-states'
   const expectedName = review ? normalize(review.expectedName) : ''
   const submittedName = review ? normalize(review.submittedName) : ''
+  const mapTransform = `translate(${mapView.x} ${mapView.y}) scale(${mapView.scale})`
+
+  function zoomAt(clientX: number, clientY: number, direction: number) {
+    const svg = svgRef.current
+    if (!svg) return
+    const rect = svg.getBoundingClientRect()
+    const pointX = ((clientX - rect.left) / rect.width) * WIDTH
+    const pointY = ((clientY - rect.top) / rect.height) * HEIGHT
+
+    setMapView((previous) => {
+      const nextScale = Math.min(12, Math.max(1, previous.scale * (direction > 0 ? 1.22 : 1 / 1.22)))
+      const ratio = nextScale / previous.scale
+      return clampMapView({
+        scale: nextScale,
+        x: pointX - (pointX - previous.x) * ratio,
+        y: pointY - (pointY - previous.y) * ratio,
+      })
+    })
+  }
+
+  function handleWheel(event: ReactWheelEvent<SVGSVGElement>) {
+    if (!event.ctrlKey && !event.metaKey) return
+    event.preventDefault()
+    zoomAt(event.clientX, event.clientY, event.deltaY < 0 ? 1 : -1)
+  }
+
+  function handlePointerDown(event: ReactPointerEvent<SVGSVGElement>) {
+    if (mapView.scale <= 1) return
+    dragRef.current = { pointerId: event.pointerId, clientX: event.clientX, clientY: event.clientY, view: mapView }
+    event.currentTarget.setPointerCapture(event.pointerId)
+  }
+
+  function handlePointerMove(event: ReactPointerEvent<SVGSVGElement>) {
+    const drag = dragRef.current
+    const svg = svgRef.current
+    if (!drag || !svg || drag.pointerId !== event.pointerId) return
+    const rect = svg.getBoundingClientRect()
+    const dx = ((event.clientX - drag.clientX) / rect.width) * WIDTH
+    const dy = ((event.clientY - drag.clientY) / rect.height) * HEIGHT
+    setMapView(clampMapView({ ...drag.view, x: drag.view.x + dx, y: drag.view.y + dy }))
+  }
+
+  function handlePointerUp(event: ReactPointerEvent<SVGSVGElement>) {
+    if (dragRef.current?.pointerId === event.pointerId) {
+      dragRef.current = null
+    }
+  }
+
+  function setZoom(direction: number) {
+    const rect = svgRef.current?.getBoundingClientRect()
+    if (!rect) return
+    zoomAt(rect.left + rect.width / 2, rect.top + rect.height / 2, direction)
+  }
 
   return (
     <div className="map-shell">
-      <svg className="map" viewBox={`0 0 ${WIDTH} ${HEIGHT}`} role="img" aria-label={`${topic.title} map quiz`}>
+      <div className="map-zoom-controls" aria-label="Map zoom controls">
+        <button type="button" onClick={() => setZoom(1)} aria-label="Zoom in">
+          +
+        </button>
+        <button type="button" onClick={() => setZoom(-1)} aria-label="Zoom out">
+          -
+        </button>
+        <button type="button" onClick={() => setMapView(defaultMapView)} aria-label="Reset zoom">
+          {mapView.scale.toFixed(1)}x
+        </button>
+      </div>
+      <svg
+        ref={svgRef}
+        className={mapView.scale > 1 ? 'map map-zoomed' : 'map'}
+        viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
+        role="img"
+        aria-label={`${topic.title} map quiz`}
+        onWheel={handleWheel}
+        onPointerDown={handlePointerDown}
+        onPointerMove={handlePointerMove}
+        onPointerUp={handlePointerUp}
+        onPointerCancel={handlePointerUp}
+      >
         <rect width={WIDTH} height={HEIGHT} rx="0" className="ocean" />
-        {showCountryLayer ? (
-          <g>
-            {countries.map((country) => {
-              const name = country.properties.name
-              const isTarget = normalize(name) === normalize(current.name)
-              const isExpected = review && normalize(name) === expectedName
-              const isWrongPick = review && !review.ok && normalize(name) === submittedName
-              const isInteractive = topic.mapKind === 'country-polygons' && mode === 'map-click'
-              const klass = [
-                'country',
-                isInteractive && !review ? 'country-clickable' : '',
-                mode === 'map-type' && isTarget ? 'target-country' : '',
-                isExpected ? 'correct-country' : '',
-                isWrongPick ? 'wrong-country' : '',
-              ].join(' ')
+        <g transform={mapTransform}>
+          {showCountryLayer ? (
+            <g>
+              {countries.map((country) => {
+                const name = country.properties.name
+                const isTarget = normalize(name) === normalize(current.name)
+                const isExpected = review && normalize(name) === expectedName
+                const isWrongPick = review && !review.ok && normalize(name) === submittedName
+                const isInteractive = topic.mapKind === 'country-polygons' && mode === 'map-click'
+                const klass = [
+                  'country',
+                  isInteractive && !review ? 'country-clickable' : '',
+                  mode === 'map-type' && isTarget ? 'target-country' : '',
+                  isExpected ? 'correct-country' : '',
+                  isWrongPick ? 'wrong-country' : '',
+                ].join(' ')
 
-              return (
-                <path
-                  key={name}
-                  className={klass}
-                  d={path(country) ?? undefined}
-                  onClick={isInteractive && !review ? () => onPick({ id: normalize(name), name }) : undefined}
-                />
-              )
-            })}
-          </g>
-        ) : null}
+                return (
+                  <path
+                    key={name}
+                    className={klass}
+                    d={path(country) ?? undefined}
+                    onClick={isInteractive && !review ? () => onPick({ id: normalize(name), name }) : undefined}
+                  />
+                )
+              })}
+            </g>
+          ) : null}
 
-        {boundaries.length ? (
-          <g className="boundary-layer">
-            {boundaries.map((boundary, index) => {
-              const name = boundaryName(boundary)
-              const isTarget = normalize(name) === normalize(current.name)
-              const isExpected = review && normalize(name) === expectedName
-              const isWrongPick = review && !review.ok && normalize(name) === submittedName
-              const matchedItem = itemsByName.get(normalize(name)) ?? { id: normalize(name), name }
-              const klass = [
-                'boundary-area',
-                canClickBoundaries && !review ? 'boundary-clickable' : '',
-                mode === 'map-type' && isTarget ? 'target-boundary' : '',
-                isExpected ? 'correct-boundary' : '',
-                isWrongPick ? 'wrong-boundary' : '',
-              ].join(' ')
+          {boundaries.length ? (
+            <g className="boundary-layer">
+              {boundaries.map((boundary, index) => {
+                const name = boundaryName(boundary)
+                const isTarget = normalize(name) === normalize(current.name)
+                const isExpected = review && normalize(name) === expectedName
+                const isWrongPick = review && !review.ok && normalize(name) === submittedName
+                const matchedItem = itemsByName.get(normalize(name)) ?? { id: normalize(name), name }
+                const klass = [
+                  'boundary-area',
+                  canClickBoundaries && !review ? 'boundary-clickable' : '',
+                  mode === 'map-type' && isTarget ? 'target-boundary' : '',
+                  isExpected ? 'correct-boundary' : '',
+                  isWrongPick ? 'wrong-boundary' : '',
+                ].join(' ')
 
-              return <path key={`${name}-${index}`} className={klass} d={path(boundary) ?? undefined} onClick={canClickBoundaries && !review ? () => onPick(matchedItem) : undefined} />
-            })}
-          </g>
-        ) : null}
+                return <path key={`${name}-${index}`} className={klass} d={path(boundary) ?? undefined} onClick={canClickBoundaries && !review ? () => onPick(matchedItem) : undefined} />
+              })}
+            </g>
+          ) : null}
 
-        {topic.mapKind === 'country-polygons' && mode === 'map-type' && currentCountry ? (
-          <path className="target-outline" d={path(currentCountry) ?? undefined} />
-        ) : null}
+          {topic.mapKind === 'country-polygons' && mode === 'map-type' && currentCountry ? (
+            <path className="target-outline" d={path(currentCountry) ?? undefined} />
+          ) : null}
 
-        {topic.mapKind === 'points' && mode === 'map-type' && currentBoundary ? <path className="target-outline" d={path(currentBoundary) ?? undefined} /> : null}
+          {topic.mapKind === 'points' && mode === 'map-type' && currentBoundary ? <path className="target-outline" d={path(currentBoundary) ?? undefined} /> : null}
 
-        {topic.mapKind === 'points'
-          ? items.map((item) => {
-              if (typeof item.lat !== 'number' || typeof item.lon !== 'number') return null
-              const point = projection([item.lon, item.lat])
-              if (!point) return null
-              const isTarget = item.id === current.id
-              const isExpected = review && normalize(item.name) === expectedName
-              const isWrongPick = review && !review.ok && normalize(item.name) === submittedName
-              const pointClass = [
-                'map-point',
-                mode === 'map-click' && !review ? 'map-point-clickable' : '',
-                mode === 'map-type' && isTarget ? 'map-point-target' : '',
-                isExpected ? 'map-point-correct' : '',
-                isWrongPick ? 'map-point-wrong' : '',
-              ].join(' ')
-              return (
-                <g key={item.id} transform={`translate(${point[0]} ${point[1]})`} onClick={mode === 'map-click' && !review ? () => onPick(item) : undefined}>
-                  {mode === 'map-click' && !review ? <circle className="map-point-hit" r={9} /> : null}
-                  <circle className={pointClass} r={isTarget && mode !== 'map-click' ? 5 : 3} />
-                  {isTarget && mode !== 'map-click' ? <circle className="map-point-pulse" r={10} /> : null}
-                </g>
-              )
-            })
-          : null}
+          {topic.mapKind === 'points'
+            ? items.map((item) => {
+                if (typeof item.lat !== 'number' || typeof item.lon !== 'number') return null
+                const point = projection([item.lon, item.lat])
+                if (!point) return null
+                const isTarget = item.id === current.id
+                const isExpected = review && normalize(item.name) === expectedName
+                const isWrongPick = review && !review.ok && normalize(item.name) === submittedName
+                const pointClass = [
+                  'map-point',
+                  mode === 'map-click' && !review ? 'map-point-clickable' : '',
+                  mode === 'map-type' && isTarget ? 'map-point-target' : '',
+                  isExpected ? 'map-point-correct' : '',
+                  isWrongPick ? 'map-point-wrong' : '',
+                ].join(' ')
+                return (
+                  <g key={item.id} transform={`translate(${point[0]} ${point[1]})`} onClick={mode === 'map-click' && !review ? () => onPick(item) : undefined}>
+                    {mode === 'map-click' && !review ? <circle className="map-point-hit" r={9} /> : null}
+                    <circle className={pointClass} r={isTarget && mode !== 'map-click' ? 5 : 3} />
+                    {isTarget && mode !== 'map-click' ? <circle className="map-point-pulse" r={10} /> : null}
+                  </g>
+                )
+              })
+            : null}
+        </g>
       </svg>
     </div>
   )
@@ -813,7 +941,7 @@ function App() {
     const nextKey = roundKey(topic, nextMode)
     setMode(nextMode)
     setRoundStates((previous) => {
-      if (previous[nextKey]) return previous
+      if (isRoundStateValid(previous[nextKey], topic.items)) return previous
       return {
         ...previous,
         [nextKey]: createRoundState(topic.items, 0, Math.min(current ? pool.indexOf(current) : 0, Math.max(topic.items.length - 1, 0))),
@@ -827,7 +955,7 @@ function App() {
     setTopicId(topic.id)
     setMode(nextMode)
     setRoundStates((previous) => {
-      if (previous[nextKey]) return previous
+      if (isRoundStateValid(previous[nextKey], topic.items)) return previous
       return {
         ...previous,
         [nextKey]: createRoundState(topic.items),
@@ -936,7 +1064,7 @@ function App() {
         ) : (
           <div className={activeTopic.mapKind ? 'practice-grid with-map' : 'practice-grid'}>
             {activeTopic.mapKind ? (
-              <CultureMap topic={activeTopic} mode={mode} current={current} items={pool} countries={countryFeatures} review={activeReview} onPick={pickMapItem} />
+              <CultureMap key={`${activeTopic.id}:${mode}`} topic={activeTopic} mode={mode} current={current} items={pool} countries={countryFeatures} review={activeReview} onPick={pickMapItem} />
             ) : current.imageUrl ? (
               <section className="study-surface image-surface">
                 <img src={current.imageUrl} alt="Quiz prompt" />
