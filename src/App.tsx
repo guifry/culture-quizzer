@@ -9,6 +9,7 @@ import frRegions from './data/geo/fr-regions.json'
 import ukAdmin from './data/geo/uk-counties-unitaries-2022.json'
 import './App.css'
 import { topics, type MapScope, type QuizItem, type QuizMode, type Topic } from './data/curriculum'
+import { resolveImageUrl } from './utils'
 
 type CountryFeature = GeoJSON.Feature<GeoJSON.Geometry, { name: string }>
 type BoundaryFeature = GeoJSON.Feature<GeoJSON.Geometry, Record<string, string | number | null>>
@@ -581,7 +582,7 @@ function QuizPanel({
         </button>
       </div>
 
-      {mode === 'image' && item.imageUrl && topic.mapKind ? <img className="quiz-image" src={item.imageUrl} alt="Quiz prompt" /> : null}
+      {mode === 'image' && item.imageUrl && topic.mapKind ? <img className="quiz-image" src={resolveImageUrl(item.imageUrl)} alt="Quiz prompt" /> : null}
 
       {mode === 'choice' ? (
         <div className="choice-grid">
@@ -1073,7 +1074,7 @@ function App() {
               <CultureMap key={`${activeTopic.id}:${mode}`} topic={activeTopic} mode={mode} current={current} items={pool} countries={countryFeatures} review={activeReview} onPick={pickMapItem} />
             ) : current.imageUrl ? (
               <section className="study-surface image-surface">
-                <img src={current.imageUrl} alt="Quiz prompt" />
+                <img src={resolveImageUrl(current.imageUrl)} alt="Quiz prompt" />
               </section>
             ) : (
               <CoursePanel topic={activeTopic} />
