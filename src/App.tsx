@@ -39,6 +39,22 @@ type AnswerInsight = {
   note?: string
 }
 
+type PageView = 'practice' | 'course' | 'questions'
+
+type CourseSection = {
+  heading: string
+  paragraphs: string[]
+  bullets?: string[]
+}
+
+type CourseArticle = {
+  title: string
+  deckLabel: string
+  lede: string
+  sections: CourseSection[]
+  takeaways: string[]
+}
+
 type SequenceResult = {
   planets: Array<{
     expected: string
@@ -314,25 +330,312 @@ function TopicIcon({ topic }: { topic: Topic }) {
   return <BookOpen size={18} />
 }
 
-function CoursePanel({ topic }: { topic: Topic }) {
+const courseArticles: Record<string, CourseArticle> = {
+  'political-systems': {
+    title: 'How Four Political Systems Work',
+    deckLabel: 'Constitutional mechanics',
+    lede: 'This course is about the rules of the game: who gets power, who can block whom, how leaders are chosen, and where people often confuse institutions with similar names.',
+    sections: [
+      {
+        heading: 'France: a semi-presidential republic',
+        paragraphs: [
+          'France gives real power to both an elected president and a government led by a prime minister. The president is elected directly and is strongest in foreign policy, defence, appointments, and national direction. The prime minister runs the government day to day and must survive politically in the National Assembly.',
+          'When the president and the Assembly majority come from the same camp, the president dominates the system. When they come from opposing camps, France enters cohabitation: the president remains head of state, but domestic policy shifts toward the prime minister and parliamentary majority.',
+        ],
+        bullets: [
+          'The National Assembly is the lower house and can bring down the government through a censure motion.',
+          'The Senate is elected indirectly and represents territorial communities.',
+          'The Constitutional Council reviews whether laws fit the Constitution.',
+          'Article 11 allows some bills to be submitted to referendum; Article 89 is the normal amendment route.',
+        ],
+      },
+      {
+        heading: 'The United Kingdom: parliamentary government without one written constitution',
+        paragraphs: [
+          'The UK is a constitutional monarchy and parliamentary democracy. The monarch is head of state, but political authority rests with ministers who must command the confidence of the House of Commons. The prime minister is not directly elected as prime minister; they are appointed because they can lead a Commons majority or workable government.',
+          'The UK constitution is spread across statutes, court decisions, conventions, and political practice. That makes conventions important: ministerial responsibility, the monarch acting on advice, and the Sewel convention all shape behaviour even when they are not ordinary enforceable rules.',
+        ],
+        bullets: [
+          'General elections use First Past the Post in single-member constituencies.',
+          'The House of Commons controls confidence, taxation, and money bills.',
+          'The House of Lords revises and delays legislation but is weaker than the Commons.',
+          'Devolution gives Scotland, Wales, and Northern Ireland powers over areas such as health and education.',
+        ],
+      },
+      {
+        heading: 'The European Union: shared law between states',
+        paragraphs: [
+          'The European Union is not a normal state and not just an international club. It is a legal and political system where member states share powers in defined areas. The useful shortcut is to separate agenda-setting, law-making, execution, and interpretation.',
+          'The European Commission usually proposes legislation and enforces EU law. The European Parliament is directly elected by EU citizens. The Council of the EU represents national ministers and passes legislation with Parliament. The European Council is different: it is the summit of heads of state or government and sets broad direction.',
+        ],
+        bullets: [
+          'Do not confuse the European Council with the Council of the EU.',
+          'The Schengen Area concerns border controls; the Eurozone concerns the euro.',
+          'The Court of Justice of the EU interprets EU law.',
+        ],
+      },
+      {
+        heading: 'The United States: separated powers and federalism',
+        paragraphs: [
+          'The United States is a federal presidential republic. The president is separately elected from Congress, so the executive does not need day-to-day confidence from the legislature. Congress writes laws and controls money. The courts can review laws and executive action.',
+          'Federalism matters as much as separation of powers. The federal government and the states each have their own constitutional roles. Every state has two senators regardless of population, while House seats are population-based. Presidents are chosen through the Electoral College, where a candidate needs a majority of electoral votes.',
+        ],
+        bullets: [
+          'Judicial review is associated with Marbury v. Madison.',
+          'The First Amendment protects speech, religion, press, assembly, and petition.',
+          'Checks and balances are the tools each branch uses; separation of powers is the division of jobs.',
+        ],
+      },
+    ],
+    takeaways: ['France mixes president and parliament.', 'The UK government lives or dies by Commons confidence.', 'The EU separates Commission, Parliament, Council, and European Council.', 'The US separates executive, legislature, courts, and federal/state power.'],
+  },
+  'history-outline': {
+    title: 'Scotland, England, and France: the broad outline',
+    deckLabel: 'Historical scaffolding',
+    lede: 'This course gives the big chapters first. The dates and names in the quiz are anchors for a mental timeline, not isolated trivia.',
+    sections: [
+      {
+        heading: 'Scotland: from Alba to devolution',
+        paragraphs: [
+          'Early Scotland was shaped by Picts, Gaels, Britons, Angles, and Vikings. The kingdom of Alba gradually became the core of medieval Scotland. The Wars of Independence then created the heroic memory of William Wallace and Robert the Bruce.',
+          'The Union of the Crowns in 1603 joined the Scottish and English crowns under James VI and I, but the parliaments stayed separate. The Acts of Union in 1707 created the Parliament of Great Britain. Later, the Scottish Enlightenment made Edinburgh a centre of philosophy, economics, medicine, and science. Modern devolution restored a Scottish Parliament after the 1997 referendum.',
+        ],
+      },
+      {
+        heading: 'England: conquest, parliament, and empire',
+        paragraphs: [
+          'Roman Britain begins with Claudius in 43 CE, followed by Anglo-Saxon kingdoms after Roman withdrawal. The Norman Conquest in 1066 is the major hinge: William of Normandy defeats Harold Godwinson and reshapes landholding, language, and monarchy.',
+          'Magna Carta in 1215 becomes a symbolic limit on royal power. The English Civil War pits Royalists against Parliamentarians and ends with the execution of Charles I. The Glorious Revolution of 1688 confirms parliamentary supremacy. Victorian Britain then combines industrialisation, social reform, and imperial expansion.',
+        ],
+      },
+      {
+        heading: 'France: dynasties, revolution, republic',
+        paragraphs: [
+          'The simple royal sequence to remember is Merovingian, Carolingian, Capetian, Valois, Bourbon. The Hundred Years War turns dynastic conflict into national memory, with Joan of Arc fighting for France. The Wars of Religion then divide Catholics and Protestants until the Edict of Nantes.',
+          'The French Revolution begins in 1789 and breaks the Bourbon monarchy. Napoleon turns revolutionary France into empire, then Waterloo ends his final return to power. The Third Republic anchors secular republican France; the Fifth Republic, created in 1958 by Charles de Gaulle, is the current strong-presidency system.',
+        ],
+      },
+    ],
+    takeaways: ['1603 joins crowns; 1707 joins parliaments.', '1066, 1215, 1642-1651, and 1688 are core English anchors.', 'French history moves from dynasties to Revolution, Napoleon, and republics.'],
+  },
+  'empires-battles': {
+    title: 'Empires and Battles as Timeline Anchors',
+    deckLabel: 'Power, territory, and turning points',
+    lede: 'The purpose of this course is not to memorise every campaign. It is to know which powers mattered, roughly when they existed, where they were, and why a few battles became turning points.',
+    sections: [
+      {
+        heading: 'Ancient imperial models',
+        paragraphs: [
+          'The Achaemenid Persian Empire is the first huge Near Eastern empire to keep in mind, stretching from Iran toward Egypt and Anatolia. Alexander the Great destroys it and briefly creates a Macedonian empire from Greece to the edge of India.',
+          'Rome is the central Mediterranean empire: republic, then empire, then a western fall in 476 CE while the eastern Byzantine Empire continues from Constantinople until 1453. These states become reference points for law, roads, citizenship, Christianity, and imperial prestige.',
+        ],
+      },
+      {
+        heading: 'Medieval and early modern empires',
+        paragraphs: [
+          'The Abbasid Caliphate is tied to Baghdad and the House of Wisdom. The Mongol Empire is the great land empire of Eurasia. The Ottoman Empire takes Constantinople in 1453 and controls major territory across the Middle East, Balkans, and North Africa.',
+          'The Mughal Empire rules much of India. The Spanish and Portuguese empires open the age of oceanic empire in the Americas, Africa, and Asia. Dutch, British, French, Russian, Qing, Inca, and other empires show that expansion happened by sea, steppe, trade, conquest, and bureaucracy.',
+        ],
+      },
+      {
+        heading: 'Battles as memory hooks',
+        paragraphs: [
+          'A few battles stand in for larger historical changes. Marathon and Thermopylae anchor the Greek-Persian wars. Cannae shows Hannibal at his tactical peak against Rome. Tours is remembered in Frankish and Islamic expansion narratives. Agincourt anchors the Hundred Years War.',
+          'Yorktown helps end the American Revolutionary War. Trafalgar secures British naval dominance. Austerlitz is Napoleon at his best; Waterloo ends him. Gettysburg turns the US Civil War. Stalingrad and Midway mark World War II turning points, and Normandy opens the road to the liberation of Western Europe.',
+        ],
+      },
+    ],
+    takeaways: ['Empires are remembered by era, core territory, and ruling logic.', 'Battles are useful when they mark a turning point or symbol.', 'Know the ancient, medieval, early modern, and modern sequence before details.'],
+  },
+  'modern-leaders': {
+    title: 'France and UK Leaders Since 1960',
+    deckLabel: 'Modern political chronology',
+    lede: 'This course gives the basic line of political leadership in Britain and France since 1960. The goal is to recognise the order and the political context attached to each name.',
+    sections: [
+      {
+        heading: 'Britain: postwar consensus to Brexit and after',
+        paragraphs: [
+          'At the start of 1960, Harold Macmillan leads Conservative Britain. Alec Douglas-Home briefly follows, then Labour returns with Harold Wilson. Edward Heath takes Britain into the European Communities in 1973. James Callaghan ends the 1970s Labour period.',
+          'Margaret Thatcher dominates 1979-1990 with privatisation, union conflict, and a new Conservative settlement. John Major follows, then Tony Blair brings New Labour landslides in 1997, 2001, and 2005. Gordon Brown handles the financial crisis period. David Cameron leads coalition government and the Brexit referendum. Theresa May negotiates Brexit, Boris Johnson wins the 2019 majority, Liz Truss is shortest-serving PM, Rishi Sunak follows, and Keir Starmer becomes prime minister on 5 July 2024.',
+        ],
+      },
+      {
+        heading: 'France: Fifth Republic presidents',
+        paragraphs: [
+          'Charles de Gaulle creates and leads the Fifth Republic. Georges Pompidou continues Gaullist modernisation. Valery Giscard d Estaing represents liberal centre-right reform. Francois Mitterrand is the great Socialist president, serving from 1981 to 1995.',
+          'Jacques Chirac follows from 1995 to 2007. Nicolas Sarkozy serves 2007-2012. Francois Hollande serves 2012-2017. Emmanuel Macron, first elected in 2017, is president as of May 2026.',
+        ],
+      },
+      {
+        heading: 'Prime ministers matter differently',
+        paragraphs: [
+          'In Britain, the prime minister is the central executive figure because the system is parliamentary. In France, the president is usually the headline executive figure, but prime ministers become especially important during cohabitation or major domestic reform periods.',
+          'For France, know a few prime minister anchors: Pompidou before becoming president, Chaban-Delmas under Pompidou, Mauroy under Mitterrand, Balladur and Jospin during cohabitations, Fillon under Sarkozy, Valls under Hollande, and Edouard Philippe under Macron.',
+        ],
+      },
+    ],
+    takeaways: ['UK leadership is a prime-ministerial sequence.', 'French leadership is primarily a presidential sequence.', 'French prime ministers are crucial context, especially under cohabitation.'],
+  },
+  'classical-music': {
+    title: 'Classical Music Movements in Europe',
+    deckLabel: 'Periods, composers, anchor works',
+    lede: 'Classical music is easiest to remember as a sequence of styles. Each period has a sound-world, a social setting, and a few composers whose works become anchors.',
+    sections: [
+      {
+        heading: 'From medieval chant to Renaissance polyphony',
+        paragraphs: [
+          'Medieval music is tied to church, chant, and early notation. Hildegard of Bingen is a rare named medieval composer whose liturgical music survives with a strong personality.',
+          'Renaissance music develops smoother polyphony: several independent vocal lines balanced together. Palestrina is the clean mental anchor for sacred Renaissance choral music, especially the Missa Papae Marcelli.',
+        ],
+      },
+      {
+        heading: 'Baroque and Classical balance',
+        paragraphs: [
+          'Baroque music loves contrast, basso continuo, ornament, and expressive drive. Bach stands for contrapuntal mastery, Vivaldi for the concerto and The Four Seasons, Handel for large public works such as Messiah.',
+          'The Classical era aims for clarity, balance, and form. Haydn develops the symphony and string quartet. Mozart combines elegance, drama, and melody. Beethoven begins in Classical form but pushes toward Romantic intensity.',
+        ],
+      },
+      {
+        heading: 'Romanticism and modernism',
+        paragraphs: [
+          'Romantic music expands emotion, colour, virtuosity, nationalism, and the scale of orchestra and opera. Schubert, Chopin, Liszt, Wagner, Verdi, Brahms, Tchaikovsky, Mahler, and Puccini are core anchors.',
+          'Around 1900, modernism fragments the old language. Debussy and Ravel explore colour and ambiguity. Stravinsky makes rhythm and shock central in The Rite of Spring. Schoenberg develops twelve-tone technique. Bartok, Gershwin, and Copland connect modernism with folk, jazz, and national sound.',
+        ],
+      },
+    ],
+    takeaways: ['Medieval and Renaissance are vocal and church-centred.', 'Baroque is contrast and counterpoint; Classical is balance and form.', 'Romanticism expands emotion; modernism breaks old rules.'],
+  },
+  'art-movements-sculpture': {
+    title: 'Painting Movements and Sculpture',
+    deckLabel: 'Visual culture timeline',
+    lede: 'This course is organised chronologically. The aim is to recognise the movement by its visual logic, then attach a few artists and masterpieces to that style.',
+    sections: [
+      {
+        heading: 'Medieval foundations: Byzantine, Romanesque, Gothic',
+        paragraphs: [
+          'Byzantine art is tied to the Eastern Roman and Orthodox Christian world: gold grounds, icons, mosaics, and sacred frontality. The goal is not realism but spiritual presence. Ravenna mosaics and Christ Pantocrator icons are useful anchors.',
+          'Gothic art grows in medieval Europe with cathedrals, stained glass, pointed arches, and devotional imagery. Chartres is the architectural and stained-glass anchor. Late Gothic and early Italian painting begin to move toward more human space and emotion.',
+        ],
+      },
+      {
+        heading: 'Renaissance to Baroque: human form, space, drama',
+        paragraphs: [
+          'The Renaissance turns toward classical antiquity, anatomy, perspective, and the dignity of the human figure. Leonardo, Michelangelo, and Raphael are the central High Renaissance names. In sculpture, Donatello and Michelangelo make the human body a vehicle for civic and spiritual force.',
+          'Baroque art keeps technical mastery but adds movement, theatrical light, and emotional drama. Caravaggio uses sharp light and ordinary bodies; Rubens uses energy and flesh; Rembrandt turns light into psychology. Bernini is the great Baroque sculptor, making marble feel like action.',
+        ],
+      },
+      {
+        heading: 'Eighteenth and nineteenth centuries: taste, reason, emotion, reality',
+        paragraphs: [
+          'Rococo is elegant, playful, decorative, and aristocratic. Neoclassicism reacts with moral seriousness and ancient Roman clarity: David and Ingres are core names. Canova is the sculpture anchor for polished Neoclassical ideal beauty.',
+          'Romanticism values emotion, nature, violence, and the sublime; Delacroix, Gericault, and Turner are strong anchors. Realism turns away from myth and courtly polish toward ordinary labour and modern life, with Courbet and Millet.',
+        ],
+      },
+      {
+        heading: 'Modern movements: seeing breaks apart',
+        paragraphs: [
+          'Impressionism studies light, colour, and modern leisure with visible brushwork; Monet, Renoir, and Degas are central. Fauvism pushes colour away from naturalism through Matisse and Derain. Expressionism makes inner emotion more important than outward accuracy.',
+          'Cubism, led by Picasso and Braque, breaks objects into multiple viewpoints. Surrealism, with Dali and Magritte, makes dream logic visible. Abstract Expressionism, Pop Art, Art Nouveau, and Minimalism each teach a different modern idea: gesture, mass culture, decorative organic line, and reduction to simple form.',
+        ],
+      },
+      {
+        heading: 'Sculpture anchors',
+        paragraphs: [
+          'For broad culture, know the sculptural line from Phidias and Myron in ancient Greece, through Donatello and Michelangelo in the Renaissance, Bernini in the Baroque, Canova in Neoclassicism, Rodin in modern expressive sculpture, then Brancusi, Henry Moore, and Giacometti in modern abstraction and existential form.',
+        ],
+      },
+    ],
+    takeaways: ['Renaissance: perspective and ideal human form.', 'Baroque: drama, movement, light.', 'Impressionism onward: modern vision breaks into colour, viewpoint, dream, gesture, mass culture, and abstraction.'],
+  },
+  'philosophy-literature': {
+    title: 'Philosophy, Poetry, and Books',
+    deckLabel: 'Ideas and literary canon',
+    lede: 'This course turns a long cultural list into a map: ancient ethics and metaphysics, early modern knowledge and politics, modern freedom and society, then poets and books that became global reference points.',
+    sections: [
+      {
+        heading: 'Ancient and medieval philosophy',
+        paragraphs: [
+          'Socrates stands for questioning and the examined life. Plato turns that questioning into dialogues about justice, forms, education, and the ideal city. Aristotle is more systematic, writing on ethics, politics, logic, biology, rhetoric, and tragedy.',
+          'Stoicism teaches virtue, reason, and discipline toward what cannot be controlled. Confucius anchors a different tradition: moral cultivation, ritual, hierarchy, and filial piety. Thomas Aquinas later synthesises Aristotle with Christian theology in medieval scholasticism.',
+        ],
+      },
+      {
+        heading: 'Modern philosophy: knowledge, politics, freedom',
+        paragraphs: [
+          'Descartes begins from doubt and the thinking self. Hume pushes empiricism and scepticism. Kant tries to answer Hume by explaining the structures that make experience possible. Rousseau makes popular sovereignty and the social contract central to modern politics.',
+          'Mill gives liberalism and utilitarianism a classic voice. Marx analyses capitalism, class, and historical change. Nietzsche attacks inherited morality and religion. Existentialism and Simone de Beauvoir put freedom, responsibility, ambiguity, and gender at the centre.',
+        ],
+      },
+      {
+        heading: 'Poetry and books as cultural anchors',
+        paragraphs: [
+          'Homer anchors epic poetry with the Iliad and Odyssey. Dante turns Christian cosmology into the Divine Comedy. Shakespeare is both poet and playwright. Milton gives English epic its great religious-political monument in Paradise Lost.',
+          'The novel canon starts with landmarks such as The Tale of Genji and Don Quixote, then expands through Austen, Dickens, Tolstoy, Dostoevsky, Joyce, Orwell, and Garcia Marquez. The point is to know author, title, period, and the broad cultural role of the work.',
+        ],
+      },
+    ],
+    takeaways: ['Ancient philosophy asks how to live and what is real.', 'Modern philosophy asks how we know, govern, and choose.', 'Literary anchors connect title, author, period, and cultural role.'],
+  },
+}
+
+function CoursePanel({ article }: { article: CourseArticle }) {
   return (
     <section className="course-surface">
       <div className="course-header">
         <span className="eyebrow">Course</span>
-        <h2>{topic.title}</h2>
-        <p>{topic.description}</p>
+        <h2>{article.title}</h2>
+        <p>{article.lede}</p>
       </div>
 
-      <div className="course-list">
+      <article className="course-article">
+        {article.sections.map((section) => (
+          <section key={section.heading}>
+            <h3>{section.heading}</h3>
+            {section.paragraphs.map((paragraph) => (
+              <p key={paragraph}>{paragraph}</p>
+            ))}
+            {section.bullets ? (
+              <ul>
+                {section.bullets.map((bullet) => (
+                  <li key={bullet}>{bullet}</li>
+                ))}
+              </ul>
+            ) : null}
+          </section>
+        ))}
+
+        <aside className="course-takeaways">
+          <h3>What to know by heart</h3>
+          <ul>
+            {article.takeaways.map((takeaway) => (
+              <li key={takeaway}>{takeaway}</li>
+            ))}
+          </ul>
+        </aside>
+      </article>
+    </section>
+  )
+}
+
+function QuestionReferencePanel({ topic, article }: { topic: Topic; article?: CourseArticle }) {
+  return (
+    <section className="course-surface">
+      <div className="course-header">
+        <span className="eyebrow">Question list</span>
+        <h2>{topic.title}</h2>
+        <p>{article ? `Practice prompts for the ${article.deckLabel.toLowerCase()} deck.` : topic.coverage}</p>
+      </div>
+
+      <div className="question-reference-list">
         {topic.items.map((item) => {
           const answer = item.answer && normalize(item.answer) !== normalize(item.name) ? item.answer : undefined
           return (
-            <article key={item.id} className="course-row">
+            <article key={item.id} className="question-reference-row">
               <div>
-                <strong>{item.name}</strong>
-                {answer ? <span>{answer}</span> : null}
+                <strong>{item.prompt ?? item.name}</strong>
+                <span>{answer ?? item.name}</span>
               </div>
-              <p>{item.detail ?? item.location ?? item.era ?? item.prompt ?? topic.coverage}</p>
+              <p>{item.detail ?? item.location ?? item.era ?? topic.coverage}</p>
             </article>
           )
         })}
@@ -832,6 +1135,7 @@ function App() {
   const [scores, setScores] = useState<Record<string, Score>>(() => loadScores())
   const [histories, setHistories] = useState<Record<string, AnswerResult[]>>({})
   const [reviews, setReviews] = useState<Record<string, AnswerResult | undefined>>({})
+  const [pageView, setPageView] = useState<PageView>('practice')
   const [roundStates, setRoundStates] = useState<Record<string, RoundState>>(() => {
     const firstTopic = fullTopics[0]
     const firstMode = firstTopic.modes[0]
@@ -849,6 +1153,8 @@ function App() {
   const activeHistory = histories[activePracticeKey] ?? []
   const activeReview = reviews[activePracticeKey]
   const accuracy = activeScore.attempts ? Math.round((activeScore.correct / activeScore.attempts) * 100) : 0
+  const activeCourse = courseArticles[activeTopic.id]
+  const activePageView: PageView = activeCourse ? pageView : 'practice'
 
   const advanceRound = useCallback(() => {
     setReviews((previous) => ({ ...previous, [activePracticeKey]: undefined }))
@@ -987,6 +1293,7 @@ function App() {
     const nextPool = poolForTopic(topic, nextMode)
     setTopicId(topic.id)
     setMode(nextMode)
+    setPageView('practice')
     setRoundStates((previous) => {
       if (isRoundStateValid(previous[nextKey], nextPool)) return previous
       return {
@@ -1096,57 +1403,73 @@ function App() {
           </button>
         </header>
 
-        <div className="mode-control">
-          <span>Quiz type</span>
-          <div className="mode-row" role="tablist" aria-label="Quiz type">
-            {activeTopic.modes.map((availableMode) => (
-              <button
-                key={availableMode}
-                className={availableMode === mode ? 'mode-button active' : 'mode-button'}
-                type="button"
-                onClick={() => activateMode(activeTopic, availableMode)}
-              >
-                {modeLabel(activeTopic, availableMode)}
+        {activeCourse ? (
+          <div className="view-control" role="tablist" aria-label="Section view">
+            {(['practice', 'course', 'questions'] as PageView[]).map((view) => (
+              <button key={view} className={activePageView === view ? 'view-button active' : 'view-button'} type="button" onClick={() => setPageView(view)}>
+                {view === 'practice' ? 'Practice' : view === 'course' ? 'Course' : 'Questions'}
               </button>
             ))}
           </div>
-        </div>
+        ) : null}
 
-        <section className="score-strip" aria-label="Current score">
-          <Stat label="Deck" value={pool.length} />
-          <Stat label="Correct" value={activeScore.correct} />
-          <Stat label="Attempts" value={activeScore.attempts} />
-          <Stat label="Accuracy" value={`${accuracy}%`} />
-          <Stat label="Best streak" value={activeScore.bestStreak} />
-        </section>
+        {activePageView === 'practice' ? (
+          <>
+            <div className="mode-control">
+              <span>Quiz type</span>
+              <div className="mode-row" role="tablist" aria-label="Quiz type">
+                {activeTopic.modes.map((availableMode) => (
+                  <button
+                    key={availableMode}
+                    className={availableMode === mode ? 'mode-button active' : 'mode-button'}
+                    type="button"
+                    onClick={() => activateMode(activeTopic, availableMode)}
+                  >
+                    {modeLabel(activeTopic, availableMode)}
+                  </button>
+                ))}
+              </div>
+            </div>
 
-        {activeTopic.id === 'solar-system' ? (
-          <SolarSystemQuiz topic={activeTopic} history={activeHistory} onSubmitSequence={recordSequence} onClearResult={clearSequenceResult} />
-        ) : (
-          <div className={activeTopic.mapKind ? 'practice-grid with-map' : 'practice-grid'}>
-            {activeTopic.mapKind ? (
-              <CultureMap key={`${activeTopic.id}:${mode}`} topic={activeTopic} mode={mode} current={current} items={pool} countries={countryFeatures} review={activeReview} onPick={pickMapItem} />
-            ) : current.imageUrl ? (
-              <section className="study-surface image-surface">
-                <img src={resolveImageUrl(current.imageUrl)} alt="Quiz prompt" />
-              </section>
+            <section className="score-strip" aria-label="Current score">
+              <Stat label="Deck" value={pool.length} />
+              <Stat label="Correct" value={activeScore.correct} />
+              <Stat label="Attempts" value={activeScore.attempts} />
+              <Stat label="Accuracy" value={`${accuracy}%`} />
+              <Stat label="Best streak" value={activeScore.bestStreak} />
+            </section>
+
+            {activeTopic.id === 'solar-system' ? (
+              <SolarSystemQuiz topic={activeTopic} history={activeHistory} onSubmitSequence={recordSequence} onClearResult={clearSequenceResult} />
             ) : (
-              <CoursePanel topic={activeTopic} />
-            )}
+              <div className={[activeTopic.mapKind || current.imageUrl ? 'practice-grid' : 'practice-grid quiz-only', activeTopic.mapKind ? 'with-map' : ''].join(' ')}>
+                {activeTopic.mapKind ? (
+                  <CultureMap key={`${activeTopic.id}:${mode}`} topic={activeTopic} mode={mode} current={current} items={pool} countries={countryFeatures} review={activeReview} onPick={pickMapItem} />
+                ) : current.imageUrl ? (
+                  <section className="study-surface image-surface">
+                    <img src={resolveImageUrl(current.imageUrl)} alt="Quiz prompt" />
+                  </section>
+                ) : null}
 
-            <QuizPanel
-              key={`${activePracticeKey}:${activeRound.roundId}`}
-              topic={activeTopic}
-              mode={mode}
-              item={current}
-              pool={pool}
-              history={activeHistory}
-              review={activeReview}
-              onSubmit={submit}
-              onNext={nextRound}
-            />
-          </div>
-        )}
+                <QuizPanel
+                  key={`${activePracticeKey}:${activeRound.roundId}`}
+                  topic={activeTopic}
+                  mode={mode}
+                  item={current}
+                  pool={pool}
+                  history={activeHistory}
+                  review={activeReview}
+                  onSubmit={submit}
+                  onNext={nextRound}
+                />
+              </div>
+            )}
+          </>
+        ) : activePageView === 'course' && activeCourse ? (
+          <CoursePanel article={activeCourse} />
+        ) : activePageView === 'questions' ? (
+          <QuestionReferencePanel topic={activeTopic} article={activeCourse} />
+        ) : null}
       </section>
     </main>
   )
