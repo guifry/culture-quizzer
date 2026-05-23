@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState, type FormEvent, type PointerEvent as ReactPointerEvent, type WheelEvent as ReactWheelEvent } from 'react'
 import { feature } from 'topojson-client'
-import { geoAlbersUsa, geoEqualEarth, geoMercator, geoPath } from 'd3-geo'
+import { geoAlbersUsa, geoContains, geoEqualEarth, geoMercator, geoPath } from 'd3-geo'
 import { BookOpen, Check, ChevronRight, Globe2, Image, MapPinned, RotateCcw, X } from 'lucide-react'
 import countries110m from 'world-atlas/countries-110m.json'
 import usStatesAtlas from 'us-atlas/states-10m.json'
@@ -819,7 +819,7 @@ function CultureMap({
   const projection = useMemo(() => buildProjection(topic.mapScope ?? 'world'), [topic.mapScope])
   const path = useMemo(() => geoPath(projection), [projection])
   const svgRef = useRef<SVGSVGElement | null>(null)
-  const dragRef = useRef<{ pointerId: number; clientX: number; clientY: number; view: MapView } | null>(null)
+  const dragRef = useRef<{ pointerId: number; clientX: number; clientY: number; moved: boolean; view: MapView } | null>(null)
   const [mapView, setMapView] = useState<MapView>(defaultMapView)
   const countriesByName = useMemo(() => new Map(countries.map((country) => [normalize(country.properties.name), country])), [countries])
   const itemNameSet = useMemo(() => new Set(items.map((item) => normalize(item.name))), [items])
@@ -856,6 +856,51 @@ function CultureMap({
     })
   }
 
+  function mapPointFromClient(clientX: number, clientY: number) {
+    const svg = svgRef.current
+    if (!svg) return undefined
+    const rect = svg.getBoundingClientRect()
+    const viewX = ((clientX - rect.left) / rect.width) * WIDTH
+    const viewY = ((clientY - rect.top) / rect.height) * HEIGHT
+    return [(viewX - mapView.x) / mapView.scale, (viewY - mapView.y) / mapView.scale] as [number, number]
+  }
+
+  function pickAtClientPoint(clientX: number, clientY: number) {
+    if (mode !== 'map-click' || review) return
+    const point = mapPointFromClient(clientX, clientY)
+    if (!point) return
+
+    if (topic.mapKind === 'country-polygons') {
+      const lonLat = projection.invert?.(point)
+      if (!lonLat) return
+      const pickedCountry = countries.find((country) => itemNameSet.has(normalize(country.properties.name)) && geoContains(country, lonLat))
+      if (pickedCountry) onPick({ id: normalize(pickedCountry.properties.name), name: pickedCountry.properties.name })
+      return
+    }
+
+    if (canClickBoundaries) {
+      const lonLat = projection.invert?.(point)
+      if (!lonLat) return
+      const pickedBoundary = boundaries.find((boundary) => geoContains(boundary, lonLat))
+      if (!pickedBoundary) return
+      const name = boundaryName(pickedBoundary)
+      onPick(itemsByName.get(normalize(name)) ?? { id: normalize(name), name })
+      return
+    }
+
+    if (topic.mapKind === 'points') {
+      let closest: { item: QuizItem; distance: number } | undefined
+      items.forEach((item) => {
+        if (typeof item.lat !== 'number' || typeof item.lon !== 'number') return
+        const projected = projection([item.lon, item.lat])
+        if (!projected) return
+        const distance = Math.hypot(projected[0] - point[0], projected[1] - point[1])
+        if (!closest || distance < closest.distance) closest = { item, distance }
+      })
+      if (closest && closest.distance <= 12) onPick(closest.item)
+    }
+  }
+
   function handleWheel(event: ReactWheelEvent<SVGSVGElement>) {
     if (!event.ctrlKey && !event.metaKey) return
     event.preventDefault()
@@ -864,7 +909,7 @@ function CultureMap({
 
   function handlePointerDown(event: ReactPointerEvent<SVGSVGElement>) {
     if (mapView.scale <= 1) return
-    dragRef.current = { pointerId: event.pointerId, clientX: event.clientX, clientY: event.clientY, view: mapView }
+    dragRef.current = { pointerId: event.pointerId, clientX: event.clientX, clientY: event.clientY, moved: false, view: mapView }
     event.currentTarget.setPointerCapture(event.pointerId)
   }
 
@@ -875,12 +920,19 @@ function CultureMap({
     const rect = svg.getBoundingClientRect()
     const dx = ((event.clientX - drag.clientX) / rect.width) * WIDTH
     const dy = ((event.clientY - drag.clientY) / rect.height) * HEIGHT
+    if (Math.hypot(event.clientX - drag.clientX, event.clientY - drag.clientY) > 4) {
+      drag.moved = true
+    }
     setMapView(clampMapView({ ...drag.view, x: drag.view.x + dx, y: drag.view.y + dy }))
   }
 
   function handlePointerUp(event: ReactPointerEvent<SVGSVGElement>) {
-    if (dragRef.current?.pointerId === event.pointerId) {
+    const drag = dragRef.current
+    if (drag?.pointerId === event.pointerId) {
       dragRef.current = null
+      if (!drag.moved) {
+        pickAtClientPoint(event.clientX, event.clientY)
+      }
     }
   }
 
@@ -938,7 +990,7 @@ function CultureMap({
                     key={name}
                     className={klass}
                     d={path(country) ?? undefined}
-                    onClick={isInteractive && !review ? () => onPick({ id: normalize(name), name }) : undefined}
+                    onClick={isInteractive && !review && mapView.scale <= 1 ? () => onPick({ id: normalize(name), name }) : undefined}
                   />
                 )
               })}
@@ -961,7 +1013,7 @@ function CultureMap({
                   isWrongPick ? 'wrong-boundary' : '',
                 ].join(' ')
 
-                return <path key={`${name}-${index}`} className={klass} d={path(boundary) ?? undefined} onClick={canClickBoundaries && !review ? () => onPick(matchedItem) : undefined} />
+                return <path key={`${name}-${index}`} className={klass} d={path(boundary) ?? undefined} onClick={canClickBoundaries && !review && mapView.scale <= 1 ? () => onPick(matchedItem) : undefined} />
               })}
             </g>
           ) : null}
@@ -988,7 +1040,7 @@ function CultureMap({
                   isWrongPick ? 'map-point-wrong' : '',
                 ].join(' ')
                 return (
-                  <g key={item.id} transform={`translate(${point[0]} ${point[1]})`} onClick={mode === 'map-click' && !review ? () => onPick(item) : undefined}>
+                  <g key={item.id} transform={`translate(${point[0]} ${point[1]})`} onClick={mode === 'map-click' && !review && mapView.scale <= 1 ? () => onPick(item) : undefined}>
                     {mode === 'map-click' && !review ? <circle className="map-point-hit" r={9} /> : null}
                     <circle className={pointClass} r={isTarget && mode !== 'map-click' ? 5 : 3} />
                     {isTarget && mode !== 'map-click' ? <circle className="map-point-pulse" r={10} /> : null}
