@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useRef, useState, type FormEvent, type PointerEvent as ReactPointerEvent, type WheelEvent as ReactWheelEvent } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState, type CSSProperties, type FormEvent, type PointerEvent as ReactPointerEvent, type WheelEvent as ReactWheelEvent } from 'react'
 import { feature } from 'topojson-client'
 import { geoAlbersUsa, geoContains, geoEqualEarth, geoMercator, geoPath } from 'd3-geo'
 import { BookOpen, Check, ChevronRight, Globe2, Image, MapPinned, RotateCcw, X } from 'lucide-react'
@@ -486,19 +486,30 @@ function roundVerdict(accuracy: number) {
     return {
       tone: 'excellent',
       title: 'Excellent round',
+      label: 'Mastery',
       message: 'You know this deck very well. Start a new shuffled round to keep it automatic.',
     }
   }
-  if (accuracy >= 70) {
+  if (accuracy >= 75) {
     return {
-      tone: 'solid',
-      title: 'Solid round',
+      tone: 'good',
+      title: 'Strong round',
+      label: 'Nearly automatic',
+      message: 'Most of the deck is solid. A short review pass will clean up the remaining misses.',
+    }
+  }
+  if (accuracy >= 55) {
+    return {
+      tone: 'mid',
+      title: 'Building round',
+      label: 'Taking shape',
       message: 'The core map is taking shape. The missed answers below are the ones to drill next.',
     }
   }
   return {
-    tone: 'practice',
+    tone: 'low',
     title: 'Practice round complete',
+    label: 'Needs reps',
     message: 'This deck still needs repetition. Read the misses, then start another shuffled round.',
   }
 }
@@ -522,10 +533,21 @@ function RoundResultsPanel({
 
   return (
     <section className={`round-results round-results-${verdict.tone}`}>
-      <div className="round-results-hero">
-        <span className="eyebrow">Deck complete</span>
-        <h2>{verdict.title}</h2>
-        <p>{verdict.message}</p>
+      <div className="round-results-hero" style={{ '--score': `${accuracy}%` } as CSSProperties}>
+        <div className="round-visual" aria-hidden="true">
+          <div className="score-orbit">
+            <span>{accuracy}%</span>
+          </div>
+          <i />
+          <i />
+          <i />
+          <i />
+        </div>
+        <div>
+          <span className="eyebrow">Deck complete</span>
+          <h2>{verdict.title}</h2>
+          <p>{verdict.message}</p>
+        </div>
       </div>
 
       <div className="round-results-stats" aria-label="Round score">
@@ -536,7 +558,10 @@ function RoundResultsPanel({
 
       {missed.length ? (
         <div className="round-review-list">
-          <h3>Review misses</h3>
+          <div className="round-review-header">
+            <h3>Review misses</h3>
+            <span>{missed.length} to replay</span>
+          </div>
           {missed.slice(0, 12).map((result) => (
             <article key={result.id}>
               <strong>{result.prompt}</strong>
@@ -552,9 +577,12 @@ function RoundResultsPanel({
         <p className="round-perfect">No misses in this round.</p>
       )}
 
-      <button className="primary-action" type="button" onClick={onStartNewRound}>
-        Start new shuffled round
-      </button>
+      <div className="round-actions">
+        <button className="primary-action" type="button" onClick={onStartNewRound}>
+          Start new shuffled round
+        </button>
+        <span>{verdict.label}</span>
+      </div>
       <p className="coverage">{topic.coverage}</p>
     </section>
   )
