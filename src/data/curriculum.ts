@@ -36,6 +36,7 @@ export type Topic = {
   group: TopicGroup
   description: string
   modes: QuizMode[]
+  countrySubset?: 'latin-america' | 'asia' | 'oceania' | 'africa'
   mapScope?: MapScope
   mapKind?: 'country-polygons' | 'points'
   boundaryLayer?: 'fr-departments' | 'fr-regions' | 'uk-admin' | 'us-states'
@@ -658,6 +659,10 @@ const knowledgeQuestions: Topic[] = [
 
 export const topics: Topic[] = [
   { id: 'world-countries', title: 'Countries of the World', group: 'Geography', description: 'Click every country on a vector world map, or identify the highlighted country.', modes: ['map-click', 'map-type'], mapScope: 'world', mapKind: 'country-polygons', items: [], coverage: 'All country polygons available in the Natural Earth world-atlas deck.' },
+  { id: 'latin-america-countries', title: 'Latin America and Caribbean Countries', group: 'Geography', description: 'Practice the Latin America and Caribbean subset of the world country map.', modes: ['map-click', 'map-type'], countrySubset: 'latin-america', mapScope: 'world', mapKind: 'country-polygons', items: [], coverage: 'Latin America and Caribbean country polygons available in the Natural Earth world-atlas deck.' },
+  { id: 'asia-countries', title: 'Asia Countries', group: 'Geography', description: 'Practice the Asia subset of the world country map.', modes: ['map-click', 'map-type'], countrySubset: 'asia', mapScope: 'world', mapKind: 'country-polygons', items: [], coverage: 'Asian country polygons available in the Natural Earth world-atlas deck.' },
+  { id: 'oceania-countries', title: 'Oceania Countries', group: 'Geography', description: 'Practice the Oceania subset of the world country map.', modes: ['map-click', 'map-type'], countrySubset: 'oceania', mapScope: 'world', mapKind: 'country-polygons', items: [], coverage: 'Oceania country polygons available in the Natural Earth world-atlas deck.' },
+  { id: 'africa-countries', title: 'Africa Countries', group: 'Geography', description: 'Practice the Africa subset of the world country map.', modes: ['map-click', 'map-type'], countrySubset: 'africa', mapScope: 'world', mapKind: 'country-polygons', items: [], coverage: 'African country polygons available in the Natural Earth world-atlas deck.' },
   { id: 'world-capitals', title: 'World Capitals and Second Cities', group: 'Geography', description: 'Capital recall with second-city notes for every country and territory in the source deck.', modes: ['type', 'choice', 'map-click'], mapScope: 'world', mapKind: 'points', items: worldCountryKnowledge, coverage: 'All entries with capitals from the world-countries dataset.' },
   { id: 'scotland-historic-counties', title: 'Historic Counties of Scotland', group: 'Geography', description: 'Learn the historic counties as map targets over a detailed modern UK boundary layer.', modes: ['map-click', 'map-type'], mapScope: 'uk', mapKind: 'points', boundaryLayer: 'uk-admin', items: scotlandHistoricCounties, coverage: 'Historic county names with modern ONS county/unitary outlines as geographic reference. Note: outlines are modern administrative boundaries, not historic county borders.' },
   { id: 'gb-historic-counties', title: 'Historic Counties of Great Britain', group: 'Geography', description: 'Practice the historic county names of England, Wales, and Scotland over detailed modern UK outlines.', modes: ['map-click', 'map-type'], mapScope: 'uk', mapKind: 'points', boundaryLayer: 'uk-admin', items: greatBritainHistoricCounties, coverage: 'Historic counties target deck for Great Britain, with modern ONS outlines for map detail. Note: outlines are modern administrative boundaries, not historic county borders.' },

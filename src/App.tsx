@@ -285,6 +285,143 @@ function countryItemsFromFeatures(features: CountryFeature[]): QuizItem[] {
     .sort((a, b) => a.name.localeCompare(b.name))
 }
 
+const countrySubsetNames = {
+  'latin-america': new Set([
+    'Argentina',
+    'Bahamas',
+    'Belize',
+    'Bolivia',
+    'Brazil',
+    'Chile',
+    'Colombia',
+    'Costa Rica',
+    'Cuba',
+    'Dominican Rep.',
+    'Ecuador',
+    'El Salvador',
+    'Guatemala',
+    'Guyana',
+    'Haiti',
+    'Honduras',
+    'Jamaica',
+    'Mexico',
+    'Nicaragua',
+    'Panama',
+    'Paraguay',
+    'Peru',
+    'Suriname',
+    'Trinidad and Tobago',
+    'Uruguay',
+    'Venezuela',
+  ]),
+  asia: new Set([
+    'Afghanistan',
+    'Armenia',
+    'Azerbaijan',
+    'Bangladesh',
+    'Bhutan',
+    'Brunei',
+    'Cambodia',
+    'China',
+    'Georgia',
+    'India',
+    'Indonesia',
+    'Iran',
+    'Iraq',
+    'Israel',
+    'Japan',
+    'Jordan',
+    'Kazakhstan',
+    'Kuwait',
+    'Kyrgyzstan',
+    'Laos',
+    'Lebanon',
+    'Malaysia',
+    'Mongolia',
+    'Myanmar',
+    'Nepal',
+    'North Korea',
+    'Oman',
+    'Pakistan',
+    'Palestine',
+    'Philippines',
+    'Qatar',
+    'Saudi Arabia',
+    'South Korea',
+    'Sri Lanka',
+    'Syria',
+    'Taiwan',
+    'Tajikistan',
+    'Thailand',
+    'Timor-Leste',
+    'Turkey',
+    'Turkmenistan',
+    'United Arab Emirates',
+    'Uzbekistan',
+    'Vietnam',
+    'Yemen',
+  ]),
+  oceania: new Set(['Australia', 'Fiji', 'New Caledonia', 'New Zealand', 'Papua New Guinea', 'Solomon Is.', 'Vanuatu']),
+  africa: new Set([
+    'Algeria',
+    'Angola',
+    'Benin',
+    'Botswana',
+    'Burkina Faso',
+    'Burundi',
+    'Cameroon',
+    'Central African Rep.',
+    'Chad',
+    'Congo',
+    "Côte d'Ivoire",
+    'Dem. Rep. Congo',
+    'Djibouti',
+    'Egypt',
+    'Eq. Guinea',
+    'Eritrea',
+    'Ethiopia',
+    'Gabon',
+    'Gambia',
+    'Ghana',
+    'Guinea',
+    'Guinea-Bissau',
+    'Kenya',
+    'Lesotho',
+    'Liberia',
+    'Libya',
+    'Madagascar',
+    'Malawi',
+    'Mali',
+    'Mauritania',
+    'Morocco',
+    'Mozambique',
+    'Namibia',
+    'Niger',
+    'Nigeria',
+    'Rwanda',
+    'S. Sudan',
+    'Senegal',
+    'Sierra Leone',
+    'Somalia',
+    'South Africa',
+    'Sudan',
+    'Tanzania',
+    'Togo',
+    'Tunisia',
+    'Uganda',
+    'W. Sahara',
+    'Zambia',
+    'Zimbabwe',
+    'eSwatini',
+  ]),
+} as const
+
+function countryItemsForTopic(topic: Topic, countryTopicItems: QuizItem[]) {
+  if (!topic.countrySubset) return countryTopicItems
+  const names = countrySubsetNames[topic.countrySubset]
+  return countryTopicItems.filter((item) => names.has(item.name))
+}
+
 function asFeatures(collection: unknown): BoundaryFeature[] {
   return (collection as GeoJSON.FeatureCollection<GeoJSON.Geometry, Record<string, string | number | null>>).features
 }
@@ -769,7 +906,7 @@ function CultureMap({
                 const isTarget = normalize(name) === normalize(current.name)
                 const isExpected = review && normalize(name) === expectedName
                 const isWrongPick = review && !review.ok && normalize(name) === submittedName
-                const isInteractive = topic.mapKind === 'country-polygons' && mode === 'map-click'
+                const isInteractive = topic.mapKind === 'country-polygons' && mode === 'map-click' && itemNameSet.has(normalize(name))
                 const klass = [
                   'country',
                   isInteractive && !review ? 'country-clickable' : '',
@@ -1126,7 +1263,7 @@ function App() {
 
   const fullTopics = useMemo<Topic[]>(() => {
     const countryTopicItems = countryItemsFromFeatures(countryFeatures)
-    return topics.map((topic) => (topic.id === 'world-countries' ? { ...topic, items: countryTopicItems } : topic))
+    return topics.map((topic) => (topic.mapKind === 'country-polygons' ? { ...topic, items: countryItemsForTopic(topic, countryTopicItems) } : topic))
   }, [countryFeatures])
 
   const [topicId, setTopicId] = useState(fullTopics[0].id)
