@@ -466,7 +466,11 @@
 }
 
 .choice-grid button:disabled {
-  cursor: default;
+  cursor: not-allowed;
+  opacity: 0.55;
+  background: #f7f7f5;
+  border-color: #d9d8d3;
+  color: #76716c;
 }
 
 .quiz-image {

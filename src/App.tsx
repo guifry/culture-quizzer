@@ -90,6 +90,10 @@ function modeLabel(topic: Topic, mode: QuizMode) {
   return defaultModeLabels[mode]
 }
 
+function stripTrailingPunctuation(value: string) {
+  return value.replace(/[.!?]+$/, '')
+}
+
 function normalize(value: string) {
   return value
     .normalize('NFD')
@@ -672,7 +676,7 @@ function QuizPanel({
               <div>
                 <strong>{result.prompt}</strong>
                 <p>
-                  You answered <b>{result.submitted}</b>. {result.ok ? 'Correct.' : `Answer: ${result.expected}.`}
+                  You answered <b>{stripTrailingPunctuation(result.submitted)}</b>. {result.ok ? 'Correct.' : `Answer: ${stripTrailingPunctuation(result.expected)}.`}
                 </p>
               </div>
             </article>
@@ -994,6 +998,7 @@ function App() {
   }
 
   function resetScores() {
+    if (!window.confirm('Reset all scores for every topic? This cannot be undone.')) return
     localStorage.removeItem('culture-quizzer-scores')
     setScores({})
     setHistories({})
