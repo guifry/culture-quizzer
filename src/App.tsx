@@ -77,6 +77,7 @@ type RoundState = {
   order: number[]
   position: number
   deckKey: string
+  completed?: boolean
 }
 
 type MapView = {
@@ -190,6 +191,7 @@ function createRoundState(pool: QuizItem[], roundId = 0, firstIndex?: number): R
       order: [],
       position: 0,
       deckKey: deckKey(pool),
+      completed: true,
     }
   }
 
@@ -204,6 +206,7 @@ function createRoundState(pool: QuizItem[], roundId = 0, firstIndex?: number): R
     order: ordered,
     position: 0,
     deckKey: deckKey(pool),
+    completed: false,
   }
 }
 
@@ -475,6 +478,85 @@ function Stat({ label, value }: { label: string; value: string | number }) {
       <span>{label}</span>
       <strong>{value}</strong>
     </div>
+  )
+}
+
+function roundVerdict(accuracy: number) {
+  if (accuracy >= 90) {
+    return {
+      tone: 'excellent',
+      title: 'Excellent round',
+      message: 'You know this deck very well. Start a new shuffled round to keep it automatic.',
+    }
+  }
+  if (accuracy >= 70) {
+    return {
+      tone: 'solid',
+      title: 'Solid round',
+      message: 'The core map is taking shape. The missed answers below are the ones to drill next.',
+    }
+  }
+  return {
+    tone: 'practice',
+    title: 'Practice round complete',
+    message: 'This deck still needs repetition. Read the misses, then start another shuffled round.',
+  }
+}
+
+function RoundResultsPanel({
+  topic,
+  results,
+  deckSize,
+  onStartNewRound,
+}: {
+  topic: Topic
+  results: AnswerResult[]
+  deckSize: number
+  onStartNewRound: () => void
+}) {
+  const correct = results.filter((result) => result.ok).length
+  const missed = results.filter((result) => !result.ok)
+  const missCount = Math.max(deckSize - correct, 0)
+  const accuracy = deckSize ? Math.round((correct / deckSize) * 100) : 0
+  const verdict = roundVerdict(accuracy)
+
+  return (
+    <section className={`round-results round-results-${verdict.tone}`}>
+      <div className="round-results-hero">
+        <span className="eyebrow">Deck complete</span>
+        <h2>{verdict.title}</h2>
+        <p>{verdict.message}</p>
+      </div>
+
+      <div className="round-results-stats" aria-label="Round score">
+        <Stat label="Round score" value={`${correct}/${deckSize}`} />
+        <Stat label="Accuracy" value={`${accuracy}%`} />
+        <Stat label="Misses" value={missCount} />
+      </div>
+
+      {missed.length ? (
+        <div className="round-review-list">
+          <h3>Review misses</h3>
+          {missed.slice(0, 12).map((result) => (
+            <article key={result.id}>
+              <strong>{result.prompt}</strong>
+              <p>
+                You answered <b>{stripTrailingPunctuation(result.submitted)}</b>. Answer: <b>{stripTrailingPunctuation(result.expected)}</b>.
+              </p>
+            </article>
+          ))}
+        </div>
+      ) : missCount ? (
+        <p className="round-perfect">No wrong answers were recorded, but skipped questions count as misses.</p>
+      ) : (
+        <p className="round-perfect">No misses in this round.</p>
+      )}
+
+      <button className="primary-action" type="button" onClick={onStartNewRound}>
+        Start new shuffled round
+      </button>
+      <p className="coverage">{topic.coverage}</p>
+    </section>
   )
 }
 
@@ -1342,6 +1424,7 @@ function App() {
   const [countryScope, setCountryScope] = useState<CountryScope>('world')
   const [scores, setScores] = useState<Record<string, Score>>(() => loadScores())
   const [histories, setHistories] = useState<Record<string, AnswerResult[]>>({})
+  const [roundResults, setRoundResults] = useState<Record<string, AnswerResult[]>>({})
   const [reviews, setReviews] = useState<Record<string, AnswerResult | undefined>>({})
   const [pageView, setPageView] = useState<PageView>('practice')
   const [roundStates, setRoundStates] = useState<Record<string, RoundState>>(() => {
@@ -1359,6 +1442,7 @@ function App() {
   const current = pool[Math.min(activeRound.index, Math.max(pool.length - 1, 0))] ?? pool[0]
   const activeScore = scores[activePracticeKey] ?? { attempts: 0, correct: 0, streak: 0, bestStreak: 0 }
   const activeHistory = histories[activePracticeKey] ?? []
+  const activeRoundResults = roundResults[activeRoundKey] ?? []
   const activeReview = reviews[activePracticeKey]
   const accuracy = activeScore.attempts ? Math.round((activeScore.correct / activeScore.attempts) * 100) : 0
   const activeCourse = courseArticles[activeTopic.id]
@@ -1379,13 +1463,18 @@ function App() {
             index: previousRound.order[nextPosition],
             position: nextPosition,
             roundId: nextRoundId,
+            completed: false,
           },
         }
       }
 
       return {
         ...previous,
-        [activeRoundKey]: createRoundState(pool, nextRoundId),
+        [activeRoundKey]: {
+          ...previousRound,
+          roundId: nextRoundId,
+          completed: true,
+        },
       }
     })
   }, [activePracticeKey, activeRoundKey, pool])
@@ -1406,7 +1495,7 @@ function App() {
     }
     setScores(updated)
     saveScores(updated)
-    const result = {
+    const result: AnswerResult = {
       id: `${activePracticeKey}:${activeRound.roundId}:${Date.now()}`,
       ok,
       prompt: promptLabel(activeTopic, mode, current),
@@ -1422,6 +1511,10 @@ function App() {
         result,
         ...(previousHistories[activePracticeKey] ?? []),
       ].slice(0, 20),
+    }))
+    setRoundResults((previousResults) => ({
+      ...previousResults,
+      [activeRoundKey]: [...(previousResults[activeRoundKey] ?? []), result],
     }))
     setReviews((previous) => ({ ...previous, [activePracticeKey]: result }))
   }
@@ -1482,6 +1575,16 @@ function App() {
     advanceRound()
   }
 
+  function startNewRound() {
+    const nextRoundId = activeRound.roundId + 1
+    setReviews((previous) => ({ ...previous, [activePracticeKey]: undefined }))
+    setRoundResults((previous) => ({ ...previous, [activeRoundKey]: [] }))
+    setRoundStates((previous) => ({
+      ...previous,
+      [activeRoundKey]: createRoundState(pool, nextRoundId),
+    }))
+  }
+
   function activateMode(topic: Topic, nextMode: QuizMode) {
     const nextKey = roundKey(topic, nextMode, countryScope)
     const nextPool = poolForTopic(topic, nextMode, countryScope)
@@ -1532,6 +1635,7 @@ function App() {
     localStorage.removeItem('culture-quizzer-scores')
     setScores({})
     setHistories({})
+    setRoundResults({})
     setReviews({})
   }
 
@@ -1674,6 +1778,7 @@ function App() {
 
             <section className="score-strip" aria-label="Current score">
               <Stat label="Deck" value={pool.length} />
+              <Stat label="Progress" value={activeRound.completed ? `${pool.length}/${pool.length}` : `${Math.min(activeRound.position + 1, pool.length)}/${pool.length}`} />
               <Stat label="Correct" value={activeScore.correct} />
               <Stat label="Attempts" value={activeScore.attempts} />
               <Stat label="Accuracy" value={`${accuracy}%`} />
@@ -1682,6 +1787,8 @@ function App() {
 
             {activeTopic.id === 'solar-system' ? (
               <SolarSystemQuiz topic={activeTopic} history={activeHistory} onSubmitSequence={recordSequence} onClearResult={clearSequenceResult} />
+            ) : activeRound.completed && !activeReview ? (
+              <RoundResultsPanel topic={activeTopic} results={activeRoundResults} deckSize={pool.length} onStartNewRound={startNewRound} />
             ) : (
               <div className={[activeTopic.mapKind || current.imageUrl ? 'practice-grid' : 'practice-grid quiz-only', activeTopic.mapKind ? 'with-map' : ''].join(' ')}>
                 {activeTopic.mapKind ? (
