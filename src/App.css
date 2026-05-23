@@ -85,6 +85,7 @@
 .workspace {
   padding: 22px;
   min-width: 0;
+  overflow-x: hidden;
 }
 
 .topbar {
@@ -889,9 +890,13 @@
   display: block;
 }
 
+.mobile-header {
+  display: none;
+}
+
 @media (max-width: 1040px) {
   .app-shell {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .sidebar {
@@ -914,7 +919,7 @@
 
   .practice-grid,
   .practice-grid:not(.with-map) {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .course-list {
@@ -923,6 +928,42 @@
 }
 
 @media (max-width: 720px) {
+  .sidebar {
+    display: none;
+  }
+
+  .mobile-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--border);
+    background: #f7f7f4;
+  }
+
+  .mobile-brand {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+    color: var(--text-h);
+    font-size: 15px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .mobile-topic-select {
+    flex: 1;
+    min-width: 0;
+    padding: 8px 10px;
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    background: #fff;
+    color: var(--text-h);
+    font: inherit;
+    font-size: 14px;
+  }
+
   .workspace {
     padding: 14px;
   }
@@ -949,6 +990,10 @@
 
   .mode-row {
     margin-top: 6px;
+  }
+
+  .belt-quiz {
+    grid-template-columns: 1fr;
   }
 
   .answer-form,

@@ -1001,6 +1001,32 @@ function App() {
 
   return (
     <main className="app-shell">
+      <header className="mobile-header">
+        <div className="mobile-brand">
+          <Globe2 size={20} />
+          <strong>Culture Quizzer</strong>
+        </div>
+        <select
+          className="mobile-topic-select"
+          value={activeTopic.id}
+          onChange={(e) => {
+            const topic = fullTopics.find((t) => t.id === e.target.value)
+            if (topic) activateTopic(topic)
+          }}
+          aria-label="Select topic"
+        >
+          {Object.entries(grouped).map(([group, groupTopics]) => (
+            <optgroup key={group} label={group}>
+              {groupTopics.map((topic) => (
+                <option key={topic.id} value={topic.id}>
+                  {topic.title}
+                </option>
+              ))}
+            </optgroup>
+          ))}
+        </select>
+      </header>
+
       <aside className="sidebar">
         <div className="brand">
           <Globe2 size={24} />
