@@ -212,6 +212,12 @@
   grid-template-columns: minmax(0, 1fr) 430px;
 }
 
+@media (min-width: 1200px) {
+  .practice-grid.with-map {
+    grid-template-columns: minmax(0, 1.3fr) 340px;
+  }
+}
+
 .map-shell,
 .quiz-panel,
 .study-surface,
