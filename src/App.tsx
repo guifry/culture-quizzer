@@ -1606,6 +1606,7 @@ function App() {
   function startNewRound() {
     const nextRoundId = activeRound.roundId + 1
     setReviews((previous) => ({ ...previous, [activePracticeKey]: undefined }))
+    setHistories((previous) => ({ ...previous, [activePracticeKey]: [] }))
     setRoundResults((previous) => ({ ...previous, [activeRoundKey]: [] }))
     setRoundStates((previous) => ({
       ...previous,
