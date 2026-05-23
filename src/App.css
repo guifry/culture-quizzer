@@ -189,7 +189,7 @@
 
 .score-strip {
   display: grid;
-  grid-template-columns: repeat(5, minmax(90px, 1fr));
+  grid-template-columns: repeat(6, minmax(90px, 1fr));
   gap: 1px;
   background: var(--border);
   border: 1px solid var(--border);
@@ -568,6 +568,92 @@
 .history-bad {
   background: #fae8e8;
   color: #8b1d1d;
+}
+
+.round-results {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #fff;
+  padding: 22px;
+}
+
+.round-results-hero {
+  max-width: 720px;
+}
+
+.round-results-hero h2 {
+  margin: 4px 0 8px;
+  color: var(--text-h);
+  font-size: 30px;
+  line-height: 1.1;
+}
+
+.round-results-hero p {
+  margin: 0;
+  color: var(--text);
+  line-height: 1.45;
+}
+
+.round-results-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(120px, 1fr));
+  gap: 1px;
+  margin-top: 18px;
+  border: 1px solid var(--border);
+  background: var(--border);
+}
+
+.round-review-list {
+  display: grid;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.round-review-list h3 {
+  margin: 0 0 2px;
+  color: var(--text-h);
+  font-size: 16px;
+}
+
+.round-review-list article {
+  padding: 10px 12px;
+  border-radius: 7px;
+  background: #fae8e8;
+  color: #8b1d1d;
+}
+
+.round-review-list strong,
+.round-review-list p {
+  display: block;
+  margin: 0;
+}
+
+.round-review-list p {
+  margin-top: 3px;
+  font-size: 13px;
+  line-height: 1.35;
+}
+
+.round-perfect {
+  margin: 18px 0 0;
+  border-radius: 7px;
+  padding: 12px;
+  background: #e7f5eb;
+  color: #17633a;
+  font-weight: 700;
+}
+
+.primary-action {
+  min-height: 42px;
+  margin-top: 18px;
+  border: 1px solid #243238;
+  border-radius: 7px;
+  padding: 10px 14px;
+  background: #243238;
+  color: #fff;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 700;
 }
 
 .coverage {
