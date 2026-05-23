@@ -632,10 +632,9 @@
 }
 
 .planet-sequence {
-  min-width: 830px;
   display: grid;
-  grid-template-columns: repeat(8, minmax(92px, 1fr));
-  gap: 10px;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 8px;
   align-items: end;
 }
 
@@ -935,6 +934,16 @@
   .course-list {
     grid-template-columns: 1fr;
   }
+
+  .solar-diagram {
+    grid-template-columns: 72px minmax(0, 1fr);
+  }
+  .planet-sequence {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .planet-slot {
+    min-height: 150px;
+  }
 }
 
 @media (max-width: 720px) {
@@ -1004,6 +1013,39 @@
 
   .belt-quiz {
     grid-template-columns: 1fr;
+  }
+
+  .solar-diagram {
+    grid-template-columns: 1fr;
+    padding: 10px;
+  }
+  .sun-marker {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-height: auto;
+    justify-content: center;
+    padding: 6px 0;
+  }
+  .sun-marker span {
+    width: 40px;
+    height: 40px;
+  }
+  .sun-marker strong {
+    font-size: 13px;
+  }
+  .planet-sequence {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px;
+  }
+  .planet-slot {
+    min-height: 130px;
+    padding: 8px 6px;
+    gap: 5px;
+  }
+  .planet-slot input {
+    font-size: 13px;
+    padding: 7px 8px;
   }
 
   .answer-form,
