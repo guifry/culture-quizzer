@@ -40,6 +40,7 @@ type AnswerInsight = {
 }
 
 type PageView = 'practice' | 'course' | 'questions'
+type CountryScope = 'world' | 'latin-america' | 'asia' | 'oceania' | 'africa'
 
 type CourseSection = {
   heading: string
@@ -162,7 +163,10 @@ function isMetropolitanFrance(item: QuizItem) {
     item.lon >= -5 && item.lon <= 10
 }
 
-function poolForTopic(topic: Topic, mode: QuizMode) {
+function poolForTopic(topic: Topic, mode: QuizMode, countryScope: CountryScope = 'world') {
+  if (topic.id === 'world-countries') {
+    return countryItemsForScope(countryScope, topic.items)
+  }
   if ((mode === 'map-click' || mode === 'map-type') && topic.mapScope === 'france') {
     return topic.items.filter(isMetropolitanFrance)
   }
@@ -241,11 +245,17 @@ function clampMapView(view: MapView): MapView {
   }
 }
 
-function scoreKey(topic: Topic, mode: QuizMode) {
+function scoreKey(topic: Topic, mode: QuizMode, countryScope: CountryScope = 'world') {
+  if (topic.id === 'world-countries') {
+    return `${topic.id}:${countryScope}:${mode}`
+  }
   return `${topic.id}:${mode}`
 }
 
-function roundKey(topic: Topic, mode?: QuizMode) {
+function roundKey(topic: Topic, mode?: QuizMode, countryScope: CountryScope = 'world') {
+  if (topic.id === 'world-countries') {
+    return `${topic.id}:${countryScope}`
+  }
   if (mode && (mode === 'map-click' || mode === 'map-type') && topic.mapScope === 'france') {
     return `${topic.id}:map`
   }
@@ -416,9 +426,17 @@ const countrySubsetNames = {
   ]),
 } as const
 
-function countryItemsForTopic(topic: Topic, countryTopicItems: QuizItem[]) {
-  if (!topic.countrySubset) return countryTopicItems
-  const names = countrySubsetNames[topic.countrySubset]
+const countryScopeOptions: Array<{ key: CountryScope; label: string }> = [
+  { key: 'world', label: 'Whole world' },
+  { key: 'latin-america', label: 'Latin America / Caribbean' },
+  { key: 'asia', label: 'Asia' },
+  { key: 'oceania', label: 'Oceania' },
+  { key: 'africa', label: 'Africa' },
+]
+
+function countryItemsForScope(scope: CountryScope, countryTopicItems: QuizItem[]) {
+  if (scope === 'world') return countryTopicItems
+  const names = countrySubsetNames[scope]
   return countryTopicItems.filter((item) => names.has(item.name))
 }
 
@@ -1263,12 +1281,13 @@ function App() {
 
   const fullTopics = useMemo<Topic[]>(() => {
     const countryTopicItems = countryItemsFromFeatures(countryFeatures)
-    return topics.map((topic) => (topic.mapKind === 'country-polygons' ? { ...topic, items: countryItemsForTopic(topic, countryTopicItems) } : topic))
+    return topics.map((topic) => (topic.id === 'world-countries' ? { ...topic, items: countryTopicItems } : topic))
   }, [countryFeatures])
 
   const [topicId, setTopicId] = useState(fullTopics[0].id)
   const activeTopic = fullTopics.find((topic) => topic.id === topicId) ?? fullTopics[0]
   const [mode, setMode] = useState<QuizMode>(activeTopic.modes[0])
+  const [countryScope, setCountryScope] = useState<CountryScope>('world')
   const [scores, setScores] = useState<Record<string, Score>>(() => loadScores())
   const [histories, setHistories] = useState<Record<string, AnswerResult[]>>({})
   const [reviews, setReviews] = useState<Record<string, AnswerResult | undefined>>({})
@@ -1277,13 +1296,13 @@ function App() {
     const firstTopic = fullTopics[0]
     const firstMode = firstTopic.modes[0]
     return {
-      [roundKey(firstTopic, firstMode)]: createRoundState(poolForTopic(firstTopic, firstMode)),
+      [roundKey(firstTopic, firstMode, 'world')]: createRoundState(poolForTopic(firstTopic, firstMode, 'world')),
     }
   })
 
-  const pool = useMemo(() => poolForTopic(activeTopic, mode), [activeTopic, mode])
-  const activeRoundKey = roundKey(activeTopic, mode)
-  const activePracticeKey = scoreKey(activeTopic, mode)
+  const pool = useMemo(() => poolForTopic(activeTopic, mode, countryScope), [activeTopic, mode, countryScope])
+  const activeRoundKey = roundKey(activeTopic, mode, countryScope)
+  const activePracticeKey = scoreKey(activeTopic, mode, countryScope)
   const activeRound = ensureRoundState(roundStates[activeRoundKey], pool)
   const current = pool[Math.min(activeRound.index, Math.max(pool.length - 1, 0))] ?? pool[0]
   const activeScore = scores[activePracticeKey] ?? { attempts: 0, correct: 0, streak: 0, bestStreak: 0 }
@@ -1412,9 +1431,22 @@ function App() {
   }
 
   function activateMode(topic: Topic, nextMode: QuizMode) {
-    const nextKey = roundKey(topic, nextMode)
-    const nextPool = poolForTopic(topic, nextMode)
+    const nextKey = roundKey(topic, nextMode, countryScope)
+    const nextPool = poolForTopic(topic, nextMode, countryScope)
     setMode(nextMode)
+    setRoundStates((previous) => {
+      if (isRoundStateValid(previous[nextKey], nextPool)) return previous
+      return {
+        ...previous,
+        [nextKey]: createRoundState(nextPool),
+      }
+    })
+  }
+
+  function activateCountryScope(nextScope: CountryScope) {
+    const nextKey = roundKey(activeTopic, mode, nextScope)
+    const nextPool = poolForTopic(activeTopic, mode, nextScope)
+    setCountryScope(nextScope)
     setRoundStates((previous) => {
       if (isRoundStateValid(previous[nextKey], nextPool)) return previous
       return {
@@ -1426,10 +1458,12 @@ function App() {
 
   function activateTopic(topic: Topic) {
     const nextMode = topic.modes[0]
-    const nextKey = roundKey(topic, nextMode)
-    const nextPool = poolForTopic(topic, nextMode)
+    const nextCountryScope: CountryScope = topic.id === 'world-countries' ? 'world' : countryScope
+    const nextKey = roundKey(topic, nextMode, nextCountryScope)
+    const nextPool = poolForTopic(topic, nextMode, nextCountryScope)
     setTopicId(topic.id)
     setMode(nextMode)
+    setCountryScope(nextCountryScope)
     setPageView('practice')
     setRoundStates((previous) => {
       if (isRoundStateValid(previous[nextKey], nextPool)) return previous
@@ -1552,6 +1586,24 @@ function App() {
 
         {activePageView === 'practice' ? (
           <>
+            {activeTopic.id === 'world-countries' ? (
+              <div className="mode-control">
+                <span>Region</span>
+                <div className="mode-row" role="tablist" aria-label="Country region">
+                  {countryScopeOptions.map((option) => (
+                    <button
+                      key={option.key}
+                      className={option.key === countryScope ? 'mode-button active' : 'mode-button'}
+                      type="button"
+                      onClick={() => activateCountryScope(option.key)}
+                    >
+                      {option.label}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            ) : null}
+
             <div className="mode-control">
               <span>Quiz type</span>
               <div className="mode-row" role="tablist" aria-label="Quiz type">
