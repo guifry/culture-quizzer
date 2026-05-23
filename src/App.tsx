@@ -9,6 +9,7 @@ import frRegions from './data/geo/fr-regions.json'
 import ukAdmin from './data/geo/uk-counties-unitaries-2022.json'
 import './App.css'
 import { topics, type MapScope, type QuizItem, type QuizMode, type Topic } from './data/curriculum'
+import { resolveImageUrl } from './utils'
 
 type CountryFeature = GeoJSON.Feature<GeoJSON.Geometry, { name: string }>
 type BoundaryFeature = GeoJSON.Feature<GeoJSON.Geometry, Record<string, string | number | null>>
@@ -89,6 +90,10 @@ function modeLabel(topic: Topic, mode: QuizMode) {
   return defaultModeLabels[mode]
 }
 
+function stripTrailingPunctuation(value: string) {
+  return value.replace(/[.!?]+$/, '')
+}
+
 function normalize(value: string) {
   return value
     .normalize('NFD')
@@ -133,6 +138,19 @@ function matchesAnswer(input: string, item: QuizItem, mode: QuizMode) {
 function matchesAsteroidBelt(input: string) {
   const clean = normalize(input)
   return clean.includes('mars') && clean.includes('jupiter')
+}
+
+function isMetropolitanFrance(item: QuizItem) {
+  return typeof item.lat === 'number' && typeof item.lon === 'number' &&
+    item.lat >= 41 && item.lat <= 52 &&
+    item.lon >= -5 && item.lon <= 10
+}
+
+function poolForTopic(topic: Topic, mode: QuizMode) {
+  if ((mode === 'map-click' || mode === 'map-type') && topic.mapScope === 'france') {
+    return topic.items.filter(isMetropolitanFrance)
+  }
+  return topic.items
 }
 
 function shuffle<T>(items: T[]) {
@@ -211,7 +229,10 @@ function scoreKey(topic: Topic, mode: QuizMode) {
   return `${topic.id}:${mode}`
 }
 
-function roundKey(topic: Topic) {
+function roundKey(topic: Topic, mode?: QuizMode) {
+  if (mode && (mode === 'map-click' || mode === 'map-type') && topic.mapScope === 'france') {
+    return `${topic.id}:map`
+  }
   return topic.id
 }
 
@@ -581,7 +602,7 @@ function QuizPanel({
         </button>
       </div>
 
-      {mode === 'image' && item.imageUrl && topic.mapKind ? <img className="quiz-image" src={item.imageUrl} alt="Quiz prompt" /> : null}
+      {mode === 'image' && item.imageUrl && topic.mapKind ? <img className="quiz-image" src={resolveImageUrl(item.imageUrl)} alt="Quiz prompt" /> : null}
 
       {mode === 'choice' ? (
         <div className="choice-grid">
@@ -655,7 +676,7 @@ function QuizPanel({
               <div>
                 <strong>{result.prompt}</strong>
                 <p>
-                  You answered <b>{result.submitted}</b>. {result.ok ? 'Correct.' : `Answer: ${result.expected}.`}
+                  You answered <b>{stripTrailingPunctuation(result.submitted)}</b>. {result.ok ? 'Correct.' : `Answer: ${stripTrailingPunctuation(result.expected)}.`}
                 </p>
               </div>
             </article>
@@ -811,12 +832,16 @@ function App() {
   const [scores, setScores] = useState<Record<string, Score>>(() => loadScores())
   const [histories, setHistories] = useState<Record<string, AnswerResult[]>>({})
   const [reviews, setReviews] = useState<Record<string, AnswerResult | undefined>>({})
-  const [roundStates, setRoundStates] = useState<Record<string, RoundState>>(() => ({
-    [roundKey(fullTopics[0])]: createRoundState(fullTopics[0].items),
-  }))
+  const [roundStates, setRoundStates] = useState<Record<string, RoundState>>(() => {
+    const firstTopic = fullTopics[0]
+    const firstMode = firstTopic.modes[0]
+    return {
+      [roundKey(firstTopic, firstMode)]: createRoundState(poolForTopic(firstTopic, firstMode)),
+    }
+  })
 
-  const pool = activeTopic.items
-  const activeRoundKey = roundKey(activeTopic)
+  const pool = useMemo(() => poolForTopic(activeTopic, mode), [activeTopic, mode])
+  const activeRoundKey = roundKey(activeTopic, mode)
   const activePracticeKey = scoreKey(activeTopic, mode)
   const activeRound = ensureRoundState(roundStates[activeRoundKey], pool)
   const current = pool[Math.min(activeRound.index, Math.max(pool.length - 1, 0))] ?? pool[0]
@@ -944,32 +969,36 @@ function App() {
   }
 
   function activateMode(topic: Topic, nextMode: QuizMode) {
-    const nextKey = roundKey(topic)
+    const nextKey = roundKey(topic, nextMode)
+    const nextPool = poolForTopic(topic, nextMode)
     setMode(nextMode)
     setRoundStates((previous) => {
-      if (isRoundStateValid(previous[nextKey], topic.items)) return previous
+      if (isRoundStateValid(previous[nextKey], nextPool)) return previous
       return {
         ...previous,
-        [nextKey]: createRoundState(topic.items, 0, Math.min(current ? pool.indexOf(current) : 0, Math.max(topic.items.length - 1, 0))),
+        [nextKey]: createRoundState(nextPool),
       }
     })
   }
 
   function activateTopic(topic: Topic) {
     const nextMode = topic.modes[0]
-    const nextKey = roundKey(topic)
+    const nextKey = roundKey(topic, nextMode)
+    const nextPool = poolForTopic(topic, nextMode)
     setTopicId(topic.id)
     setMode(nextMode)
     setRoundStates((previous) => {
-      if (isRoundStateValid(previous[nextKey], topic.items)) return previous
+      if (isRoundStateValid(previous[nextKey], nextPool)) return previous
       return {
         ...previous,
-        [nextKey]: createRoundState(topic.items),
+        [nextKey]: createRoundState(nextPool),
       }
     })
+    window.scrollTo(0, 0)
   }
 
   function resetScores() {
+    if (!window.confirm('Reset all scores for every topic? This cannot be undone.')) return
     localStorage.removeItem('culture-quizzer-scores')
     setScores({})
     setHistories({})
@@ -1000,6 +1029,32 @@ function App() {
 
   return (
     <main className="app-shell">
+      <header className="mobile-header">
+        <div className="mobile-brand">
+          <Globe2 size={20} />
+          <strong>Culture Quizzer</strong>
+        </div>
+        <select
+          className="mobile-topic-select"
+          value={activeTopic.id}
+          onChange={(e) => {
+            const topic = fullTopics.find((t) => t.id === e.target.value)
+            if (topic) activateTopic(topic)
+          }}
+          aria-label="Select topic"
+        >
+          {Object.entries(grouped).map(([group, groupTopics]) => (
+            <optgroup key={group} label={group}>
+              {groupTopics.map((topic) => (
+                <option key={topic.id} value={topic.id}>
+                  {topic.title}
+                </option>
+              ))}
+            </optgroup>
+          ))}
+        </select>
+      </header>
+
       <aside className="sidebar">
         <div className="brand">
           <Globe2 size={24} />
@@ -1073,7 +1128,7 @@ function App() {
               <CultureMap key={`${activeTopic.id}:${mode}`} topic={activeTopic} mode={mode} current={current} items={pool} countries={countryFeatures} review={activeReview} onPick={pickMapItem} />
             ) : current.imageUrl ? (
               <section className="study-surface image-surface">
-                <img src={current.imageUrl} alt="Quiz prompt" />
+                <img src={resolveImageUrl(current.imageUrl)} alt="Quiz prompt" />
               </section>
             ) : (
               <CoursePanel topic={activeTopic} />
