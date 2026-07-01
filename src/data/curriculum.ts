@@ -1,48 +1,8 @@
 import countries from 'world-countries'
+import { historyDateTopics } from './history'
+import type { QuizItem, Topic } from './types'
 
-export type MapScope = 'world' | 'europe' | 'uk' | 'france' | 'usa'
-
-export type QuizMode = 'map-click' | 'map-type' | 'type' | 'choice' | 'image' | 'sequence'
-
-export type TopicGroup =
-  | 'Geography'
-  | 'History'
-  | 'Politics'
-  | 'Music'
-  | 'Art'
-  | 'Literature'
-  | 'Philosophy'
-  | 'Science'
-
-export type QuizItem = {
-  id: string
-  name: string
-  label?: string
-  answer?: string
-  prompt?: string
-  detail?: string
-  location?: string
-  facts?: string[]
-  lat?: number
-  lon?: number
-  aliases?: string[]
-  imageUrl?: string
-  options?: string[]
-  era?: string
-}
-
-export type Topic = {
-  id: string
-  title: string
-  group: TopicGroup
-  description: string
-  modes: QuizMode[]
-  mapScope?: MapScope
-  mapKind?: 'country-polygons' | 'points'
-  boundaryLayer?: 'fr-departments' | 'fr-regions' | 'uk-admin' | 'us-states'
-  items: QuizItem[]
-  coverage: string
-}
+export type { HistoryDate, MapScope, QuizItem, QuizMode, Topic, TopicGroup } from './types'
 
 const majorCountryNotes: Record<string, string> = {
   France: 'Second city to know: Marseille.',
@@ -674,4 +634,5 @@ export const topics: Topic[] = [
   { id: 'solar-system', title: 'Planets of the Solar System', group: 'Science', description: 'Name the planets from the Sun outward, and recall where the asteroid belt sits.', modes: ['sequence'], items: solarSystemItems, coverage: 'Eight planets in order plus the main asteroid belt between Mars and Jupiter.' },
   { id: 'paintings', title: 'Famous Paintings Recognition', group: 'Art', description: 'See the painting; name the work or the artist.', modes: ['image', 'choice'], items: paintings, coverage: 'Core image-recognition deck with public-domain/open Wikimedia images where available.' },
   ...knowledgeQuestions,
+  ...historyDateTopics,
 ]
