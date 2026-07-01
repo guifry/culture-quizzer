@@ -40,7 +40,7 @@ type AnswerInsight = {
 }
 
 type PageView = 'practice' | 'course' | 'questions'
-type CountryScope = 'world' | 'latin-america' | 'asia' | 'oceania' | 'africa'
+type CountryScope = 'world' | 'europe' | 'latin-america' | 'asia' | 'oceania' | 'africa'
 
 type CourseSection = {
   heading: string
@@ -129,7 +129,7 @@ function itemAnswer(item: QuizItem, mode: QuizMode) {
 
 function displayAnswer(item: QuizItem, mode: QuizMode) {
   if (mode === 'image' && item.answer) return `${item.name} / ${item.answer}`
-  return itemAnswer(item, mode)
+  return item.label ?? itemAnswer(item, mode)
 }
 
 function removeLabel(value: string, label: string) {
@@ -289,16 +289,84 @@ function buildProjection(scope: MapScope) {
   return projection.center([2.7, 46.4]).scale(1900).translate([WIDTH / 2, HEIGHT / 2])
 }
 
+const territoryLabels: Record<string, string> = {
+  'Puerto Rico': 'Puerto Rico (US territory)',
+  'French Guiana': 'French Guiana (French territory)',
+}
+
 function countryItemsFromFeatures(features: CountryFeature[]): QuizItem[] {
   return features
-    .map((country) => ({
-      id: normalize(country.properties.name).replaceAll(' ', '-'),
-      name: country.properties.name,
-    }))
+    .map((country) => {
+      const name = country.properties.name
+      const label = territoryLabels[name]
+      return { id: normalize(name).replaceAll(' ', '-'), name, ...(label ? { label } : {}) }
+    })
     .sort((a, b) => a.name.localeCompare(b.name))
 }
 
+// The world-atlas France feature bundles French Guiana as a sub-polygon in South America.
+// Split it into its own feature so it can be a distinct map target.
+function splitFrenchGuiana(features: CountryFeature[]): CountryFeature[] {
+  const france = features.find((feature) => feature.properties.name === 'France')
+  if (!france || france.geometry.type !== 'MultiPolygon') return features
+  const isGuiana = (polygon: GeoJSON.Position[][]) =>
+    polygon[0].every(([lon, lat]) => lon >= -60 && lon <= -50 && lat >= 0 && lat <= 10)
+  const guianaPolygons = france.geometry.coordinates.filter(isGuiana)
+  const mainlandPolygons = france.geometry.coordinates.filter((polygon) => !isGuiana(polygon))
+  if (!guianaPolygons.length) return features
+  const nextFrance = { ...france, geometry: { type: 'MultiPolygon', coordinates: mainlandPolygons } } as CountryFeature
+  const guiana = {
+    type: 'Feature',
+    properties: { name: 'French Guiana' },
+    geometry: { type: 'MultiPolygon', coordinates: guianaPolygons },
+  } as CountryFeature
+  return features.map((feature) => (feature.properties.name === 'France' ? nextFrance : feature)).concat(guiana)
+}
+
 const countrySubsetNames = {
+  europe: new Set([
+    'Albania',
+    'Austria',
+    'Belarus',
+    'Belgium',
+    'Bosnia and Herz.',
+    'Bulgaria',
+    'Croatia',
+    'Cyprus',
+    'Czechia',
+    'Denmark',
+    'Estonia',
+    'Finland',
+    'France',
+    'Germany',
+    'Greece',
+    'Hungary',
+    'Iceland',
+    'Ireland',
+    'Italy',
+    'Kosovo',
+    'Latvia',
+    'Lithuania',
+    'Luxembourg',
+    'Macedonia',
+    'Moldova',
+    'Montenegro',
+    'N. Cyprus',
+    'Netherlands',
+    'Norway',
+    'Poland',
+    'Portugal',
+    'Romania',
+    'Russia',
+    'Serbia',
+    'Slovakia',
+    'Slovenia',
+    'Spain',
+    'Sweden',
+    'Switzerland',
+    'Ukraine',
+    'United Kingdom',
+  ]),
   'latin-america': new Set([
     'Argentina',
     'Bahamas',
@@ -312,6 +380,7 @@ const countrySubsetNames = {
     'Dominican Rep.',
     'Ecuador',
     'El Salvador',
+    'French Guiana',
     'Guatemala',
     'Guyana',
     'Haiti',
@@ -322,6 +391,7 @@ const countrySubsetNames = {
     'Panama',
     'Paraguay',
     'Peru',
+    'Puerto Rico',
     'Suriname',
     'Trinidad and Tobago',
     'Uruguay',
@@ -431,6 +501,7 @@ const countrySubsetNames = {
 
 const countryScopeOptions: Array<{ key: CountryScope; label: string }> = [
   { key: 'world', label: 'Whole world' },
+  { key: 'europe', label: 'Europe' },
   { key: 'latin-america', label: 'Latin America / Caribbean' },
   { key: 'asia', label: 'Asia' },
   { key: 'oceania', label: 'Oceania' },
@@ -467,7 +538,7 @@ function boundaryName(featureItem: BoundaryFeature) {
 function promptLabel(topic: Topic, mode: QuizMode, item: QuizItem) {
   if (topic.id === 'paintings' && mode === 'image') return 'Painting image'
   if (topic.id === 'paintings' && mode === 'choice') return 'Painting artist'
-  if (mode === 'map-click') return `Click ${item.name}`
+  if (mode === 'map-click') return `Click ${item.label ?? item.name}`
   if (mode === 'map-type') return 'Highlighted target'
   return item.prompt ?? item.name
 }
@@ -897,8 +968,8 @@ function QuestionReferencePanel({ topic, article }: { topic: Topic; article?: Co
           return (
             <article key={item.id} className="question-reference-row">
               <div>
-                <strong>{item.prompt ?? item.name}</strong>
-                <span>{answer ?? item.name}</span>
+                <strong>{item.prompt ?? item.label ?? item.name}</strong>
+                <span>{answer ?? item.label ?? item.name}</span>
               </div>
               <p>{item.detail ?? item.location ?? item.era ?? topic.coverage}</p>
             </article>
@@ -1438,7 +1509,7 @@ function SolarSystemQuiz({
 function App() {
   const countryFeatures = useMemo(() => {
     const collection = feature(countries110m as never, (countries110m as never as { objects: { countries: never } }).objects.countries)
-    return (collection as unknown as GeoJSON.FeatureCollection<GeoJSON.Geometry, { name: string }>).features
+    return splitFrenchGuiana((collection as unknown as GeoJSON.FeatureCollection<GeoJSON.Geometry, { name: string }>).features)
   }, [])
 
   const fullTopics = useMemo<Topic[]>(() => {
@@ -1552,7 +1623,7 @@ function App() {
   }
 
   function pickMapItem(item: QuizItem) {
-    record(item.name, matchesAnswer(item.name, current, mode), current.name, answerInsight(current))
+    record(item.name, matchesAnswer(item.name, current, mode), current.label ?? current.name, answerInsight(current))
   }
 
   function recordSequence(sequence: SequenceResult) {

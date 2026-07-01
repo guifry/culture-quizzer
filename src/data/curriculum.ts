@@ -17,6 +17,7 @@ export type TopicGroup =
 export type QuizItem = {
   id: string
   name: string
+  label?: string
   answer?: string
   prompt?: string
   detail?: string
