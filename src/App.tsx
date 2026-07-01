@@ -9,7 +9,8 @@ import frRegions from './data/geo/fr-regions.json'
 import ukAdmin from './data/geo/uk-counties-unitaries-2022.json'
 import './App.css'
 import { topics, type MapScope, type QuizItem, type QuizMode, type Topic } from './data/curriculum'
-import { resolveImageUrl } from './utils'
+import { resolveImageUrl, shuffle, stripTrailingPunctuation } from './utils'
+import { HistoryDateQuiz } from './components/HistoryDateQuiz'
 
 type CountryFeature = GeoJSON.Feature<GeoJSON.Geometry, { name: string }>
 type BoundaryFeature = GeoJSON.Feature<GeoJSON.Geometry, Record<string, string | number | null>>
@@ -97,6 +98,12 @@ const defaultModeLabels: Record<QuizMode, string> = {
   choice: 'Multiple choice',
   image: 'Image typing',
   sequence: 'Order quiz',
+  'date-recall': 'Event → date',
+  'event-recall': 'Date → event',
+}
+
+function isHistoryDateTopic(topic: Topic) {
+  return topic.kind === 'history-dates'
 }
 
 function modeLabel(topic: Topic, mode: QuizMode) {
@@ -106,10 +113,6 @@ function modeLabel(topic: Topic, mode: QuizMode) {
   }
 
   return defaultModeLabels[mode]
-}
-
-function stripTrailingPunctuation(value: string) {
-  return value.replace(/[.!?]+$/, '')
 }
 
 function normalize(value: string) {
@@ -172,15 +175,6 @@ function poolForTopic(topic: Topic, mode: QuizMode, countryScope: CountryScope =
     return topic.items.filter(isMetropolitanFrance)
   }
   return topic.items
-}
-
-function shuffle<T>(items: T[]) {
-  const shuffled = [...items]
-  for (let index = shuffled.length - 1; index > 0; index -= 1) {
-    const swapIndex = Math.floor(Math.random() * (index + 1))
-    ;[shuffled[index], shuffled[swapIndex]] = [shuffled[swapIndex], shuffled[index]]
-  }
-  return shuffled
 }
 
 function createRoundState(pool: QuizItem[], roundId = 0, firstIndex?: number): RoundState {
@@ -1733,6 +1727,7 @@ function App() {
   function resetScores() {
     if (!window.confirm('Reset all scores for every topic? This cannot be undone.')) return
     localStorage.removeItem('culture-quizzer-scores')
+    localStorage.removeItem('culture-quizzer-history-scores')
     setScores({})
     setHistories({})
     setRoundResults({})
@@ -1876,16 +1871,20 @@ function App() {
               </div>
             </div>
 
-            <section className="score-strip" aria-label="Current score">
-              <Stat label="Deck" value={pool.length} />
-              <Stat label="Progress" value={activeRound.completed ? `${pool.length}/${pool.length}` : `${Math.min(activeRound.position + 1, pool.length)}/${pool.length}`} />
-              <Stat label="Correct" value={activeScore.correct} />
-              <Stat label="Attempts" value={activeScore.attempts} />
-              <Stat label="Accuracy" value={`${accuracy}%`} />
-              <Stat label="Best streak" value={activeScore.bestStreak} />
-            </section>
+            {isHistoryDateTopic(activeTopic) ? null : (
+              <section className="score-strip" aria-label="Current score">
+                <Stat label="Deck" value={pool.length} />
+                <Stat label="Progress" value={activeRound.completed ? `${pool.length}/${pool.length}` : `${Math.min(activeRound.position + 1, pool.length)}/${pool.length}`} />
+                <Stat label="Correct" value={activeScore.correct} />
+                <Stat label="Attempts" value={activeScore.attempts} />
+                <Stat label="Accuracy" value={`${accuracy}%`} />
+                <Stat label="Best streak" value={activeScore.bestStreak} />
+              </section>
+            )}
 
-            {activeTopic.id === 'solar-system' ? (
+            {isHistoryDateTopic(activeTopic) ? (
+              <HistoryDateQuiz key={`${activeTopic.id}:${mode}`} topic={activeTopic} mode={mode} />
+            ) : activeTopic.id === 'solar-system' ? (
               <SolarSystemQuiz topic={activeTopic} history={activeHistory} onSubmitSequence={recordSequence} onClearResult={clearSequenceResult} />
             ) : activeRound.completed && !activeReview ? (
               <RoundResultsPanel topic={activeTopic} results={activeRoundResults} deckSize={pool.length} onStartNewRound={startNewRound} />
