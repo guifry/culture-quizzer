@@ -198,6 +198,10 @@ function poolForTopic(topic: Topic, mode: QuizMode, scope: string = 'world', usG
         : { ...item, prompt: `Capital of ${item.name}` },
     )
   }
+  if (topic.id === 'french-departments') {
+    const filtered = scope === 'all' ? topic.items : topic.items.filter((item) => item.region === scope)
+    return isMapMode(mode) ? filtered.filter(isMetropolitanFrance) : filtered
+  }
   if (isMapMode(mode) && topic.mapScope === 'france') {
     return topic.items.filter(isMetropolitanFrance)
   }
@@ -276,6 +280,9 @@ function scoreKey(topic: Topic, mode: QuizMode, scope: string = 'world', usGuess
   if (topic.id === 'us-cities') {
     return `${topic.id}:${scope}:${usGuess}:${mode}`
   }
+  if (topic.id === 'french-departments') {
+    return `${topic.id}:${scope}:${mode}`
+  }
   return `${topic.id}:${mode}`
 }
 
@@ -285,6 +292,9 @@ function roundKey(topic: Topic, mode?: QuizMode, scope: string = 'world', usGues
   }
   if (topic.id === 'us-cities') {
     return `${topic.id}:${scope}:${usGuess}`
+  }
+  if (topic.id === 'french-departments') {
+    return mode && isMapMode(mode) ? `${topic.id}:${scope}:map` : `${topic.id}:${scope}:${mode}`
   }
   if (mode && isMapMode(mode) && topic.mapScope === 'france') {
     return `${topic.id}:map`
@@ -555,19 +565,42 @@ const usGuessOptions: Array<{ key: UsGuess; label: string }> = [
   { key: 'main', label: 'Biggest city' },
 ]
 
+// Keys match QuizItem.region on the French departments; labels are the display forms.
+const frRegionOptions: Array<{ key: string; label: string }> = [
+  { key: 'all', label: 'Whole France' },
+  { key: 'Ile-de-France', label: 'Île-de-France' },
+  { key: 'Auvergne-Rhone-Alpes', label: 'Auvergne-Rhône-Alpes' },
+  { key: 'Bourgogne-Franche-Comte', label: 'Bourgogne-Franche-Comté' },
+  { key: 'Brittany', label: 'Brittany' },
+  { key: 'Centre-Val de Loire', label: 'Centre-Val de Loire' },
+  { key: 'Corsica', label: 'Corsica' },
+  { key: 'Grand Est', label: 'Grand Est' },
+  { key: 'Hauts-de-France', label: 'Hauts-de-France' },
+  { key: 'Normandy', label: 'Normandy' },
+  { key: 'Nouvelle-Aquitaine', label: 'Nouvelle-Aquitaine' },
+  { key: 'Occitanie', label: 'Occitanie' },
+  { key: 'Pays de la Loire', label: 'Pays de la Loire' },
+  { key: 'Provence-Alpes-Cote d Azur', label: 'Provence-Alpes-Côte d’Azur' },
+]
+
 function isUsScopedTopic(topic: Topic) {
   return topic.id === 'us-states' || topic.id === 'us-cities'
+}
+
+function isRegionScopedTopic(topic: Topic) {
+  return isUsScopedTopic(topic) || topic.id === 'french-departments'
 }
 
 function regionOptions(topic: Topic): Array<{ key: string; label: string }> {
   if (topic.id === 'world-countries') return countryScopeOptions
   if (isUsScopedTopic(topic)) return usRegionOptions
+  if (topic.id === 'french-departments') return frRegionOptions
   return []
 }
 
 function defaultScope(topic: Topic) {
   if (topic.id === 'world-countries') return 'world'
-  if (isUsScopedTopic(topic)) return 'all'
+  if (isRegionScopedTopic(topic)) return 'all'
   return 'world'
 }
 
@@ -1312,6 +1345,9 @@ function CultureMap({
                 const isTarget = item.id === current.id
                 const isExpected = review && normalize(item.name) === expectedName
                 const isWrongPick = review && !review.ok && normalize(item.name) === submittedName
+                // map-number must not reveal the target: the prompt is only a number, so a
+                // highlighted dot would give away which area to click.
+                const revealTarget = isTarget && mode !== 'map-click' && mode !== 'map-number'
                 const pointClass = [
                   'map-point',
                   mode === 'map-click' && !review ? 'map-point-clickable' : '',
@@ -1322,8 +1358,8 @@ function CultureMap({
                 return (
                   <g key={item.id} transform={`translate(${point[0]} ${point[1]}) scale(${1 / mapView.scale})`} onClick={mode === 'map-click' && !review && mapView.scale <= 1 ? () => onPick(item) : undefined}>
                     {mode === 'map-click' && !review ? <circle className="map-point-hit" r={9} /> : null}
-                    <circle className={pointClass} r={isTarget && mode !== 'map-click' ? 5 : 3} />
-                    {isTarget && mode !== 'map-click' ? <circle className="map-point-pulse" r={10} /> : null}
+                    <circle className={pointClass} r={revealTarget ? 5 : 3} />
+                    {revealTarget ? <circle className="map-point-pulse" r={10} /> : null}
                   </g>
                 )
               })

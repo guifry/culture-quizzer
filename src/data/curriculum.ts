@@ -120,6 +120,24 @@ const frenchRegions: QuizItem[] = [
   }
 })
 
+// Department name -> its French region (region names match the French Regions deck).
+const departmentRegions: Record<string, string> = {
+  Ain: 'Auvergne-Rhone-Alpes', Allier: 'Auvergne-Rhone-Alpes', Ardeche: 'Auvergne-Rhone-Alpes', Cantal: 'Auvergne-Rhone-Alpes', Drome: 'Auvergne-Rhone-Alpes', Isere: 'Auvergne-Rhone-Alpes', Loire: 'Auvergne-Rhone-Alpes', 'Haute-Loire': 'Auvergne-Rhone-Alpes', 'Puy-de-Dome': 'Auvergne-Rhone-Alpes', Rhone: 'Auvergne-Rhone-Alpes', Savoie: 'Auvergne-Rhone-Alpes', 'Haute-Savoie': 'Auvergne-Rhone-Alpes',
+  'Cote-d Or': 'Bourgogne-Franche-Comte', Doubs: 'Bourgogne-Franche-Comte', Jura: 'Bourgogne-Franche-Comte', Nievre: 'Bourgogne-Franche-Comte', 'Haute-Saone': 'Bourgogne-Franche-Comte', 'Saone-et-Loire': 'Bourgogne-Franche-Comte', Yonne: 'Bourgogne-Franche-Comte', 'Territoire de Belfort': 'Bourgogne-Franche-Comte',
+  'Cotes-d Armor': 'Brittany', Finistere: 'Brittany', 'Ille-et-Vilaine': 'Brittany', Morbihan: 'Brittany',
+  Cher: 'Centre-Val de Loire', 'Eure-et-Loir': 'Centre-Val de Loire', Indre: 'Centre-Val de Loire', 'Indre-et-Loire': 'Centre-Val de Loire', 'Loir-et-Cher': 'Centre-Val de Loire', Loiret: 'Centre-Val de Loire',
+  'Corse-du-Sud': 'Corsica', 'Haute-Corse': 'Corsica',
+  Ardennes: 'Grand Est', Aube: 'Grand Est', Marne: 'Grand Est', 'Haute-Marne': 'Grand Est', 'Meurthe-et-Moselle': 'Grand Est', Meuse: 'Grand Est', Moselle: 'Grand Est', 'Bas-Rhin': 'Grand Est', 'Haut-Rhin': 'Grand Est', Vosges: 'Grand Est',
+  Aisne: 'Hauts-de-France', Nord: 'Hauts-de-France', Oise: 'Hauts-de-France', 'Pas-de-Calais': 'Hauts-de-France', Somme: 'Hauts-de-France',
+  Paris: 'Ile-de-France', 'Seine-et-Marne': 'Ile-de-France', Yvelines: 'Ile-de-France', Essonne: 'Ile-de-France', 'Hauts-de-Seine': 'Ile-de-France', 'Seine-Saint-Denis': 'Ile-de-France', 'Val-de-Marne': 'Ile-de-France', 'Val-d Oise': 'Ile-de-France',
+  Calvados: 'Normandy', Eure: 'Normandy', Manche: 'Normandy', Orne: 'Normandy', 'Seine-Maritime': 'Normandy',
+  Charente: 'Nouvelle-Aquitaine', 'Charente-Maritime': 'Nouvelle-Aquitaine', Correze: 'Nouvelle-Aquitaine', Creuse: 'Nouvelle-Aquitaine', Dordogne: 'Nouvelle-Aquitaine', Gironde: 'Nouvelle-Aquitaine', Landes: 'Nouvelle-Aquitaine', 'Lot-et-Garonne': 'Nouvelle-Aquitaine', 'Pyrenees-Atlantiques': 'Nouvelle-Aquitaine', 'Deux-Sevres': 'Nouvelle-Aquitaine', Vienne: 'Nouvelle-Aquitaine', 'Haute-Vienne': 'Nouvelle-Aquitaine',
+  Ariege: 'Occitanie', Aude: 'Occitanie', Aveyron: 'Occitanie', Gard: 'Occitanie', 'Haute-Garonne': 'Occitanie', Gers: 'Occitanie', Herault: 'Occitanie', Lot: 'Occitanie', Lozere: 'Occitanie', 'Hautes-Pyrenees': 'Occitanie', 'Pyrenees-Orientales': 'Occitanie', Tarn: 'Occitanie', 'Tarn-et-Garonne': 'Occitanie',
+  'Loire-Atlantique': 'Pays de la Loire', 'Maine-et-Loire': 'Pays de la Loire', Mayenne: 'Pays de la Loire', Sarthe: 'Pays de la Loire', Vendee: 'Pays de la Loire',
+  'Alpes-de-Haute-Provence': 'Provence-Alpes-Cote d Azur', 'Hautes-Alpes': 'Provence-Alpes-Cote d Azur', 'Alpes-Maritimes': 'Provence-Alpes-Cote d Azur', 'Bouches-du-Rhone': 'Provence-Alpes-Cote d Azur', Var: 'Provence-Alpes-Cote d Azur', Vaucluse: 'Provence-Alpes-Cote d Azur',
+  Guadeloupe: 'Guadeloupe', Martinique: 'Martinique', Guyane: 'French Guiana', 'La Reunion': 'Reunion', Mayotte: 'Mayotte',
+}
+
 const frenchDepartments: QuizItem[] = [
   ['Ain', 'Bourg-en-Bresse', 46.1, 5.2], ['Aisne', 'Saint-Quentin', 49.5, 3.5], ['Allier', 'Montlucon', 46.3, 3.2], ['Alpes-de-Haute-Provence', 'Manosque', 44.1, 6.2],
   ['Hautes-Alpes', 'Gap', 44.6, 6.1], ['Alpes-Maritimes', 'Nice', 43.9, 7.2], ['Ardeche', 'Annonay', 44.7, 4.4], ['Ardennes', 'Charleville-Mezieres', 49.7, 4.7],
@@ -146,7 +164,7 @@ const frenchDepartments: QuizItem[] = [
   ['Vosges', 'Epinal', 48.2, 6.4], ['Yonne', 'Auxerre', 47.8, 3.6], ['Territoire de Belfort', 'Belfort', 47.6, 6.9], ['Essonne', 'Evry-Courcouronnes', 48.5, 2.2],
   ['Hauts-de-Seine', 'Boulogne-Billancourt', 48.8, 2.2], ['Seine-Saint-Denis', 'Saint-Denis', 48.9, 2.5], ['Val-de-Marne', 'Vitry-sur-Seine', 48.8, 2.5], ['Val-d Oise', 'Argenteuil', 49.1, 2.1],
   ['Guadeloupe', 'Les Abymes', 16.2, -61.6], ['Martinique', 'Fort-de-France', 14.6, -61.0], ['Guyane', 'Cayenne', 4.0, -53.0], ['La Reunion', 'Saint-Denis', -21.1, 55.5], ['Mayotte', 'Mamoudzou', -12.8, 45.2],
-].map(([name, answer, lat, lon]) => ({ id: String(name).toLowerCase().replaceAll(' ', '-'), name: String(name), answer: String(answer), prompt: `Biggest city in ${name}`, lat: Number(lat), lon: Number(lon) }))
+].map(([name, answer, lat, lon]) => ({ id: String(name).toLowerCase().replaceAll(' ', '-'), name: String(name), answer: String(answer), prompt: `Biggest city in ${name}`, lat: Number(lat), lon: Number(lon), region: departmentRegions[String(name)] }))
 
 const frenchCities: QuizItem[] = [
   ['Paris', 48.8566, 2.3522, 'Top French commune: about 2.1 million.'], ['Marseille', 43.2965, 5.3698, 'Top five: about 0.89 million.'],
