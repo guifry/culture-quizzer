@@ -32,6 +32,7 @@ export type QuizItem = {
   answer?: string
   prompt?: string
   detail?: string
+  note?: string
   location?: string
   facts?: string[]
   lat?: number

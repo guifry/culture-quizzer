@@ -535,6 +535,24 @@
   position: relative;
 }
 
+/* Thin, wide note shown under the map after answering (e.g. what a sea borders). */
+.map-note {
+  position: absolute;
+  z-index: 4;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 7px 16px;
+  border-top: 1px solid var(--border);
+  background: rgb(255 255 255 / 92%);
+  backdrop-filter: blur(3px);
+  color: var(--text-h);
+  font-size: 13px;
+  line-height: 1.35;
+  text-align: center;
+  pointer-events: none;
+}
+
 .map {
   display: block;
   width: 100%;
@@ -2017,6 +2035,12 @@
   top: auto;
   bottom: 10px;
   left: 10px;
+  z-index: 5;
+}
+
+/* In landscape the note shares the bottom edge with the zoom controls; keep clear of them. */
+.mmg-landscape .map-note {
+  padding-left: 120px;
 }
 
 .mmg-widget {

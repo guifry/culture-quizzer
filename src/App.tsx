@@ -8,6 +8,7 @@ import frDepartments from './data/geo/fr-departments.json'
 import frRegions from './data/geo/fr-regions.json'
 import ukAdmin from './data/geo/uk-counties-unitaries-2022.json'
 import seas from './data/geo/seas.json'
+import { seaMeta } from './data/geo/seas-meta'
 import './App.css'
 import { topics, type MapScope, type QuizItem, type QuizMode, type Topic } from './data/curriculum'
 import { resolveImageUrl, shuffle, stripTrailingPunctuation } from './utils'
@@ -194,7 +195,7 @@ function poolForTopic(topic: Topic, mode: QuizMode, scope: string = 'world', usG
   if (topic.id === 'world-countries') {
     return countryItemsForScope(scope as CountryScope, topic.items)
   }
-  if (topic.id === 'us-states') {
+  if (topic.id === 'us-states' || topic.id === 'seas') {
     return scope === 'all' ? topic.items : topic.items.filter((item) => item.region === scope)
   }
   if (topic.id === 'us-cities') {
@@ -281,7 +282,7 @@ function clampMapView(view: MapView): MapView {
 }
 
 function scoreKey(topic: Topic, mode: QuizMode, scope: string = 'world', usGuess: UsGuess = 'capital') {
-  if (topic.id === 'world-countries' || topic.id === 'us-states') {
+  if (topic.id === 'world-countries' || topic.id === 'us-states' || topic.id === 'seas') {
     return `${topic.id}:${scope}:${mode}`
   }
   if (topic.id === 'us-cities') {
@@ -294,7 +295,7 @@ function scoreKey(topic: Topic, mode: QuizMode, scope: string = 'world', usGuess
 }
 
 function roundKey(topic: Topic, mode?: QuizMode, scope: string = 'world', usGuess: UsGuess = 'capital') {
-  if (topic.id === 'world-countries' || topic.id === 'us-states') {
+  if (topic.id === 'world-countries' || topic.id === 'us-states' || topic.id === 'seas') {
     return `${topic.id}:${scope}`
   }
   if (topic.id === 'us-cities') {
@@ -590,18 +591,28 @@ const frRegionOptions: Array<{ key: string; label: string }> = [
   { key: 'Provence-Alpes-Cote d Azur', label: 'Provence-Alpes-Côte d’Azur' },
 ]
 
+const seaRegionOptions: Array<{ key: string; label: string }> = [
+  { key: 'all', label: 'Whole world' },
+  { key: 'europe', label: 'Europe & Mediterranean' },
+  { key: 'asia-pacific', label: 'Asia-Pacific' },
+  { key: 'americas', label: 'Americas' },
+  { key: 'indian', label: 'Indian Ocean & Middle East' },
+  { key: 'polar', label: 'Polar' },
+]
+
 function isUsScopedTopic(topic: Topic) {
   return topic.id === 'us-states' || topic.id === 'us-cities'
 }
 
 function isRegionScopedTopic(topic: Topic) {
-  return isUsScopedTopic(topic) || topic.id === 'french-departments'
+  return isUsScopedTopic(topic) || topic.id === 'french-departments' || topic.id === 'seas'
 }
 
 function regionOptions(topic: Topic): Array<{ key: string; label: string }> {
   if (topic.id === 'world-countries') return countryScopeOptions
   if (isUsScopedTopic(topic)) return usRegionOptions
   if (topic.id === 'french-departments') return frRegionOptions
+  if (topic.id === 'seas') return seaRegionOptions
   return []
 }
 
@@ -632,7 +643,8 @@ function seaItemsFromFeatures(): QuizItem[] {
   return boundaryFeatures.seas
     .map((featureItem) => {
       const name = boundaryName(featureItem)
-      return { id: normalize(name).replaceAll(' ', '-'), name }
+      const meta = seaMeta[name]
+      return { id: normalize(name).replaceAll(' ', '-'), name, region: meta?.region, note: meta?.note }
     })
     .sort((a, b) => a.name.localeCompare(b.name))
 }
@@ -1471,6 +1483,7 @@ function CultureMap({
             : null}
         </g>
       </svg>
+      {review && current.note ? <div className="map-note">{current.note}</div> : null}
     </div>
   )
 }
