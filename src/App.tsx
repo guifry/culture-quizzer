@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState, type CSSProperties, type FormEvent, type PointerEvent as ReactPointerEvent, type WheelEvent as ReactWheelEvent } from 'react'
 import { feature } from 'topojson-client'
 import { geoAlbersUsa, geoContains, geoEqualEarth, geoMercator, geoPath } from 'd3-geo'
-import { BookOpen, Check, ChevronRight, Globe2, Image, MapPinned, RotateCcw, X } from 'lucide-react'
+import { BookOpen, Check, ChevronRight, Globe2, Image, MapPinned, Menu, RotateCcw, X } from 'lucide-react'
 import countries110m from 'world-atlas/countries-110m.json'
 import usStatesAtlas from 'us-atlas/states-10m.json'
 import frDepartments from './data/geo/fr-departments.json'
@@ -1101,16 +1101,18 @@ function QuestionReferencePanel({ topic, article }: { topic: Topic; article?: Co
   )
 }
 
-function useIsMobile() {
-  const query = '(max-width: 820px)'
-  const [isMobile, setIsMobile] = useState(() => (typeof window !== 'undefined' ? window.matchMedia(query).matches : false))
+const MOBILE_QUERY = '(max-width: 820px), (max-width: 950px) and (max-height: 540px)'
+const LANDSCAPE_PHONE_QUERY = '(max-width: 950px) and (max-height: 540px) and (orientation: landscape)'
+
+function useMedia(query: string) {
+  const [matches, setMatches] = useState(() => (typeof window !== 'undefined' ? window.matchMedia(query).matches : false))
   useEffect(() => {
     const mql = window.matchMedia(query)
-    const onChange = () => setIsMobile(mql.matches)
+    const onChange = () => setMatches(mql.matches)
     mql.addEventListener('change', onChange)
     return () => mql.removeEventListener('change', onChange)
-  }, [])
-  return isMobile
+  }, [query])
+  return matches
 }
 
 function CultureMap({
@@ -1792,6 +1794,10 @@ type MobileMapGameProps = {
   round: RoundState
   roundResults: AnswerResult[]
   roundComplete: boolean
+  landscape: boolean
+  grouped: Record<string, Topic[]>
+  activeTopicId: string
+  onSelectTopic: (id: string) => void
   onPick: (item: QuizItem) => void
   onSubmit: (value: string) => void
   onNext: () => void
@@ -1804,8 +1810,9 @@ type MobileMapGameProps = {
 }
 
 function MobileMapGame(props: MobileMapGameProps) {
-  const { topic, mode, current, pool, countries, review, pendingPick, scope, usGuess, alsoNameDepartment, score, accuracy, round, roundComplete } = props
+  const { topic, mode, current, pool, countries, review, pendingPick, scope, usGuess, alsoNameDepartment, score, accuracy, round, roundComplete, landscape } = props
   const [input, setInput] = useState('')
+  const [drawerOpen, setDrawerOpen] = useState(false)
   const questionKey = `${current.id}:${mode}:${scope}:${usGuess}`
   const [lastKey, setLastKey] = useState(questionKey)
   if (questionKey !== lastKey) {
@@ -1837,101 +1844,161 @@ function MobileMapGame(props: MobileMapGameProps) {
     if (inputValid) props.onSubmit(input)
   }
 
+  const regionSelect = regions.length ? (
+    <label className="mmg-select">
+      <span>Region</span>
+      <select value={scope} onChange={(event) => props.onScope(event.target.value)}>
+        {regions.map((option) => (
+          <option key={option.key} value={option.key}>
+            {option.label}
+          </option>
+        ))}
+      </select>
+    </label>
+  ) : null
+
+  const guessSelect =
+    topic.id === 'us-cities' ? (
+      <label className="mmg-select">
+        <span>Guess</span>
+        <select value={usGuess} onChange={(event) => props.onGuess(event.target.value as UsGuess)}>
+          {usGuessOptions.map((option) => (
+            <option key={option.key} value={option.key}>
+              {option.label}
+            </option>
+          ))}
+        </select>
+      </label>
+    ) : null
+
+  const modeSelect = (
+    <label className="mmg-select">
+      <span>Quiz type</span>
+      <select value={mode} onChange={(event) => props.onMode(event.target.value as QuizMode)}>
+        {topic.modes.map((availableMode) => (
+          <option key={availableMode} value={availableMode}>
+            {modeLabel(topic, availableMode)}
+          </option>
+        ))}
+      </select>
+    </label>
+  )
+
+  const toggleControl =
+    mode === 'map-number' ? (
+      <label className="mmg-toggle">
+        <input type="checkbox" checked={alsoNameDepartment} onChange={(event) => props.onToggleName(event.target.checked)} />
+        <span>Also type the department name</span>
+      </label>
+    ) : null
+
+  const promptBlock = (
+    <>
+      <div className="mmg-status">
+        <span>{progress}</span>
+        <span>{accuracy}% acc</span>
+        <span>🔥 {score.streak}</span>
+      </div>
+      <h2>{quizTitle(topic, mode, current)}</h2>
+
+      {needsInput ? (
+        <form className="mmg-input" onSubmit={handleFormSubmit}>
+          <input
+            value={input}
+            onChange={(event) => setInput(event.target.value)}
+            placeholder={mode === 'map-number' ? (pickReady ? 'Type the department name' : 'Tap the department first') : 'Type the answer'}
+            autoComplete="off"
+            readOnly={Boolean(review)}
+            enterKeyHint={review ? 'next' : 'done'}
+          />
+          <button type="submit" disabled={review ? false : !inputValid}>
+            {review ? 'Next' : 'Check'}
+          </button>
+        </form>
+      ) : null}
+
+      {review ? (
+        <div className={review.ok ? 'mmg-result ok' : 'mmg-result bad'}>
+          <span>{review.ok ? 'Correct' : `Answer: ${stripTrailingPunctuation(review.expected)}`}</span>
+          {needsInput ? null : (
+            <button type="button" onClick={props.onNext}>
+              Next
+            </button>
+          )}
+        </div>
+      ) : !needsInput ? (
+        <button className="mmg-skip" type="button" onClick={props.onNext}>
+          Skip
+        </button>
+      ) : null}
+    </>
+  )
+
+  const mapNode = (
+    <div className="mmg-map">
+      <CultureMap key={`${topic.id}:${mode}:${scope}:${usGuess}`} topic={topic} mode={mode} current={current} items={pool} countries={countries} review={review} pendingCode={pendingPick?.code} onPick={props.onPick} />
+    </div>
+  )
+
+  if (landscape) {
+    return (
+      <section className="mobile-map-game mmg-landscape">
+        {mapNode}
+        <div className="mmg-widget">{promptBlock}</div>
+        <button className="mmg-drawer-toggle" type="button" onClick={() => setDrawerOpen(true)} aria-label="Open menu">
+          <Menu size={20} />
+        </button>
+        {drawerOpen ? <div className="mmg-scrim" onClick={() => setDrawerOpen(false)} /> : null}
+        <aside className={drawerOpen ? 'mmg-drawer open' : 'mmg-drawer'} aria-hidden={!drawerOpen}>
+          <div className="mmg-drawer-head">
+            <strong>Menu</strong>
+            <button type="button" onClick={() => setDrawerOpen(false)} aria-label="Close menu">
+              <X size={18} />
+            </button>
+          </div>
+          <label className="mmg-select">
+            <span>Deck</span>
+            <select value={props.activeTopicId} onChange={(event) => props.onSelectTopic(event.target.value)}>
+              {Object.entries(props.grouped).map(([group, groupTopics]) => (
+                <optgroup key={group} label={group}>
+                  {groupTopics.map((option) => (
+                    <option key={option.id} value={option.id}>
+                      {option.title}
+                    </option>
+                  ))}
+                </optgroup>
+              ))}
+            </select>
+          </label>
+          {regionSelect}
+          {guessSelect}
+          {modeSelect}
+          {toggleControl}
+          <button className="mmg-drawer-reset" type="button" onClick={props.onReset}>
+            <RotateCcw size={16} />
+            Reset scores
+          </button>
+        </aside>
+      </section>
+    )
+  }
+
   return (
     <section className="mobile-map-game">
       <div className="mmg-toolbar">
-        {regions.length ? (
-          <label className="mmg-select">
-            <span>Region</span>
-            <select value={scope} onChange={(event) => props.onScope(event.target.value)}>
-              {regions.map((option) => (
-                <option key={option.key} value={option.key}>
-                  {option.label}
-                </option>
-              ))}
-            </select>
-          </label>
-        ) : null}
-
-        {topic.id === 'us-cities' ? (
-          <label className="mmg-select">
-            <span>Guess</span>
-            <select value={usGuess} onChange={(event) => props.onGuess(event.target.value as UsGuess)}>
-              {usGuessOptions.map((option) => (
-                <option key={option.key} value={option.key}>
-                  {option.label}
-                </option>
-              ))}
-            </select>
-          </label>
-        ) : null}
-
-        <label className="mmg-select">
-          <span>Quiz type</span>
-          <select value={mode} onChange={(event) => props.onMode(event.target.value as QuizMode)}>
-            {topic.modes.map((availableMode) => (
-              <option key={availableMode} value={availableMode}>
-                {modeLabel(topic, availableMode)}
-              </option>
-            ))}
-          </select>
-        </label>
-
+        {regionSelect}
+        {guessSelect}
+        {modeSelect}
         <button className="mmg-reset" type="button" onClick={props.onReset} aria-label="Reset scores">
           <RotateCcw size={16} />
         </button>
       </div>
 
-      {mode === 'map-number' ? (
-        <label className="mmg-toggle">
-          <input type="checkbox" checked={alsoNameDepartment} onChange={(event) => props.onToggleName(event.target.checked)} />
-          <span>Also type the department name</span>
-        </label>
-      ) : null}
+      {toggleControl}
 
-      <div className="mmg-prompt">
-        <div className="mmg-status">
-          <span>{progress}</span>
-          <span>{accuracy}% acc</span>
-          <span>🔥 {score.streak}</span>
-        </div>
-        <h2>{quizTitle(topic, mode, current)}</h2>
+      <div className="mmg-prompt">{promptBlock}</div>
 
-        {needsInput ? (
-          <form className="mmg-input" onSubmit={handleFormSubmit}>
-            <input
-              value={input}
-              onChange={(event) => setInput(event.target.value)}
-              placeholder={mode === 'map-number' ? (pickReady ? 'Type the department name' : 'Tap the department first') : 'Type the answer'}
-              autoComplete="off"
-              readOnly={Boolean(review)}
-              enterKeyHint={review ? 'next' : 'done'}
-            />
-            <button type="submit" disabled={review ? false : !inputValid}>
-              {review ? 'Next' : 'Check'}
-            </button>
-          </form>
-        ) : null}
-
-        {review ? (
-          <div className={review.ok ? 'mmg-result ok' : 'mmg-result bad'}>
-            <span>{review.ok ? 'Correct' : `Answer: ${stripTrailingPunctuation(review.expected)}`}</span>
-            {needsInput ? null : (
-              <button type="button" onClick={props.onNext}>
-                Next
-              </button>
-            )}
-          </div>
-        ) : !needsInput ? (
-          <button className="mmg-skip" type="button" onClick={props.onNext}>
-            Skip
-          </button>
-        ) : null}
-      </div>
-
-      <div className="mmg-map">
-        <CultureMap key={`${topic.id}:${mode}:${scope}:${usGuess}`} topic={topic} mode={mode} current={current} items={pool} countries={countries} review={review} pendingCode={pendingPick?.code} onPick={props.onPick} />
-      </div>
+      {mapNode}
     </section>
   )
 }
@@ -1983,7 +2050,8 @@ function App() {
   const isMapTopic = Boolean(activeTopic.mapKind) && !isHistoryDateTopic(activeTopic) && activeTopic.id !== 'solar-system'
   const mapWorkspace = activePageView === 'practice' && isMapTopic
   const showingMapStage = mapWorkspace && !roundResultsVisible
-  const isMobile = useIsMobile()
+  const isMobile = useMedia(MOBILE_QUERY)
+  const isLandscapePhone = useMedia(LANDSCAPE_PHONE_QUERY)
   const mobileMapGame = isMobile && mapWorkspace
 
   const advanceRound = useCallback(() => {
@@ -2243,7 +2311,7 @@ function App() {
   }, [fullTopics])
 
   return (
-    <main className={mobileMapGame ? 'app-shell mobile-map-active' : 'app-shell'}>
+    <main className={['app-shell', mobileMapGame ? 'mobile-map-active' : '', mobileMapGame && isLandscapePhone ? 'mobile-landscape' : ''].filter(Boolean).join(' ')}>
       <header className="mobile-header">
         <div className="mobile-brand">
           <Globe2 size={20} />
@@ -2316,6 +2384,13 @@ function App() {
           round={activeRound}
           roundResults={activeRoundResults}
           roundComplete={Boolean(roundResultsVisible)}
+          landscape={isLandscapePhone}
+          grouped={grouped}
+          activeTopicId={activeTopic.id}
+          onSelectTopic={(id) => {
+            const nextTopic = fullTopics.find((entry) => entry.id === id)
+            if (nextTopic) activateTopic(nextTopic)
+          }}
           onPick={pickMapItem}
           onSubmit={submit}
           onNext={nextRound}
