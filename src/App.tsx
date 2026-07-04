@@ -1168,12 +1168,21 @@ function CultureMap({
   const submittedCode = review?.submittedCode
   const mapTransform = `translate(${mapView.x} ${mapView.y}) scale(${mapView.scale})`
 
+  // Convert client coords to viewBox (960x560) coords, accounting for the SVG's
+  // preserveAspectRatio="xMidYMid meet" letterboxing (so the element need not match the
+  // viewBox aspect — the mobile map can fill a portrait container).
+  function clientToViewBox(clientX: number, clientY: number, rect: DOMRect): [number, number] {
+    const fit = Math.min(rect.width / WIDTH, rect.height / HEIGHT)
+    const offsetX = (rect.width - WIDTH * fit) / 2
+    const offsetY = (rect.height - HEIGHT * fit) / 2
+    return [(clientX - rect.left - offsetX) / fit, (clientY - rect.top - offsetY) / fit]
+  }
+
   function zoomAt(clientX: number, clientY: number, direction: number) {
     const svg = svgRef.current
     if (!svg) return
     const rect = svg.getBoundingClientRect()
-    const pointX = ((clientX - rect.left) / rect.width) * WIDTH
-    const pointY = ((clientY - rect.top) / rect.height) * HEIGHT
+    const [pointX, pointY] = clientToViewBox(clientX, clientY, rect)
 
     setMapView((previous) => {
       const nextScale = Math.min(12, Math.max(1, previous.scale * (direction > 0 ? 1.22 : 1 / 1.22)))
@@ -1190,8 +1199,7 @@ function CultureMap({
     const svg = svgRef.current
     if (!svg) return undefined
     const rect = svg.getBoundingClientRect()
-    const viewX = ((clientX - rect.left) / rect.width) * WIDTH
-    const viewY = ((clientY - rect.top) / rect.height) * HEIGHT
+    const [viewX, viewY] = clientToViewBox(clientX, clientY, rect)
     return [(viewX - mapView.x) / mapView.scale, (viewY - mapView.y) / mapView.scale] as [number, number]
   }
 
@@ -1237,7 +1245,7 @@ function CultureMap({
   }
 
   function toView(clientX: number, clientY: number, rect: DOMRect) {
-    return [((clientX - rect.left) / rect.width) * WIDTH, ((clientY - rect.top) / rect.height) * HEIGHT] as [number, number]
+    return clientToViewBox(clientX, clientY, rect)
   }
 
   function beginPinch() {
@@ -1288,12 +1296,12 @@ function CultureMap({
 
     const drag = dragRef.current
     if (!drag || drag.pointerId !== event.pointerId || mapView.scale <= 1) return
-    const dx = ((event.clientX - drag.clientX) / rect.width) * WIDTH
-    const dy = ((event.clientY - drag.clientY) / rect.height) * HEIGHT
+    const [vx, vy] = clientToViewBox(event.clientX, event.clientY, rect)
+    const [sx, sy] = clientToViewBox(drag.clientX, drag.clientY, rect)
     if (Math.hypot(event.clientX - drag.clientX, event.clientY - drag.clientY) > 4) {
       drag.moved = true
     }
-    setMapView(clampMapView({ ...drag.view, x: drag.view.x + dx, y: drag.view.y + dy }))
+    setMapView(clampMapView({ ...drag.view, x: drag.view.x + (vx - sx), y: drag.view.y + (vy - sy) }))
   }
 
   function handlePointerUp(event: ReactPointerEvent<SVGSVGElement>) {

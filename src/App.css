@@ -1942,7 +1942,9 @@
 
 .mmg-map .map {
   width: 100%;
+  height: 100%;
   max-width: none;
+  aspect-ratio: auto;
 }
 
 .mmg-map .map-zoom-controls {
