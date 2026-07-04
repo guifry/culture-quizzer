@@ -157,21 +157,26 @@ const frenchCities: QuizItem[] = [
   ['Grenoble', 45.1885, 5.7245], ['Dijon', 47.322, 5.0415], ['Angers', 47.4784, -0.5632], ['Nimes', 43.8367, 4.3601], ['Villeurbanne', 45.7719, 4.8902],
 ].map(([name, lat, lon, detail]) => ({ id: String(name).toLowerCase().replaceAll(' ', '-'), name: String(name), lat: Number(lat), lon: Number(lon), detail: detail ? String(detail) : undefined }))
 
-const usStates: QuizItem[] = [
-  ['Alabama', 'Montgomery', 32.8, -86.8], ['Alaska', 'Juneau', 64.2, -149.5], ['Arizona', 'Phoenix', 34.1, -111.9], ['Arkansas', 'Little Rock', 35.2, -92.4],
-  ['California', 'Sacramento', 36.8, -119.4], ['Colorado', 'Denver', 39.0, -105.5], ['Connecticut', 'Hartford', 41.6, -72.7], ['Delaware', 'Dover', 39.0, -75.5],
-  ['Florida', 'Tallahassee', 27.8, -81.7], ['Georgia', 'Atlanta', 32.2, -83.4], ['Hawaii', 'Honolulu', 19.9, -155.6], ['Idaho', 'Boise', 44.1, -114.7],
-  ['Illinois', 'Springfield', 40.0, -89.2], ['Indiana', 'Indianapolis', 40.3, -86.1], ['Iowa', 'Des Moines', 42.0, -93.1], ['Kansas', 'Topeka', 38.5, -98.4],
-  ['Kentucky', 'Frankfort', 37.8, -85.8], ['Louisiana', 'Baton Rouge', 31.2, -91.9], ['Maine', 'Augusta', 45.3, -69.4], ['Maryland', 'Annapolis', 39.0, -76.8],
-  ['Massachusetts', 'Boston', 42.4, -71.4], ['Michigan', 'Lansing', 44.3, -85.6], ['Minnesota', 'Saint Paul', 46.7, -94.7], ['Mississippi', 'Jackson', 32.7, -89.7],
-  ['Missouri', 'Jefferson City', 38.5, -92.5], ['Montana', 'Helena', 47.0, -110.4], ['Nebraska', 'Lincoln', 41.5, -99.9], ['Nevada', 'Carson City', 39.5, -116.9],
-  ['New Hampshire', 'Concord', 43.2, -71.6], ['New Jersey', 'Trenton', 40.1, -74.7], ['New Mexico', 'Santa Fe', 34.5, -106.0], ['New York', 'Albany', 43.0, -75.0],
-  ['North Carolina', 'Raleigh', 35.5, -79.0], ['North Dakota', 'Bismarck', 47.5, -100.5], ['Ohio', 'Columbus', 40.4, -82.8], ['Oklahoma', 'Oklahoma City', 35.6, -97.5],
-  ['Oregon', 'Salem', 44.0, -120.6], ['Pennsylvania', 'Harrisburg', 41.2, -77.2], ['Rhode Island', 'Providence', 41.7, -71.5], ['South Carolina', 'Columbia', 33.8, -80.9],
-  ['South Dakota', 'Pierre', 44.4, -100.2], ['Tennessee', 'Nashville', 35.9, -86.5], ['Texas', 'Austin', 31.0, -99.9], ['Utah', 'Salt Lake City', 39.3, -111.7],
-  ['Vermont', 'Montpelier', 44.1, -72.7], ['Virginia', 'Richmond', 37.5, -78.7], ['Washington', 'Olympia', 47.4, -120.7], ['West Virginia', 'Charleston', 38.6, -80.5],
-  ['Wisconsin', 'Madison', 44.5, -89.5], ['Wyoming', 'Cheyenne', 43.0, -107.6],
-].map(([name, answer, lat, lon]) => ({ id: String(name).toLowerCase().replaceAll(' ', '-'), name: String(name), answer: String(answer), prompt: `Capital of ${name}`, lat: Number(lat), lon: Number(lon) }))
+// [state, capital, biggest city, lat, lon, region]
+const usStateData: Array<[string, string, string, number, number, 'west' | 'mid' | 'east']> = [
+  ['Alabama', 'Montgomery', 'Birmingham', 32.8, -86.8, 'east'], ['Alaska', 'Juneau', 'Anchorage', 64.2, -149.5, 'west'], ['Arizona', 'Phoenix', 'Phoenix', 34.1, -111.9, 'west'], ['Arkansas', 'Little Rock', 'Little Rock', 35.2, -92.4, 'east'],
+  ['California', 'Sacramento', 'Los Angeles', 36.8, -119.4, 'west'], ['Colorado', 'Denver', 'Denver', 39.0, -105.5, 'west'], ['Connecticut', 'Hartford', 'Bridgeport', 41.6, -72.7, 'east'], ['Delaware', 'Dover', 'Wilmington', 39.0, -75.5, 'east'],
+  ['Florida', 'Tallahassee', 'Jacksonville', 27.8, -81.7, 'east'], ['Georgia', 'Atlanta', 'Atlanta', 32.2, -83.4, 'east'], ['Hawaii', 'Honolulu', 'Honolulu', 19.9, -155.6, 'west'], ['Idaho', 'Boise', 'Boise', 44.1, -114.7, 'west'],
+  ['Illinois', 'Springfield', 'Chicago', 40.0, -89.2, 'mid'], ['Indiana', 'Indianapolis', 'Indianapolis', 40.3, -86.1, 'mid'], ['Iowa', 'Des Moines', 'Des Moines', 42.0, -93.1, 'mid'], ['Kansas', 'Topeka', 'Wichita', 38.5, -98.4, 'mid'],
+  ['Kentucky', 'Frankfort', 'Louisville', 37.8, -85.8, 'east'], ['Louisiana', 'Baton Rouge', 'New Orleans', 31.2, -91.9, 'east'], ['Maine', 'Augusta', 'Portland', 45.3, -69.4, 'east'], ['Maryland', 'Annapolis', 'Baltimore', 39.0, -76.8, 'east'],
+  ['Massachusetts', 'Boston', 'Boston', 42.4, -71.4, 'east'], ['Michigan', 'Lansing', 'Detroit', 44.3, -85.6, 'mid'], ['Minnesota', 'Saint Paul', 'Minneapolis', 46.7, -94.7, 'mid'], ['Mississippi', 'Jackson', 'Jackson', 32.7, -89.7, 'east'],
+  ['Missouri', 'Jefferson City', 'Kansas City', 38.5, -92.5, 'mid'], ['Montana', 'Helena', 'Billings', 47.0, -110.4, 'west'], ['Nebraska', 'Lincoln', 'Omaha', 41.5, -99.9, 'mid'], ['Nevada', 'Carson City', 'Las Vegas', 39.5, -116.9, 'west'],
+  ['New Hampshire', 'Concord', 'Manchester', 43.2, -71.6, 'east'], ['New Jersey', 'Trenton', 'Newark', 40.1, -74.7, 'east'], ['New Mexico', 'Santa Fe', 'Albuquerque', 34.5, -106.0, 'west'], ['New York', 'Albany', 'New York City', 43.0, -75.0, 'east'],
+  ['North Carolina', 'Raleigh', 'Charlotte', 35.5, -79.0, 'east'], ['North Dakota', 'Bismarck', 'Fargo', 47.5, -100.5, 'mid'], ['Ohio', 'Columbus', 'Columbus', 40.4, -82.8, 'mid'], ['Oklahoma', 'Oklahoma City', 'Oklahoma City', 35.6, -97.5, 'east'],
+  ['Oregon', 'Salem', 'Portland', 44.0, -120.6, 'west'], ['Pennsylvania', 'Harrisburg', 'Philadelphia', 41.2, -77.2, 'east'], ['Rhode Island', 'Providence', 'Providence', 41.7, -71.5, 'east'], ['South Carolina', 'Columbia', 'Charleston', 33.8, -80.9, 'east'],
+  ['South Dakota', 'Pierre', 'Sioux Falls', 44.4, -100.2, 'mid'], ['Tennessee', 'Nashville', 'Nashville', 35.9, -86.5, 'east'], ['Texas', 'Austin', 'Houston', 31.0, -99.9, 'east'], ['Utah', 'Salt Lake City', 'Salt Lake City', 39.3, -111.7, 'west'],
+  ['Vermont', 'Montpelier', 'Burlington', 44.1, -72.7, 'east'], ['Virginia', 'Richmond', 'Virginia Beach', 37.5, -78.7, 'east'], ['Washington', 'Olympia', 'Seattle', 47.4, -120.7, 'west'], ['West Virginia', 'Charleston', 'Charleston', 38.6, -80.5, 'east'],
+  ['Wisconsin', 'Madison', 'Milwaukee', 44.5, -89.5, 'mid'], ['Wyoming', 'Cheyenne', 'Cheyenne', 43.0, -107.6, 'west'],
+]
+
+const usStateItems: QuizItem[] = usStateData.map(([name, , , lat, lon, region]) => ({ id: name.toLowerCase().replaceAll(' ', '-'), name, region, lat, lon }))
+
+const usCityItems: QuizItem[] = usStateData.map(([name, capital, mainCity, lat, lon, region]) => ({ id: name.toLowerCase().replaceAll(' ', '-'), name, answer: capital, mainCity, region, lat, lon }))
 
 const riversAndRanges: QuizItem[] = [
   ['Nile', 30.0, 31.2, 'Longest-river contender; northeast Africa.'], ['Amazon', -3.1, -60.0, 'Largest discharge; South America.'], ['Yangtze', 31.2, 121.5, 'Longest river in Asia.'],
@@ -645,7 +650,8 @@ export const topics: Topic[] = [
   { id: 'french-departments', title: 'French Departments and Biggest Cities', group: 'Geography', description: 'Click departments on real boundaries, locate them by number, and recall the biggest city.', modes: ['map-click', 'map-number', 'map-type', 'type'], mapScope: 'france', mapKind: 'points', boundaryLayer: 'fr-departments', items: frenchDepartments, coverage: 'All current departments with biggest-city prompts; map modes show metropolitan France only (GeoJSON); typed modes include overseas departments.' },
   { id: 'french-regions', title: 'French Regions and Biggest Cities', group: 'Geography', description: 'Click regions on real boundaries and recall the biggest city for every region.', modes: ['map-click', 'map-type', 'type'], mapScope: 'france', mapKind: 'points', boundaryLayer: 'fr-regions', items: frenchRegions, coverage: 'Current French regions with region polygons rendered from GeoJSON. Map modes show metropolitan France only; typed modes include overseas regions.' },
   { id: 'france-cities', title: 'Top 20 French Cities', group: 'Geography', description: 'Place France’s largest communes and remember the top-five population anchors.', modes: ['map-click', 'map-type'], mapScope: 'france', mapKind: 'points', boundaryLayer: 'fr-departments', items: frenchCities, coverage: 'Top 20 commune deck.' },
-  { id: 'us-states', title: 'US States and Capitals', group: 'Geography', description: 'Place all 50 states as center targets and drill their capitals.', modes: ['map-click', 'map-type', 'type'], mapScope: 'usa', mapKind: 'points', boundaryLayer: 'us-states', items: usStates, coverage: 'All 50 states with capitals.' },
+  { id: 'us-states', title: 'US States', group: 'Geography', description: 'Locate and name every state; practise the whole country or one region at a time.', modes: ['map-click', 'map-type'], mapScope: 'usa', mapKind: 'points', boundaryLayer: 'us-states', items: usStateItems, coverage: 'All 50 states, grouped into West, Mid, and East sets.' },
+  { id: 'us-cities', title: 'US State Capitals and Cities', group: 'Geography', description: 'Match each state to its capital or biggest city, by locating on the map or typing.', modes: ['map-click', 'type'], mapScope: 'usa', mapKind: 'points', boundaryLayer: 'us-states', items: usCityItems, coverage: 'All 50 state capitals and biggest cities, in West, Mid, and East sets.' },
   { id: 'rivers', title: 'Major World, UK, and French Rivers', group: 'Geography', description: 'Locate the world great rivers plus UK and France anchors.', modes: ['map-click', 'map-type'], mapScope: 'world', mapKind: 'points', items: riversAndRanges, coverage: 'Top world rivers plus Thames, Seine, and Loire anchors.' },
   { id: 'mountain-ranges', title: 'Top 20 Mountain Ranges', group: 'Geography', description: 'Place the main mountain systems of the world.', modes: ['map-click', 'map-type'], mapScope: 'world', mapKind: 'points', items: mountainRanges, coverage: 'Top 20 global range deck.' },
   { id: 'solar-system', title: 'Planets of the Solar System', group: 'Science', description: 'Name the planets from the Sun outward, and recall where the asteroid belt sits.', modes: ['sequence'], items: solarSystemItems, coverage: 'Eight planets in order plus the main asteroid belt between Mars and Jupiter.' },

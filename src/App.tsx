@@ -119,6 +119,11 @@ function modeLabel(topic: Topic, mode: QuizMode) {
     return 'Recall biggest city'
   }
 
+  if (topic.id === 'us-cities') {
+    if (mode === 'map-click') return 'Locate the state'
+    if (mode === 'type') return 'Type the city'
+  }
+
   return defaultModeLabels[mode]
 }
 
@@ -178,9 +183,20 @@ function isMetropolitanFrance(item: QuizItem) {
     item.lon >= -5 && item.lon <= 10
 }
 
-function poolForTopic(topic: Topic, mode: QuizMode, countryScope: CountryScope = 'world') {
+function poolForTopic(topic: Topic, mode: QuizMode, scope: string = 'world', usGuess: UsGuess = 'capital') {
   if (topic.id === 'world-countries') {
-    return countryItemsForScope(countryScope, topic.items)
+    return countryItemsForScope(scope as CountryScope, topic.items)
+  }
+  if (topic.id === 'us-states') {
+    return scope === 'all' ? topic.items : topic.items.filter((item) => item.region === scope)
+  }
+  if (topic.id === 'us-cities') {
+    const filtered = scope === 'all' ? topic.items : topic.items.filter((item) => item.region === scope)
+    return filtered.map((item) =>
+      usGuess === 'main'
+        ? { ...item, answer: item.mainCity, prompt: `Biggest city of ${item.name}` }
+        : { ...item, prompt: `Capital of ${item.name}` },
+    )
   }
   if (isMapMode(mode) && topic.mapScope === 'france') {
     return topic.items.filter(isMetropolitanFrance)
@@ -253,16 +269,22 @@ function clampMapView(view: MapView): MapView {
   }
 }
 
-function scoreKey(topic: Topic, mode: QuizMode, countryScope: CountryScope = 'world') {
-  if (topic.id === 'world-countries') {
-    return `${topic.id}:${countryScope}:${mode}`
+function scoreKey(topic: Topic, mode: QuizMode, scope: string = 'world', usGuess: UsGuess = 'capital') {
+  if (topic.id === 'world-countries' || topic.id === 'us-states') {
+    return `${topic.id}:${scope}:${mode}`
+  }
+  if (topic.id === 'us-cities') {
+    return `${topic.id}:${scope}:${usGuess}:${mode}`
   }
   return `${topic.id}:${mode}`
 }
 
-function roundKey(topic: Topic, mode?: QuizMode, countryScope: CountryScope = 'world') {
-  if (topic.id === 'world-countries') {
-    return `${topic.id}:${countryScope}`
+function roundKey(topic: Topic, mode?: QuizMode, scope: string = 'world', usGuess: UsGuess = 'capital') {
+  if (topic.id === 'world-countries' || topic.id === 'us-states') {
+    return `${topic.id}:${scope}`
+  }
+  if (topic.id === 'us-cities') {
+    return `${topic.id}:${scope}:${usGuess}`
   }
   if (mode && isMapMode(mode) && topic.mapScope === 'france') {
     return `${topic.id}:map`
@@ -519,6 +541,36 @@ function countryItemsForScope(scope: CountryScope, countryTopicItems: QuizItem[]
   return countryTopicItems.filter((item) => names.has(item.name))
 }
 
+type UsGuess = 'capital' | 'main'
+
+const usRegionOptions: Array<{ key: string; label: string }> = [
+  { key: 'all', label: 'Whole US' },
+  { key: 'west', label: 'West' },
+  { key: 'mid', label: 'Mid' },
+  { key: 'east', label: 'East' },
+]
+
+const usGuessOptions: Array<{ key: UsGuess; label: string }> = [
+  { key: 'capital', label: 'State capital' },
+  { key: 'main', label: 'Biggest city' },
+]
+
+function isUsScopedTopic(topic: Topic) {
+  return topic.id === 'us-states' || topic.id === 'us-cities'
+}
+
+function regionOptions(topic: Topic): Array<{ key: string; label: string }> {
+  if (topic.id === 'world-countries') return countryScopeOptions
+  if (isUsScopedTopic(topic)) return usRegionOptions
+  return []
+}
+
+function defaultScope(topic: Topic) {
+  if (topic.id === 'world-countries') return 'world'
+  if (isUsScopedTopic(topic)) return 'all'
+  return 'world'
+}
+
 function asFeatures(collection: unknown): BoundaryFeature[] {
   return (collection as GeoJSON.FeatureCollection<GeoJSON.Geometry, Record<string, string | number | null>>).features
 }
@@ -567,6 +619,7 @@ function attachBoundaryCodes(topic: Topic): Topic {
 function promptLabel(topic: Topic, mode: QuizMode, item: QuizItem) {
   if (topic.id === 'paintings' && mode === 'image') return 'Painting image'
   if (topic.id === 'paintings' && mode === 'choice') return 'Painting artist'
+  if (mode === 'map-click' && topic.id === 'us-cities') return `Click the state of ${item.answer ?? item.name}`
   if (mode === 'map-click') return `Click ${item.label ?? item.name}`
   if (mode === 'map-number') return `Click department ${item.code ?? item.name}`
   if (mode === 'map-type') return 'Highlighted target'
@@ -1316,7 +1369,9 @@ function QuizPanel({
       ? 'Name this painting or artist'
       : topic.id === 'paintings' && mode === 'choice'
         ? 'Choose the artist'
-        : mode === 'map-click'
+        : mode === 'map-click' && topic.id === 'us-cities'
+          ? `Click the state of ${item.answer ?? item.name}`
+          : mode === 'map-click'
           ? `Click: ${item.name}`
           : mode === 'map-number'
             ? `Click department ${item.code ?? item.name}`
@@ -1616,7 +1671,8 @@ function App() {
   const [topicId, setTopicId] = useState(fullTopics[0].id)
   const activeTopic = fullTopics.find((topic) => topic.id === topicId) ?? fullTopics[0]
   const [mode, setMode] = useState<QuizMode>(activeTopic.modes[0])
-  const [countryScope, setCountryScope] = useState<CountryScope>('world')
+  const [scope, setScope] = useState<string>('world')
+  const [usGuess, setUsGuess] = useState<UsGuess>('capital')
   const [scores, setScores] = useState<Record<string, Score>>(() => loadScores())
   const [histories, setHistories] = useState<Record<string, AnswerResult[]>>({})
   const [roundResults, setRoundResults] = useState<Record<string, AnswerResult[]>>({})
@@ -1632,9 +1688,9 @@ function App() {
     }
   })
 
-  const pool = useMemo(() => poolForTopic(activeTopic, mode, countryScope), [activeTopic, mode, countryScope])
-  const activeRoundKey = roundKey(activeTopic, mode, countryScope)
-  const activePracticeKey = scoreKey(activeTopic, mode, countryScope)
+  const pool = useMemo(() => poolForTopic(activeTopic, mode, scope, usGuess), [activeTopic, mode, scope, usGuess])
+  const activeRoundKey = roundKey(activeTopic, mode, scope, usGuess)
+  const activePracticeKey = scoreKey(activeTopic, mode, scope, usGuess)
   const activeRound = ensureRoundState(roundStates[activeRoundKey], pool)
   const current = pool[Math.min(activeRound.index, Math.max(pool.length - 1, 0))] ?? pool[0]
   const activeScore = scores[activePracticeKey] ?? { attempts: 0, correct: 0, streak: 0, bestStreak: 0 }
@@ -1810,8 +1866,8 @@ function App() {
   }
 
   function activateMode(topic: Topic, nextMode: QuizMode) {
-    const nextKey = roundKey(topic, nextMode, countryScope)
-    const nextPool = poolForTopic(topic, nextMode, countryScope)
+    const nextKey = roundKey(topic, nextMode, scope, usGuess)
+    const nextPool = poolForTopic(topic, nextMode, scope, usGuess)
     setPendingPick(null)
     setMode(nextMode)
     setRoundStates((previous) => {
@@ -1823,10 +1879,25 @@ function App() {
     })
   }
 
-  function activateCountryScope(nextScope: CountryScope) {
-    const nextKey = roundKey(activeTopic, mode, nextScope)
-    const nextPool = poolForTopic(activeTopic, mode, nextScope)
-    setCountryScope(nextScope)
+  function activateScope(nextScope: string) {
+    const nextKey = roundKey(activeTopic, mode, nextScope, usGuess)
+    const nextPool = poolForTopic(activeTopic, mode, nextScope, usGuess)
+    setScope(nextScope)
+    setPendingPick(null)
+    setRoundStates((previous) => {
+      if (isRoundStateValid(previous[nextKey], nextPool)) return previous
+      return {
+        ...previous,
+        [nextKey]: createRoundState(nextPool),
+      }
+    })
+  }
+
+  function activateGuess(nextGuess: UsGuess) {
+    const nextKey = roundKey(activeTopic, mode, scope, nextGuess)
+    const nextPool = poolForTopic(activeTopic, mode, scope, nextGuess)
+    setUsGuess(nextGuess)
+    setPendingPick(null)
     setRoundStates((previous) => {
       if (isRoundStateValid(previous[nextKey], nextPool)) return previous
       return {
@@ -1838,12 +1909,14 @@ function App() {
 
   function activateTopic(topic: Topic) {
     const nextMode = topic.modes[0]
-    const nextCountryScope: CountryScope = topic.id === 'world-countries' ? 'world' : countryScope
-    const nextKey = roundKey(topic, nextMode, nextCountryScope)
-    const nextPool = poolForTopic(topic, nextMode, nextCountryScope)
+    const nextScope = defaultScope(topic)
+    const nextGuess: UsGuess = 'capital'
+    const nextKey = roundKey(topic, nextMode, nextScope, nextGuess)
+    const nextPool = poolForTopic(topic, nextMode, nextScope, nextGuess)
     setTopicId(topic.id)
     setMode(nextMode)
-    setCountryScope(nextCountryScope)
+    setScope(nextScope)
+    setUsGuess(nextGuess)
     setPageView('practice')
     setPendingPick(null)
     setRoundStates((previous) => {
@@ -1970,16 +2043,34 @@ function App() {
         {activePageView === 'practice' ? (
           <>
             <div className="control-bar">
-            {activeTopic.id === 'world-countries' ? (
+            {regionOptions(activeTopic).length ? (
               <div className="mode-control">
                 <span>Region</span>
-                <div className="mode-row" role="tablist" aria-label="Country region">
-                  {countryScopeOptions.map((option) => (
+                <div className="mode-row" role="tablist" aria-label="Region">
+                  {regionOptions(activeTopic).map((option) => (
                     <button
                       key={option.key}
-                      className={option.key === countryScope ? 'mode-button active' : 'mode-button'}
+                      className={option.key === scope ? 'mode-button active' : 'mode-button'}
                       type="button"
-                      onClick={() => activateCountryScope(option.key)}
+                      onClick={() => activateScope(option.key)}
+                    >
+                      {option.label}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            ) : null}
+
+            {activeTopic.id === 'us-cities' ? (
+              <div className="mode-control">
+                <span>Guess</span>
+                <div className="mode-row" role="tablist" aria-label="Guess">
+                  {usGuessOptions.map((option) => (
+                    <button
+                      key={option.key}
+                      className={option.key === usGuess ? 'mode-button active' : 'mode-button'}
+                      type="button"
+                      onClick={() => activateGuess(option.key)}
                     >
                       {option.label}
                     </button>

@@ -25,6 +25,8 @@ export type QuizItem = {
   id: string
   name: string
   code?: string
+  region?: string
+  mainCity?: string
   label?: string
   answer?: string
   prompt?: string
