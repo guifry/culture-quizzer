@@ -1,5 +1,6 @@
 import countries from 'world-countries'
 import { historyDateTopics } from './history'
+import { coloniesTopic } from './geo/colonies'
 import type { QuizItem, Topic } from './types'
 
 export type { HistoryDate, MapScope, QuizItem, QuizMode, Topic, TopicGroup } from './types'
@@ -674,6 +675,7 @@ export const topics: Topic[] = [
   { id: 'mountain-ranges', title: 'Top 20 Mountain Ranges', group: 'Geography', description: 'Place the main mountain systems of the world.', modes: ['map-click', 'map-type'], mapScope: 'world', mapKind: 'points', items: mountainRanges, coverage: 'Top 20 global range deck.' },
   { id: 'solar-system', title: 'Planets of the Solar System', group: 'Science', description: 'Name the planets from the Sun outward, and recall where the asteroid belt sits.', modes: ['sequence'], items: solarSystemItems, coverage: 'Eight planets in order plus the main asteroid belt between Mars and Jupiter.' },
   { id: 'paintings', title: 'Famous Paintings Recognition', group: 'Art', description: 'See the painting; name the work or the artist.', modes: ['image', 'choice'], items: paintings, coverage: 'Core image-recognition deck with public-domain/open Wikimedia images where available.' },
+  coloniesTopic,
   ...knowledgeQuestions,
   ...historyDateTopics,
 ]

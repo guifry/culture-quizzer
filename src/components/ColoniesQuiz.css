@@ -1,0 +1,195 @@
+.colonies-quiz {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.colonies-control {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.colonies-prompt h2 {
+  margin: 2px 0 0;
+  color: var(--text-h);
+  font-size: 1.6rem;
+}
+
+.expert-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  color: var(--text);
+  cursor: pointer;
+  user-select: none;
+}
+
+.colonies-quiz .map-shell {
+  aspect-ratio: 960 / 560;
+  width: 100%;
+}
+
+.country-selected {
+  fill: #4b8fd4;
+}
+
+.country-hit {
+  fill: #48a868;
+}
+
+.country-missed {
+  fill: #f2cf68;
+}
+
+.country-wrong {
+  fill: #ce5656;
+}
+
+.colonies-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.colonies-count {
+  font-variant-numeric: tabular-nums;
+  color: var(--text);
+  font-size: 0.92rem;
+}
+
+.colonies-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.ghost-action {
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text);
+  border-radius: 8px;
+  padding: 8px 14px;
+  cursor: pointer;
+}
+
+.ghost-action:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.colonies-quiz .review-hint {
+  margin: -6px 0 0;
+  color: var(--text);
+  opacity: 0.75;
+  font-size: 0.85rem;
+}
+
+.review-list {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px 14px;
+  background: color-mix(in srgb, var(--border) 8%, transparent);
+}
+
+.colony-rows {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 6px 18px;
+}
+
+.colony-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  padding: 3px 0;
+}
+
+.colony-mark {
+  display: inline-flex;
+  width: 18px;
+  height: 18px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  flex-shrink: 0;
+  color: #fff;
+}
+
+.colony-row.hit .colony-mark {
+  background: #48a868;
+}
+
+.colony-row.miss .colony-mark {
+  background: #c9852a;
+}
+
+.colony-name {
+  color: var(--text-h);
+  font-weight: 600;
+}
+
+.colony-note {
+  font-size: 0.74rem;
+  padding: 1px 7px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--border) 45%, transparent);
+  color: var(--text);
+  white-space: nowrap;
+}
+
+.colony-year {
+  margin-left: auto;
+  font-variant-numeric: tabular-nums;
+  color: var(--text);
+  opacity: 0.8;
+  font-size: 0.82rem;
+}
+
+.colony-year-input {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.colony-year-input input {
+  width: 74px;
+  padding: 3px 6px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg);
+  color: var(--text-h);
+  font-size: 0.82rem;
+}
+
+.year-verdict {
+  font-size: 0.8rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.year-verdict.ok {
+  color: #1a7f45;
+}
+
+.year-verdict.bad {
+  color: #b23b3b;
+}
+
+.wrong-picks {
+  margin: 12px 0 0;
+  font-size: 0.86rem;
+  color: var(--text);
+}
+
+.wrong-picks b {
+  color: #b23b3b;
+}

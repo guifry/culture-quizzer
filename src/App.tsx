@@ -11,6 +11,7 @@ import './App.css'
 import { topics, type MapScope, type QuizItem, type QuizMode, type Topic } from './data/curriculum'
 import { resolveImageUrl, shuffle, stripTrailingPunctuation } from './utils'
 import { HistoryDateQuiz } from './components/HistoryDateQuiz'
+import { ColoniesQuiz } from './components/ColoniesQuiz'
 
 type CountryFeature = GeoJSON.Feature<GeoJSON.Geometry, { name: string }>
 type BoundaryFeature = GeoJSON.Feature<GeoJSON.Geometry, Record<string, string | number | null>>
@@ -97,6 +98,7 @@ const defaultModeLabels: Record<QuizMode, string> = {
   'map-click': 'Click location',
   'map-number': 'Locate by number',
   'map-type': 'Name highlighted',
+  'map-multi': 'Select colonies',
   type: 'Typed recall',
   choice: 'Multiple choice',
   image: 'Image typing',
@@ -107,6 +109,10 @@ const defaultModeLabels: Record<QuizMode, string> = {
 
 function isHistoryDateTopic(topic: Topic) {
   return topic.kind === 'history-dates'
+}
+
+function isColoniesTopic(topic: Topic) {
+  return topic.kind === 'colonies'
 }
 
 function modeLabel(topic: Topic, mode: QuizMode) {
@@ -2078,6 +2084,7 @@ function App() {
 
         {activePageView === 'practice' ? (
           <>
+            {isColoniesTopic(activeTopic) ? null : (
             <div className="control-bar">
             {regionOptions(activeTopic).length ? (
               <div className="mode-control">
@@ -2148,8 +2155,9 @@ function App() {
               </div>
             ) : null}
             </div>
+            )}
 
-            {isHistoryDateTopic(activeTopic) || showingMapStage ? null : (
+            {isHistoryDateTopic(activeTopic) || isColoniesTopic(activeTopic) || showingMapStage ? null : (
               <section className="score-strip" aria-label="Current score">
                 <Stat label="Deck" value={pool.length} />
                 <Stat label="Progress" value={activeRound.completed ? `${pool.length}/${pool.length}` : `${Math.min(activeRound.position + 1, pool.length)}/${pool.length}`} />
@@ -2160,7 +2168,9 @@ function App() {
               </section>
             )}
 
-            {isHistoryDateTopic(activeTopic) ? (
+            {isColoniesTopic(activeTopic) ? (
+              <ColoniesQuiz key={activeTopic.id} topic={activeTopic} />
+            ) : isHistoryDateTopic(activeTopic) ? (
               <HistoryDateQuiz key={`${activeTopic.id}:${mode}`} topic={activeTopic} mode={mode} />
             ) : activeTopic.id === 'solar-system' ? (
               <SolarSystemQuiz topic={activeTopic} history={activeHistory} onSubmitSequence={recordSequence} onClearResult={clearSequenceResult} />

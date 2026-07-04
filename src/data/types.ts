@@ -4,6 +4,7 @@ export type QuizMode =
   | 'map-click'
   | 'map-number'
   | 'map-type'
+  | 'map-multi'
   | 'type'
   | 'choice'
   | 'image'
@@ -41,6 +42,17 @@ export type QuizItem = {
   era?: string
 }
 
+export type ColonyStatus = 'former' | 'current'
+
+export type ColonyRelation = {
+  coloniser: string
+  country: string
+  status: ColonyStatus
+  lostYear?: number
+  independenceYear?: number
+  note?: string
+}
+
 export type HistoryDate = {
   id: string
   date: string
@@ -62,6 +74,7 @@ export type Topic = {
   boundaryLayer?: 'fr-departments' | 'fr-regions' | 'uk-admin' | 'us-states'
   items: QuizItem[]
   coverage: string
-  kind?: 'history-dates'
+  kind?: 'history-dates' | 'colonies'
   dates?: HistoryDate[]
+  colonies?: ColonyRelation[]
 }
