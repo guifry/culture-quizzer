@@ -1490,7 +1490,12 @@ function QuizPanel({
   const [input, setInput] = useState('')
   const options = useMemo(() => {
     const answer = itemAnswer(item, mode)
-    const distractors = shuffle(pool.filter((candidate) => candidate.id !== item.id).map((candidate) => itemAnswer(candidate, mode))).slice(0, 3)
+    // Prefer the item's curated distractor bank (kept compatible in kind with the answer);
+    // only every distractor is randomly sampled, the correct answer is always shown. Fall
+    // back to other pool answers when a question ships no bank (single-kind decks only).
+    const curated = (item.options ?? []).filter((option) => normalize(option) !== normalize(answer))
+    const source = curated.length ? curated : pool.filter((candidate) => candidate.id !== item.id).map((candidate) => itemAnswer(candidate, mode))
+    const distractors = shuffle([...new Set(source.filter((option) => normalize(option) !== normalize(answer)))]).slice(0, 3)
     return shuffle([answer, ...distractors])
   }, [item, mode, pool])
 
