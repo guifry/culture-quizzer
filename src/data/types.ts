@@ -72,6 +72,10 @@ export type Topic = {
   mapScope?: MapScope
   mapKind?: 'country-polygons' | 'points'
   boundaryLayer?: 'fr-departments' | 'fr-regions' | 'uk-admin' | 'us-states'
+  // When true the boundary regions ARE the answer targets (click the region, matched by
+  // identity). When false/absent the boundary layer is a decorative backdrop and the quiz
+  // clicks point markers instead.
+  boundaryTarget?: boolean
   items: QuizItem[]
   coverage: string
   kind?: 'history-dates' | 'colonies'

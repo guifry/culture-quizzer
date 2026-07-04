@@ -636,12 +636,11 @@ function boundaryCode(featureItem: BoundaryFeature) {
   return code == null ? undefined : String(code)
 }
 
-const codedBoundaryLayers: ReadonlyArray<NonNullable<Topic['boundaryLayer']>> = ['fr-regions', 'fr-departments', 'us-states']
 
 // Link region/department/state items to their GeoJSON feature by code so map-click
 // matching keys off geographic identity, not localised name strings (Corse vs Corsica).
 function attachBoundaryCodes(topic: Topic): Topic {
-  if (!topic.boundaryLayer || !codedBoundaryLayers.includes(topic.boundaryLayer)) return topic
+  if (!topic.boundaryTarget || !topic.boundaryLayer) return topic
   const codeByName = new Map<string, string>()
   boundaryFeatures[topic.boundaryLayer].forEach((featureItem) => {
     const code = boundaryCode(featureItem)
@@ -1147,7 +1146,7 @@ function CultureMap({
   const currentBoundary = useMemo(() => boundaries.find((boundary) => boundaryMatchesItem(boundary, current)), [boundaries, boundaryMatchesItem, current])
 
   const currentCountry = topic.mapKind === 'country-polygons' ? countriesByName.get(normalize(current.name)) : undefined
-  const canClickBoundaries = Boolean((topic.boundaryLayer?.startsWith('fr-') || topic.boundaryLayer === 'us-states') && (mode === 'map-click' || mode === 'map-number'))
+  const canClickBoundaries = Boolean(topic.boundaryTarget && (mode === 'map-click' || mode === 'map-number'))
   const showCountryLayer = topic.boundaryLayer !== 'us-states'
   const expectedName = review ? normalize(review.expectedName) : ''
   const submittedName = review ? normalize(review.submittedName) : ''
