@@ -1266,16 +1266,24 @@ function CultureMap({
     }
   }
 
-  function handlePointerDown(event: ReactPointerEvent<SVGSVGElement>) {
-    pointersRef.current.set(event.pointerId, { x: event.clientX, y: event.clientY })
+  function capturePointer(event: ReactPointerEvent<SVGSVGElement>) {
     try {
       event.currentTarget.setPointerCapture(event.pointerId)
     } catch {
       // synthetic/stale pointer — capture is best-effort
     }
+  }
+
+  function handlePointerDown(event: ReactPointerEvent<SVGSVGElement>) {
+    pointersRef.current.set(event.pointerId, { x: event.clientX, y: event.clientY })
+    // Only capture the pointer when we actually drive a gesture (pinch or pan). Capturing on a
+    // plain scale-1 tap would retarget the follow-up click event to the SVG and break the
+    // path onClick handlers that pick at scale 1.
     if (pointersRef.current.size >= 2) {
+      capturePointer(event)
       beginPinch()
     } else if (mapView.scale > 1) {
+      capturePointer(event)
       dragRef.current = { pointerId: event.pointerId, clientX: event.clientX, clientY: event.clientY, moved: false, view: mapView }
     }
   }
