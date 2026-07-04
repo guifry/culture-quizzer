@@ -1945,7 +1945,7 @@ function App() {
         </nav>
       </aside>
 
-      <section className={mapWorkspace ? 'workspace map-workspace' : 'workspace'}>
+      <section className={['workspace', mapWorkspace ? 'map-workspace' : '', showingMapStage ? 'map-full' : ''].filter(Boolean).join(' ')}>
         <header className="topbar">
           <div>
             <h1>{activeTopic.title}</h1>
