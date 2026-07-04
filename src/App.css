@@ -641,6 +641,35 @@
   fill-opacity: 0.86;
 }
 
+/* Seas & oceans: zones over water, so translucent fills rather than land-coloured. */
+.seas-layer .boundary-area {
+  fill: #cfe0e6;
+  fill-opacity: 0.18;
+  stroke: #7fa6bd;
+  stroke-width: 0.6;
+  stroke-dasharray: 3 2;
+}
+
+.seas-layer .boundary-clickable:hover {
+  fill: #8fc4dd;
+  fill-opacity: 0.55;
+}
+
+.seas-layer .target-boundary {
+  fill: #f2cf68;
+  fill-opacity: 0.65;
+}
+
+.seas-layer .correct-boundary {
+  fill: #48a868;
+  fill-opacity: 0.6;
+}
+
+.seas-layer .wrong-boundary {
+  fill: #ce5656;
+  fill-opacity: 0.6;
+}
+
 .target-country {
   fill: #f2cf68;
 }

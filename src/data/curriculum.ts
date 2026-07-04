@@ -205,6 +205,14 @@ const riversAndRanges: QuizItem[] = [
   ['Thames', 51.5, -0.1, 'Main UK river through London.'], ['Seine', 48.9, 2.3, 'Main French river through Paris.'], ['Loire', 47.4, 0.7, 'Longest river entirely in France.'],
 ].map(([name, lat, lon, detail]) => ({ id: String(name).toLowerCase().replaceAll(' ', '-'), name: String(name), lat: Number(lat), lon: Number(lon), detail: detail ? String(detail) : undefined }))
 
+const lakesTop20: QuizItem[] = [
+  ['Caspian Sea', 41.7, 50.7], ['Lake Superior', 47.7, -87.5], ['Lake Victoria', -1.0, 33.0], ['Lake Huron', 44.8, -82.4],
+  ['Lake Michigan', 43.6, -87.0], ['Lake Tanganyika', -6.0, 29.5], ['Lake Baikal', 53.5, 108.0], ['Great Bear Lake', 66.0, -121.0],
+  ['Lake Malawi', -12.0, 34.6], ['Great Slave Lake', 61.7, -114.0], ['Lake Erie', 42.2, -81.2], ['Lake Winnipeg', 52.1, -97.3],
+  ['Lake Ontario', 43.7, -77.9], ['Lake Ladoga', 60.8, 31.5], ['Lake Balkhash', 46.3, 74.5], ['Lake Onega', 61.5, 35.3],
+  ['Lake Titicaca', -15.8, -69.3], ['Lake Nicaragua', 11.6, -85.4], ['Lake Athabasca', 59.3, -109.0], ['Lake Turkana', 3.5, 36.1],
+].map(([name, lat, lon]) => ({ id: String(name).toLowerCase().replaceAll(' ', '-'), name: String(name), lat: Number(lat), lon: Number(lon) }))
+
 const mountainRanges: QuizItem[] = [
   {
     id: 'himalayas',
@@ -673,6 +681,8 @@ export const topics: Topic[] = [
   { id: 'us-cities', title: 'US State Capitals and Cities', group: 'Geography', description: 'Match each state to its capital or biggest city, by locating on the map or typing.', modes: ['map-click', 'type'], mapScope: 'usa', mapKind: 'points', boundaryLayer: 'us-states', boundaryTarget: true, items: usCityItems, coverage: 'All 50 state capitals and biggest cities, in West, Mid, and East sets.' },
   { id: 'rivers', title: 'Major World, UK, and French Rivers', group: 'Geography', description: 'Locate the world great rivers plus UK and France anchors.', modes: ['map-click', 'map-type'], mapScope: 'world', mapKind: 'points', items: riversAndRanges, coverage: 'Top world rivers plus Thames, Seine, and Loire anchors.' },
   { id: 'mountain-ranges', title: 'Top 20 Mountain Ranges', group: 'Geography', description: 'Place the main mountain systems of the world.', modes: ['map-click', 'map-type'], mapScope: 'world', mapKind: 'points', items: mountainRanges, coverage: 'Top 20 global range deck.' },
+  { id: 'world-lakes', title: 'Top 20 Lakes', group: 'Geography', description: 'Place the world’s largest lakes on the map.', modes: ['map-click', 'map-type'], mapScope: 'world', mapKind: 'points', items: lakesTop20, coverage: 'Top 20 lakes by surface area.' },
+  { id: 'seas', title: 'Seas and Oceans', group: 'Geography', description: 'Click every ocean and sea, or name the highlighted water.', modes: ['map-click', 'map-type'], mapScope: 'world', mapKind: 'points', boundaryLayer: 'seas', boundaryTarget: true, items: [], coverage: 'All oceans and named seas plus major gulfs, bays, and straits.' },
   { id: 'solar-system', title: 'Planets of the Solar System', group: 'Science', description: 'Name the planets from the Sun outward, and recall where the asteroid belt sits.', modes: ['sequence'], items: solarSystemItems, coverage: 'Eight planets in order plus the main asteroid belt between Mars and Jupiter.' },
   { id: 'paintings', title: 'Famous Paintings Recognition', group: 'Art', description: 'See the painting; name the work or the artist.', modes: ['image', 'choice'], items: paintings, coverage: 'Core image-recognition deck with public-domain/open Wikimedia images where available.' },
   coloniesTopic,

@@ -7,6 +7,7 @@ import usStatesAtlas from 'us-atlas/states-10m.json'
 import frDepartments from './data/geo/fr-departments.json'
 import frRegions from './data/geo/fr-regions.json'
 import ukAdmin from './data/geo/uk-counties-unitaries-2022.json'
+import seas from './data/geo/seas.json'
 import './App.css'
 import { topics, type MapScope, type QuizItem, type QuizMode, type Topic } from './data/curriculum'
 import { resolveImageUrl, shuffle, stripTrailingPunctuation } from './utils'
@@ -624,6 +625,16 @@ const boundaryFeatures = {
   'fr-regions': asFeatures(frRegions),
   'uk-admin': asFeatures(ukAdmin),
   'us-states': usStateFeatures(),
+  seas: asFeatures(seas),
+}
+
+function seaItemsFromFeatures(): QuizItem[] {
+  return boundaryFeatures.seas
+    .map((featureItem) => {
+      const name = boundaryName(featureItem)
+      return { id: normalize(name).replaceAll(' ', '-'), name }
+    })
+    .sort((a, b) => a.name.localeCompare(b.name))
 }
 
 function boundaryName(featureItem: BoundaryFeature) {
@@ -1400,7 +1411,7 @@ function CultureMap({
           ) : null}
 
           {boundaries.length ? (
-            <g className="boundary-layer">
+            <g className={topic.boundaryLayer === 'seas' ? 'boundary-layer seas-layer' : 'boundary-layer'}>
               {boundaries.map((boundary, index) => {
                 const name = boundaryName(boundary)
                 const code = boundaryCode(boundary)
@@ -2033,7 +2044,11 @@ function App() {
 
   const fullTopics = useMemo<Topic[]>(() => {
     const countryTopicItems = countryItemsFromFeatures(countryFeatures)
-    return topics.map((topic) => attachBoundaryCodes(topic.id === 'world-countries' ? { ...topic, items: countryTopicItems } : topic))
+    const seaTopicItems = seaItemsFromFeatures()
+    return topics.map((topic) => {
+      const withItems = topic.id === 'world-countries' ? { ...topic, items: countryTopicItems } : topic.id === 'seas' ? { ...topic, items: seaTopicItems } : topic
+      return attachBoundaryCodes(withItems)
+    })
   }, [countryFeatures])
 
   const [topicId, setTopicId] = useState(fullTopics[0].id)

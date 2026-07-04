@@ -71,7 +71,7 @@ export type Topic = {
   modes: QuizMode[]
   mapScope?: MapScope
   mapKind?: 'country-polygons' | 'points'
-  boundaryLayer?: 'fr-departments' | 'fr-regions' | 'uk-admin' | 'us-states'
+  boundaryLayer?: 'fr-departments' | 'fr-regions' | 'uk-admin' | 'us-states' | 'seas'
   // When true the boundary regions ARE the answer targets (click the region, matched by
   // identity). When false/absent the boundary layer is a decorative backdrop and the quiz
   // clicks point markers instead.
