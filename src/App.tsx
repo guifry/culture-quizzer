@@ -1143,13 +1143,20 @@ function CultureMap({
   const [mapView, setMapView] = useState<MapView>(defaultMapView)
   const countriesByName = useMemo(() => new Map(countries.map((country) => [normalize(country.properties.name), country])), [countries])
   const itemNameSet = useMemo(() => new Set(items.map((item) => normalize(item.name))), [items])
-  const boundaries = useMemo(() => {
-    const allBoundaries = topic.boundaryLayer ? boundaryFeatures[topic.boundaryLayer] : []
-    if (topic.boundaryLayer !== 'us-states') return allBoundaries
-    return allBoundaries.filter((boundary) => itemNameSet.has(normalize(boundaryName(boundary))))
-  }, [itemNameSet, topic.boundaryLayer])
+  const boundaries = useMemo(() => (topic.boundaryLayer ? boundaryFeatures[topic.boundaryLayer] : []), [topic.boundaryLayer])
   const itemsByName = useMemo(() => new Map(items.map((item) => [normalize(item.name), item])), [items])
   const itemsByCode = useMemo(() => new Map(items.filter((item) => item.code).map((item) => [item.code as string, item])), [items])
+  // Layers where the boundary shapes are themselves the quiz targets: keep the whole
+  // country visible but grey out (and disable) any area outside the current subset.
+  const greyOutOfScope = topic.boundaryLayer === 'us-states' || Boolean(topic.boundaryLayer?.startsWith('fr-'))
+  const boundaryInScope = useCallback(
+    (boundary: BoundaryFeature) => {
+      if (!greyOutOfScope) return true
+      const code = boundaryCode(boundary)
+      return Boolean((code && itemsByCode.has(code)) || itemsByName.has(normalize(boundaryName(boundary))))
+    },
+    [greyOutOfScope, itemsByCode, itemsByName],
+  )
   const boundaryMatchesItem = useCallback((boundary: BoundaryFeature, item: QuizItem) => (item.code && boundaryCode(boundary) ? boundaryCode(boundary) === item.code : normalize(boundaryName(boundary)) === normalize(item.name)), [])
   const resolveBoundaryItem = useCallback(
     (boundary: BoundaryFeature): QuizItem => {
@@ -1222,7 +1229,7 @@ function CultureMap({
       const lonLat = projection.invert?.(point)
       if (!lonLat) return
       const pickedBoundary = boundaries.find((boundary) => geoContains(boundary, lonLat))
-      if (!pickedBoundary) return
+      if (!pickedBoundary || !boundaryInScope(pickedBoundary)) return
       onPick(resolveBoundaryItem(pickedBoundary))
       return
     }
@@ -1397,21 +1404,23 @@ function CultureMap({
               {boundaries.map((boundary, index) => {
                 const name = boundaryName(boundary)
                 const code = boundaryCode(boundary)
-                const isTarget = boundaryMatchesItem(boundary, current)
-                const isExpected = review && (code ? code === expectedCode : normalize(name) === expectedName)
-                const isWrongPick = review && !review.ok && (code ? code === submittedCode : normalize(name) === submittedName)
-                const isPending = !review && Boolean(code && pendingCode && code === pendingCode)
+                const inScope = boundaryInScope(boundary)
+                const isTarget = inScope && boundaryMatchesItem(boundary, current)
+                const isExpected = inScope && review && (code ? code === expectedCode : normalize(name) === expectedName)
+                const isWrongPick = inScope && review && !review.ok && (code ? code === submittedCode : normalize(name) === submittedName)
+                const isPending = inScope && !review && Boolean(code && pendingCode && code === pendingCode)
                 const matchedItem = resolveBoundaryItem(boundary)
                 const klass = [
                   'boundary-area',
-                  canClickBoundaries && !review ? 'boundary-clickable' : '',
+                  !inScope ? 'boundary-out' : '',
+                  inScope && canClickBoundaries && !review ? 'boundary-clickable' : '',
                   mode === 'map-type' && isTarget ? 'target-boundary' : '',
                   isPending ? 'selected-boundary' : '',
                   isExpected ? 'correct-boundary' : '',
                   isWrongPick ? 'wrong-boundary' : '',
-                ].join(' ')
+                ].filter(Boolean).join(' ')
 
-                return <path key={`${name}-${index}`} className={klass} d={path(boundary) ?? undefined} onClick={canClickBoundaries && !review && mapView.scale <= 1 ? () => onPick(matchedItem) : undefined} />
+                return <path key={`${name}-${index}`} className={klass} d={path(boundary) ?? undefined} onClick={inScope && canClickBoundaries && !review && mapView.scale <= 1 ? () => onPick(matchedItem) : undefined} />
               })}
             </g>
           ) : null}

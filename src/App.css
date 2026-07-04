@@ -605,6 +605,13 @@
   vector-effect: non-scaling-stroke;
 }
 
+.boundary-out {
+  fill: #d6dbd8;
+  fill-opacity: 0.55;
+  stroke: #b3bab4;
+  pointer-events: none;
+}
+
 .boundary-clickable {
   cursor: pointer;
 }
