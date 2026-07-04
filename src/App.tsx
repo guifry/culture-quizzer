@@ -30,6 +30,8 @@ type AnswerResult = {
   expected: string
   expectedName: string
   submittedName: string
+  expectedCode?: string
+  submittedCode?: string
   insight?: AnswerInsight
   sequence?: SequenceResult
 }
@@ -93,6 +95,7 @@ const defaultMapView: MapView = { scale: 1, x: 0, y: 0 }
 
 const defaultModeLabels: Record<QuizMode, string> = {
   'map-click': 'Click location',
+  'map-number': 'Locate by number',
   'map-type': 'Name highlighted',
   type: 'Typed recall',
   choice: 'Multiple choice',
@@ -110,6 +113,10 @@ function modeLabel(topic: Topic, mode: QuizMode) {
   if (topic.id === 'paintings') {
     if (mode === 'image') return 'Image: type title or artist'
     if (mode === 'choice') return 'Image: choose artist'
+  }
+
+  if (mode === 'type' && (topic.id === 'french-regions' || topic.id === 'french-departments')) {
+    return 'Recall biggest city'
   }
 
   return defaultModeLabels[mode]
@@ -161,6 +168,10 @@ function matchesAsteroidBelt(input: string) {
   return clean.includes('mars') && clean.includes('jupiter')
 }
 
+function isMapMode(mode: QuizMode) {
+  return mode === 'map-click' || mode === 'map-type' || mode === 'map-number'
+}
+
 function isMetropolitanFrance(item: QuizItem) {
   return typeof item.lat === 'number' && typeof item.lon === 'number' &&
     item.lat >= 41 && item.lat <= 52 &&
@@ -171,7 +182,7 @@ function poolForTopic(topic: Topic, mode: QuizMode, countryScope: CountryScope =
   if (topic.id === 'world-countries') {
     return countryItemsForScope(countryScope, topic.items)
   }
-  if ((mode === 'map-click' || mode === 'map-type') && topic.mapScope === 'france') {
+  if (isMapMode(mode) && topic.mapScope === 'france') {
     return topic.items.filter(isMetropolitanFrance)
   }
   return topic.items
@@ -253,7 +264,7 @@ function roundKey(topic: Topic, mode?: QuizMode, countryScope: CountryScope = 'w
   if (topic.id === 'world-countries') {
     return `${topic.id}:${countryScope}`
   }
-  if (mode && (mode === 'map-click' || mode === 'map-type') && topic.mapScope === 'france') {
+  if (mode && isMapMode(mode) && topic.mapScope === 'france') {
     return `${topic.id}:map`
   }
   return topic.id
@@ -279,7 +290,7 @@ function buildProjection(scope: MapScope) {
   const projection = scope === 'world' ? geoEqualEarth() : geoMercator()
   if (scope === 'world') return projection.translate([WIDTH / 2, HEIGHT / 2]).scale(168)
   if (scope === 'europe') return projection.center([10, 51]).scale(760).translate([WIDTH / 2, HEIGHT / 2])
-  if (scope === 'uk') return projection.center([-3.3, 55.2]).scale(2450).translate([WIDTH / 2, HEIGHT / 2])
+  if (scope === 'uk') return projection.center([-3.6, 55.0]).scale(1780).translate([WIDTH / 2, HEIGHT / 2])
   return projection.center([2.7, 46.4]).scale(1900).translate([WIDTH / 2, HEIGHT / 2])
 }
 
@@ -529,10 +540,35 @@ function boundaryName(featureItem: BoundaryFeature) {
   return String(properties.nom ?? properties.CTYUA22NM ?? properties.name ?? '')
 }
 
+function boundaryCode(featureItem: BoundaryFeature) {
+  const code = featureItem.properties.code ?? featureItem.id
+  return code == null ? undefined : String(code)
+}
+
+const codedBoundaryLayers: ReadonlyArray<NonNullable<Topic['boundaryLayer']>> = ['fr-regions', 'fr-departments', 'us-states']
+
+// Link region/department/state items to their GeoJSON feature by code so map-click
+// matching keys off geographic identity, not localised name strings (Corse vs Corsica).
+function attachBoundaryCodes(topic: Topic): Topic {
+  if (!topic.boundaryLayer || !codedBoundaryLayers.includes(topic.boundaryLayer)) return topic
+  const codeByName = new Map<string, string>()
+  boundaryFeatures[topic.boundaryLayer].forEach((featureItem) => {
+    const code = boundaryCode(featureItem)
+    if (code == null) return
+    codeByName.set(normalize(boundaryName(featureItem)), code)
+  })
+  const items = topic.items.map((item) => {
+    const code = [item.name, ...(item.aliases ?? [])].map((candidate) => codeByName.get(normalize(candidate))).find(Boolean)
+    return code ? { ...item, code } : item
+  })
+  return { ...topic, items }
+}
+
 function promptLabel(topic: Topic, mode: QuizMode, item: QuizItem) {
   if (topic.id === 'paintings' && mode === 'image') return 'Painting image'
   if (topic.id === 'paintings' && mode === 'choice') return 'Painting artist'
   if (mode === 'map-click') return `Click ${item.label ?? item.name}`
+  if (mode === 'map-number') return `Click department ${item.code ?? item.name}`
   if (mode === 'map-type') return 'Highlighted target'
   return item.prompt ?? item.name
 }
@@ -981,6 +1017,7 @@ function CultureMap({
   items,
   countries,
   review,
+  pendingCode,
   onPick,
 }: {
   topic: Topic
@@ -989,6 +1026,7 @@ function CultureMap({
   items: QuizItem[]
   countries: CountryFeature[]
   review?: AnswerResult
+  pendingCode?: string
   onPick: (item: QuizItem) => void
 }) {
   const projection = useMemo(() => buildProjection(topic.mapScope ?? 'world'), [topic.mapScope])
@@ -1004,13 +1042,25 @@ function CultureMap({
     return allBoundaries.filter((boundary) => itemNameSet.has(normalize(boundaryName(boundary))))
   }, [itemNameSet, topic.boundaryLayer])
   const itemsByName = useMemo(() => new Map(items.map((item) => [normalize(item.name), item])), [items])
-  const currentBoundary = useMemo(() => boundaries.find((boundary) => normalize(boundaryName(boundary)) === normalize(current.name)), [boundaries, current.name])
+  const itemsByCode = useMemo(() => new Map(items.filter((item) => item.code).map((item) => [item.code as string, item])), [items])
+  const boundaryMatchesItem = useCallback((boundary: BoundaryFeature, item: QuizItem) => (item.code && boundaryCode(boundary) ? boundaryCode(boundary) === item.code : normalize(boundaryName(boundary)) === normalize(item.name)), [])
+  const resolveBoundaryItem = useCallback(
+    (boundary: BoundaryFeature): QuizItem => {
+      const code = boundaryCode(boundary)
+      const name = boundaryName(boundary)
+      return (code ? itemsByCode.get(code) : undefined) ?? itemsByName.get(normalize(name)) ?? { id: normalize(name), name, ...(code ? { code } : {}) }
+    },
+    [itemsByCode, itemsByName],
+  )
+  const currentBoundary = useMemo(() => boundaries.find((boundary) => boundaryMatchesItem(boundary, current)), [boundaries, boundaryMatchesItem, current])
 
   const currentCountry = topic.mapKind === 'country-polygons' ? countriesByName.get(normalize(current.name)) : undefined
-  const canClickBoundaries = Boolean((topic.boundaryLayer?.startsWith('fr-') || topic.boundaryLayer === 'us-states') && mode === 'map-click')
+  const canClickBoundaries = Boolean((topic.boundaryLayer?.startsWith('fr-') || topic.boundaryLayer === 'us-states') && (mode === 'map-click' || mode === 'map-number'))
   const showCountryLayer = topic.boundaryLayer !== 'us-states'
   const expectedName = review ? normalize(review.expectedName) : ''
   const submittedName = review ? normalize(review.submittedName) : ''
+  const expectedCode = review?.expectedCode
+  const submittedCode = review?.submittedCode
   const mapTransform = `translate(${mapView.x} ${mapView.y}) scale(${mapView.scale})`
 
   function zoomAt(clientX: number, clientY: number, direction: number) {
@@ -1041,7 +1091,7 @@ function CultureMap({
   }
 
   function pickAtClientPoint(clientX: number, clientY: number) {
-    if (mode !== 'map-click' || review) return
+    if ((mode !== 'map-click' && mode !== 'map-number') || review) return
     const point = mapPointFromClient(clientX, clientY)
     if (!point) return
 
@@ -1058,8 +1108,7 @@ function CultureMap({
       if (!lonLat) return
       const pickedBoundary = boundaries.find((boundary) => geoContains(boundary, lonLat))
       if (!pickedBoundary) return
-      const name = boundaryName(pickedBoundary)
-      onPick(itemsByName.get(normalize(name)) ?? { id: normalize(name), name })
+      onPick(resolveBoundaryItem(pickedBoundary))
       return
     }
 
@@ -1176,14 +1225,17 @@ function CultureMap({
             <g className="boundary-layer">
               {boundaries.map((boundary, index) => {
                 const name = boundaryName(boundary)
-                const isTarget = normalize(name) === normalize(current.name)
-                const isExpected = review && normalize(name) === expectedName
-                const isWrongPick = review && !review.ok && normalize(name) === submittedName
-                const matchedItem = itemsByName.get(normalize(name)) ?? { id: normalize(name), name }
+                const code = boundaryCode(boundary)
+                const isTarget = boundaryMatchesItem(boundary, current)
+                const isExpected = review && (code ? code === expectedCode : normalize(name) === expectedName)
+                const isWrongPick = review && !review.ok && (code ? code === submittedCode : normalize(name) === submittedName)
+                const isPending = !review && Boolean(code && pendingCode && code === pendingCode)
+                const matchedItem = resolveBoundaryItem(boundary)
                 const klass = [
                   'boundary-area',
                   canClickBoundaries && !review ? 'boundary-clickable' : '',
                   mode === 'map-type' && isTarget ? 'target-boundary' : '',
+                  isPending ? 'selected-boundary' : '',
                   isExpected ? 'correct-boundary' : '',
                   isWrongPick ? 'wrong-boundary' : '',
                 ].join(' ')
@@ -1215,7 +1267,7 @@ function CultureMap({
                   isWrongPick ? 'map-point-wrong' : '',
                 ].join(' ')
                 return (
-                  <g key={item.id} transform={`translate(${point[0]} ${point[1]})`} onClick={mode === 'map-click' && !review && mapView.scale <= 1 ? () => onPick(item) : undefined}>
+                  <g key={item.id} transform={`translate(${point[0]} ${point[1]}) scale(${1 / mapView.scale})`} onClick={mode === 'map-click' && !review && mapView.scale <= 1 ? () => onPick(item) : undefined}>
                     {mode === 'map-click' && !review ? <circle className="map-point-hit" r={9} /> : null}
                     <circle className={pointClass} r={isTarget && mode !== 'map-click' ? 5 : 3} />
                     {isTarget && mode !== 'map-click' ? <circle className="map-point-pulse" r={10} /> : null}
@@ -1236,6 +1288,8 @@ function QuizPanel({
   pool,
   history,
   review,
+  nameInput = false,
+  pickReady = false,
   onSubmit,
   onNext,
 }: {
@@ -1245,6 +1299,8 @@ function QuizPanel({
   pool: QuizItem[]
   history: AnswerResult[]
   review?: AnswerResult
+  nameInput?: boolean
+  pickReady?: boolean
   onSubmit: (value: string) => void
   onNext: () => void
 }) {
@@ -1262,11 +1318,13 @@ function QuizPanel({
         ? 'Choose the artist'
         : mode === 'map-click'
           ? `Click: ${item.name}`
-          : mode === 'map-type'
-            ? 'Name the highlighted target'
-            : mode === 'image'
-              ? item.prompt ?? 'Name this work or artist'
-              : item.prompt ?? `Answer for ${item.name}`
+          : mode === 'map-number'
+            ? `Click department ${item.code ?? item.name}`
+            : mode === 'map-type'
+              ? 'Name the highlighted target'
+              : mode === 'image'
+                ? item.prompt ?? 'Name this work or artist'
+                : item.prompt ?? `Answer for ${item.name}`
   const insightRows = review?.insight
     ? [
         ['Location', review.insight.location],
@@ -1335,6 +1393,50 @@ function QuizPanel({
             {review ? 'Next' : 'Check'}
           </button>
         </form>
+      ) : null}
+
+      {mode === 'map-number' && nameInput ? (
+        <form
+          className="answer-form"
+          onSubmit={(event) => {
+            event.preventDefault()
+            if (review) {
+              onNext()
+              return
+            }
+            if (pickReady && input.trim()) onSubmit(input)
+          }}
+        >
+          <input
+            value={input}
+            onChange={(event) => setInput(event.target.value)}
+            onKeyDown={(event) => {
+              if ((event.key === 'Enter' || event.key === ' ') && review) {
+                event.preventDefault()
+                event.stopPropagation()
+                onNext()
+                return
+              }
+              if (event.key === 'Enter' && pickReady && input.trim()) {
+                event.preventDefault()
+                onSubmit(input)
+              }
+            }}
+            placeholder="Type the department name"
+            autoComplete="off"
+            readOnly={Boolean(review)}
+            autoFocus
+          />
+          <button type="submit" disabled={review ? false : !(pickReady && input.trim())}>
+            {review ? 'Next' : 'Check'}
+          </button>
+        </form>
+      ) : null}
+
+      {mode === 'map-number' && !review ? (
+        <p className="review-hint">
+          {nameInput ? (pickReady ? 'Department selected — type its name, then Check.' : 'Click the department on the map, then type its name.') : 'Click the matching department on the map.'}
+        </p>
       ) : null}
 
       <p className="coverage">{topic.coverage}</p>
@@ -1508,7 +1610,7 @@ function App() {
 
   const fullTopics = useMemo<Topic[]>(() => {
     const countryTopicItems = countryItemsFromFeatures(countryFeatures)
-    return topics.map((topic) => (topic.id === 'world-countries' ? { ...topic, items: countryTopicItems } : topic))
+    return topics.map((topic) => attachBoundaryCodes(topic.id === 'world-countries' ? { ...topic, items: countryTopicItems } : topic))
   }, [countryFeatures])
 
   const [topicId, setTopicId] = useState(fullTopics[0].id)
@@ -1520,6 +1622,8 @@ function App() {
   const [roundResults, setRoundResults] = useState<Record<string, AnswerResult[]>>({})
   const [reviews, setReviews] = useState<Record<string, AnswerResult | undefined>>({})
   const [pageView, setPageView] = useState<PageView>('practice')
+  const [alsoNameDepartment, setAlsoNameDepartment] = useState(false)
+  const [pendingPick, setPendingPick] = useState<{ code?: string; name: string } | null>(null)
   const [roundStates, setRoundStates] = useState<Record<string, RoundState>>(() => {
     const firstTopic = fullTopics[0]
     const firstMode = firstTopic.modes[0]
@@ -1542,6 +1646,7 @@ function App() {
   const activePageView: PageView = activeCourse ? pageView : 'practice'
 
   const advanceRound = useCallback(() => {
+    setPendingPick(null)
     setReviews((previous) => ({ ...previous, [activePracticeKey]: undefined }))
     setRoundStates((previous) => {
       const previousRound = ensureRoundState(previous[activeRoundKey], pool)
@@ -1572,7 +1677,7 @@ function App() {
     })
   }, [activePracticeKey, activeRoundKey, pool])
 
-  function record(submitted: string, ok: boolean, expected: string, insight?: AnswerInsight) {
+  function record(submitted: string, ok: boolean, expected: string, insight?: AnswerInsight, codes?: { submittedCode?: string; expectedCode?: string }) {
     if (activeReview) return
     const key = activePracticeKey
     const previous = scores[key] ?? { attempts: 0, correct: 0, streak: 0, bestStreak: 0 }
@@ -1596,6 +1701,8 @@ function App() {
       expected,
       expectedName: current.name,
       submittedName: submitted,
+      expectedCode: codes?.expectedCode,
+      submittedCode: codes?.submittedCode,
       insight,
     }
     setHistories((previousHistories) => ({
@@ -1613,11 +1720,29 @@ function App() {
   }
 
   function submit(value: string) {
+    if (mode === 'map-number') {
+      submitDepartmentName(value)
+      return
+    }
     record(value, matchesAnswer(value, current, mode), displayAnswer(current, mode), answerInsight(current))
   }
 
   function pickMapItem(item: QuizItem) {
-    record(item.name, matchesAnswer(item.name, current, mode), current.label ?? current.name, answerInsight(current))
+    if (mode === 'map-number' && alsoNameDepartment) {
+      setPendingPick({ code: item.code, name: item.name })
+      return
+    }
+    const ok = current.code && item.code ? item.code === current.code : matchesAnswer(item.name, current, mode)
+    record(item.name, ok, current.label ?? current.name, answerInsight(current), { submittedCode: item.code, expectedCode: current.code })
+  }
+
+  function submitDepartmentName(value: string) {
+    if (!pendingPick) return
+    const locationOk = Boolean(current.code && pendingPick.code && pendingPick.code === current.code)
+    const nameOk = matchesAnswer(value, current, 'map-type')
+    const submitted = `${pendingPick.name} clicked, "${value.trim()}" typed`
+    record(submitted, locationOk && nameOk, current.name, answerInsight(current), { submittedCode: pendingPick.code, expectedCode: current.code })
+    setPendingPick(null)
   }
 
   function recordSequence(sequence: SequenceResult) {
@@ -1670,6 +1795,7 @@ function App() {
 
   function startNewRound() {
     const nextRoundId = activeRound.roundId + 1
+    setPendingPick(null)
     setReviews((previous) => ({ ...previous, [activePracticeKey]: undefined }))
     setHistories((previous) => ({ ...previous, [activePracticeKey]: [] }))
     setRoundResults((previous) => ({ ...previous, [activeRoundKey]: [] }))
@@ -1682,6 +1808,7 @@ function App() {
   function activateMode(topic: Topic, nextMode: QuizMode) {
     const nextKey = roundKey(topic, nextMode, countryScope)
     const nextPool = poolForTopic(topic, nextMode, countryScope)
+    setPendingPick(null)
     setMode(nextMode)
     setRoundStates((previous) => {
       if (isRoundStateValid(previous[nextKey], nextPool)) return previous
@@ -1714,6 +1841,7 @@ function App() {
     setMode(nextMode)
     setCountryScope(nextCountryScope)
     setPageView('practice')
+    setPendingPick(null)
     setRoundStates((previous) => {
       if (isRoundStateValid(previous[nextKey], nextPool)) return previous
       return {
@@ -1871,6 +1999,23 @@ function App() {
               </div>
             </div>
 
+            {mode === 'map-number' ? (
+              <div className="mode-control">
+                <span>Options</span>
+                <label className="name-toggle">
+                  <input
+                    type="checkbox"
+                    checked={alsoNameDepartment}
+                    onChange={(event) => {
+                      setAlsoNameDepartment(event.target.checked)
+                      setPendingPick(null)
+                    }}
+                  />
+                  <span>Also type the department name</span>
+                </label>
+              </div>
+            ) : null}
+
             {isHistoryDateTopic(activeTopic) ? null : (
               <section className="score-strip" aria-label="Current score">
                 <Stat label="Deck" value={pool.length} />
@@ -1891,7 +2036,7 @@ function App() {
             ) : (
               <div className={[activeTopic.mapKind || current.imageUrl ? 'practice-grid' : 'practice-grid quiz-only', activeTopic.mapKind ? 'with-map' : ''].join(' ')}>
                 {activeTopic.mapKind ? (
-                  <CultureMap key={`${activeTopic.id}:${mode}`} topic={activeTopic} mode={mode} current={current} items={pool} countries={countryFeatures} review={activeReview} onPick={pickMapItem} />
+                  <CultureMap key={`${activeTopic.id}:${mode}`} topic={activeTopic} mode={mode} current={current} items={pool} countries={countryFeatures} review={activeReview} pendingCode={pendingPick?.code} onPick={pickMapItem} />
                 ) : current.imageUrl ? (
                   <section className="study-surface image-surface">
                     <img src={resolveImageUrl(current.imageUrl)} alt="Quiz prompt" />
@@ -1906,6 +2051,8 @@ function App() {
                   pool={pool}
                   history={activeHistory}
                   review={activeReview}
+                  nameInput={mode === 'map-number' && alsoNameDepartment}
+                  pickReady={Boolean(pendingPick)}
                   onSubmit={submit}
                   onNext={nextRound}
                 />

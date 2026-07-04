@@ -94,6 +94,12 @@ const englishSettlements: QuizItem[] = [
   ['York', 53.959, -1.0815], ['Cambridge', 52.2053, 0.1218], ['Oxford', 51.752, -1.2577],
 ].map(([name, lat, lon]) => ({ id: String(name).toLowerCase().replaceAll(' ', '-'), name: String(name), lat: Number(lat), lon: Number(lon) }))
 
+const regionFrenchNames: Record<string, string> = {
+  Brittany: 'Bretagne',
+  Corsica: 'Corse',
+  Normandy: 'Normandie',
+}
+
 const frenchRegions: QuizItem[] = [
   ['Auvergne-Rhone-Alpes', 'Lyon', 45.7, 4.8], ['Bourgogne-Franche-Comte', 'Dijon', 47.3, 5.0], ['Brittany', 'Rennes', 48.1, -1.7],
   ['Centre-Val de Loire', 'Tours', 47.4, 0.7], ['Corsica', 'Ajaccio', 42.0, 8.7], ['Grand Est', 'Strasbourg', 48.6, 7.8],
@@ -101,7 +107,18 @@ const frenchRegions: QuizItem[] = [
   ['Nouvelle-Aquitaine', 'Bordeaux', 44.8, -0.6], ['Occitanie', 'Toulouse', 43.6, 1.4], ['Pays de la Loire', 'Nantes', 47.2, -1.6],
   ['Provence-Alpes-Cote d Azur', 'Marseille', 43.3, 5.4], ['Guadeloupe', 'Les Abymes', 16.3, -61.5], ['Martinique', 'Fort-de-France', 14.6, -61.0],
   ['French Guiana', 'Cayenne', 4.9, -52.3], ['Reunion', 'Saint-Denis', -20.9, 55.5], ['Mayotte', 'Mamoudzou', -12.8, 45.2],
-].map(([name, answer, lat, lon]) => ({ id: String(name).toLowerCase().replaceAll(' ', '-'), name: String(name), answer: String(answer), prompt: `Largest city in ${name}`, lat: Number(lat), lon: Number(lon) }))
+].map(([name, answer, lat, lon]) => {
+  const frenchName = regionFrenchNames[String(name)]
+  return {
+    id: String(name).toLowerCase().replaceAll(' ', '-'),
+    name: String(name),
+    answer: String(answer),
+    prompt: `Largest city in ${name}`,
+    lat: Number(lat),
+    lon: Number(lon),
+    ...(frenchName ? { aliases: [frenchName] } : {}),
+  }
+})
 
 const frenchDepartments: QuizItem[] = [
   ['Ain', 'Bourg-en-Bresse', 46.1, 5.2], ['Aisne', 'Saint-Quentin', 49.5, 3.5], ['Allier', 'Montlucon', 46.3, 3.2], ['Alpes-de-Haute-Provence', 'Manosque', 44.1, 6.2],
@@ -619,16 +636,16 @@ const knowledgeQuestions: Topic[] = [
 
 export const topics: Topic[] = [
   { id: 'world-countries', title: 'Countries of the World', group: 'Geography', description: 'Click every country on a vector world map, or identify the highlighted country.', modes: ['map-click', 'map-type'], mapScope: 'world', mapKind: 'country-polygons', items: [], coverage: 'All country polygons available in the Natural Earth world-atlas deck.' },
-  { id: 'world-capitals', title: 'World Capitals and Second Cities', group: 'Geography', description: 'Capital recall with second-city notes for every country and territory in the source deck.', modes: ['type', 'choice', 'map-click'], mapScope: 'world', mapKind: 'points', items: worldCountryKnowledge, coverage: 'All entries with capitals from the world-countries dataset.' },
+  { id: 'world-capitals', title: 'World Capitals and Second Cities', group: 'Geography', description: 'Capital recall with second-city notes for every country and territory in the source deck.', modes: ['type', 'map-click'], mapScope: 'world', mapKind: 'points', items: worldCountryKnowledge, coverage: 'All entries with capitals from the world-countries dataset.' },
   { id: 'scotland-historic-counties', title: 'Historic Counties of Scotland', group: 'Geography', description: 'Learn the historic counties as map targets over a detailed modern UK boundary layer.', modes: ['map-click', 'map-type'], mapScope: 'uk', mapKind: 'points', boundaryLayer: 'uk-admin', items: scotlandHistoricCounties, coverage: 'Historic county names with modern ONS county/unitary outlines as geographic reference. Note: outlines are modern administrative boundaries, not historic county borders.' },
   { id: 'gb-historic-counties', title: 'Historic Counties of Great Britain', group: 'Geography', description: 'Practice the historic county names of England, Wales, and Scotland over detailed modern UK outlines.', modes: ['map-click', 'map-type'], mapScope: 'uk', mapKind: 'points', boundaryLayer: 'uk-admin', items: greatBritainHistoricCounties, coverage: 'Historic counties target deck for Great Britain, with modern ONS outlines for map detail. Note: outlines are modern administrative boundaries, not historic county borders.' },
   { id: 'uk-cities', title: 'Top UK Cities', group: 'Geography', description: 'Place the main cities and learn the population anchors for the top five.', modes: ['map-click', 'map-type'], mapScope: 'uk', mapKind: 'points', boundaryLayer: 'uk-admin', items: ukCities, coverage: 'Top-city starter deck with population notes.' },
   { id: 'scotland-settlements', title: 'Top 20 Scottish Settlements', group: 'Geography', description: 'Place Scotland’s major cities and towns on the map.', modes: ['map-click', 'map-type'], mapScope: 'uk', mapKind: 'points', boundaryLayer: 'uk-admin', items: scottishSettlements, coverage: 'Top 20 settlement deck.' },
   { id: 'england-settlements', title: 'Top 20 English Settlements', group: 'Geography', description: 'Place England’s major cities and famous university/port settlements.', modes: ['map-click', 'map-type'], mapScope: 'uk', mapKind: 'points', boundaryLayer: 'uk-admin', items: englishSettlements, coverage: 'Top 20 practical deck.' },
-  { id: 'french-departments', title: 'French Departments and Biggest Cities', group: 'Geography', description: 'Click departments on real boundaries, name their location, and recall the biggest city.', modes: ['map-click', 'map-type', 'type', 'choice'], mapScope: 'france', mapKind: 'points', boundaryLayer: 'fr-departments', items: frenchDepartments, coverage: 'All current departments with biggest-city prompts; map modes show metropolitan France only (GeoJSON); typed/choice modes include overseas departments.' },
-  { id: 'french-regions', title: 'French Regions and Biggest Cities', group: 'Geography', description: 'Click regions on real boundaries and recall the biggest city for every region.', modes: ['map-click', 'map-type', 'type', 'choice'], mapScope: 'france', mapKind: 'points', boundaryLayer: 'fr-regions', items: frenchRegions, coverage: 'Current French regions with region polygons rendered from GeoJSON. Map modes show metropolitan France only; typed/choice modes include overseas regions.' },
+  { id: 'french-departments', title: 'French Departments and Biggest Cities', group: 'Geography', description: 'Click departments on real boundaries, locate them by number, and recall the biggest city.', modes: ['map-click', 'map-number', 'map-type', 'type'], mapScope: 'france', mapKind: 'points', boundaryLayer: 'fr-departments', items: frenchDepartments, coverage: 'All current departments with biggest-city prompts; map modes show metropolitan France only (GeoJSON); typed modes include overseas departments.' },
+  { id: 'french-regions', title: 'French Regions and Biggest Cities', group: 'Geography', description: 'Click regions on real boundaries and recall the biggest city for every region.', modes: ['map-click', 'map-type', 'type'], mapScope: 'france', mapKind: 'points', boundaryLayer: 'fr-regions', items: frenchRegions, coverage: 'Current French regions with region polygons rendered from GeoJSON. Map modes show metropolitan France only; typed modes include overseas regions.' },
   { id: 'france-cities', title: 'Top 20 French Cities', group: 'Geography', description: 'Place France’s largest communes and remember the top-five population anchors.', modes: ['map-click', 'map-type'], mapScope: 'france', mapKind: 'points', boundaryLayer: 'fr-departments', items: frenchCities, coverage: 'Top 20 commune deck.' },
-  { id: 'us-states', title: 'US States and Capitals', group: 'Geography', description: 'Place all 50 states as center targets and drill their capitals.', modes: ['map-click', 'map-type', 'type', 'choice'], mapScope: 'usa', mapKind: 'points', boundaryLayer: 'us-states', items: usStates, coverage: 'All 50 states with capitals.' },
+  { id: 'us-states', title: 'US States and Capitals', group: 'Geography', description: 'Place all 50 states as center targets and drill their capitals.', modes: ['map-click', 'map-type', 'type'], mapScope: 'usa', mapKind: 'points', boundaryLayer: 'us-states', items: usStates, coverage: 'All 50 states with capitals.' },
   { id: 'rivers', title: 'Major World, UK, and French Rivers', group: 'Geography', description: 'Locate the world great rivers plus UK and France anchors.', modes: ['map-click', 'map-type'], mapScope: 'world', mapKind: 'points', items: riversAndRanges, coverage: 'Top world rivers plus Thames, Seine, and Loire anchors.' },
   { id: 'mountain-ranges', title: 'Top 20 Mountain Ranges', group: 'Geography', description: 'Place the main mountain systems of the world.', modes: ['map-click', 'map-type'], mapScope: 'world', mapKind: 'points', items: mountainRanges, coverage: 'Top 20 global range deck.' },
   { id: 'solar-system', title: 'Planets of the Solar System', group: 'Science', description: 'Name the planets from the Sun outward, and recall where the asteroid belt sits.', modes: ['sequence'], items: solarSystemItems, coverage: 'Eight planets in order plus the main asteroid belt between Mars and Jupiter.' },

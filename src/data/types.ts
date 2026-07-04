@@ -2,6 +2,7 @@ export type MapScope = 'world' | 'europe' | 'uk' | 'france' | 'usa'
 
 export type QuizMode =
   | 'map-click'
+  | 'map-number'
   | 'map-type'
   | 'type'
   | 'choice'
@@ -23,6 +24,7 @@ export type TopicGroup =
 export type QuizItem = {
   id: string
   name: string
+  code?: string
   label?: string
   answer?: string
   prompt?: string

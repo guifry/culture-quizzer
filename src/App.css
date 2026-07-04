@@ -175,6 +175,21 @@
   font-size: 14px;
 }
 
+.name-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: #35302b;
+  cursor: pointer;
+}
+
+.name-toggle input {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
 .view-button {
   padding: 9px 14px;
   font-size: 14px;
@@ -347,6 +362,11 @@
 
 .wrong-boundary {
   fill: #ce5656;
+  fill-opacity: 0.86;
+}
+
+.selected-boundary {
+  fill: #4b8fd4;
   fill-opacity: 0.86;
 }
 
