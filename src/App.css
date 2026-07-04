@@ -435,7 +435,7 @@
   .map-full {
     height: auto;
     overflow: visible;
-    padding: 16px;
+    padding: 14px 14px 24px;
   }
 
   .map-full .topbar,
@@ -443,9 +443,39 @@
     padding: 0;
   }
 
+  /* Stack the control groups; put each label above its buttons. */
+  .control-bar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .map-workspace .mode-control {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  /* Drop the segmented (joined, no-wrap) styling on mobile: wrapping, tappable pills
+     so every region/mode is reachable without horizontal scrolling. */
+  .map-workspace .mode-row {
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .map-workspace .mode-row .mode-button,
+  .map-workspace .mode-row .mode-button:first-child,
+  .map-workspace .mode-row .mode-button:last-child {
+    border-radius: 7px;
+    border-right-width: 1px;
+    padding: 7px 12px;
+    font-size: 13px;
+  }
+
   .map-stage {
     display: block;
     flex: none;
+    border-radius: 8px;
   }
 
   .map-stage .map {
@@ -456,17 +486,37 @@
     top: 10px;
   }
 
+  .map-zoom-controls button {
+    min-width: 34px;
+    height: 34px;
+  }
+
+  /* Score row: even 3-per-row cells instead of a lone trailing stat. */
   .score-overlay {
     position: static;
+    margin-top: 10px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
     background: #fff;
+  }
+
+  .score-overlay .stat {
+    flex: 1 0 33.333%;
+    box-sizing: border-box;
+    padding: 8px 6px;
+  }
+
+  .score-overlay .stat:nth-child(3n) {
+    border-left: none;
   }
 
   .quiz-overlay {
     position: static;
-    width: 100%;
+    width: auto;
     max-width: none;
     max-height: none;
-    margin-top: 10px;
+    margin-top: 12px;
   }
 }
 
