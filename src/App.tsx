@@ -1644,6 +1644,10 @@ function App() {
   const accuracy = activeScore.attempts ? Math.round((activeScore.correct / activeScore.attempts) * 100) : 0
   const activeCourse = courseArticles[activeTopic.id]
   const activePageView: PageView = activeCourse ? pageView : 'practice'
+  const roundResultsVisible = activeRound.completed && !activeReview
+  const isMapTopic = Boolean(activeTopic.mapKind) && !isHistoryDateTopic(activeTopic) && activeTopic.id !== 'solar-system'
+  const mapWorkspace = activePageView === 'practice' && isMapTopic
+  const showingMapStage = mapWorkspace && !roundResultsVisible
 
   const advanceRound = useCallback(() => {
     setPendingPick(null)
@@ -1941,7 +1945,7 @@ function App() {
         </nav>
       </aside>
 
-      <section className="workspace">
+      <section className={mapWorkspace ? 'workspace map-workspace' : 'workspace'}>
         <header className="topbar">
           <div>
             <h1>{activeTopic.title}</h1>
@@ -1965,6 +1969,7 @@ function App() {
 
         {activePageView === 'practice' ? (
           <>
+            <div className="control-bar">
             {activeTopic.id === 'world-countries' ? (
               <div className="mode-control">
                 <span>Region</span>
@@ -2015,8 +2020,9 @@ function App() {
                 </label>
               </div>
             ) : null}
+            </div>
 
-            {isHistoryDateTopic(activeTopic) ? null : (
+            {isHistoryDateTopic(activeTopic) || showingMapStage ? null : (
               <section className="score-strip" aria-label="Current score">
                 <Stat label="Deck" value={pool.length} />
                 <Stat label="Progress" value={activeRound.completed ? `${pool.length}/${pool.length}` : `${Math.min(activeRound.position + 1, pool.length)}/${pool.length}`} />
@@ -2031,13 +2037,40 @@ function App() {
               <HistoryDateQuiz key={`${activeTopic.id}:${mode}`} topic={activeTopic} mode={mode} />
             ) : activeTopic.id === 'solar-system' ? (
               <SolarSystemQuiz topic={activeTopic} history={activeHistory} onSubmitSequence={recordSequence} onClearResult={clearSequenceResult} />
-            ) : activeRound.completed && !activeReview ? (
+            ) : roundResultsVisible ? (
               <RoundResultsPanel topic={activeTopic} results={activeRoundResults} deckSize={pool.length} onStartNewRound={startNewRound} />
+            ) : activeTopic.mapKind ? (
+              <div className="map-stage">
+                <CultureMap key={`${activeTopic.id}:${mode}`} topic={activeTopic} mode={mode} current={current} items={pool} countries={countryFeatures} review={activeReview} pendingCode={pendingPick?.code} onPick={pickMapItem} />
+
+                <section className="score-strip score-overlay" aria-label="Current score">
+                  <Stat label="Deck" value={pool.length} />
+                  <Stat label="Progress" value={activeRound.completed ? `${pool.length}/${pool.length}` : `${Math.min(activeRound.position + 1, pool.length)}/${pool.length}`} />
+                  <Stat label="Correct" value={activeScore.correct} />
+                  <Stat label="Attempts" value={activeScore.attempts} />
+                  <Stat label="Accuracy" value={`${accuracy}%`} />
+                  <Stat label="Best streak" value={activeScore.bestStreak} />
+                </section>
+
+                <div className="quiz-overlay">
+                  <QuizPanel
+                    key={`${activePracticeKey}:${activeRound.roundId}`}
+                    topic={activeTopic}
+                    mode={mode}
+                    item={current}
+                    pool={pool}
+                    history={activeHistory}
+                    review={activeReview}
+                    nameInput={mode === 'map-number' && alsoNameDepartment}
+                    pickReady={Boolean(pendingPick)}
+                    onSubmit={submit}
+                    onNext={nextRound}
+                  />
+                </div>
+              </div>
             ) : (
-              <div className={[activeTopic.mapKind || current.imageUrl ? 'practice-grid' : 'practice-grid quiz-only', activeTopic.mapKind ? 'with-map' : ''].join(' ')}>
-                {activeTopic.mapKind ? (
-                  <CultureMap key={`${activeTopic.id}:${mode}`} topic={activeTopic} mode={mode} current={current} items={pool} countries={countryFeatures} review={activeReview} pendingCode={pendingPick?.code} onPick={pickMapItem} />
-                ) : current.imageUrl ? (
+              <div className={current.imageUrl ? 'practice-grid' : 'practice-grid quiz-only'}>
+                {current.imageUrl ? (
                   <section className="study-surface image-surface">
                     <img src={resolveImageUrl(current.imageUrl)} alt="Quiz prompt" />
                   </section>
