@@ -1101,6 +1101,18 @@ function QuestionReferencePanel({ topic, article }: { topic: Topic; article?: Co
   )
 }
 
+function useIsMobile() {
+  const query = '(max-width: 820px)'
+  const [isMobile, setIsMobile] = useState(() => (typeof window !== 'undefined' ? window.matchMedia(query).matches : false))
+  useEffect(() => {
+    const mql = window.matchMedia(query)
+    const onChange = () => setIsMobile(mql.matches)
+    mql.addEventListener('change', onChange)
+    return () => mql.removeEventListener('change', onChange)
+  }, [])
+  return isMobile
+}
+
 function CultureMap({
   topic,
   mode,
@@ -1124,6 +1136,8 @@ function CultureMap({
   const path = useMemo(() => geoPath(projection), [projection])
   const svgRef = useRef<SVGSVGElement | null>(null)
   const dragRef = useRef<{ pointerId: number; clientX: number; clientY: number; moved: boolean; view: MapView } | null>(null)
+  const pointersRef = useRef<Map<number, { x: number; y: number }>>(new Map())
+  const pinchRef = useRef<{ startDist: number; startScale: number; anchor: [number, number] } | null>(null)
   const [mapView, setMapView] = useState<MapView>(defaultMapView)
   const countriesByName = useMemo(() => new Map(countries.map((country) => [normalize(country.properties.name), country])), [countries])
   const itemNameSet = useMemo(() => new Set(items.map((item) => normalize(item.name))), [items])
@@ -1222,17 +1236,58 @@ function CultureMap({
     zoomAt(event.clientX, event.clientY, event.deltaY < 0 ? 1 : -1)
   }
 
+  function toView(clientX: number, clientY: number, rect: DOMRect) {
+    return [((clientX - rect.left) / rect.width) * WIDTH, ((clientY - rect.top) / rect.height) * HEIGHT] as [number, number]
+  }
+
+  function beginPinch() {
+    const svg = svgRef.current
+    if (!svg) return
+    const [a, b] = [...pointersRef.current.values()]
+    if (!a || !b) return
+    dragRef.current = null
+    const rect = svg.getBoundingClientRect()
+    const startDist = Math.hypot(a.x - b.x, a.y - b.y)
+    const [mx, my] = toView((a.x + b.x) / 2, (a.y + b.y) / 2, rect)
+    pinchRef.current = {
+      startDist,
+      startScale: mapView.scale,
+      anchor: [(mx - mapView.x) / mapView.scale, (my - mapView.y) / mapView.scale],
+    }
+  }
+
   function handlePointerDown(event: ReactPointerEvent<SVGSVGElement>) {
-    if (mapView.scale <= 1) return
-    dragRef.current = { pointerId: event.pointerId, clientX: event.clientX, clientY: event.clientY, moved: false, view: mapView }
-    event.currentTarget.setPointerCapture(event.pointerId)
+    pointersRef.current.set(event.pointerId, { x: event.clientX, y: event.clientY })
+    try {
+      event.currentTarget.setPointerCapture(event.pointerId)
+    } catch {
+      // synthetic/stale pointer — capture is best-effort
+    }
+    if (pointersRef.current.size >= 2) {
+      beginPinch()
+    } else if (mapView.scale > 1) {
+      dragRef.current = { pointerId: event.pointerId, clientX: event.clientX, clientY: event.clientY, moved: false, view: mapView }
+    }
   }
 
   function handlePointerMove(event: ReactPointerEvent<SVGSVGElement>) {
-    const drag = dragRef.current
     const svg = svgRef.current
-    if (!drag || !svg || drag.pointerId !== event.pointerId) return
+    if (!svg) return
+    if (pointersRef.current.has(event.pointerId)) pointersRef.current.set(event.pointerId, { x: event.clientX, y: event.clientY })
     const rect = svg.getBoundingClientRect()
+
+    const pinch = pinchRef.current
+    if (pinch && pointersRef.current.size >= 2) {
+      const [a, b] = [...pointersRef.current.values()]
+      const dist = Math.hypot(a.x - b.x, a.y - b.y)
+      const nextScale = Math.min(12, Math.max(1, (pinch.startScale * dist) / (pinch.startDist || 1)))
+      const [mx, my] = toView((a.x + b.x) / 2, (a.y + b.y) / 2, rect)
+      setMapView(clampMapView({ scale: nextScale, x: mx - pinch.anchor[0] * nextScale, y: my - pinch.anchor[1] * nextScale }))
+      return
+    }
+
+    const drag = dragRef.current
+    if (!drag || drag.pointerId !== event.pointerId || mapView.scale <= 1) return
     const dx = ((event.clientX - drag.clientX) / rect.width) * WIDTH
     const dy = ((event.clientY - drag.clientY) / rect.height) * HEIGHT
     if (Math.hypot(event.clientX - drag.clientX, event.clientY - drag.clientY) > 4) {
@@ -1242,12 +1297,19 @@ function CultureMap({
   }
 
   function handlePointerUp(event: ReactPointerEvent<SVGSVGElement>) {
+    pointersRef.current.delete(event.pointerId)
+    if (pointersRef.current.size < 2) pinchRef.current = null
     const drag = dragRef.current
     if (drag?.pointerId === event.pointerId) {
       dragRef.current = null
-      if (!drag.moved) {
+      if (!drag.moved && mapView.scale > 1) {
         pickAtClientPoint(event.clientX, event.clientY)
       }
+    }
+    // One finger remains after a pinch: let it pan (but not register as a tap).
+    if (pointersRef.current.size === 1 && mapView.scale > 1) {
+      const [id, pos] = [...pointersRef.current.entries()][0]
+      dragRef.current = { pointerId: id, clientX: pos.x, clientY: pos.y, moved: true, view: mapView }
     }
   }
 
@@ -1698,6 +1760,174 @@ function SolarSystemQuiz({
   )
 }
 
+function quizTitle(topic: Topic, mode: QuizMode, item: QuizItem) {
+  if (mode === 'map-click' && topic.id === 'us-cities') return `Click the state of ${item.answer ?? item.name}`
+  if (mode === 'map-click') return `Click: ${item.name}`
+  if (mode === 'map-number') return `Click department ${item.code ?? item.name}`
+  if (mode === 'map-type') return 'Name the highlighted area'
+  return item.prompt ?? `Answer for ${item.name}`
+}
+
+type MobileMapGameProps = {
+  topic: Topic
+  mode: QuizMode
+  current: QuizItem
+  pool: QuizItem[]
+  countries: CountryFeature[]
+  review?: AnswerResult
+  pendingPick: { code?: string; name: string } | null
+  scope: string
+  usGuess: UsGuess
+  alsoNameDepartment: boolean
+  score: Score
+  accuracy: number
+  round: RoundState
+  roundResults: AnswerResult[]
+  roundComplete: boolean
+  onPick: (item: QuizItem) => void
+  onSubmit: (value: string) => void
+  onNext: () => void
+  onStartNewRound: () => void
+  onScope: (scope: string) => void
+  onGuess: (guess: UsGuess) => void
+  onMode: (mode: QuizMode) => void
+  onToggleName: (value: boolean) => void
+  onReset: () => void
+}
+
+function MobileMapGame(props: MobileMapGameProps) {
+  const { topic, mode, current, pool, countries, review, pendingPick, scope, usGuess, alsoNameDepartment, score, accuracy, round, roundComplete } = props
+  const [input, setInput] = useState('')
+  const questionKey = `${current.id}:${mode}:${scope}:${usGuess}`
+  const [lastKey, setLastKey] = useState(questionKey)
+  if (questionKey !== lastKey) {
+    // New question/deck: clear the field without remounting the map (keeps zoom/pan).
+    setLastKey(questionKey)
+    setInput('')
+  }
+  const regions = regionOptions(topic)
+  const needsInput = mode === 'type' || mode === 'map-type' || (mode === 'map-number' && alsoNameDepartment)
+  const pickReady = Boolean(pendingPick)
+
+  if (roundComplete) {
+    return (
+      <section className="mobile-map-game mmg-results">
+        <RoundResultsPanel topic={topic} results={props.roundResults} deckSize={pool.length} onStartNewRound={props.onStartNewRound} />
+      </section>
+    )
+  }
+
+  const progress = round.completed ? `${pool.length}/${pool.length}` : `${Math.min(round.position + 1, pool.length)}/${pool.length}`
+  const inputValid = needsInput && (mode === 'map-number' ? pickReady && input.trim() : Boolean(input.trim()))
+
+  function handleFormSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault()
+    if (review) {
+      props.onNext()
+      return
+    }
+    if (inputValid) props.onSubmit(input)
+  }
+
+  return (
+    <section className="mobile-map-game">
+      <div className="mmg-toolbar">
+        {regions.length ? (
+          <label className="mmg-select">
+            <span>Region</span>
+            <select value={scope} onChange={(event) => props.onScope(event.target.value)}>
+              {regions.map((option) => (
+                <option key={option.key} value={option.key}>
+                  {option.label}
+                </option>
+              ))}
+            </select>
+          </label>
+        ) : null}
+
+        {topic.id === 'us-cities' ? (
+          <label className="mmg-select">
+            <span>Guess</span>
+            <select value={usGuess} onChange={(event) => props.onGuess(event.target.value as UsGuess)}>
+              {usGuessOptions.map((option) => (
+                <option key={option.key} value={option.key}>
+                  {option.label}
+                </option>
+              ))}
+            </select>
+          </label>
+        ) : null}
+
+        <label className="mmg-select">
+          <span>Quiz type</span>
+          <select value={mode} onChange={(event) => props.onMode(event.target.value as QuizMode)}>
+            {topic.modes.map((availableMode) => (
+              <option key={availableMode} value={availableMode}>
+                {modeLabel(topic, availableMode)}
+              </option>
+            ))}
+          </select>
+        </label>
+
+        <button className="mmg-reset" type="button" onClick={props.onReset} aria-label="Reset scores">
+          <RotateCcw size={16} />
+        </button>
+      </div>
+
+      {mode === 'map-number' ? (
+        <label className="mmg-toggle">
+          <input type="checkbox" checked={alsoNameDepartment} onChange={(event) => props.onToggleName(event.target.checked)} />
+          <span>Also type the department name</span>
+        </label>
+      ) : null}
+
+      <div className="mmg-prompt">
+        <div className="mmg-status">
+          <span>{progress}</span>
+          <span>{accuracy}% acc</span>
+          <span>🔥 {score.streak}</span>
+        </div>
+        <h2>{quizTitle(topic, mode, current)}</h2>
+
+        {needsInput ? (
+          <form className="mmg-input" onSubmit={handleFormSubmit}>
+            <input
+              value={input}
+              onChange={(event) => setInput(event.target.value)}
+              placeholder={mode === 'map-number' ? (pickReady ? 'Type the department name' : 'Tap the department first') : 'Type the answer'}
+              autoComplete="off"
+              readOnly={Boolean(review)}
+              enterKeyHint={review ? 'next' : 'done'}
+            />
+            <button type="submit" disabled={review ? false : !inputValid}>
+              {review ? 'Next' : 'Check'}
+            </button>
+          </form>
+        ) : null}
+
+        {review ? (
+          <div className={review.ok ? 'mmg-result ok' : 'mmg-result bad'}>
+            <span>{review.ok ? 'Correct' : `Answer: ${stripTrailingPunctuation(review.expected)}`}</span>
+            {needsInput ? null : (
+              <button type="button" onClick={props.onNext}>
+                Next
+              </button>
+            )}
+          </div>
+        ) : !needsInput ? (
+          <button className="mmg-skip" type="button" onClick={props.onNext}>
+            Skip
+          </button>
+        ) : null}
+      </div>
+
+      <div className="mmg-map">
+        <CultureMap key={`${topic.id}:${mode}:${scope}:${usGuess}`} topic={topic} mode={mode} current={current} items={pool} countries={countries} review={review} pendingCode={pendingPick?.code} onPick={props.onPick} />
+      </div>
+    </section>
+  )
+}
+
 function App() {
   const countryFeatures = useMemo(() => {
     const collection = feature(countries110m as never, (countries110m as never as { objects: { countries: never } }).objects.countries)
@@ -1745,6 +1975,8 @@ function App() {
   const isMapTopic = Boolean(activeTopic.mapKind) && !isHistoryDateTopic(activeTopic) && activeTopic.id !== 'solar-system'
   const mapWorkspace = activePageView === 'practice' && isMapTopic
   const showingMapStage = mapWorkspace && !roundResultsVisible
+  const isMobile = useIsMobile()
+  const mobileMapGame = isMobile && mapWorkspace
 
   const advanceRound = useCallback(() => {
     setPendingPick(null)
@@ -2003,7 +2235,7 @@ function App() {
   }, [fullTopics])
 
   return (
-    <main className="app-shell">
+    <main className={mobileMapGame ? 'app-shell mobile-map-active' : 'app-shell'}>
       <header className="mobile-header">
         <div className="mobile-brand">
           <Globe2 size={20} />
@@ -2059,6 +2291,37 @@ function App() {
         </nav>
       </aside>
 
+      {mobileMapGame ? (
+        <MobileMapGame
+          topic={activeTopic}
+          mode={mode}
+          current={current}
+          pool={pool}
+          countries={countryFeatures}
+          review={activeReview}
+          pendingPick={pendingPick}
+          scope={scope}
+          usGuess={usGuess}
+          alsoNameDepartment={alsoNameDepartment}
+          score={activeScore}
+          accuracy={accuracy}
+          round={activeRound}
+          roundResults={activeRoundResults}
+          roundComplete={Boolean(roundResultsVisible)}
+          onPick={pickMapItem}
+          onSubmit={submit}
+          onNext={nextRound}
+          onStartNewRound={startNewRound}
+          onScope={activateScope}
+          onGuess={activateGuess}
+          onMode={(nextMode) => activateMode(activeTopic, nextMode)}
+          onToggleName={(value) => {
+            setAlsoNameDepartment(value)
+            setPendingPick(null)
+          }}
+          onReset={resetScores}
+        />
+      ) : (
       <section className={['workspace', mapWorkspace ? 'map-workspace' : '', showingMapStage ? 'map-full' : ''].filter(Boolean).join(' ')}>
         <header className="topbar">
           <div>
@@ -2234,6 +2497,7 @@ function App() {
           <QuestionReferencePanel topic={activeTopic} article={activeCourse} />
         ) : null}
       </section>
+      )}
     </main>
   )
 }
