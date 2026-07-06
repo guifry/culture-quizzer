@@ -192,8 +192,8 @@ export function CityQuiz({ topic, mode }: { topic: Topic; mode: QuizMode }) {
               </>
             ) : mode === 'city-photos' ? (
               <>
-                <span className="eyebrow">Name the city from its photos</span>
-                <PhotoMosaic key={`${city.id}:${position}`} city={city} />
+                <span className="eyebrow">{review ? 'What you were looking at' : 'Name the city from its photos'}</span>
+                <PhotoMosaic key={`${city.id}:${position}`} city={city} revealed={Boolean(review)} />
               </>
             ) : (
               <>

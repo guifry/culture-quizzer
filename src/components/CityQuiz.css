@@ -107,6 +107,14 @@
   margin-top: 4px;
 }
 
+.mosaic-figure {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  min-width: 0;
+}
+
 .mosaic-tile {
   padding: 0;
   border: 1px solid var(--border);
@@ -115,6 +123,7 @@
   cursor: zoom-in;
   background: #efeee9;
   aspect-ratio: 1 / 1;
+  width: 100%;
 }
 
 .mosaic-tile img {
@@ -122,6 +131,25 @@
   height: 100%;
   object-fit: cover;
   display: block;
+}
+
+.mosaic-figure figcaption {
+  font-size: 12px;
+  line-height: 1.25;
+  color: var(--text-h);
+  font-weight: 600;
+  text-align: center;
+}
+
+.city-blurb {
+  margin: 12px 0 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text);
+}
+
+.city-blurb strong {
+  color: var(--text-h);
 }
 
 .mosaic-missing {

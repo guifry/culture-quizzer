@@ -9,7 +9,14 @@ function pickThree(count: number): number[] {
   return shuffle(indexes).slice(0, Math.min(3, count))
 }
 
-export function PhotoMosaic({ city }: { city: CityEntry }) {
+function landmarkLabel(term: string | undefined, cityName: string): string {
+  if (!term) return 'Landmark'
+  const suffix = ` ${cityName.toLowerCase()}`
+  const trimmed = term.toLowerCase().endsWith(suffix) ? term.slice(0, term.length - suffix.length) : term
+  return trimmed.trim()
+}
+
+export function PhotoMosaic({ city, revealed = false }: { city: CityEntry; revealed?: boolean }) {
   const count = city.images ?? 0
   const [picks] = useState(() => pickThree(count))
   const [openIndex, setOpenIndex] = useState<number | null>(null)
@@ -31,16 +38,24 @@ export function PhotoMosaic({ city }: { city: CityEntry }) {
 
   return (
     <>
-      <div className="photo-mosaic" aria-label="City photos">
+      <div className={revealed ? 'photo-mosaic revealed' : 'photo-mosaic'} aria-label="City photos">
         {picks.map((n) => {
           const mini = `/images/cities/${city.id}/${n}-mini.webp`
           return (
-            <button key={n} type="button" className="mosaic-tile" onClick={() => setOpenIndex(n)} aria-label="Enlarge photo">
-              <img src={resolveImageUrl(mini)} alt="Photo of the mystery city" loading="lazy" />
-            </button>
+            <figure key={n} className="mosaic-figure">
+              <button type="button" className="mosaic-tile" onClick={() => setOpenIndex(n)} aria-label="Enlarge photo">
+                <img src={resolveImageUrl(mini)} alt={revealed ? landmarkLabel(credits.find((c) => c.n === n)?.term, city.name) : 'Photo of the mystery city'} loading="lazy" />
+              </button>
+              {revealed ? <figcaption>{landmarkLabel(credits.find((c) => c.n === n)?.term, city.name)}</figcaption> : null}
+            </figure>
           )
         })}
       </div>
+      {revealed && city.blurb ? (
+        <p className="city-blurb">
+          <strong>{city.name}.</strong> {city.blurb}
+        </p>
+      ) : null}
       {openIndex !== null ? (
         <ImageLightbox
           src={`/images/cities/${city.id}/${openIndex}.webp`}

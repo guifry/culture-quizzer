@@ -8,6 +8,7 @@ export const worldCities: CityEntry[] = [
     lat: 35.68,
     lon: 139.69,
     fact: 'Once called Edo, this city was the seat of a shogunate for over 250 years; rebuilt after wartime firebombing, it now anchors the largest metropolitan economy on Earth.',
+    blurb: 'Japan’s capital and the world’s most populous metropolitan area — a dense, hyper-modern megacity where neon districts sit beside centuries-old shrines.',
     images: 12,
   },
   {
@@ -17,6 +18,7 @@ export const worldCities: CityEntry[] = [
     lat: 48.86,
     lon: 2.35,
     fact: 'Home to the salon culture that drove the Enlightenment, and to an 1889 world-fair centrepiece of iron that was only ever meant to stand for twenty years.',
+    blurb: 'The capital of France and a global capital of art, fashion and gastronomy, famously known as the City of Light.',
     images: 12,
   },
   {
@@ -26,6 +28,7 @@ export const worldCities: CityEntry[] = [
     lat: 51.51,
     lon: -0.13,
     fact: 'Its financial "City" traces back to a Roman settlement; it hosted the first Great Exhibition in 1851 and opened the world’s first underground railway.',
+    blurb: 'The capital of the United Kingdom, a global financial and cultural hub layered with two thousand years of history along the River Thames.',
     images: 12,
   },
   {
@@ -37,6 +40,7 @@ export const worldCities: CityEntry[] = [
     lat: 40.71,
     lon: -74.01,
     fact: 'A former Dutch trading post turned global financial capital; its stock exchange stands on a street named after a long-gone defensive wall.',
+    blurb: 'The largest city in the United States and a world capital of finance, media and culture, built across the islands at the mouth of the Hudson.',
     images: 12,
   },
   {
@@ -47,6 +51,7 @@ export const worldCities: CityEntry[] = [
     lat: 39.9,
     lon: 116.4,
     fact: 'For five centuries emperors ruled from a vast walled palace complex here — the "Forbidden" seat of two great dynasties.',
+    blurb: 'The capital of China for much of the last eight centuries, blending imperial palaces and temples with a vast modern metropolis.',
     images: 12,
   },
   {
@@ -56,6 +61,7 @@ export const worldCities: CityEntry[] = [
     lat: 30.04,
     lon: 31.24,
     fact: 'The largest city of the Arab world, home to a thousand-year-old Islamic university and, on its edge, the last surviving wonder of the ancient world.',
+    blurb: 'The sprawling capital of Egypt and the largest city in the Arab world, set on the Nile beside the ancient pyramids of Giza.',
     images: 12,
   },
   {
@@ -65,6 +71,7 @@ export const worldCities: CityEntry[] = [
     lat: 41.9,
     lon: 12.5,
     fact: 'An empire, a republic and a worldwide church were all governed from here; legend says twins raised by a wolf founded it.',
+    blurb: 'The capital of Italy and the ‘Eternal City’, once the heart of the Roman Empire and today home to the Vatican.',
     images: 12,
   },
   {
@@ -75,6 +82,7 @@ export const worldCities: CityEntry[] = [
     lat: 40.95,
     lon: 29.1,
     fact: 'The only major city straddling two continents, it was capital first to a thousand-year Christian empire and then to a four-century Islamic one.',
+    blurb: 'Turkey’s largest city, straddling Europe and Asia across the Bosphorus, and once the capital of the Byzantine and Ottoman empires.',
     images: 12,
   },
   {
@@ -84,6 +92,7 @@ export const worldCities: CityEntry[] = [
     lat: 55.76,
     lon: 37.62,
     fact: 'A red-brick fortress and a candy-coloured cathedral mark the seat of power that steered a communist superpower through the 20th century.',
+    blurb: 'The capital of Russia and its largest city, centred on the Kremlin and Red Square and long the seat of Russian and Soviet power.',
     images: 12,
   },
   {
@@ -94,6 +103,7 @@ export const worldCities: CityEntry[] = [
     lat: 28.61,
     lon: 77.21,
     fact: 'Seat of a Mughal empire and later an imperial British capital, its old quarter is crowned by a great red sandstone fort.',
+    blurb: 'India’s sprawling capital, layering Mughal monuments and colonial avenues with one of the world’s largest urban populations.',
     images: 12,
   },
   {
@@ -104,6 +114,7 @@ export const worldCities: CityEntry[] = [
     lat: -22.91,
     lon: -43.17,
     fact: 'Once the capital of a Portuguese empire ruling from exile, it is famous for a mountaintop statue of Christ and a pre-Lenten carnival.',
+    blurb: 'A Brazilian coastal metropolis famous for its beaches, Carnival and the Christ the Redeemer statue overlooking the bay.',
     images: 12,
   },
   {
@@ -114,6 +125,7 @@ export const worldCities: CityEntry[] = [
     lat: 19.43,
     lon: -99.13,
     fact: 'Built on a drained lake over the ruins of the Aztec capital Tenochtitlan, it is one of the highest and most populous cities of the Americas.',
+    blurb: 'The high-altitude capital of Mexico, one of the largest cities in the Americas, built atop the ruins of the Aztec capital Tenochtitlan.',
     images: 12,
   },
   {
@@ -125,6 +137,7 @@ export const worldCities: CityEntry[] = [
     lat: 34.05,
     lon: -118.24,
     fact: 'The global capital of the film industry; its famous hillside sign was first put up to advertise a housing development.',
+    blurb: 'A sprawling Southern Californian metropolis synonymous with Hollywood, the entertainment industry and Pacific beach culture.',
     images: 12,
   },
   {
@@ -134,6 +147,7 @@ export const worldCities: CityEntry[] = [
     lat: 31.23,
     lon: 121.47,
     fact: 'A former treaty port whose riverfront row of colonial banks, the Bund, faces a futuristic skyline; the largest city of the world’s most populous nation.',
+    blurb: 'China’s largest city and a global financial centre, where a colonial-era waterfront faces a futuristic skyline across the Huangpu River.',
     images: 12,
   },
   {
@@ -144,6 +158,7 @@ export const worldCities: CityEntry[] = [
     lat: 19.08,
     lon: 72.88,
     fact: 'Home to the world’s most prolific film industry and to its nation’s stock exchange; it grew from seven islands joined by land reclamation.',
+    blurb: 'India’s financial capital and the home of its Bollywood film industry, a densely packed coastal metropolis on the Arabian Sea.',
     images: 12,
   },
   {
@@ -153,6 +168,7 @@ export const worldCities: CityEntry[] = [
     lat: 52.52,
     lon: 13.4,
     fact: 'A wall split this city for 28 years until it fell in 1989, reuniting a nation divided since the Cold War.',
+    blurb: 'The capital of Germany, once divided by the Berlin Wall and now a creative, cosmopolitan hub steeped in 20th-century history.',
     images: 12,
   },
   {
@@ -162,6 +178,7 @@ export const worldCities: CityEntry[] = [
     lat: -33.87,
     lon: 151.21,
     fact: 'Its harbour is crossed by a great steel arch and graced by a sail-shaped opera house; it began as the first European penal colony on its continent.',
+    blurb: 'Australia’s largest city, set around a spectacular harbour famed for its sail-shaped Opera House and great steel bridge.',
     images: 12,
   },
   {
@@ -171,6 +188,7 @@ export const worldCities: CityEntry[] = [
     lat: 13.76,
     lon: 100.5,
     fact: 'One of the world’s most visited cities, famous for glittering Buddhist temples and a royal Grand Palace; its full ceremonial name is among the longest on Earth.',
+    blurb: 'The vibrant capital of Thailand, known for ornate Buddhist temples, bustling street life and a royal Grand Palace.',
     images: 12,
   },
   {
@@ -180,6 +198,7 @@ export const worldCities: CityEntry[] = [
     lat: 25.2,
     lon: 55.27,
     fact: 'Transformed by oil and trade into a city of superlatives, it boasts the world’s tallest building and man-made palm-shaped islands.',
+    blurb: 'A fast-rising city in the United Arab Emirates, transformed by oil and trade into a hub of futuristic skyscrapers and luxury.',
     images: 12,
   },
   {
@@ -189,6 +208,7 @@ export const worldCities: CityEntry[] = [
     lat: 37.57,
     lon: 126.98,
     fact: 'A high-tech megacity rebuilt from the rubble of a 1950s war, home to electronics giants and the global rise of K-pop.',
+    blurb: 'The capital of South Korea, a high-tech megacity that fuses ancient palaces with a global pop-culture and electronics industry.',
     images: 12,
   },
   {
@@ -198,6 +218,7 @@ export const worldCities: CityEntry[] = [
     lat: -34.6,
     lon: -58.38,
     fact: 'Birthplace of the tango, its grand European-style boulevards earned it the nickname "the Paris of the South".',
+    blurb: 'The elegant capital of Argentina, birthplace of the tango and known for its European-style architecture and café culture.',
     images: 12,
   },
   {
@@ -207,6 +228,7 @@ export const worldCities: CityEntry[] = [
     lat: -33.92,
     lon: 18.42,
     fact: 'Overlooked by a flat-topped mountain, it holds its nation’s parliament and lies opposite the prison island where Nelson Mandela was held.',
+    blurb: 'A South African coastal city beneath flat-topped Table Mountain, prized for its dramatic scenery and layered history.',
     images: 12,
   },
   {
@@ -216,6 +238,7 @@ export const worldCities: CityEntry[] = [
     lat: 41.39,
     lon: 2.17,
     fact: 'The still-unfinished basilica of the architect Gaudí draws millions; it hosted the 1992 Olympics and is the proud capital of Catalonia.',
+    blurb: 'The cosmopolitan capital of Catalonia in Spain, celebrated for Gaudí’s architecture, Mediterranean beaches and football.',
     images: 12,
   },
   {
@@ -225,6 +248,7 @@ export const worldCities: CityEntry[] = [
     lat: 52.37,
     lon: 4.9,
     fact: 'A city of canals and gabled merchant houses on reclaimed land, once the hub of a 17th-century trading empire and its powerful East India Company.',
+    blurb: 'The Dutch capital of canals and gabled houses, once the hub of a global trading empire and today a liberal cultural centre.',
     images: 12,
   },
   {
@@ -234,6 +258,7 @@ export const worldCities: CityEntry[] = [
     lat: 37.98,
     lon: 23.73,
     fact: 'The birthplace of democracy and of Western philosophy, crowned by a marble temple to a goddess atop a rocky citadel.',
+    blurb: 'The capital of Greece and cradle of Western civilisation, crowned by the ancient Acropolis above a modern Mediterranean city.',
     images: 12,
   },
   {
@@ -244,6 +269,7 @@ export const worldCities: CityEntry[] = [
     lat: 48.21,
     lon: 16.37,
     fact: 'The imperial capital of the Habsburg monarchy and the city of Mozart, Beethoven and Freud; long the musical heart of Europe.',
+    blurb: 'The capital of Austria and former seat of the Habsburg empire, long celebrated as Europe’s city of classical music.',
     images: 12,
   },
   {
@@ -254,6 +280,7 @@ export const worldCities: CityEntry[] = [
     lat: 41.88,
     lon: -87.63,
     fact: 'Birthplace of the skyscraper after a devastating 1871 fire, and of an electrified blues sound carried north by migrating musicians.',
+    blurb: 'A major American city on Lake Michigan, birthplace of the skyscraper and famed for its architecture, blues and jazz.',
     images: 12,
   },
   {
@@ -265,6 +292,7 @@ export const worldCities: CityEntry[] = [
     lat: 37.77,
     lon: -122.42,
     fact: 'A hilly peninsula city of cable cars, gateway to an 1849 gold rush and, a century later, to the personal-computer revolution on its doorstep.',
+    blurb: 'A hilly Californian city on the Pacific, known for the Golden Gate Bridge, cable cars and its role in the tech revolution.',
     images: 12,
   },
   {
@@ -274,6 +302,7 @@ export const worldCities: CityEntry[] = [
     lat: 43.65,
     lon: -79.38,
     fact: 'The largest city and financial centre of its nation, marked by a needle-like tower that was for decades the world’s tallest free-standing structure.',
+    blurb: 'Canada’s largest city and financial centre, a strikingly multicultural metropolis on the shore of Lake Ontario.',
     images: 12,
   },
   {
@@ -283,6 +312,7 @@ export const worldCities: CityEntry[] = [
     lat: 6.52,
     lon: 3.38,
     fact: 'Africa’s largest city and the commercial engine of the continent’s most populous nation, and the birthplace of Afrobeat music.',
+    blurb: 'Nigeria’s largest city and economic powerhouse, a booming Atlantic-coast megacity and a hub of African music and film.',
     images: 12,
   },
 ]
