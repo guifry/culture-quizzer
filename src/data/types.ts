@@ -11,6 +11,9 @@ export type QuizMode =
   | 'sequence'
   | 'date-recall'
   | 'event-recall'
+  | 'city-locate'
+  | 'city-photos'
+  | 'city-clue'
 
 export type TopicGroup =
   | 'Geography'
@@ -64,6 +67,21 @@ export type HistoryDate = {
   summary: string
 }
 
+export type CityEntry = {
+  id: string
+  name: string
+  aliases?: string[]
+  country: string
+  usState?: string
+  lat: number
+  lon: number
+  fact: string
+  blurb?: string
+  population?: number
+  course?: string
+  images?: number
+}
+
 export type Topic = {
   id: string
   title: string
@@ -79,7 +97,8 @@ export type Topic = {
   boundaryTarget?: boolean
   items: QuizItem[]
   coverage: string
-  kind?: 'history-dates' | 'colonies'
+  kind?: 'history-dates' | 'colonies' | 'city-quiz'
   dates?: HistoryDate[]
   colonies?: ColonyRelation[]
+  cities?: CityEntry[]
 }

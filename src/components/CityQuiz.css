@@ -1,0 +1,399 @@
+.city-quiz {
+  display: flex;
+  flex-direction: column;
+}
+
+.city-quiz .score-strip {
+  grid-template-columns: repeat(auto-fit, minmax(84px, 1fr));
+}
+
+.city-stage {
+  display: grid;
+  grid-template-columns: minmax(300px, 400px) 1fr;
+  gap: 16px;
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .city-stage {
+    grid-template-columns: 1fr;
+  }
+}
+
+.city-prompt {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #fff;
+  padding: 16px;
+}
+
+.city-prompt h2 {
+  margin: 0 0 6px;
+  color: var(--text-h);
+  font-size: 26px;
+  line-height: 1.1;
+}
+
+.prompt-help {
+  margin: 0;
+  font-size: 13px;
+  color: #75706b;
+}
+
+.city-clue-text {
+  margin: 4px 0 0;
+  font-size: 17px;
+  line-height: 1.5;
+  color: var(--text-h);
+}
+
+.city-answer-form {
+  display: flex;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.city-answer-form input {
+  min-width: 0;
+  flex: 1;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  padding: 10px 11px;
+  color: var(--text-h);
+  font: inherit;
+  font-size: 15px;
+}
+
+.city-answer-form button[type='submit'] {
+  padding: 10px 14px;
+  background: #243238;
+  border: 1px solid #243238;
+  color: #fff;
+  border-radius: 7px;
+  cursor: pointer;
+  font: inherit;
+  font-size: 14px;
+}
+
+.city-answer-form button[type='submit']:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.city-quiz .primary-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 42px;
+  border: 1px solid #243238;
+  border-radius: 7px;
+  padding: 10px 14px;
+  background: #243238;
+  color: #fff;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 700;
+}
+
+.next-locate {
+  margin-top: 14px;
+}
+
+/* Photo mosaic */
+.photo-mosaic {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.mosaic-figure {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  min-width: 0;
+}
+
+.mosaic-tile {
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  overflow: hidden;
+  cursor: zoom-in;
+  background: #efeee9;
+  aspect-ratio: 1 / 1;
+  width: 100%;
+}
+
+.mosaic-tile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.mosaic-figure figcaption {
+  font-size: 12px;
+  line-height: 1.25;
+  color: var(--text-h);
+  font-weight: 600;
+  text-align: center;
+}
+
+.city-blurb {
+  margin: 12px 0 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text);
+}
+
+.city-blurb strong {
+  color: var(--text-h);
+}
+
+.mosaic-missing {
+  margin: 4px 0 0;
+  font-size: 14px;
+  color: #a8631a;
+}
+
+/* Lightbox */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgb(0 0 0 / 86%);
+  cursor: zoom-out;
+}
+
+.lightbox img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 4px;
+  box-shadow: 0 10px 40px rgb(0 0 0 / 50%);
+}
+
+.lightbox-credit {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 8px 14px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  font-size: 12px;
+  color: rgb(255 255 255 / 82%);
+  background: rgb(0 0 0 / 55%);
+  cursor: default;
+}
+
+.lightbox-credit a {
+  color: #9ec5ff;
+}
+
+/* Verdict */
+.city-verdict {
+  margin-top: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.verdict-line {
+  display: grid;
+  grid-template-columns: 20px 1fr;
+  gap: 8px;
+  align-items: start;
+  margin: 0;
+  padding: 9px 11px;
+  border-radius: 7px;
+  font-size: 14px;
+  line-height: 1.35;
+}
+
+.verdict-line span:first-child {
+  display: inline-grid;
+  place-items: center;
+  margin-top: 1px;
+}
+
+.verdict-line.ok {
+  background: #e7f5eb;
+  color: #17633a;
+}
+
+.verdict-line.bad {
+  background: #fae8e8;
+  color: #8b1d1d;
+}
+
+.city-fact-reveal {
+  margin: 2px 0 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text);
+}
+
+/* Map */
+.city-map {
+  position: relative;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  background: #cfe3ec;
+}
+
+.city-map-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  touch-action: none;
+}
+
+.city-map-svg.interactive {
+  cursor: crosshair;
+}
+
+.city-ocean {
+  fill: #cfe3ec;
+}
+
+.city-country {
+  fill: #eae7df;
+  stroke: #b9b5aa;
+  stroke-width: 0.4;
+}
+
+.city-state {
+  fill: none;
+  stroke: #9aa6ad;
+  stroke-width: 0.4;
+  stroke-dasharray: 1.5 1.5;
+  pointer-events: none;
+}
+
+.guess-marker circle {
+  fill: #243238;
+  stroke: #fff;
+  stroke-width: 1.5;
+}
+
+.guess-marker.ok circle {
+  fill: #1a7f45;
+}
+
+.guess-marker.bad circle {
+  fill: #b3261e;
+}
+
+.true-marker circle {
+  fill: #2e6fd6;
+  stroke: #fff;
+  stroke-width: 1.2;
+}
+
+.true-marker .true-halo {
+  fill: rgb(46 111 214 / 22%);
+  stroke: none;
+}
+
+.city-map-controls {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.city-map-controls button {
+  width: 30px;
+  height: 30px;
+  display: inline-grid;
+  place-items: center;
+  border: 1px solid var(--border);
+  background: rgb(255 255 255 / 92%);
+  border-radius: 6px;
+  cursor: pointer;
+  color: var(--text-h);
+}
+
+.city-map-hint {
+  position: absolute;
+  left: 8px;
+  bottom: 6px;
+  margin: 0;
+  font-size: 11px;
+  color: #4a5560;
+  background: rgb(255 255 255 / 72%);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+/* History + completion */
+.city-history {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.city-history-card {
+  padding: 9px 11px;
+  border-radius: 7px;
+  font-size: 13px;
+  line-height: 1.3;
+}
+
+.city-history-card strong {
+  display: block;
+}
+
+.city-history-card p {
+  margin: 2px 0 0;
+}
+
+.city-history-card.pass {
+  background: #e7f5eb;
+  color: #17633a;
+}
+
+.city-history-card.mid {
+  background: #fff3d6;
+  color: #7a5210;
+}
+
+.city-history-card.fail {
+  background: #fae8e8;
+  color: #8b1d1d;
+}
+
+.city-quiz .deck-complete {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #fff;
+  padding: 22px;
+}
+
+.city-quiz .deck-complete h2 {
+  margin: 2px 0 14px;
+  color: var(--text-h);
+  font-size: 24px;
+}
+
+.city-quiz .deck-complete-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  margin-bottom: 16px;
+}

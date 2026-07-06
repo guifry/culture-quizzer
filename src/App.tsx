@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState, type CSSProperties, type FormEvent, type PointerEvent as ReactPointerEvent, type WheelEvent as ReactWheelEvent } from 'react'
 import { feature } from 'topojson-client'
-import { geoAlbersUsa, geoContains, geoEqualEarth, geoMercator, geoPath } from 'd3-geo'
+import { geoContains, geoPath } from 'd3-geo'
 import { BookOpen, Check, ChevronRight, Globe2, Image, MapPinned, Menu, RotateCcw, X } from 'lucide-react'
 import countries110m from 'world-atlas/countries-110m.json'
 import usStatesAtlas from 'us-atlas/states-10m.json'
@@ -10,10 +10,13 @@ import ukAdmin from './data/geo/uk-counties-unitaries-2022.json'
 import seas from './data/geo/seas.json'
 import { seaMeta } from './data/geo/seas-meta'
 import './App.css'
-import { topics, type MapScope, type QuizItem, type QuizMode, type Topic } from './data/curriculum'
+import { topics, type QuizItem, type QuizMode, type Topic } from './data/curriculum'
 import { resolveImageUrl, shuffle, stripTrailingPunctuation } from './utils'
 import { HistoryDateQuiz } from './components/HistoryDateQuiz'
 import { ColoniesQuiz } from './components/ColoniesQuiz'
+import { CityQuiz } from './components/CityQuiz'
+import { CityCourse } from './components/CityCourse'
+import { WIDTH, HEIGHT, defaultMapView, buildProjection, type MapView } from './map/projection'
 
 type CountryFeature = GeoJSON.Feature<GeoJSON.Geometry, { name: string }>
 type BoundaryFeature = GeoJSON.Feature<GeoJSON.Geometry, Record<string, string | number | null>>
@@ -86,16 +89,6 @@ type RoundState = {
   completed?: boolean
 }
 
-type MapView = {
-  scale: number
-  x: number
-  y: number
-}
-
-const WIDTH = 960
-const HEIGHT = 560
-const defaultMapView: MapView = { scale: 1, x: 0, y: 0 }
-
 const defaultModeLabels: Record<QuizMode, string> = {
   'map-click': 'Click location',
   'map-number': 'Locate by number',
@@ -107,6 +100,9 @@ const defaultModeLabels: Record<QuizMode, string> = {
   sequence: 'Order quiz',
   'date-recall': 'Event → date',
   'event-recall': 'Date → event',
+  'city-locate': 'Locate',
+  'city-photos': 'Photos',
+  'city-clue': 'Clue',
 }
 
 function isHistoryDateTopic(topic: Topic) {
@@ -115,6 +111,10 @@ function isHistoryDateTopic(topic: Topic) {
 
 function isColoniesTopic(topic: Topic) {
   return topic.kind === 'colonies'
+}
+
+function isCityTopic(topic: Topic) {
+  return topic.kind === 'city-quiz'
 }
 
 function modeLabel(topic: Topic, mode: QuizMode) {
@@ -320,18 +320,6 @@ function loadScores(): Record<string, Score> {
 
 function saveScores(scores: Record<string, Score>) {
   localStorage.setItem('culture-quizzer-scores', JSON.stringify(scores))
-}
-
-function buildProjection(scope: MapScope) {
-  if (scope === 'usa') {
-    return geoAlbersUsa().translate([WIDTH / 2, HEIGHT / 2]).scale(980)
-  }
-
-  const projection = scope === 'world' ? geoEqualEarth() : geoMercator()
-  if (scope === 'world') return projection.translate([WIDTH / 2, HEIGHT / 2]).scale(168)
-  if (scope === 'europe') return projection.center([10, 51]).scale(760).translate([WIDTH / 2, HEIGHT / 2])
-  if (scope === 'uk') return projection.center([-3.6, 55.0]).scale(1780).translate([WIDTH / 2, HEIGHT / 2])
-  return projection.center([2.7, 46.4]).scale(1900).translate([WIDTH / 2, HEIGHT / 2])
 }
 
 const territoryLabels: Record<string, string> = {
@@ -2095,7 +2083,8 @@ function App() {
   const activeReview = reviews[activePracticeKey]
   const accuracy = activeScore.attempts ? Math.round((activeScore.correct / activeScore.attempts) * 100) : 0
   const activeCourse = courseArticles[activeTopic.id]
-  const activePageView: PageView = activeCourse ? pageView : 'practice'
+  const hasCourseView = Boolean(activeCourse) || isCityTopic(activeTopic)
+  const activePageView: PageView = hasCourseView ? (isCityTopic(activeTopic) && pageView === 'questions' ? 'practice' : pageView) : 'practice'
   const roundResultsVisible = activeRound.completed && !activeReview
   const isMapTopic = Boolean(activeTopic.mapKind) && !isHistoryDateTopic(activeTopic) && activeTopic.id !== 'solar-system'
   const mapWorkspace = activePageView === 'practice' && isMapTopic
@@ -2332,6 +2321,7 @@ function App() {
     if (!window.confirm('Reset all scores for every topic? This cannot be undone.')) return
     localStorage.removeItem('culture-quizzer-scores')
     localStorage.removeItem('culture-quizzer-history-scores')
+    localStorage.removeItem('culture-quizzer-city-scores')
     setScores({})
     setHistories({})
     setRoundResults({})
@@ -2467,11 +2457,11 @@ function App() {
           </button>
         </header>
 
-        {activeCourse ? (
+        {hasCourseView ? (
           <div className="view-control" role="tablist" aria-label="Section view">
-            {(['practice', 'course', 'questions'] as PageView[]).map((view) => (
+            {(isCityTopic(activeTopic) ? (['practice', 'course'] as PageView[]) : (['practice', 'course', 'questions'] as PageView[])).map((view) => (
               <button key={view} className={activePageView === view ? 'view-button active' : 'view-button'} type="button" onClick={() => setPageView(view)}>
-                {view === 'practice' ? 'Practice' : view === 'course' ? 'Course' : 'Questions'}
+                {isCityTopic(activeTopic) ? (view === 'practice' ? 'Play' : 'Course') : view === 'practice' ? 'Practice' : view === 'course' ? 'Course' : 'Questions'}
               </button>
             ))}
           </div>
@@ -2552,7 +2542,7 @@ function App() {
             </div>
             )}
 
-            {isHistoryDateTopic(activeTopic) || isColoniesTopic(activeTopic) || showingMapStage ? null : (
+            {isHistoryDateTopic(activeTopic) || isColoniesTopic(activeTopic) || isCityTopic(activeTopic) || showingMapStage ? null : (
               <section className="score-strip" aria-label="Current score">
                 <Stat label="Deck" value={pool.length} />
                 <Stat label="Progress" value={activeRound.completed ? `${pool.length}/${pool.length}` : `${Math.min(activeRound.position + 1, pool.length)}/${pool.length}`} />
@@ -2565,6 +2555,8 @@ function App() {
 
             {isColoniesTopic(activeTopic) ? (
               <ColoniesQuiz key={activeTopic.id} topic={activeTopic} />
+            ) : isCityTopic(activeTopic) ? (
+              <CityQuiz key={`${activeTopic.id}:${mode}`} topic={activeTopic} mode={mode} />
             ) : isHistoryDateTopic(activeTopic) ? (
               <HistoryDateQuiz key={`${activeTopic.id}:${mode}`} topic={activeTopic} mode={mode} />
             ) : activeTopic.id === 'solar-system' ? (
@@ -2624,6 +2616,8 @@ function App() {
               </div>
             )}
           </>
+        ) : activePageView === 'course' && isCityTopic(activeTopic) ? (
+          <CityCourse topic={activeTopic} />
         ) : activePageView === 'course' && activeCourse ? (
           <CoursePanel article={activeCourse} />
         ) : activePageView === 'questions' ? (

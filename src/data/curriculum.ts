@@ -1,9 +1,10 @@
 import countries from 'world-countries'
 import { historyDateTopics } from './history'
 import { coloniesTopic } from './geo/colonies'
+import { cityTopics } from './cities'
 import type { QuizItem, Topic } from './types'
 
-export type { HistoryDate, MapScope, QuizItem, QuizMode, Topic, TopicGroup } from './types'
+export type { CityEntry, HistoryDate, MapScope, QuizItem, QuizMode, Topic, TopicGroup } from './types'
 
 const majorCountryNotes: Record<string, string> = {
   France: 'Second city to know: Marseille.',
@@ -688,4 +689,5 @@ export const topics: Topic[] = [
   coloniesTopic,
   ...knowledgeQuestions,
   ...historyDateTopics,
+  ...cityTopics,
 ]
