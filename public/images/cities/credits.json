@@ -1,0 +1,3662 @@
+{
+  "paris": [
+    {
+      "n": 1,
+      "term": "Eiffel Tower Paris",
+      "title": "File:Tour Eiffel Wikimedia Commons.jpg",
+      "artist": "Benh LIEU SONG",
+      "license": "Public domain",
+      "source": "https://commons.wikimedia.org/wiki/File:Tour_Eiffel_Wikimedia_Commons.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a8/Tour_Eiffel_Wikimedia_Commons.jpg",
+      "originalSize": "2900x5367"
+    },
+    {
+      "n": 2,
+      "term": "Louvre pyramid",
+      "title": "File:Louvre Courtyard, Looking West.jpg",
+      "artist": "Benh LIEU SONG (Flickr)",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Louvre_Courtyard,_Looking_West.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a2/Louvre_Courtyard%2C_Looking_West.jpg",
+      "originalSize": "15359x5730"
+    },
+    {
+      "n": 3,
+      "term": "Arc de Triomphe Paris",
+      "title": "File:Arc de triomphe du carrousel in Paris France.jpg",
+      "artist": "Tim Adams",
+      "license": "CC BY 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Arc_de_triomphe_du_carrousel_in_Paris_France.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/0/01/Arc_de_triomphe_du_carrousel_in_Paris_France.jpg",
+      "originalSize": "3918x2612"
+    },
+    {
+      "n": 4,
+      "term": "Notre-Dame de Paris cathedral",
+      "title": "File:Cathédrale Notre Dame, Paris 30 September 2015.jpg",
+      "artist": "Antonin Subtil",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Cath%C3%A9drale_Notre_Dame,_Paris_30_September_2015.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/7/7f/Cath%C3%A9drale_Notre_Dame%2C_Paris_30_September_2015.jpg",
+      "originalSize": "3456x4003"
+    },
+    {
+      "n": 5,
+      "term": "Sacre-Coeur Paris",
+      "title": "File:Sacre Coeur cor Jesu-DSC 1455w.jpg",
+      "artist": "P e z i",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Sacre_Coeur_cor_Jesu-DSC_1455w.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a9/Sacre_Coeur_cor_Jesu-DSC_1455w.jpg",
+      "originalSize": "3780x5806"
+    },
+    {
+      "n": 6,
+      "term": "Pantheon Paris",
+      "title": "File:Pantheon wider centered.jpg",
+      "artist": "Jean-Pierre Lavoie (Jplavoie)",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Pantheon_wider_centered.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/8/8f/Pantheon_wider_centered.jpg",
+      "originalSize": "2647x1024"
+    },
+    {
+      "n": 7,
+      "term": "Musee d Orsay building",
+      "title": "File:Musee d orsay pendule.jpg",
+      "artist": "KnipsKnipsFotoDude",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Musee_d_orsay_pendule.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/c/cb/Musee_d_orsay_pendule.jpg",
+      "originalSize": "4608x3456"
+    },
+    {
+      "n": 8,
+      "term": "Champs Elysees Paris",
+      "title": "File:Avenue des Champs-Elysées, Paris 12 December 2020.jpg",
+      "artist": "Pierre Blaché from Paris, France",
+      "license": "CC0",
+      "source": "https://commons.wikimedia.org/wiki/File:Avenue_des_Champs-Elys%C3%A9es,_Paris_12_December_2020.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/2/22/Avenue_des_Champs-Elys%C3%A9es%2C_Paris_12_December_2020.jpg",
+      "originalSize": "3502x4377"
+    },
+    {
+      "n": 9,
+      "term": "Pont Alexandre III",
+      "title": "File:Eiffel Tower and Pont Alexandre III at night.jpg",
+      "artist": "Getfunky Paris",
+      "license": "CC BY 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Eiffel_Tower_and_Pont_Alexandre_III_at_night.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/d/de/Eiffel_Tower_and_Pont_Alexandre_III_at_night.jpg",
+      "originalSize": "4288x2748"
+    },
+    {
+      "n": 10,
+      "term": "Place de la Concorde Paris",
+      "title": "File:Statue of Lille on place de la Concorde 001.jpg",
+      "artist": "Moonik",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Statue_of_Lille_on_place_de_la_Concorde_001.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/6/6b/Statue_of_Lille_on_place_de_la_Concorde_001.jpg",
+      "originalSize": "4152x2682"
+    },
+    {
+      "n": 11,
+      "term": "Palais Garnier opera Paris",
+      "title": "File:Opera Garnier Grand Escalier.jpg",
+      "artist": "Benh LIEU SONG",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Opera_Garnier_Grand_Escalier.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/1/18/Opera_Garnier_Grand_Escalier.jpg",
+      "originalSize": "2000x1596"
+    },
+    {
+      "n": 12,
+      "term": "Montmartre Paris street",
+      "title": "File:Basilique du Sacré-Cœur de Montmartre - Paris - GT-01 - 2024.jpg",
+      "artist": "Terragio67",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Basilique_du_Sacr%C3%A9-C%C5%93ur_de_Montmartre_-_Paris_-_GT-01_-_2024.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3f/Basilique_du_Sacr%C3%A9-C%C5%93ur_de_Montmartre_-_Paris_-_GT-01_-_2024.jpg",
+      "originalSize": "9998x9998"
+    }
+  ],
+  "tokyo": [
+    {
+      "n": 1,
+      "term": "Tokyo Tower",
+      "title": "File:Tokyo Tower, Minato City.jpg",
+      "artist": "David Kernan",
+      "license": "CC BY 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Tokyo_Tower,_Minato_City.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/6/6d/Tokyo_Tower%2C_Minato_City.jpg",
+      "originalSize": "5991x3370"
+    },
+    {
+      "n": 2,
+      "term": "Tokyo Skytree",
+      "title": "File:Worm's-eye view of Tokyo Skytree with vertical symmetry impression, a sunny day, in Japan.jpg",
+      "artist": "Basile Morin",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Worm%27s-eye_view_of_Tokyo_Skytree_with_vertical_symmetry_impression,_a_sunny_day,_in_Japan.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/1/11/Worm%27s-eye_view_of_Tokyo_Skytree_with_vertical_symmetry_impression%2C_a_sunny_day%2C_in_Japan.jpg",
+      "originalSize": "6241x4161"
+    },
+    {
+      "n": 3,
+      "term": "Shibuya Crossing",
+      "title": "File:Tokyo Shibuya Scramble Crossing 2018-10-09.jpg",
+      "artist": "Benh LIEU SONG (Flickr)",
+      "license": "CC BY-SA 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Tokyo_Shibuya_Scramble_Crossing_2018-10-09.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c5/Tokyo_Shibuya_Scramble_Crossing_2018-10-09.jpg",
+      "originalSize": "5853x3902"
+    },
+    {
+      "n": 4,
+      "term": "Sensoji temple Asakusa",
+      "title": "File:Five-storied Pagoda of Sensoji Temple in Tokyo, 20240824 1103 5615.jpg",
+      "artist": "Jakub Hałun",
+      "license": "CC BY 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Five-storied_Pagoda_of_Sensoji_Temple_in_Tokyo,_20240824_1103_5615.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/5/55/Five-storied_Pagoda_of_Sensoji_Temple_in_Tokyo%2C_20240824_1103_5615.jpg",
+      "originalSize": "2480x3738"
+    },
+    {
+      "n": 5,
+      "term": "Tokyo Imperial Palace bridge",
+      "title": "File:Imperial Palace Tokyo Nijubashi Bridge.JPG",
+      "artist": "Chris 73",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Imperial_Palace_Tokyo_Nijubashi_Bridge.JPG",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/c/ca/Imperial_Palace_Tokyo_Nijubashi_Bridge.JPG",
+      "originalSize": "1600x1200"
+    },
+    {
+      "n": 6,
+      "term": "Shinjuku skyscrapers night",
+      "title": "File:Skyscrapers in Nishi-Shinjuku at night - Shinjuku Mitsui Building, Shinjuku Sumitomo Building - view from Hyatt Regency Tokyo Building (2016-05-18 by panayota @Pixabay 2190035).jpg",
+      "artist": "panayota",
+      "license": "CC0",
+      "source": "https://commons.wikimedia.org/wiki/File:Skyscrapers_in_Nishi-Shinjuku_at_night_-_Shinjuku_Mitsui_Building,_Shinjuku_Sumitomo_Building_-_view_from_Hyatt_Regency_Tokyo_Building_(2016-05-18_by_panayota_@Pixabay_2190035).jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e3/Skyscrapers_in_Nishi-Shinjuku_at_night_-_Shinjuku_Mitsui_Building%2C_Shinjuku_Sumitomo_Building_-_view_from_Hyatt_Regency_Tokyo_Building_%282016-05-18_by_panayota_%40Pixabay_2190035%29.jpg",
+      "originalSize": "5152x3864"
+    },
+    {
+      "n": 7,
+      "term": "Rainbow Bridge Tokyo",
+      "title": "File:Rainbow Bridge, Tokyo, West view 20190419 1.jpg",
+      "artist": "DXR",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Rainbow_Bridge,_Tokyo,_West_view_20190419_1.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/b/bd/Rainbow_Bridge%2C_Tokyo%2C_West_view_20190419_1.jpg",
+      "originalSize": "4839x6456"
+    },
+    {
+      "n": 8,
+      "term": "Meiji Shrine Tokyo",
+      "title": "File:Meiji Jingu Stadium aerial view.jpg",
+      "artist": "Arne Müseler",
+      "license": "CC BY-SA 3.0 de",
+      "source": "https://commons.wikimedia.org/wiki/File:Meiji_Jingu_Stadium_aerial_view.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/3/35/Meiji_Jingu_Stadium_aerial_view.jpg",
+      "originalSize": "4316x2877"
+    },
+    {
+      "n": 9,
+      "term": "Tokyo Station Marunouchi building",
+      "title": "File:Marunouchi Central Plaza with blue sky, Tokyo station and Shin-Marunouchi Building, panoramic view from JP Tower, Tokyo, Japan.jpg",
+      "artist": "Basile Morin",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Marunouchi_Central_Plaza_with_blue_sky,_Tokyo_station_and_Shin-Marunouchi_Building,_panoramic_view_from_JP_Tower,_Tokyo,_Japan.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/2/23/Marunouchi_Central_Plaza_with_blue_sky%2C_Tokyo_station_and_Shin-Marunouchi_Building%2C_panoramic_view_from_JP_Tower%2C_Tokyo%2C_Japan.jpg",
+      "originalSize": "6115x4077"
+    },
+    {
+      "n": 10,
+      "term": "Odaiba Tokyo",
+      "title": "File:Rainbow Bridge, Tokyo, South view from Odaiba 20190419 1.jpg",
+      "artist": "DXR",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Rainbow_Bridge,_Tokyo,_South_view_from_Odaiba_20190419_1.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f2/Rainbow_Bridge%2C_Tokyo%2C_South_view_from_Odaiba_20190419_1.jpg",
+      "originalSize": "7567x5045"
+    },
+    {
+      "n": 11,
+      "term": "Ginza Tokyo street",
+      "title": "File:Illuminated street corner at blue hour - facade of the building Fujiya in Ginza Chuo-ku Tokyo Japan.jpg",
+      "artist": "Basile Morin",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Illuminated_street_corner_at_blue_hour_-_facade_of_the_building_Fujiya_in_Ginza_Chuo-ku_Tokyo_Japan.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d0/Illuminated_street_corner_at_blue_hour_-_facade_of_the_building_Fujiya_in_Ginza_Chuo-ku_Tokyo_Japan.jpg",
+      "originalSize": "4720x3192"
+    },
+    {
+      "n": 12,
+      "term": "Shibuya night Tokyo",
+      "title": "File:Minato City, Tokyo, Japan (Night).jpg",
+      "artist": "David Kernan",
+      "license": "CC BY 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Minato_City,_Tokyo,_Japan_(Night).jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/7/75/Minato_City%2C_Tokyo%2C_Japan_%28Night%29.jpg",
+      "originalSize": "4622x2600"
+    }
+  ],
+  "new-york": [
+    {
+      "n": 1,
+      "term": "Statue of Liberty",
+      "title": "File:Statue of Liberty, NY.jpg",
+      "artist": "William Warby",
+      "license": "CC BY 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Statue_of_Liberty,_NY.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d3/Statue_of_Liberty%2C_NY.jpg",
+      "originalSize": "3558x2668"
+    },
+    {
+      "n": 2,
+      "term": "Empire State Building",
+      "title": "File:View of Empire State Building from Rockefeller Center New York City dllu.jpg",
+      "artist": "Dllu",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:View_of_Empire_State_Building_from_Rockefeller_Center_New_York_City_dllu.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/0/05/View_of_Empire_State_Building_from_Rockefeller_Center_New_York_City_dllu.jpg",
+      "originalSize": "8207x6167"
+    },
+    {
+      "n": 3,
+      "term": "Times Square New York",
+      "title": "File:Times Square Ball from above.jpg",
+      "artist": "Anthony Quintano",
+      "license": "CC BY 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Times_Square_Ball_from_above.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/9/90/Times_Square_Ball_from_above.jpg",
+      "originalSize": "5616x3744"
+    },
+    {
+      "n": 4,
+      "term": "Brooklyn Bridge New York",
+      "title": "File:Brooklyn Bridge at Night.jpg",
+      "artist": "Andrew Choy",
+      "license": "CC BY-SA 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Brooklyn_Bridge_at_Night.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/3/33/Brooklyn_Bridge_at_Night.jpg",
+      "originalSize": "2018x1320"
+    },
+    {
+      "n": 5,
+      "term": "Central Park New York",
+      "title": "File:Central Park New York City New York 23 cropped.jpg",
+      "artist": "Jet Lowe",
+      "license": "Public domain",
+      "source": "https://commons.wikimedia.org/wiki/File:Central_Park_New_York_City_New_York_23_cropped.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/0/0a/Central_Park_New_York_City_New_York_23_cropped.jpg",
+      "originalSize": "4648x3248"
+    },
+    {
+      "n": 6,
+      "term": "Lower Manhattan skyline",
+      "title": "File:Lower Manhattan from Jersey City September 2020 panorama.jpg",
+      "artist": "King of Hearts",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Lower_Manhattan_from_Jersey_City_September_2020_panorama.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/b/ba/Lower_Manhattan_from_Jersey_City_September_2020_panorama.jpg",
+      "originalSize": "11500x5750"
+    },
+    {
+      "n": 7,
+      "term": "One World Trade Center",
+      "title": "File:One World Trade Center, Financial District, Manhattan, New York.jpg",
+      "artist": "Christian David",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:One_World_Trade_Center,_Financial_District,_Manhattan,_New_York.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/9/90/One_World_Trade_Center%2C_Financial_District%2C_Manhattan%2C_New_York.jpg",
+      "originalSize": "4883x7325"
+    },
+    {
+      "n": 8,
+      "term": "Rockefeller Center New York",
+      "title": "File:Rockefeller Center, December 1933.jpg",
+      "artist": "Samuel Herman Gottscho; restored by Michel Vuijlsteke",
+      "license": "Public domain",
+      "source": "https://commons.wikimedia.org/wiki/File:Rockefeller_Center,_December_1933.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/3/36/Rockefeller_Center%2C_December_1933.jpg",
+      "originalSize": "3708x5219"
+    },
+    {
+      "n": 9,
+      "term": "Flatiron Building New York",
+      "title": "File:Edificio Fuller (Flatiron) en 2010 desde el Empire State crop boxin.jpg",
+      "artist": "Imelenchon (original work)",
+      "license": "Public domain",
+      "source": "https://commons.wikimedia.org/wiki/File:Edificio_Fuller_(Flatiron)_en_2010_desde_el_Empire_State_crop_boxin.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c3/Edificio_Fuller_%28Flatiron%29_en_2010_desde_el_Empire_State_crop_boxin.jpg",
+      "originalSize": "1489x2818"
+    },
+    {
+      "n": 10,
+      "term": "Grand Central Terminal interior",
+      "title": "File:Grand Central Terminal Interior 015.jpg",
+      "artist": "Kidfly182",
+      "license": "CC BY 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Grand_Central_Terminal_Interior_015.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/c/ca/Grand_Central_Terminal_Interior_015.jpg",
+      "originalSize": "2560x1152"
+    },
+    {
+      "n": 11,
+      "term": "Chrysler Building New York",
+      "title": "File:View of Chrysler Building from Empire State Building, New York City, 20231001 1510 1364.jpg",
+      "artist": "Jakub Hałun",
+      "license": "CC BY 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:View_of_Chrysler_Building_from_Empire_State_Building,_New_York_City,_20231001_1510_1364.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d6/View_of_Chrysler_Building_from_Empire_State_Building%2C_New_York_City%2C_20231001_1510_1364.jpg",
+      "originalSize": "3840x4760"
+    },
+    {
+      "n": 12,
+      "term": "Fifth Avenue New York",
+      "title": "File:Spires of St Patricks Cathedral Rising Above Fifth Avenue 2019-09-30 18-19.jpg",
+      "artist": "Axel Tschentscher",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Spires_of_St_Patricks_Cathedral_Rising_Above_Fifth_Avenue_2019-09-30_18-19.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/8/86/Spires_of_St_Patricks_Cathedral_Rising_Above_Fifth_Avenue_2019-09-30_18-19.jpg",
+      "originalSize": "2811x4216"
+    }
+  ],
+  "london": [
+    {
+      "n": 1,
+      "term": "Big Ben Elizabeth Tower",
+      "title": "File:Big Ben at sunset - 2014-10-27 17-30.jpg",
+      "artist": "Colin",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Big_Ben_at_sunset_-_2014-10-27_17-30.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/9/97/Big_Ben_at_sunset_-_2014-10-27_17-30.jpg",
+      "originalSize": "5575x3774"
+    },
+    {
+      "n": 2,
+      "term": "Tower Bridge London",
+      "title": "File:Tower Bridge London Dusk Feb 2006.jpg",
+      "artist": "Diliff",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Tower_Bridge_London_Dusk_Feb_2006.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/5/5f/Tower_Bridge_London_Dusk_Feb_2006.jpg",
+      "originalSize": "6589x2922"
+    },
+    {
+      "n": 3,
+      "term": "Buckingham Palace",
+      "title": "File:Buckingham Palace, London - April 2009.jpg",
+      "artist": "Diliff",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Buckingham_Palace,_London_-_April_2009.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Buckingham_Palace%2C_London_-_April_2009.jpg",
+      "originalSize": "3072x2011"
+    },
+    {
+      "n": 4,
+      "term": "London Eye",
+      "title": "File:London Eye at Night (long exposure).JPG",
+      "artist": "Martin Falbisoner",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:London_Eye_at_Night_(long_exposure).JPG",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c9/London_Eye_at_Night_%28long_exposure%29.JPG",
+      "originalSize": "3437x3437"
+    },
+    {
+      "n": 5,
+      "term": "St Pauls Cathedral London",
+      "title": "File:St Paul's Cathedral Dome from One New Change - Square Crop.jpg",
+      "artist": "Colin",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:St_Paul%27s_Cathedral_Dome_from_One_New_Change_-_Square_Crop.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/4/43/St_Paul%27s_Cathedral_Dome_from_One_New_Change_-_Square_Crop.jpg",
+      "originalSize": "7514x7514"
+    },
+    {
+      "n": 6,
+      "term": "Houses of Parliament London",
+      "title": "File:Houses of Parliament, London - geograph.org.uk - 4786361.jpg",
+      "artist": "Alan Hunt",
+      "license": "CC BY-SA 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Houses_of_Parliament,_London_-_geograph.org.uk_-_4786361.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/0/0e/Houses_of_Parliament%2C_London_-_geograph.org.uk_-_4786361.jpg",
+      "originalSize": "2000x1333"
+    },
+    {
+      "n": 7,
+      "term": "Tower of London",
+      "title": "File:Jubilee and Munin, Ravens, Tower of London 2016-04-30.jpg",
+      "artist": "Colin",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Jubilee_and_Munin,_Ravens,_Tower_of_London_2016-04-30.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/3/30/Jubilee_and_Munin%2C_Ravens%2C_Tower_of_London_2016-04-30.jpg",
+      "originalSize": "2723x2723"
+    },
+    {
+      "n": 8,
+      "term": "Trafalgar Square London",
+      "title": "File:Mayor of London 06 June 2019 Trafalgar Square.jpg",
+      "artist": "Ввласенко",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Mayor_of_London_06_June_2019_Trafalgar_Square.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/8/8c/Mayor_of_London_06_June_2019_Trafalgar_Square.jpg",
+      "originalSize": "3127x3175"
+    },
+    {
+      "n": 9,
+      "term": "Piccadilly Circus London",
+      "title": "File:Piccadilly Circus Tube Station West Entrance 2020.jpg",
+      "artist": "Julian Herzog (Website)",
+      "license": "CC BY 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Piccadilly_Circus_Tube_Station_West_Entrance_2020.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/9/98/Piccadilly_Circus_Tube_Station_West_Entrance_2020.jpg",
+      "originalSize": "3799x5359"
+    },
+    {
+      "n": 10,
+      "term": "The Shard London",
+      "title": "File:Ayuntamiento y Shard, Londres, Inglaterra, 2014-08-11, DD 076.JPG",
+      "artist": "Diego Delso",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Ayuntamiento_y_Shard,_Londres,_Inglaterra,_2014-08-11,_DD_076.JPG",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/5/59/Ayuntamiento_y_Shard%2C_Londres%2C_Inglaterra%2C_2014-08-11%2C_DD_076.JPG",
+      "originalSize": "4982x3060"
+    },
+    {
+      "n": 11,
+      "term": "Westminster Abbey exterior",
+      "title": "File:London, Westminster Abbey -- 2016 -- 4811.jpg",
+      "artist": "Dietmar Rabich",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:London,_Westminster_Abbey_--_2016_--_4811.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/5/55/London%2C_Westminster_Abbey_--_2016_--_4811.jpg",
+      "originalSize": "3138x4707"
+    },
+    {
+      "n": 12,
+      "term": "British Museum London",
+      "title": "File:British Museum Great Court, London, UK - Diliff.jpg",
+      "artist": "Diliff",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:British_Museum_Great_Court,_London,_UK_-_Diliff.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/5/5a/British_Museum_Great_Court%2C_London%2C_UK_-_Diliff.jpg",
+      "originalSize": "3806x3736"
+    }
+  ],
+  "beijing": [
+    {
+      "n": 1,
+      "term": "Forbidden City Beijing",
+      "title": "File:Sunset of the Forbidden City 2006.JPG",
+      "artist": "User:kallgan",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Sunset_of_the_Forbidden_City_2006.JPG",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/0/00/Sunset_of_the_Forbidden_City_2006.JPG",
+      "originalSize": "2304x1728"
+    },
+    {
+      "n": 2,
+      "term": "Great Wall of China Badaling",
+      "title": "File:Badaling China Great-Wall-of-China-01.jpg",
+      "artist": "CEphoto, Uwe Aranas",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Badaling_China_Great-Wall-of-China-01.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/5/50/Badaling_China_Great-Wall-of-China-01.jpg",
+      "originalSize": "4184x2680"
+    },
+    {
+      "n": 3,
+      "term": "Temple of Heaven Beijing",
+      "title": "File:20200110 Temple of Heaven-1.jpg",
+      "artist": "Balon Greyjoy",
+      "license": "CC0",
+      "source": "https://commons.wikimedia.org/wiki/File:20200110_Temple_of_Heaven-1.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/8/86/20200110_Temple_of_Heaven-1.jpg",
+      "originalSize": "3795x5692"
+    },
+    {
+      "n": 4,
+      "term": "Tiananmen Beijing",
+      "title": "File:Beijing China Tiananmen-Square-Young Pioneers of China-01.jpg",
+      "artist": "CEphoto, Uwe Aranas",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Beijing_China_Tiananmen-Square-Young_Pioneers_of_China-01.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/0/03/Beijing_China_Tiananmen-Square-Young_Pioneers_of_China-01.jpg",
+      "originalSize": "3999x2666"
+    },
+    {
+      "n": 5,
+      "term": "Summer Palace Beijing",
+      "title": "File:Longevity Hill of the Summer Palace.jpg",
+      "artist": "xiquinhosilva",
+      "license": "CC BY 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Longevity_Hill_of_the_Summer_Palace.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/d/db/Longevity_Hill_of_the_Summer_Palace.jpg",
+      "originalSize": "2560x1702"
+    },
+    {
+      "n": 6,
+      "term": "Beijing National Stadium",
+      "title": "File:Beijing national stadium.jpg",
+      "artist": "Peter23",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Beijing_national_stadium.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1e/Beijing_national_stadium.jpg",
+      "originalSize": "1762x1019"
+    },
+    {
+      "n": 7,
+      "term": "CCTV Headquarters Beijing",
+      "title": "File:CCTV Headquarters Beijing - Flickr.jpg",
+      "artist": "Bjarke Liboriussen",
+      "license": "CC BY 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:CCTV_Headquarters_Beijing_-_Flickr.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/8/81/CCTV_Headquarters_Beijing_-_Flickr.jpg",
+      "originalSize": "2048x1536"
+    },
+    {
+      "n": 8,
+      "term": "Lama Temple Beijing",
+      "title": "File:Beijing, Lama Temple (6170358272).jpg",
+      "artist": "Arian Zwegers",
+      "license": "CC BY 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Beijing,_Lama_Temple_(6170358272).jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f7/Beijing%2C_Lama_Temple_%286170358272%29.jpg",
+      "originalSize": "1185x1689"
+    },
+    {
+      "n": 9,
+      "term": "Beijing skyline",
+      "title": "File:Skyline of Beijing CBD from the southeast (20210907094201).jpg",
+      "artist": "N509FZ",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Skyline_of_Beijing_CBD_from_the_southeast_(20210907094201).jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/8/8a/Skyline_of_Beijing_CBD_from_the_southeast_%2820210907094201%29.jpg",
+      "originalSize": "6143x4095"
+    },
+    {
+      "n": 10,
+      "term": "Hutong Beijing",
+      "title": "File:Datianshuijing Hutong (20210529190652).jpg",
+      "artist": "N509FZ",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Datianshuijing_Hutong_(20210529190652).jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3e/Datianshuijing_Hutong_%2820210529190652%29.jpg",
+      "originalSize": "4032x2688"
+    },
+    {
+      "n": 11,
+      "term": "Great Hall of the People Beijing",
+      "title": "File:Auditorium of the Great Hall of the People-20131231-RM-192738.jpg",
+      "artist": "Ermell",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Auditorium_of_the_Great_Hall_of_the_People-20131231-RM-192738.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/f/fb/Auditorium_of_the_Great_Hall_of_the_People-20131231-RM-192738.jpg",
+      "originalSize": "4103x3077"
+    },
+    {
+      "n": 12,
+      "term": "Wangfujing Beijing",
+      "title": "File:Beijing Wangfujing Yintai in88 (20220908154425).jpg",
+      "artist": "N509FZ",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Beijing_Wangfujing_Yintai_in88_(20220908154425).jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/2/28/Beijing_Wangfujing_Yintai_in88_%2820220908154425%29.jpg",
+      "originalSize": "3954x2636"
+    }
+  ],
+  "cairo": [
+    {
+      "n": 1,
+      "term": "Pyramids of Giza",
+      "title": "File:All Gizah Pyramids.jpg",
+      "artist": "Ricardo Liberato",
+      "license": "CC BY-SA 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:All_Gizah_Pyramids.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/a/af/All_Gizah_Pyramids.jpg",
+      "originalSize": "4372x2906"
+    },
+    {
+      "n": 2,
+      "term": "Great Sphinx of Giza",
+      "title": "File:Great Sphinx (أبو الهول).jpg",
+      "artist": "Petar Milošević",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Great_Sphinx_(%D8%A3%D8%A8%D9%88_%D8%A7%D9%84%D9%87%D9%88%D9%84).jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/c/ce/Great_Sphinx_%28%D8%A3%D8%A8%D9%88_%D8%A7%D9%84%D9%87%D9%88%D9%84%29.jpg",
+      "originalSize": "5472x3536"
+    },
+    {
+      "n": 3,
+      "term": "Egyptian Museum Cairo",
+      "title": "File:Facade of the Egyptian Museum, Tahrir Square, Cairo, Egypt1.jpg",
+      "artist": "Diego Delso",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Facade_of_the_Egyptian_Museum,_Tahrir_Square,_Cairo,_Egypt1.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d1/Facade_of_the_Egyptian_Museum%2C_Tahrir_Square%2C_Cairo%2C_Egypt1.jpg",
+      "originalSize": "3426x2359"
+    },
+    {
+      "n": 4,
+      "term": "Cairo Citadel",
+      "title": "File:Flickr - HuTect ShOts - Citadel of Salah El.Din and Masjid Muhammad Ali قلعة صلاح الدين الأيوبي ومسجد محمد علي - Cairo - Egypt - 17 04 2010 (4).jpg",
+      "artist": "Ahmed Al.Badawy from Cairo, Egypt",
+      "license": "CC BY-SA 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Flickr_-_HuTect_ShOts_-_Citadel_of_Salah_El.Din_and_Masjid_Muhammad_Ali_%D9%82%D9%84%D8%B9%D8%A9_%D8%B5%D9%84%D8%A7%D8%AD_%D8%A7%D9%84%D8%AF%D9%8A%D9%86_%D8%A7%D9%84%D8%A3%D9%8A%D9%88%D8%A8%D9%8A_%D9%88%D9%85%D8%B3%D8%AC%D8%AF_%D9%85%D8%AD%D9%85%D8%AF_%D8%B9%D9%84%D9%8A_-_Cairo_-_Egypt_-_17_04_2010_(4).jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/9/93/Flickr_-_HuTect_ShOts_-_Citadel_of_Salah_El.Din_and_Masjid_Muhammad_Ali_%D9%82%D9%84%D8%B9%D8%A9_%D8%B5%D9%84%D8%A7%D8%AD_%D8%A7%D9%84%D8%AF%D9%8A%D9%86_%D8%A7%D9%84%D8%A3%D9%8A%D9%88%D8%A8%D9%8A_%D9%88%D9%85%D8%B3%D8%AC%D8%AF_%D9%85%D8%AD%D9%85%D8%AF_%D8%B9%D9%84%D9%8A_-_Cairo_-_Egypt_-_17_04_2010_%284%29.jpg",
+      "originalSize": "3896x2380"
+    },
+    {
+      "n": 5,
+      "term": "Mosque of Muhammad Ali Cairo",
+      "title": "File:Muhammad Ali Mosque 1.jpg",
+      "artist": "kallerna",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Muhammad_Ali_Mosque_1.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/f/fc/Muhammad_Ali_Mosque_1.jpg",
+      "originalSize": "2994x2220"
+    },
+    {
+      "n": 6,
+      "term": "Khan el-Khalili Cairo",
+      "title": "File:The Khan el-Khalili market in Cairo, Egypt (2743501345).jpg",
+      "artist": "V Manninen from Funland",
+      "license": "CC BY 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:The_Khan_el-Khalili_market_in_Cairo,_Egypt_(2743501345).jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/d/dc/The_Khan_el-Khalili_market_in_Cairo%2C_Egypt_%282743501345%29.jpg",
+      "originalSize": "2048x1536"
+    },
+    {
+      "n": 7,
+      "term": "Al-Azhar Mosque Cairo",
+      "title": "File:Cairo - Islamic district - Al Azhar Mosque and University.JPG",
+      "artist": "Daniel Mayer",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Cairo_-_Islamic_district_-_Al_Azhar_Mosque_and_University.JPG",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b1/Cairo_-_Islamic_district_-_Al_Azhar_Mosque_and_University.JPG",
+      "originalSize": "2189x2206"
+    },
+    {
+      "n": 8,
+      "term": "Cairo Tower",
+      "title": "File:Cairotower.jpg",
+      "artist": "Ahmedsantos",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Cairotower.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a0/Cairotower.jpg",
+      "originalSize": "2592x3872"
+    },
+    {
+      "n": 9,
+      "term": "Nile river Cairo",
+      "title": "File:Cairo, Nile River, Gezira Island, Egypt.jpg",
+      "artist": "Vyacheslav Argenberg",
+      "license": "CC BY 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Cairo,_Nile_River,_Gezira_Island,_Egypt.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/0/02/Cairo%2C_Nile_River%2C_Gezira_Island%2C_Egypt.jpg",
+      "originalSize": "3072x2048"
+    },
+    {
+      "n": 10,
+      "term": "Coptic Cairo",
+      "title": "File:John Frederick Lewis - Study for 'The Courtyard of the Coptic Patriarch's House in Cairo' - Google Art Project.jpg",
+      "artist": "John Frederick Lewis",
+      "license": "Public domain",
+      "source": "https://commons.wikimedia.org/wiki/File:John_Frederick_Lewis_-_Study_for_%27The_Courtyard_of_the_Coptic_Patriarch%27s_House_in_Cairo%27_-_Google_Art_Project.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/6/65/John_Frederick_Lewis_-_Study_for_%27The_Courtyard_of_the_Coptic_Patriarch%27s_House_in_Cairo%27_-_Google_Art_Project.jpg",
+      "originalSize": "2603x2751"
+    },
+    {
+      "n": 11,
+      "term": "Tahrir Square Cairo",
+      "title": "File:Tahrir Square, Cairo, Egypt 1.jpg",
+      "artist": "Ghaydaa Sayed",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Tahrir_Square,_Cairo,_Egypt_1.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/8/86/Tahrir_Square%2C_Cairo%2C_Egypt_1.jpg",
+      "originalSize": "3024x4032"
+    },
+    {
+      "n": 12,
+      "term": "Cairo skyline",
+      "title": "File:Cairo skyline, Panoramic view, Egypt.jpg",
+      "artist": "Vyacheslav Argenberg",
+      "license": "CC BY 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Cairo_skyline,_Panoramic_view,_Egypt.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/7/71/Cairo_skyline%2C_Panoramic_view%2C_Egypt.jpg",
+      "originalSize": "3072x2048"
+    }
+  ],
+  "rome": [
+    {
+      "n": 1,
+      "term": "Colosseum Rome",
+      "title": "File:Colosseum in Rome-April 2007-1- copie 2B.jpg",
+      "artist": "Diliff",
+      "license": "CC BY-SA 2.5",
+      "source": "https://commons.wikimedia.org/wiki/File:Colosseum_in_Rome-April_2007-1-_copie_2B.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d8/Colosseum_in_Rome-April_2007-1-_copie_2B.jpg",
+      "originalSize": "4827x2833"
+    },
+    {
+      "n": 2,
+      "term": "Trevi Fountain Rome",
+      "title": "File:Oceanus (Trevi fountain).jpg",
+      "artist": "Wilfredor",
+      "license": "CC0",
+      "source": "https://commons.wikimedia.org/wiki/File:Oceanus_(Trevi_fountain).jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/9/91/Oceanus_%28Trevi_fountain%29.jpg",
+      "originalSize": "6967x10199"
+    },
+    {
+      "n": 3,
+      "term": "St Peters Basilica Rome",
+      "title": "File:St Peters Basilica Rome.jpg",
+      "artist": "carlo75",
+      "license": "CC0",
+      "source": "https://commons.wikimedia.org/wiki/File:St_Peters_Basilica_Rome.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/c/ce/St_Peters_Basilica_Rome.jpg",
+      "originalSize": "1920x1275"
+    },
+    {
+      "n": 4,
+      "term": "Roman Forum",
+      "title": "File:Forum romanum 6k (5760x2097).jpg",
+      "artist": "BeBo86",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Forum_romanum_6k_(5760x2097).jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d7/Forum_romanum_6k_%285760x2097%29.jpg",
+      "originalSize": "5760x2097"
+    },
+    {
+      "n": 5,
+      "term": "Pantheon Rome",
+      "title": "File:Pantheon Rom 1 cropped.jpg",
+      "artist": "Rabax63",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Pantheon_Rom_1_cropped.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/e/ef/Pantheon_Rom_1_cropped.jpg",
+      "originalSize": "4109x3034"
+    },
+    {
+      "n": 6,
+      "term": "St Peters Square colonnade Vatican",
+      "title": "File:Column.on.st.peters.basilica.rome.arp.jpg",
+      "artist": "Adrian Pingstone (Arpingstone)",
+      "license": "Public domain",
+      "source": "https://commons.wikimedia.org/wiki/File:Column.on.st.peters.basilica.rome.arp.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/5/5d/Column.on.st.peters.basilica.rome.arp.jpg",
+      "originalSize": "1712x2288"
+    },
+    {
+      "n": 7,
+      "term": "Spanish Steps Rome",
+      "title": "File:Spanish Steps, Rome, September 1965.jpg",
+      "artist": "Please credit \"Family photos of Infrogmation\"",
+      "license": "CC BY 2.5",
+      "source": "https://commons.wikimedia.org/wiki/File:Spanish_Steps,_Rome,_September_1965.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/2/22/Spanish_Steps%2C_Rome%2C_September_1965.jpg",
+      "originalSize": "2518x3720"
+    },
+    {
+      "n": 8,
+      "term": "Piazza Navona Rome",
+      "title": "File:Piazza Navona 1.jpg",
+      "artist": "Myrabella",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Piazza_Navona_1.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/2/25/Piazza_Navona_1.jpg",
+      "originalSize": "3504x2424"
+    },
+    {
+      "n": 9,
+      "term": "Castel Sant Angelo Rome",
+      "title": "File:RomaCastelSantAngelo.jpg",
+      "artist": "Andreas Tille",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:RomaCastelSantAngelo.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/5/51/RomaCastelSantAngelo.jpg",
+      "originalSize": "2983x1889"
+    },
+    {
+      "n": 10,
+      "term": "Altare della Patria Rome",
+      "title": "File:Altar della Patria September 2015-1.jpg",
+      "artist": "Alvesgaspar",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Altar_della_Patria_September_2015-1.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/1/19/Altar_della_Patria_September_2015-1.jpg",
+      "originalSize": "7324x4232"
+    },
+    {
+      "n": 11,
+      "term": "Colosseum interior Rome",
+      "title": "File:Cross Colosseum Rome Italy.jpg",
+      "artist": "Jebulon",
+      "license": "CC0",
+      "source": "https://commons.wikimedia.org/wiki/File:Cross_Colosseum_Rome_Italy.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/8/8e/Cross_Colosseum_Rome_Italy.jpg",
+      "originalSize": "3056x4592"
+    },
+    {
+      "n": 12,
+      "term": "Piazza del Popolo Rome",
+      "title": "File:Fontana del Nettuno, Piazza del Popolo, Rome, Italie.jpg",
+      "artist": "Jebulon",
+      "license": "CC0",
+      "source": "https://commons.wikimedia.org/wiki/File:Fontana_del_Nettuno,_Piazza_del_Popolo,_Rome,_Italie.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/c/cc/Fontana_del_Nettuno%2C_Piazza_del_Popolo%2C_Rome%2C_Italie.jpg",
+      "originalSize": "4533x3199"
+    }
+  ],
+  "istanbul": [
+    {
+      "n": 1,
+      "term": "Hagia Sophia",
+      "title": "File:Hagia Sophia Mars 2013.jpg",
+      "artist": "Arild Vågen",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Hagia_Sophia_Mars_2013.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/2/22/Hagia_Sophia_Mars_2013.jpg",
+      "originalSize": "5514x3681"
+    },
+    {
+      "n": 2,
+      "term": "Blue Mosque Istanbul",
+      "title": "File:Blue Mosque Courtyard Dusk Wikimedia Commons.jpg",
+      "artist": "Benh LIEU SONG (Flickr)",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Blue_Mosque_Courtyard_Dusk_Wikimedia_Commons.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/7/77/Blue_Mosque_Courtyard_Dusk_Wikimedia_Commons.jpg",
+      "originalSize": "7937x5580"
+    },
+    {
+      "n": 3,
+      "term": "Topkapi Palace Istanbul",
+      "title": "File:Istanbul asv2020-02 img19 Topkapı Palace.jpg",
+      "artist": "A.Savin",
+      "license": "FAL",
+      "source": "https://commons.wikimedia.org/wiki/File:Istanbul_asv2020-02_img19_Topkap%C4%B1_Palace.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c5/Istanbul_asv2020-02_img19_Topkap%C4%B1_Palace.jpg",
+      "originalSize": "4777x4777"
+    },
+    {
+      "n": 4,
+      "term": "Bosphorus Istanbul",
+      "title": "File:Istanbul and Bosporus big.jpg",
+      "artist": "Astronaut photograph ISS008-E-21752",
+      "license": "Public domain",
+      "source": "https://commons.wikimedia.org/wiki/File:Istanbul_and_Bosporus_big.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/e/ea/Istanbul_and_Bosporus_big.jpg",
+      "originalSize": "1000x1163"
+    },
+    {
+      "n": 5,
+      "term": "Grand Bazaar Istanbul",
+      "title": "File:Sample of Tee - Grand Bazaar.JPG",
+      "artist": "Martin Falbisoner",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Sample_of_Tee_-_Grand_Bazaar.JPG",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1f/Sample_of_Tee_-_Grand_Bazaar.JPG",
+      "originalSize": "4734x3466"
+    },
+    {
+      "n": 6,
+      "term": "Galata Tower Istanbul",
+      "title": "File:Ceiling of Galata Tower.jpg",
+      "artist": "Julian Lupyan",
+      "license": "CC0",
+      "source": "https://commons.wikimedia.org/wiki/File:Ceiling_of_Galata_Tower.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/2/24/Ceiling_of_Galata_Tower.jpg",
+      "originalSize": "5826x3869"
+    },
+    {
+      "n": 7,
+      "term": "Basilica Cistern Istanbul",
+      "title": "File:Cisterna Basílica, Estambul, Turquía, 2024-09-28, DD 58-60 HDR.jpg",
+      "artist": "Diego Delso",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Cisterna_Bas%C3%ADlica,_Estambul,_Turqu%C3%ADa,_2024-09-28,_DD_58-60_HDR.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/a/ae/Cisterna_Bas%C3%ADlica%2C_Estambul%2C_Turqu%C3%ADa%2C_2024-09-28%2C_DD_58-60_HDR.jpg",
+      "originalSize": "5495x8505"
+    },
+    {
+      "n": 8,
+      "term": "Suleymaniye Mosque Istanbul",
+      "title": "File:Süleymaniye Mosque February 2013 01.jpg",
+      "artist": "Arild Vågen",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:S%C3%BCleymaniye_Mosque_February_2013_01.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/6/62/S%C3%BCleymaniye_Mosque_February_2013_01.jpg",
+      "originalSize": "6008x4408"
+    },
+    {
+      "n": 9,
+      "term": "Dolmabahce Palace",
+      "title": "File:Pond and Fence along the Bosporus Strait, Dolmabahçe Palace, Istanbul.jpg",
+      "artist": "Julian Lupyan",
+      "license": "CC0",
+      "source": "https://commons.wikimedia.org/wiki/File:Pond_and_Fence_along_the_Bosporus_Strait,_Dolmabah%C3%A7e_Palace,_Istanbul.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/f/fa/Pond_and_Fence_along_the_Bosporus_Strait%2C_Dolmabah%C3%A7e_Palace%2C_Istanbul.jpg",
+      "originalSize": "4537x3801"
+    },
+    {
+      "n": 10,
+      "term": "Istanbul skyline",
+      "title": "File:Istanbul skyline 02.jpg",
+      "artist": "SegLig",
+      "license": "CC BY 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Istanbul_skyline_02.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1e/Istanbul_skyline_02.jpg",
+      "originalSize": "2000x1290"
+    },
+    {
+      "n": 11,
+      "term": "Spice Bazaar Istanbul",
+      "title": "File:Spices on Spice Bazaar in Istanbul 02.jpg",
+      "artist": "Miomir Magdevski",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Spices_on_Spice_Bazaar_in_Istanbul_02.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e1/Spices_on_Spice_Bazaar_in_Istanbul_02.jpg",
+      "originalSize": "7360x4912"
+    },
+    {
+      "n": 12,
+      "term": "Bosphorus Bridge Istanbul",
+      "title": "File:15 temmuz şehitler köprüsü ve çay.jpg",
+      "artist": "Betul photodiaries",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:15_temmuz_%C5%9Fehitler_k%C3%B6pr%C3%BCs%C3%BC_ve_%C3%A7ay.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/2/28/15_temmuz_%C5%9Fehitler_k%C3%B6pr%C3%BCs%C3%BC_ve_%C3%A7ay.jpg",
+      "originalSize": "1080x1620"
+    }
+  ],
+  "moscow": [
+    {
+      "n": 1,
+      "term": "Saint Basils Cathedral Moscow",
+      "title": "File:Sant Vasily cathedral in Moscow.JPG",
+      "artist": "Petar Milošević",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Sant_Vasily_cathedral_in_Moscow.JPG",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/4/40/Sant_Vasily_cathedral_in_Moscow.JPG",
+      "originalSize": "2576x3648"
+    },
+    {
+      "n": 2,
+      "term": "Moscow Kremlin",
+      "title": "File:Vista general del Kremlin, Moscú, Rusia, 2016-10-03, DD 18-19 HDR.jpg",
+      "artist": "Diego Delso",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Vista_general_del_Kremlin,_Mosc%C3%BA,_Rusia,_2016-10-03,_DD_18-19_HDR.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/a/ae/Vista_general_del_Kremlin%2C_Mosc%C3%BA%2C_Rusia%2C_2016-10-03%2C_DD_18-19_HDR.jpg",
+      "originalSize": "7062x3460"
+    },
+    {
+      "n": 3,
+      "term": "Red Square Moscow",
+      "title": "File:Moscow's Red Square, Moscow, Russia.jpg",
+      "artist": "Vyacheslav Argenberg",
+      "license": "CC BY 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Moscow%27s_Red_Square,_Moscow,_Russia.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/2/26/Moscow%27s_Red_Square%2C_Moscow%2C_Russia.jpg",
+      "originalSize": "4912x3264"
+    },
+    {
+      "n": 4,
+      "term": "Bolshoi Theatre Moscow",
+      "title": "File:Teatro Bolshói, Moscú, Rusia, 2016-10-03, DD 42-43 HDR.jpg",
+      "artist": "Diego Delso",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Teatro_Bolsh%C3%B3i,_Mosc%C3%BA,_Rusia,_2016-10-03,_DD_42-43_HDR.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/c/cd/Teatro_Bolsh%C3%B3i%2C_Mosc%C3%BA%2C_Rusia%2C_2016-10-03%2C_DD_42-43_HDR.jpg",
+      "originalSize": "7397x4931"
+    },
+    {
+      "n": 5,
+      "term": "Moscow State University building",
+      "title": "File:Moscow State University crop.jpg",
+      "artist": "Dmitry A. Mottl (cropped by King of Hearts)",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Moscow_State_University_crop.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a0/Moscow_State_University_crop.jpg",
+      "originalSize": "3500x2000"
+    },
+    {
+      "n": 6,
+      "term": "Cathedral of Christ the Saviour Moscow",
+      "title": "File:Portal of Cathedral of Christ the Saviour - details.jpg",
+      "artist": "Юрий Д.К.",
+      "license": "CC BY 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Portal_of_Cathedral_of_Christ_the_Saviour_-_details.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/0/0d/Portal_of_Cathedral_of_Christ_the_Saviour_-_details.jpg",
+      "originalSize": "7342x6512"
+    },
+    {
+      "n": 7,
+      "term": "GUM Moscow",
+      "title": "File:Moscow GUM Middle Line view from 2nd floor.jpg",
+      "artist": "A.Savin",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Moscow_GUM_Middle_Line_view_from_2nd_floor.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/4/49/Moscow_GUM_Middle_Line_view_from_2nd_floor.jpg",
+      "originalSize": "3339x3071"
+    },
+    {
+      "n": 8,
+      "term": "Moscow City skyscrapers",
+      "title": "File:View from Imperia Tower Moscow 04-2014 img12.jpg",
+      "artist": "A.Savin",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:View_from_Imperia_Tower_Moscow_04-2014_img12.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/6/6b/View_from_Imperia_Tower_Moscow_04-2014_img12.jpg",
+      "originalSize": "2616x4651"
+    },
+    {
+      "n": 9,
+      "term": "Tretyakov Gallery Moscow",
+      "title": "File:Icône de Saint-Nicolas, galerie Tretiakov.- Moscou,.jpg",
+      "artist": "Pierre André Leclercq",
+      "license": "Public domain",
+      "source": "https://commons.wikimedia.org/wiki/File:Ic%C3%B4ne_de_Saint-Nicolas,_galerie_Tretiakov.-_Moscou,.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f5/Ic%C3%B4ne_de_Saint-Nicolas%2C_galerie_Tretiakov.-_Moscou%2C.jpg",
+      "originalSize": "2676x3531"
+    },
+    {
+      "n": 10,
+      "term": "Novodevichy Convent Moscow",
+      "title": "File:Novodevichy Convent night view.jpg",
+      "artist": "Max_Ryazanov",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Novodevichy_Convent_night_view.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/d/db/Novodevichy_Convent_night_view.jpg",
+      "originalSize": "3319x2212"
+    },
+    {
+      "n": 11,
+      "term": "Moscow Metro station",
+      "title": "File:Moscow Rumyantsevo Metro station 04-2016.jpg",
+      "artist": "A.Savin",
+      "license": "FAL",
+      "source": "https://commons.wikimedia.org/wiki/File:Moscow_Rumyantsevo_Metro_station_04-2016.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/9/98/Moscow_Rumyantsevo_Metro_station_04-2016.jpg",
+      "originalSize": "3859x2573"
+    },
+    {
+      "n": 12,
+      "term": "Gorky Park Moscow",
+      "title": "File:Moscow Gorky Park main portal 08-2016 img1.jpg",
+      "artist": "A.Savin",
+      "license": "FAL",
+      "source": "https://commons.wikimedia.org/wiki/File:Moscow_Gorky_Park_main_portal_08-2016_img1.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b9/Moscow_Gorky_Park_main_portal_08-2016_img1.jpg",
+      "originalSize": "4425x2489"
+    }
+  ],
+  "delhi": [
+    {
+      "n": 1,
+      "term": "India Gate Delhi",
+      "title": "File:India Gate 1 (New Delhi).jpg",
+      "artist": "Subeesh Balan സുഭീഷ് ബാലൻ",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:India_Gate_1_(New_Delhi).jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/8/86/India_Gate_1_%28New_Delhi%29.jpg",
+      "originalSize": "2736x3000"
+    },
+    {
+      "n": 2,
+      "term": "Red Fort Delhi",
+      "title": "File:Red Fort in Delhi 03-2016 img3.jpg",
+      "artist": "A.Savin",
+      "license": "FAL",
+      "source": "https://commons.wikimedia.org/wiki/File:Red_Fort_in_Delhi_03-2016_img3.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/0/0d/Red_Fort_in_Delhi_03-2016_img3.jpg",
+      "originalSize": "5387x3030"
+    },
+    {
+      "n": 3,
+      "term": "Qutub Minar Delhi",
+      "title": "File:Qutub Minar in Delhi 03-2016.jpg",
+      "artist": "A.Savin",
+      "license": "FAL",
+      "source": "https://commons.wikimedia.org/wiki/File:Qutub_Minar_in_Delhi_03-2016.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/5/57/Qutub_Minar_in_Delhi_03-2016.jpg",
+      "originalSize": "2755x3673"
+    },
+    {
+      "n": 4,
+      "term": "Humayuns Tomb Delhi",
+      "title": "File:Tomb of Humayun, Delhi.jpg",
+      "artist": "Muhammad Mahdi Karim",
+      "license": "GFDL 1.2",
+      "source": "https://commons.wikimedia.org/wiki/File:Tomb_of_Humayun,_Delhi.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d2/Tomb_of_Humayun%2C_Delhi.jpg",
+      "originalSize": "5294x1788"
+    },
+    {
+      "n": 5,
+      "term": "Lotus Temple Delhi",
+      "title": "File:Lotus Temple in New Delhi 03-2016.jpg",
+      "artist": "A.Savin",
+      "license": "FAL",
+      "source": "https://commons.wikimedia.org/wiki/File:Lotus_Temple_in_New_Delhi_03-2016.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/d/dc/Lotus_Temple_in_New_Delhi_03-2016.jpg",
+      "originalSize": "5070x3380"
+    },
+    {
+      "n": 6,
+      "term": "Jama Masjid Delhi",
+      "title": "File:Jama Masjid, Delhi.jpg",
+      "artist": "Muhammad Mahdi Karim",
+      "license": "GFDL 1.2",
+      "source": "https://commons.wikimedia.org/wiki/File:Jama_Masjid,_Delhi.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/7/77/Jama_Masjid%2C_Delhi.jpg",
+      "originalSize": "3448x2445"
+    },
+    {
+      "n": 7,
+      "term": "Akshardham Delhi",
+      "title": "File:Swaminarayan Akshardham Temple-Delhi-97.jpg",
+      "artist": "Immanuelle",
+      "license": "CC BY 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Swaminarayan_Akshardham_Temple-Delhi-97.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/5/58/Swaminarayan_Akshardham_Temple-Delhi-97.jpg",
+      "originalSize": "4032x3024"
+    },
+    {
+      "n": 8,
+      "term": "Rashtrapati Bhavan Delhi",
+      "title": "File:Rashtrapati Bhavan-Delhi-India4445.JPG",
+      "artist": "Diego Delso",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Rashtrapati_Bhavan-Delhi-India4445.JPG",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f4/Rashtrapati_Bhavan-Delhi-India4445.JPG",
+      "originalSize": "3394x2410"
+    },
+    {
+      "n": 9,
+      "term": "Connaught Place Delhi",
+      "title": "File:Delhi Connaught Place.jpg",
+      "artist": "Marcin Białek",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Delhi_Connaught_Place.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/5/55/Delhi_Connaught_Place.jpg",
+      "originalSize": "2560x1560"
+    },
+    {
+      "n": 10,
+      "term": "Chandni Chowk Delhi",
+      "title": "File:State Bank of India, Chandni Chowk branch, Delhi 04.jpg",
+      "artist": "Pinakpani",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:State_Bank_of_India,_Chandni_Chowk_branch,_Delhi_04.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c1/State_Bank_of_India%2C_Chandni_Chowk_branch%2C_Delhi_04.jpg",
+      "originalSize": "2322x4128"
+    },
+    {
+      "n": 11,
+      "term": "Gurudwara Bangla Sahib Delhi",
+      "title": "File:Gurudwara Bangla Sahib in New Delhi 03-2016 img3.jpg",
+      "artist": "A.Savin",
+      "license": "FAL",
+      "source": "https://commons.wikimedia.org/wiki/File:Gurudwara_Bangla_Sahib_in_New_Delhi_03-2016_img3.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/f/fe/Gurudwara_Bangla_Sahib_in_New_Delhi_03-2016_img3.jpg",
+      "originalSize": "3527x4409"
+    },
+    {
+      "n": 12,
+      "term": "Delhi skyline",
+      "title": "File:Delhi skyline. 01.jpg",
+      "artist": "Fredericknoronha",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Delhi_skyline._01.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/9/92/Delhi_skyline._01.jpg",
+      "originalSize": "2816x2112"
+    }
+  ],
+  "rio-de-janeiro": [
+    {
+      "n": 1,
+      "term": "Christ the Redeemer Rio",
+      "title": "File:Christ the Redeemer - Cristo Redentor.jpg",
+      "artist": "Arne Müseler",
+      "license": "CC BY-SA 3.0 de",
+      "source": "https://commons.wikimedia.org/wiki/File:Christ_the_Redeemer_-_Cristo_Redentor.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4f/Christ_the_Redeemer_-_Cristo_Redentor.jpg",
+      "originalSize": "2497x3744"
+    },
+    {
+      "n": 2,
+      "term": "Sugarloaf Mountain Rio",
+      "title": "File:Rio de Janeiro from Sugarloaf mountain, May 2004.jpg",
+      "artist": "Breogan67",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Rio_de_Janeiro_from_Sugarloaf_mountain,_May_2004.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/8/86/Rio_de_Janeiro_from_Sugarloaf_mountain%2C_May_2004.jpg",
+      "originalSize": "1136x852"
+    },
+    {
+      "n": 3,
+      "term": "Copacabana beach Rio",
+      "title": "File:Copacabana, Rio de Janeiro.jpg",
+      "artist": "Wilfredor",
+      "license": "CC0",
+      "source": "https://commons.wikimedia.org/wiki/File:Copacabana,_Rio_de_Janeiro.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/1/14/Copacabana%2C_Rio_de_Janeiro.jpg",
+      "originalSize": "8256x5504"
+    },
+    {
+      "n": 4,
+      "term": "Ipanema beach Rio",
+      "title": "File:Ipanema beach guardhouse 01.jpg",
+      "artist": "Julia Sumangil",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Ipanema_beach_guardhouse_01.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/0/05/Ipanema_beach_guardhouse_01.jpg",
+      "originalSize": "1000x667"
+    },
+    {
+      "n": 5,
+      "term": "Maracana Stadium Rio",
+      "title": "File:Architectural Detail - Maracana Stadium - Rio de Janeiro - Brazil - 03 (17530730796).jpg",
+      "artist": "Adam Jones from Kelowna, BC, Canada",
+      "license": "CC BY-SA 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Architectural_Detail_-_Maracana_Stadium_-_Rio_de_Janeiro_-_Brazil_-_03_(17530730796).jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f7/Architectural_Detail_-_Maracana_Stadium_-_Rio_de_Janeiro_-_Brazil_-_03_%2817530730796%29.jpg",
+      "originalSize": "3648x2736"
+    },
+    {
+      "n": 6,
+      "term": "Selaron Steps Rio",
+      "title": "File:Escadaria Selarón-3.jpg",
+      "artist": "Julia Sumangil",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Escadaria_Selar%C3%B3n-3.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Escadaria_Selar%C3%B3n-3.jpg",
+      "originalSize": "1000x685"
+    },
+    {
+      "n": 7,
+      "term": "Rio de Janeiro skyline",
+      "title": "File:Rio de Janeiro at night.jpg",
+      "artist": "Lima Andruška from Rio de Janeiro, Brazil",
+      "license": "CC BY-SA 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Rio_de_Janeiro_at_night.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/7/76/Rio_de_Janeiro_at_night.jpg",
+      "originalSize": "3888x2592"
+    },
+    {
+      "n": 8,
+      "term": "Santa Teresa Rio",
+      "title": "File:Chiesa di Santa Teresa - Venezia - Portale sul rio delle Terese.jpg",
+      "artist": "Didier Descouens",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Chiesa_di_Santa_Teresa_-_Venezia_-_Portale_sul_rio_delle_Terese.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/4/48/Chiesa_di_Santa_Teresa_-_Venezia_-_Portale_sul_rio_delle_Terese.jpg",
+      "originalSize": "4912x6305"
+    },
+    {
+      "n": 9,
+      "term": "Municipal Theatre Rio de Janeiro",
+      "title": "File:Rodolfo Bernardelli - Estudo para a fachada do Theatro Municipal do Rio de Janeiro (Poesia).jpg",
+      "artist": "Rodolfo Bernardelli",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Rodolfo_Bernardelli_-_Estudo_para_a_fachada_do_Theatro_Municipal_do_Rio_de_Janeiro_(Poesia).jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c7/Rodolfo_Bernardelli_-_Estudo_para_a_fachada_do_Theatro_Municipal_do_Rio_de_Janeiro_%28Poesia%29.jpg",
+      "originalSize": "1401x2313"
+    },
+    {
+      "n": 10,
+      "term": "Rio de Janeiro harbour",
+      "title": "File:Admiralty Chart No 541 Rio De Janeiro Harbour, Published 1858.jpg",
+      "artist": "United Kingdom Hydrographic Office",
+      "license": "CC0",
+      "source": "https://commons.wikimedia.org/wiki/File:Admiralty_Chart_No_541_Rio_De_Janeiro_Harbour,_Published_1858.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b7/Admiralty_Chart_No_541_Rio_De_Janeiro_Harbour%2C_Published_1858.jpg",
+      "originalSize": "8486x12021"
+    },
+    {
+      "n": 11,
+      "term": "Botafogo Rio",
+      "title": "File:Rio de Janeiro, Brazil -21.jpg",
+      "artist": "Wilfredor",
+      "license": "CC0",
+      "source": "https://commons.wikimedia.org/wiki/File:Rio_de_Janeiro,_Brazil_-21.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f6/Rio_de_Janeiro%2C_Brazil_-21.jpg",
+      "originalSize": "5379x3353"
+    },
+    {
+      "n": 12,
+      "term": "Lapa Arches Rio",
+      "title": "File:Arcos da Lapa Final de Tarde Rio de Janeiro.jpg",
+      "artist": "Maravilhas Mundo",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Arcos_da_Lapa_Final_de_Tarde_Rio_de_Janeiro.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/8/8c/Arcos_da_Lapa_Final_de_Tarde_Rio_de_Janeiro.jpg",
+      "originalSize": "3024x4032"
+    }
+  ],
+  "mexico-city": [
+    {
+      "n": 1,
+      "term": "Metropolitan Cathedral Mexico City",
+      "title": "File:Side door - Right aisle - Metropolitan Cathedral of Mexico - Mexico 2024.jpg",
+      "artist": "José Luiz",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Side_door_-_Right_aisle_-_Metropolitan_Cathedral_of_Mexico_-_Mexico_2024.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/d/dd/Side_door_-_Right_aisle_-_Metropolitan_Cathedral_of_Mexico_-_Mexico_2024.jpg",
+      "originalSize": "3804x2056"
+    },
+    {
+      "n": 2,
+      "term": "Palacio de Bellas Artes",
+      "title": "File:Mexico City Palacio de bellas artes.jpg",
+      "artist": "Jeses",
+      "license": "CC BY-SA 2.5",
+      "source": "https://commons.wikimedia.org/wiki/File:Mexico_City_Palacio_de_bellas_artes.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/8/85/Mexico_City_Palacio_de_bellas_artes.jpg",
+      "originalSize": "2272x1704"
+    },
+    {
+      "n": 3,
+      "term": "Angel of Independence Mexico City",
+      "title": "File:Angel de la independencia170409.jpg",
+      "artist": "Carlos Valenzuela",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Angel_de_la_independencia170409.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/e/ec/Angel_de_la_independencia170409.jpg",
+      "originalSize": "5874x3998"
+    },
+    {
+      "n": 4,
+      "term": "Zocalo Mexico City",
+      "title": "File:Plaza de la Constitución - Zócalo de la Ciudad de México - 6.jpg",
+      "artist": "ProtoplasmaKid",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Plaza_de_la_Constituci%C3%B3n_-_Z%C3%B3calo_de_la_Ciudad_de_M%C3%A9xico_-_6.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c3/Plaza_de_la_Constituci%C3%B3n_-_Z%C3%B3calo_de_la_Ciudad_de_M%C3%A9xico_-_6.jpg",
+      "originalSize": "4014x2258"
+    },
+    {
+      "n": 5,
+      "term": "Templo Mayor Mexico City",
+      "title": "File:Templo Mayor, México D.F., México, 2013-10-16, DD 111.JPG",
+      "artist": "Diego Delso",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Templo_Mayor,_M%C3%A9xico_D.F.,_M%C3%A9xico,_2013-10-16,_DD_111.JPG",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/3/34/Templo_Mayor%2C_M%C3%A9xico_D.F.%2C_M%C3%A9xico%2C_2013-10-16%2C_DD_111.JPG",
+      "originalSize": "4845x2747"
+    },
+    {
+      "n": 6,
+      "term": "Chapultepec Castle",
+      "title": "File:Vista aérea del Castillo de Chapultepec 7.jpg",
+      "artist": "Own work",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Vista_a%C3%A9rea_del_Castillo_de_Chapultepec_7.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4f/Vista_a%C3%A9rea_del_Castillo_de_Chapultepec_7.jpg",
+      "originalSize": "4032x2268"
+    },
+    {
+      "n": 7,
+      "term": "National Palace Mexico City",
+      "title": "File:Barricaded National Palace - Mexico 2024 (2).jpg",
+      "artist": "José Luiz",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Barricaded_National_Palace_-_Mexico_2024_(2).jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/b/be/Barricaded_National_Palace_-_Mexico_2024_%282%29.jpg",
+      "originalSize": "4032x1908"
+    },
+    {
+      "n": 8,
+      "term": "Torre Latinoamericana",
+      "title": "File:Torre Latinoamericana, Ciudad de México, México, 2015-07-18, DD 11.JPG",
+      "artist": "Diego Delso",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Torre_Latinoamericana,_Ciudad_de_M%C3%A9xico,_M%C3%A9xico,_2015-07-18,_DD_11.JPG",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/3/36/Torre_Latinoamericana%2C_Ciudad_de_M%C3%A9xico%2C_M%C3%A9xico%2C_2015-07-18%2C_DD_11.JPG",
+      "originalSize": "5635x8452"
+    },
+    {
+      "n": 9,
+      "term": "Basilica of Guadalupe",
+      "title": "File:Nueva Basilica de Guadalupe 08.jpg",
+      "artist": "GAED",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Nueva_Basilica_de_Guadalupe_08.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/6/60/Nueva_Basilica_de_Guadalupe_08.jpg",
+      "originalSize": "3280x2460"
+    },
+    {
+      "n": 10,
+      "term": "Paseo de la Reforma Mexico City",
+      "title": "File:Paseo de la Reforma and Avenida Hidalgo - Mexico 2024.jpg",
+      "artist": "José Luiz",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Paseo_de_la_Reforma_and_Avenida_Hidalgo_-_Mexico_2024.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/5/5f/Paseo_de_la_Reforma_and_Avenida_Hidalgo_-_Mexico_2024.jpg",
+      "originalSize": "4608x2184"
+    },
+    {
+      "n": 11,
+      "term": "Frida Kahlo Museum",
+      "title": "File:Ciudad de México - Museo Frida Kahlo 7129.jpg",
+      "artist": "Phyrexian",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Ciudad_de_M%C3%A9xico_-_Museo_Frida_Kahlo_7129.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/8/8d/Ciudad_de_M%C3%A9xico_-_Museo_Frida_Kahlo_7129.jpg",
+      "originalSize": "2592x3872"
+    },
+    {
+      "n": 12,
+      "term": "Mexico City skyline",
+      "title": "File:Mexico City Skyline (5604867225).jpg",
+      "artist": "Francisco Anzola",
+      "license": "CC BY 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Mexico_City_Skyline_(5604867225).jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4f/Mexico_City_Skyline_%285604867225%29.jpg",
+      "originalSize": "4416x3312"
+    }
+  ],
+  "shanghai": [
+    {
+      "n": 1,
+      "term": "Oriental Pearl Tower Shanghai",
+      "title": "File:Oriental Pearl Tower in Shanghai.jpg",
+      "artist": "Dmitry A. Mottl",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Oriental_Pearl_Tower_in_Shanghai.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1f/Oriental_Pearl_Tower_in_Shanghai.jpg",
+      "originalSize": "2000x3000"
+    },
+    {
+      "n": 2,
+      "term": "The Bund Shanghai",
+      "title": "File:Blue hour view of the Bund from the Shanghai World Financial Center dllu.jpg",
+      "artist": "Dllu",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Blue_hour_view_of_the_Bund_from_the_Shanghai_World_Financial_Center_dllu.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/8/86/Blue_hour_view_of_the_Bund_from_the_Shanghai_World_Financial_Center_dllu.jpg",
+      "originalSize": "7451x4926"
+    },
+    {
+      "n": 3,
+      "term": "Shanghai Tower",
+      "title": "File:Shanghai - Shanghai Tower - 0001.jpg",
+      "artist": "Stefan Fussan",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Shanghai_-_Shanghai_Tower_-_0001.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e0/Shanghai_-_Shanghai_Tower_-_0001.jpg",
+      "originalSize": "2805x4633"
+    },
+    {
+      "n": 4,
+      "term": "Yu Garden Shanghai",
+      "title": "File:Yuyuan Gardens - concrete bird design.JPG",
+      "artist": "Me (w:User:pfctdayelise)",
+      "license": "CC BY-SA 2.5",
+      "source": "https://commons.wikimedia.org/wiki/File:Yuyuan_Gardens_-_concrete_bird_design.JPG",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/8/80/Yuyuan_Gardens_-_concrete_bird_design.JPG",
+      "originalSize": "1712x2304"
+    },
+    {
+      "n": 5,
+      "term": "Nanjing Road Shanghai",
+      "title": "File:20090705 Shanghai Nanjing Road 0602.jpg",
+      "artist": "Jakub Hałun",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:20090705_Shanghai_Nanjing_Road_0602.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a5/20090705_Shanghai_Nanjing_Road_0602.jpg",
+      "originalSize": "1844x2772"
+    },
+    {
+      "n": 6,
+      "term": "Shanghai Pudong skyline",
+      "title": "File:Pudong Shanghai November 2017 panorama.jpg",
+      "artist": "King of Hearts",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Pudong_Shanghai_November_2017_panorama.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/d/df/Pudong_Shanghai_November_2017_panorama.jpg",
+      "originalSize": "10200x5100"
+    },
+    {
+      "n": 7,
+      "term": "Jin Mao Tower",
+      "title": "File:Shanghai Jin Mao tower.jpg",
+      "artist": "Ermell",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Shanghai_Jin_Mao_tower.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/c/ca/Shanghai_Jin_Mao_tower.jpg",
+      "originalSize": "3107x4142"
+    },
+    {
+      "n": 8,
+      "term": "Shanghai World Financial Center",
+      "title": "File:20090426 5223 Shanghai JinMao SWFC.jpg",
+      "artist": "Architect (Jin Mao Tower): Adrian SmithArchitect(SWFC): Kohn Pedersen FoxPhotographer:Jakub Hałun",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:20090426_5223_Shanghai_JinMao_SWFC.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4b/20090426_5223_Shanghai_JinMao_SWFC.jpg",
+      "originalSize": "1960x2948"
+    },
+    {
+      "n": 9,
+      "term": "City God Temple Shanghai",
+      "title": "File:2024-Apr Shanghai City God Temple 上海城隍廟 - img 01.jpg",
+      "artist": "Chainwit.",
+      "license": "CC BY 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:2024-Apr_Shanghai_City_God_Temple_%E4%B8%8A%E6%B5%B7%E5%9F%8E%E9%9A%8D%E5%BB%9F_-_img_01.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/5/57/2024-Apr_Shanghai_City_God_Temple_%E4%B8%8A%E6%B5%B7%E5%9F%8E%E9%9A%8D%E5%BB%9F_-_img_01.jpg",
+      "originalSize": "4032x3024"
+    },
+    {
+      "n": 10,
+      "term": "Shanghai Museum",
+      "title": "File:The shanghai museum.jpg",
+      "artist": "Pyzhou",
+      "license": "GFDL",
+      "source": "https://commons.wikimedia.org/wiki/File:The_shanghai_museum.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/2/2d/The_shanghai_museum.jpg",
+      "originalSize": "4256x2832"
+    },
+    {
+      "n": 11,
+      "term": "Lujiazui Shanghai",
+      "title": "File:Shanghai Shanghai Tower 5166304.jpg",
+      "artist": "Ermell",
+      "license": "CC0",
+      "source": "https://commons.wikimedia.org/wiki/File:Shanghai_Shanghai_Tower_5166304.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d7/Shanghai_Shanghai_Tower_5166304.jpg",
+      "originalSize": "3442x4589"
+    },
+    {
+      "n": 12,
+      "term": "Shanghai night skyline",
+      "title": "File:Skyline of Shanghai at night, Aug 10 2023.jpg",
+      "artist": "A Chinese ID",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Skyline_of_Shanghai_at_night,_Aug_10_2023.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3f/Skyline_of_Shanghai_at_night%2C_Aug_10_2023.jpg",
+      "originalSize": "4032x3024"
+    }
+  ],
+  "mumbai": [
+    {
+      "n": 1,
+      "term": "Gateway of India Mumbai",
+      "title": "File:Mumbai 03-2016 30 Gateway of India.jpg",
+      "artist": "A.Savin",
+      "license": "FAL",
+      "source": "https://commons.wikimedia.org/wiki/File:Mumbai_03-2016_30_Gateway_of_India.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3a/Mumbai_03-2016_30_Gateway_of_India.jpg",
+      "originalSize": "3585x3585"
+    },
+    {
+      "n": 2,
+      "term": "Chhatrapati Shivaji Terminus",
+      "title": "File:Chhatrapati Shivaji Terminus (Victoria Terminus).jpg",
+      "artist": "Joe Ravi",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Chhatrapati_Shivaji_Terminus_(Victoria_Terminus).jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c5/Chhatrapati_Shivaji_Terminus_%28Victoria_Terminus%29.jpg",
+      "originalSize": "4045x2360"
+    },
+    {
+      "n": 3,
+      "term": "Marine Drive Mumbai",
+      "title": "File:Mumbai 03-2016 46 evening at Marine Drive.jpg",
+      "artist": "A.Savin",
+      "license": "FAL",
+      "source": "https://commons.wikimedia.org/wiki/File:Mumbai_03-2016_46_evening_at_Marine_Drive.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/0/0e/Mumbai_03-2016_46_evening_at_Marine_Drive.jpg",
+      "originalSize": "5386x3030"
+    },
+    {
+      "n": 4,
+      "term": "Taj Mahal Palace Hotel Mumbai",
+      "title": "File:Architectural Details Balconies and Windows of Taj Tower Hotel, Mumbai.jpg",
+      "artist": "iMahesh",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Architectural_Details_Balconies_and_Windows_of_Taj_Tower_Hotel,_Mumbai.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f8/Architectural_Details_Balconies_and_Windows_of_Taj_Tower_Hotel%2C_Mumbai.jpg",
+      "originalSize": "4569x3776"
+    },
+    {
+      "n": 5,
+      "term": "Haji Ali Dargah Mumbai",
+      "title": "File:Mumbai 03-2016 13 Haji Ali Dargah.jpg",
+      "artist": "A.Savin",
+      "license": "FAL",
+      "source": "https://commons.wikimedia.org/wiki/File:Mumbai_03-2016_13_Haji_Ali_Dargah.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/2/28/Mumbai_03-2016_13_Haji_Ali_Dargah.jpg",
+      "originalSize": "3648x4560"
+    },
+    {
+      "n": 6,
+      "term": "Bandra-Worli Sea Link",
+      "title": "File:Bandra worli sealinkബാന്ദ്ര-വർളി കടൽപാലം.JPG",
+      "artist": "Arjuncm3",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Bandra_worli_sealink%E0%B4%AC%E0%B4%BE%E0%B4%A8%E0%B5%8D%E0%B4%A6%E0%B5%8D%E0%B4%B0-%E0%B4%B5%E0%B5%BC%E0%B4%B3%E0%B4%BF_%E0%B4%95%E0%B4%9F%E0%B5%BD%E0%B4%AA%E0%B4%BE%E0%B4%B2%E0%B4%82.JPG",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/3/30/Bandra_worli_sealink%E0%B4%AC%E0%B4%BE%E0%B4%A8%E0%B5%8D%E0%B4%A6%E0%B5%8D%E0%B4%B0-%E0%B4%B5%E0%B5%BC%E0%B4%B3%E0%B4%BF_%E0%B4%95%E0%B4%9F%E0%B5%BD%E0%B4%AA%E0%B4%BE%E0%B4%B2%E0%B4%82.JPG",
+      "originalSize": "4000x2248"
+    },
+    {
+      "n": 7,
+      "term": "Elephanta Caves",
+      "title": "File:Thane Creek and Elephanta Island 03-2016 - img19 Elephanta Caves.jpg",
+      "artist": "A.Savin",
+      "license": "FAL",
+      "source": "https://commons.wikimedia.org/wiki/File:Thane_Creek_and_Elephanta_Island_03-2016_-_img19_Elephanta_Caves.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/5/56/Thane_Creek_and_Elephanta_Island_03-2016_-_img19_Elephanta_Caves.jpg",
+      "originalSize": "3016x4524"
+    },
+    {
+      "n": 8,
+      "term": "Mumbai skyline",
+      "title": "File:Mumbai 03-2016 10 skyline of Lotus Colony.jpg",
+      "artist": "A.Savin",
+      "license": "FAL",
+      "source": "https://commons.wikimedia.org/wiki/File:Mumbai_03-2016_10_skyline_of_Lotus_Colony.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3a/Mumbai_03-2016_10_skyline_of_Lotus_Colony.jpg",
+      "originalSize": "5411x3044"
+    },
+    {
+      "n": 9,
+      "term": "Dhobi Ghat Mumbai",
+      "title": "File:Dhobi Ghat, Mumbai.jpg",
+      "artist": "Bernard Gagnon",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Dhobi_Ghat,_Mumbai.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a3/Dhobi_Ghat%2C_Mumbai.jpg",
+      "originalSize": "5184x3456"
+    },
+    {
+      "n": 10,
+      "term": "Siddhivinayak Temple Mumbai",
+      "title": "File:Shree Siddhivinayak Temple Mumbai.jpg",
+      "artist": "Darwininan",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Shree_Siddhivinayak_Temple_Mumbai.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b9/Shree_Siddhivinayak_Temple_Mumbai.jpg",
+      "originalSize": "2410x3214"
+    },
+    {
+      "n": 11,
+      "term": "Nariman Point Mumbai",
+      "title": "File:Sakhar Bhavan, Nariman Point, Mumbai.jpg",
+      "artist": "DesiBoy101",
+      "license": "CC BY 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Sakhar_Bhavan,_Nariman_Point,_Mumbai.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c9/Sakhar_Bhavan%2C_Nariman_Point%2C_Mumbai.jpg",
+      "originalSize": "2448x3264"
+    },
+    {
+      "n": 12,
+      "term": "Colaba Mumbai",
+      "title": "File:Devidas Mansion Colaba Mumbai Jul25 A7CR 05952.jpg",
+      "artist": "Timothy A. Gonsalves",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Devidas_Mansion_Colaba_Mumbai_Jul25_A7CR_05952.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/9/96/Devidas_Mansion_Colaba_Mumbai_Jul25_A7CR_05952.jpg",
+      "originalSize": "7391x5543"
+    }
+  ],
+  "berlin": [
+    {
+      "n": 1,
+      "term": "Brandenburg Gate",
+      "title": "File:Brandenburg Gate Quadriga at Night.jpg",
+      "artist": "א (Aleph) Creator: Johann Gottfried Schadow",
+      "license": "CC BY-SA 2.5",
+      "source": "https://commons.wikimedia.org/wiki/File:Brandenburg_Gate_Quadriga_at_Night.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/e/ef/Brandenburg_Gate_Quadriga_at_Night.jpg",
+      "originalSize": "3032x2274"
+    },
+    {
+      "n": 2,
+      "term": "East Side Gallery Berlin Wall",
+      "title": "File:Berlin Wall near East Side Gallery.JPG",
+      "artist": "Pudelek (Marcin Szala)",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Berlin_Wall_near_East_Side_Gallery.JPG",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/6/61/Berlin_Wall_near_East_Side_Gallery.JPG",
+      "originalSize": "2592x1944"
+    },
+    {
+      "n": 3,
+      "term": "Reichstag building Berlin",
+      "title": "File:Reichstag building Berlin view from west before sunset.jpg",
+      "artist": "Jürgen Matern",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Reichstag_building_Berlin_view_from_west_before_sunset.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c7/Reichstag_building_Berlin_view_from_west_before_sunset.jpg",
+      "originalSize": "8347x3157"
+    },
+    {
+      "n": 4,
+      "term": "Berlin Cathedral",
+      "title": "File:View from Humboldtbox - Berlin Cathedral.jpg",
+      "artist": "A.Savin",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:View_from_Humboldtbox_-_Berlin_Cathedral.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/a/ae/View_from_Humboldtbox_-_Berlin_Cathedral.jpg",
+      "originalSize": "3350x3350"
+    },
+    {
+      "n": 5,
+      "term": "Fernsehturm Berlin TV Tower",
+      "title": "File:Berlin - Berliner Fernsehturm - Fensterreinigung.jpg",
+      "artist": "Taxiarchos228",
+      "license": "FAL",
+      "source": "https://commons.wikimedia.org/wiki/File:Berlin_-_Berliner_Fernsehturm_-_Fensterreinigung.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/9/96/Berlin_-_Berliner_Fernsehturm_-_Fensterreinigung.jpg",
+      "originalSize": "1986x3041"
+    },
+    {
+      "n": 6,
+      "term": "Checkpoint Charlie Berlin",
+      "title": "File:Checkpoint Charlie - écriteau (Berlin).jpg",
+      "artist": "Gzen92",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Checkpoint_Charlie_-_%C3%A9criteau_(Berlin).jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/4/49/Checkpoint_Charlie_-_%C3%A9criteau_%28Berlin%29.jpg",
+      "originalSize": "5472x3648"
+    },
+    {
+      "n": 7,
+      "term": "Museum Island Berlin",
+      "title": "File:Berlin Museumsinsel Fernsehturm.jpg",
+      "artist": "Thomas Wolf, www.foto-tw.de",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Berlin_Museumsinsel_Fernsehturm.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c9/Berlin_Museumsinsel_Fernsehturm.jpg",
+      "originalSize": "5454x3684"
+    },
+    {
+      "n": 8,
+      "term": "Holocaust Memorial Berlin",
+      "title": "File:Memorial to the Murdered Jews of Europe - underground.JPG",
+      "artist": "Pudelek (Marcin Szala)",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Memorial_to_the_Murdered_Jews_of_Europe_-_underground.JPG",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/d/dd/Memorial_to_the_Murdered_Jews_of_Europe_-_underground.JPG",
+      "originalSize": "2592x1944"
+    },
+    {
+      "n": 9,
+      "term": "Berlin Victory Column",
+      "title": "File:Berlin - Siegessäule Spitze.jpg",
+      "artist": "Taxiarchos228",
+      "license": "FAL",
+      "source": "https://commons.wikimedia.org/wiki/File:Berlin_-_Siegess%C3%A4ule_Spitze.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/7/7e/Berlin_-_Siegess%C3%A4ule_Spitze.jpg",
+      "originalSize": "3949x7260"
+    },
+    {
+      "n": 10,
+      "term": "Potsdamer Platz Berlin",
+      "title": "File:Potsdamer Platz, Berlin, 160606, ako (1).jpg",
+      "artist": "Ansgar Koreng",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Potsdamer_Platz,_Berlin,_160606,_ako_(1).jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/8/80/Potsdamer_Platz%2C_Berlin%2C_160606%2C_ako_%281%29.jpg",
+      "originalSize": "6328x3560"
+    },
+    {
+      "n": 11,
+      "term": "Charlottenburg Palace Berlin",
+      "title": "File:Schloss Charlottenburg nachts (Zuschnitt).jpg",
+      "artist": "Thomas Wolf, www.foto-tw.de",
+      "license": "CC BY-SA 3.0 de",
+      "source": "https://commons.wikimedia.org/wiki/File:Schloss_Charlottenburg_nachts_(Zuschnitt).jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/5/52/Schloss_Charlottenburg_nachts_%28Zuschnitt%29.jpg",
+      "originalSize": "8339x5942"
+    },
+    {
+      "n": 12,
+      "term": "Berlin skyline",
+      "title": "File:Berlin Mitte June 2023 01.jpg",
+      "artist": "ArildV",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Berlin_Mitte_June_2023_01.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/1/18/Berlin_Mitte_June_2023_01.jpg",
+      "originalSize": "4692x2933"
+    }
+  ],
+  "sydney": [
+    {
+      "n": 1,
+      "term": "Sydney Opera House",
+      "title": "File:Sydney Opera House - Dec 2008.jpg",
+      "artist": "Diliff",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Sydney_Opera_House_-_Dec_2008.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/7/7c/Sydney_Opera_House_-_Dec_2008.jpg",
+      "originalSize": "2544x1406"
+    },
+    {
+      "n": 2,
+      "term": "Sydney Harbour Bridge",
+      "title": "File:Sydney Harbour Bridge from Circular Quay.jpg",
+      "artist": "JJ Harrison (https://www.jjharrison.com.au/)",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Sydney_Harbour_Bridge_from_Circular_Quay.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d1/Sydney_Harbour_Bridge_from_Circular_Quay.jpg",
+      "originalSize": "4832x2202"
+    },
+    {
+      "n": 3,
+      "term": "Bondi Beach Sydney",
+      "title": "File:Sydney (AU), Bondi Beach -- 2019 -- 2354.jpg",
+      "artist": "Dietmar Rabich",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Sydney_(AU),_Bondi_Beach_--_2019_--_2354.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/c/cd/Sydney_%28AU%29%2C_Bondi_Beach_--_2019_--_2354.jpg",
+      "originalSize": "6720x4480"
+    },
+    {
+      "n": 4,
+      "term": "Sydney skyline",
+      "title": "File:Sydney skyline at dusk - Dec 2008.jpg",
+      "artist": "Diliff",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Sydney_skyline_at_dusk_-_Dec_2008.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/5/5c/Sydney_skyline_at_dusk_-_Dec_2008.jpg",
+      "originalSize": "2500x990"
+    },
+    {
+      "n": 5,
+      "term": "Darling Harbour Sydney",
+      "title": "File:Sydney (AU), Darling Harbour -- 2019 -- 3193-5.jpg",
+      "artist": "Dietmar Rabich",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Sydney_(AU),_Darling_Harbour_--_2019_--_3193-5.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/7/7d/Sydney_%28AU%29%2C_Darling_Harbour_--_2019_--_3193-5.jpg",
+      "originalSize": "6700x4467"
+    },
+    {
+      "n": 6,
+      "term": "Queen Victoria Building Sydney",
+      "title": "File:Sydney (AU), View from Sydney Tower, Queen Victoria Building -- 2019 -- 3153.jpg",
+      "artist": "Dietmar Rabich",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Sydney_(AU),_View_from_Sydney_Tower,_Queen_Victoria_Building_--_2019_--_3153.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/b/bd/Sydney_%28AU%29%2C_View_from_Sydney_Tower%2C_Queen_Victoria_Building_--_2019_--_3153.jpg",
+      "originalSize": "6720x4480"
+    },
+    {
+      "n": 7,
+      "term": "Sydney Tower",
+      "title": "File:Sydney (AU), Skyline -- 2019 -- 2287.jpg",
+      "artist": "Dietmar Rabich",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Sydney_(AU),_Skyline_--_2019_--_2287.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/0/02/Sydney_%28AU%29%2C_Skyline_--_2019_--_2287.jpg",
+      "originalSize": "6720x2240"
+    },
+    {
+      "n": 8,
+      "term": "Circular Quay Sydney",
+      "title": "File:Sydney Writers Walk Circular Quay Christina Stead.jpg",
+      "artist": "Sardaka",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Sydney_Writers_Walk_Circular_Quay_Christina_Stead.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/6/67/Sydney_Writers_Walk_Circular_Quay_Christina_Stead.jpg",
+      "originalSize": "2100x2000"
+    },
+    {
+      "n": 9,
+      "term": "Royal Botanic Garden Sydney",
+      "title": "File:Sydney (AU), Royal Botanic Gardens -- 2019 -- 3082.jpg",
+      "artist": "Dietmar Rabich",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Sydney_(AU),_Royal_Botanic_Gardens_--_2019_--_3082.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/5/5c/Sydney_%28AU%29%2C_Royal_Botanic_Gardens_--_2019_--_3082.jpg",
+      "originalSize": "6720x4480"
+    },
+    {
+      "n": 10,
+      "term": "Manly Beach Sydney",
+      "title": "File:2020-10-24 Manly Beach 3.jpg",
+      "artist": "Maksym Kozlenko",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:2020-10-24_Manly_Beach_3.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/f/fe/2020-10-24_Manly_Beach_3.jpg",
+      "originalSize": "3968x2976"
+    },
+    {
+      "n": 11,
+      "term": "Sydney Harbour",
+      "title": "File:Sydney Opera House and Harbour Bridge Dusk (3) 2019-06-21.jpg",
+      "artist": "Benh LIEU SONG (Flickr)",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Sydney_Opera_House_and_Harbour_Bridge_Dusk_(3)_2019-06-21.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/7/7d/Sydney_Opera_House_and_Harbour_Bridge_Dusk_%283%29_2019-06-21.jpg",
+      "originalSize": "7520x2972"
+    },
+    {
+      "n": 12,
+      "term": "St Marys Cathedral Sydney",
+      "title": "File:Sydney (AU), St Mary's Cathedral -- 2019 -- 3107.jpg",
+      "artist": "Dietmar Rabich",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Sydney_(AU),_St_Mary%27s_Cathedral_--_2019_--_3107.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1a/Sydney_%28AU%29%2C_St_Mary%27s_Cathedral_--_2019_--_3107.jpg",
+      "originalSize": "5621x4216"
+    }
+  ],
+  "bangkok": [
+    {
+      "n": 1,
+      "term": "Grand Palace Bangkok",
+      "title": "File:วัดพระศรีรัตนศาสดาราม วัดพระแก้ว กรุงเทพมหานคร - Wat Phra Kaew, Temple of Emerald Buddha, Bangkok, Thailand.jpg",
+      "artist": "Basile Morin",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:%E0%B8%A7%E0%B8%B1%E0%B8%94%E0%B8%9E%E0%B8%A3%E0%B8%B0%E0%B8%A8%E0%B8%A3%E0%B8%B5%E0%B8%A3%E0%B8%B1%E0%B8%95%E0%B8%99%E0%B8%A8%E0%B8%B2%E0%B8%AA%E0%B8%94%E0%B8%B2%E0%B8%A3%E0%B8%B2%E0%B8%A1_%E0%B8%A7%E0%B8%B1%E0%B8%94%E0%B8%9E%E0%B8%A3%E0%B8%B0%E0%B9%81%E0%B8%81%E0%B9%89%E0%B8%A7_%E0%B8%81%E0%B8%A3%E0%B8%B8%E0%B8%87%E0%B9%80%E0%B8%97%E0%B8%9E%E0%B8%A1%E0%B8%AB%E0%B8%B2%E0%B8%99%E0%B8%84%E0%B8%A3_-_Wat_Phra_Kaew,_Temple_of_Emerald_Buddha,_Bangkok,_Thailand.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e8/%E0%B8%A7%E0%B8%B1%E0%B8%94%E0%B8%9E%E0%B8%A3%E0%B8%B0%E0%B8%A8%E0%B8%A3%E0%B8%B5%E0%B8%A3%E0%B8%B1%E0%B8%95%E0%B8%99%E0%B8%A8%E0%B8%B2%E0%B8%AA%E0%B8%94%E0%B8%B2%E0%B8%A3%E0%B8%B2%E0%B8%A1_%E0%B8%A7%E0%B8%B1%E0%B8%94%E0%B8%9E%E0%B8%A3%E0%B8%B0%E0%B9%81%E0%B8%81%E0%B9%89%E0%B8%A7_%E0%B8%81%E0%B8%A3%E0%B8%B8%E0%B8%87%E0%B9%80%E0%B8%97%E0%B8%9E%E0%B8%A1%E0%B8%AB%E0%B8%B2%E0%B8%99%E0%B8%84%E0%B8%A3_-_Wat_Phra_Kaew%2C_Temple_of_Emerald_Buddha%2C_Bangkok%2C_Thailand.jpg",
+      "originalSize": "4156x3014"
+    },
+    {
+      "n": 2,
+      "term": "Wat Arun Bangkok",
+      "title": "File:Templo Wat Arun, Bangkok, Tailandia, 2013-08-22, DD 30.jpg",
+      "artist": "Diego Delso",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Templo_Wat_Arun,_Bangkok,_Tailandia,_2013-08-22,_DD_30.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b3/Templo_Wat_Arun%2C_Bangkok%2C_Tailandia%2C_2013-08-22%2C_DD_30.jpg",
+      "originalSize": "4837x3231"
+    },
+    {
+      "n": 3,
+      "term": "Wat Pho reclining Buddha",
+      "title": "File:Ang Thong - Pho Thong (2024) Reclining Buddha Wat Khun Inthapramun วัดขุนอินทประมูล - img 17.jpg",
+      "artist": "Chainwit.",
+      "license": "CC BY 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Ang_Thong_-_Pho_Thong_(2024)_Reclining_Buddha_Wat_Khun_Inthapramun_%E0%B8%A7%E0%B8%B1%E0%B8%94%E0%B8%82%E0%B8%B8%E0%B8%99%E0%B8%AD%E0%B8%B4%E0%B8%99%E0%B8%97%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B8%A1%E0%B8%B9%E0%B8%A5_-_img_17.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/a/ae/Ang_Thong_-_Pho_Thong_%282024%29_Reclining_Buddha_Wat_Khun_Inthapramun_%E0%B8%A7%E0%B8%B1%E0%B8%94%E0%B8%82%E0%B8%B8%E0%B8%99%E0%B8%AD%E0%B8%B4%E0%B8%99%E0%B8%97%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B8%A1%E0%B8%B9%E0%B8%A5_-_img_17.jpg",
+      "originalSize": "4032x3024"
+    },
+    {
+      "n": 4,
+      "term": "Wat Phra Kaew Bangkok",
+      "title": "File:Statue of Yaksha supporting one of the Two Golden Chedi of Wat Phra Kaew, Bangkok, Thailand.jpg",
+      "artist": "Basile Morin",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Statue_of_Yaksha_supporting_one_of_the_Two_Golden_Chedi_of_Wat_Phra_Kaew,_Bangkok,_Thailand.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/a/ac/Statue_of_Yaksha_supporting_one_of_the_Two_Golden_Chedi_of_Wat_Phra_Kaew%2C_Bangkok%2C_Thailand.jpg",
+      "originalSize": "3193x4184"
+    },
+    {
+      "n": 5,
+      "term": "Chao Phraya river Bangkok",
+      "title": "File:Long motorboat on the Chao Phraya River in Bangkok.jpg",
+      "artist": "Grendelkhan",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Long_motorboat_on_the_Chao_Phraya_River_in_Bangkok.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/2/26/Long_motorboat_on_the_Chao_Phraya_River_in_Bangkok.jpg",
+      "originalSize": "4032x3024"
+    },
+    {
+      "n": 6,
+      "term": "Bangkok skyline",
+      "title": "File:Bangkok skytrain sunset.jpg",
+      "artist": "User:Diliff",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Bangkok_skytrain_sunset.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f6/Bangkok_skytrain_sunset.jpg",
+      "originalSize": "3072x2048"
+    },
+    {
+      "n": 7,
+      "term": "Chatuchak Market Bangkok",
+      "title": "File:Chatuchak weekend market roofs.jpg",
+      "artist": "Jarcje at en.wikipedia",
+      "license": "CC BY 2.5",
+      "source": "https://commons.wikimedia.org/wiki/File:Chatuchak_weekend_market_roofs.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/6/6e/Chatuchak_weekend_market_roofs.jpg",
+      "originalSize": "2592x1944"
+    },
+    {
+      "n": 8,
+      "term": "Khao San Road Bangkok",
+      "title": "File:2016 Bangkok, Dystrykt Phra Nakhon, Ulica Khaosan (08).jpg",
+      "artist": "Marcin Konsek",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:2016_Bangkok,_Dystrykt_Phra_Nakhon,_Ulica_Khaosan_(08).jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4b/2016_Bangkok%2C_Dystrykt_Phra_Nakhon%2C_Ulica_Khaosan_%2808%29.jpg",
+      "originalSize": "4974x3316"
+    },
+    {
+      "n": 9,
+      "term": "Democracy Monument Bangkok",
+      "title": "File:2016 Bangkok, Dystrykt Phra Nakhon, Pomnik Demokracji (03).jpg",
+      "artist": "Marcin Konsek",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:2016_Bangkok,_Dystrykt_Phra_Nakhon,_Pomnik_Demokracji_(03).jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/c/cc/2016_Bangkok%2C_Dystrykt_Phra_Nakhon%2C_Pomnik_Demokracji_%2803%29.jpg",
+      "originalSize": "4448x3462"
+    },
+    {
+      "n": 10,
+      "term": "Temple of the Emerald Buddha",
+      "title": "File:Temple of the Emerald Buddha.jpg",
+      "artist": "Nawit science",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Temple_of_the_Emerald_Buddha.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b5/Temple_of_the_Emerald_Buddha.jpg",
+      "originalSize": "4705x3141"
+    },
+    {
+      "n": 11,
+      "term": "Wat Saket Golden Mount",
+      "title": "File:Golden Mount sign, Wat Saket (2025).jpg",
+      "artist": "Deepak-nsk",
+      "license": "CC0",
+      "source": "https://commons.wikimedia.org/wiki/File:Golden_Mount_sign,_Wat_Saket_(2025).jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/7/70/Golden_Mount_sign%2C_Wat_Saket_%282025%29.jpg",
+      "originalSize": "3072x4096"
+    },
+    {
+      "n": 12,
+      "term": "Bangkok Chinatown",
+      "title": "File:Sampeng Lane, Bangkok's Chinatown, Bangkok, Thailand.jpg",
+      "artist": "Vyacheslav Argenberg",
+      "license": "CC BY 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Sampeng_Lane,_Bangkok%27s_Chinatown,_Bangkok,_Thailand.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/4/48/Sampeng_Lane%2C_Bangkok%27s_Chinatown%2C_Bangkok%2C_Thailand.jpg",
+      "originalSize": "3072x2048"
+    }
+  ],
+  "dubai": [
+    {
+      "n": 1,
+      "term": "Burj Khalifa",
+      "title": "File:Burj Khalifa (16260269606).jpg",
+      "artist": "Laika ac",
+      "license": "CC BY-SA 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Burj_Khalifa_(16260269606).jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a6/Burj_Khalifa_%2816260269606%29.jpg",
+      "originalSize": "5184x3456"
+    },
+    {
+      "n": 2,
+      "term": "Burj Al Arab",
+      "title": "File:Burj Al Arab Hotel, Dubai, UAE (Ank Kumar, Infosys) 07.jpg",
+      "artist": "Ank Kumar",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Burj_Al_Arab_Hotel,_Dubai,_UAE_(Ank_Kumar,_Infosys)_07.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d6/Burj_Al_Arab_Hotel%2C_Dubai%2C_UAE_%28Ank_Kumar%2C_Infosys%29_07.jpg",
+      "originalSize": "4608x3456"
+    },
+    {
+      "n": 3,
+      "term": "Palm Jumeirah",
+      "title": "File:Palm Island Resort.jpg",
+      "artist": "Commander Leroy Chiao",
+      "license": "Public domain",
+      "source": "https://commons.wikimedia.org/wiki/File:Palm_Island_Resort.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/0/06/Palm_Island_Resort.jpg",
+      "originalSize": "3032x2008"
+    },
+    {
+      "n": 4,
+      "term": "Dubai Marina",
+      "title": "File:UAE Dubai Marina img1 asv2018-01.jpg",
+      "artist": "A.Savin",
+      "license": "FAL",
+      "source": "https://commons.wikimedia.org/wiki/File:UAE_Dubai_Marina_img1_asv2018-01.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e5/UAE_Dubai_Marina_img1_asv2018-01.jpg",
+      "originalSize": "6595x4122"
+    },
+    {
+      "n": 5,
+      "term": "Dubai Fountain",
+      "title": "File:Dubai Fountain 7.JPG",
+      "artist": "Nealt",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Dubai_Fountain_7.JPG",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/f/fe/Dubai_Fountain_7.JPG",
+      "originalSize": "3264x2448"
+    },
+    {
+      "n": 6,
+      "term": "Dubai Frame",
+      "title": "File:DONIS Dubai Frame Nighttime.jpg",
+      "artist": "Sachimo",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:DONIS_Dubai_Frame_Nighttime.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/f/fb/DONIS_Dubai_Frame_Nighttime.jpg",
+      "originalSize": "1240x930"
+    },
+    {
+      "n": 7,
+      "term": "Sheikh Zayed Road Dubai",
+      "title": "File:On Rout to Abu Dhabi from Dubai (2).JPG",
+      "artist": "Producer",
+      "license": "CC BY 2.5",
+      "source": "https://commons.wikimedia.org/wiki/File:On_Rout_to_Abu_Dhabi_from_Dubai_(2).JPG",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/5/5b/On_Rout_to_Abu_Dhabi_from_Dubai_%282%29.JPG",
+      "originalSize": "2816x2112"
+    },
+    {
+      "n": 8,
+      "term": "Dubai Mall",
+      "title": "File:Dubai Mall gallery, 6 December 2008.jpg",
+      "artist": "Diligent",
+      "license": "Public domain",
+      "source": "https://commons.wikimedia.org/wiki/File:Dubai_Mall_gallery,_6_December_2008.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/4/42/Dubai_Mall_gallery%2C_6_December_2008.jpg",
+      "originalSize": "1536x2048"
+    },
+    {
+      "n": 9,
+      "term": "Jumeirah Mosque Dubai",
+      "title": "File:Jumeirah Mosque - panoramio (1).jpg",
+      "artist": "Jayesh Naithani",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Jumeirah_Mosque_-_panoramio_(1).jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/3/37/Jumeirah_Mosque_-_panoramio_%281%29.jpg",
+      "originalSize": "1920x1434"
+    },
+    {
+      "n": 10,
+      "term": "Dubai skyline",
+      "title": "File:Dubai skyline unsplash.jpg",
+      "artist": "Robert Bock",
+      "license": "CC0",
+      "source": "https://commons.wikimedia.org/wiki/File:Dubai_skyline_unsplash.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e4/Dubai_skyline_unsplash.jpg",
+      "originalSize": "5760x3840"
+    },
+    {
+      "n": 11,
+      "term": "Museum of the Future Dubai",
+      "title": "File:Museum of the Future Wellness-Dubai UAE-Andres Larin.jpg",
+      "artist": "Saaremees",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Museum_of_the_Future_Wellness-Dubai_UAE-Andres_Larin.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/e/ed/Museum_of_the_Future_Wellness-Dubai_UAE-Andres_Larin.jpg",
+      "originalSize": "3000x4000"
+    },
+    {
+      "n": 12,
+      "term": "Atlantis The Palm Dubai",
+      "title": "File:Palm Atlantis Monorail Station.jpg",
+      "artist": "Mohammad Azahar",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Palm_Atlantis_Monorail_Station.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d0/Palm_Atlantis_Monorail_Station.jpg",
+      "originalSize": "3072x4096"
+    }
+  ],
+  "seoul": [
+    {
+      "n": 1,
+      "term": "Gyeongbokgung Palace",
+      "title": "File:Gyeonghoeru (Royal Banquet Hall) at Gyeongbokgung Palace, Seoul.jpg",
+      "artist": "Frank Schulenburg",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Gyeonghoeru_(Royal_Banquet_Hall)_at_Gyeongbokgung_Palace,_Seoul.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/5/5d/Gyeonghoeru_%28Royal_Banquet_Hall%29_at_Gyeongbokgung_Palace%2C_Seoul.jpg",
+      "originalSize": "6425x4283"
+    },
+    {
+      "n": 2,
+      "term": "N Seoul Tower",
+      "title": "File:N Seoul Tower complex staircase.jpg",
+      "artist": "Kanishk0001",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:N_Seoul_Tower_complex_staircase.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b4/N_Seoul_Tower_complex_staircase.jpg",
+      "originalSize": "4032x3024"
+    },
+    {
+      "n": 3,
+      "term": "Bukchon Hanok Village",
+      "title": "File:Bukchon-ro 11-gil street with hanok houses at blue hour in Bukchon Hanok Village Seoul.jpg",
+      "artist": "Basile Morin",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Bukchon-ro_11-gil_street_with_hanok_houses_at_blue_hour_in_Bukchon_Hanok_Village_Seoul.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/4/41/Bukchon-ro_11-gil_street_with_hanok_houses_at_blue_hour_in_Bukchon_Hanok_Village_Seoul.jpg",
+      "originalSize": "6404x4269"
+    },
+    {
+      "n": 4,
+      "term": "Dongdaemun Design Plaza",
+      "title": "File:Dongdaemun Design Plaza at night, Seoul, Korea.jpg",
+      "artist": "Eugene Lim",
+      "license": "CC BY 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Dongdaemun_Design_Plaza_at_night,_Seoul,_Korea.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/8/8f/Dongdaemun_Design_Plaza_at_night%2C_Seoul%2C_Korea.jpg",
+      "originalSize": "3600x1200"
+    },
+    {
+      "n": 5,
+      "term": "Cheonggyecheon Seoul",
+      "title": "File:Cheonggyecheon stream at sunrise with trees in Seoul.jpg",
+      "artist": "Basile Morin",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Cheonggyecheon_stream_at_sunrise_with_trees_in_Seoul.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4a/Cheonggyecheon_stream_at_sunrise_with_trees_in_Seoul.jpg",
+      "originalSize": "6555x4370"
+    },
+    {
+      "n": 6,
+      "term": "Lotte World Tower",
+      "title": "File:Lotte World morning view 8.jpg",
+      "artist": "kallerna",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Lotte_World_morning_view_8.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/5/57/Lotte_World_morning_view_8.jpg",
+      "originalSize": "6000x4100"
+    },
+    {
+      "n": 7,
+      "term": "Changdeokgung Palace",
+      "title": "File:Korean art-Donggwoldo-Changdeokgung and Changgyeonggung-Dong-A University-01.jpg",
+      "artist": "anonymous",
+      "license": "Public domain",
+      "source": "https://commons.wikimedia.org/wiki/File:Korean_art-Donggwoldo-Changdeokgung_and_Changgyeonggung-Dong-A_University-01.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/1/11/Korean_art-Donggwoldo-Changdeokgung_and_Changgyeonggung-Dong-A_University-01.jpg",
+      "originalSize": "9823x4652"
+    },
+    {
+      "n": 8,
+      "term": "Myeongdong Seoul",
+      "title": "File:Myeongdong Cathedral 6.jpg",
+      "artist": "kallerna",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Myeongdong_Cathedral_6.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c1/Myeongdong_Cathedral_6.jpg",
+      "originalSize": "6000x4010"
+    },
+    {
+      "n": 9,
+      "term": "Han River Seoul",
+      "title": "File:Seocho-gu Skyline from Han River — Dec 2023.jpg",
+      "artist": "SpaceshipMe",
+      "license": "CC0",
+      "source": "https://commons.wikimedia.org/wiki/File:Seocho-gu_Skyline_from_Han_River_%E2%80%94_Dec_2023.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/3/30/Seocho-gu_Skyline_from_Han_River_%E2%80%94_Dec_2023.jpg",
+      "originalSize": "4032x3024"
+    },
+    {
+      "n": 10,
+      "term": "Gwanghwamun Seoul",
+      "title": "File:Nightview of the Gwanghwamun Square 2024.jpg",
+      "artist": "Seoul Tourism Organization",
+      "license": "KOGL Type 1",
+      "source": "https://commons.wikimedia.org/wiki/File:Nightview_of_the_Gwanghwamun_Square_2024.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/6/6c/Nightview_of_the_Gwanghwamun_Square_2024.jpg",
+      "originalSize": "4193x6119"
+    },
+    {
+      "n": 11,
+      "term": "Namdaemun Gate Seoul",
+      "title": "File:Sungnyemun Gate in Seoul.jpg",
+      "artist": "Bernard Gagnon",
+      "license": "CC0",
+      "source": "https://commons.wikimedia.org/wiki/File:Sungnyemun_Gate_in_Seoul.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1d/Sungnyemun_Gate_in_Seoul.jpg",
+      "originalSize": "3688x2238"
+    },
+    {
+      "n": 12,
+      "term": "Seoul skyline",
+      "title": "File:Seoul Skyline Night 2018.jpg",
+      "artist": "mauveine.kim",
+      "license": "CC0",
+      "source": "https://commons.wikimedia.org/wiki/File:Seoul_Skyline_Night_2018.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/1/14/Seoul_Skyline_Night_2018.jpg",
+      "originalSize": "3818x5992"
+    }
+  ],
+  "buenos-aires": [
+    {
+      "n": 1,
+      "term": "Obelisco Buenos Aires",
+      "title": "File:Parte superior del Obelisco de Buenos Aires.jpg",
+      "artist": "ProtoplasmaKid",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Parte_superior_del_Obelisco_de_Buenos_Aires.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/b/ba/Parte_superior_del_Obelisco_de_Buenos_Aires.jpg",
+      "originalSize": "2094x3723"
+    },
+    {
+      "n": 2,
+      "term": "Casa Rosada Buenos Aires",
+      "title": "File:Casa Rosada, Buenos Aires, Argentina.jpg",
+      "artist": "Diego Delso",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Casa_Rosada,_Buenos_Aires,_Argentina.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/e/ec/Casa_Rosada%2C_Buenos_Aires%2C_Argentina.jpg",
+      "originalSize": "3694x2144"
+    },
+    {
+      "n": 3,
+      "term": "Teatro Colon Buenos Aires",
+      "title": "File:Teatro Colón, Buenos Aires 01.jpg",
+      "artist": "Bernard Gagnon",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Teatro_Col%C3%B3n,_Buenos_Aires_01.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b1/Teatro_Col%C3%B3n%2C_Buenos_Aires_01.jpg",
+      "originalSize": "4914x3306"
+    },
+    {
+      "n": 4,
+      "term": "Caminito La Boca Buenos Aires",
+      "title": "File:El caminito2 - Buenos Aires - Argentina.jpg",
+      "artist": "Diego Delso",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:El_caminito2_-_Buenos_Aires_-_Argentina.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4a/El_caminito2_-_Buenos_Aires_-_Argentina.jpg",
+      "originalSize": "3402x2424"
+    },
+    {
+      "n": 5,
+      "term": "Puerto Madero Buenos Aires",
+      "title": "File:Puerto Madero, Buenos Aires, Argentina3.jpg",
+      "artist": "Diego Delso",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Puerto_Madero,_Buenos_Aires,_Argentina3.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1b/Puerto_Madero%2C_Buenos_Aires%2C_Argentina3.jpg",
+      "originalSize": "3331x2339"
+    },
+    {
+      "n": 6,
+      "term": "Recoleta Cemetery Buenos Aires",
+      "title": "File:Recoleta cemetery in Buenos Aires 5082265.jpg",
+      "artist": "Ermell",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Recoleta_cemetery_in_Buenos_Aires_5082265.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/c/cb/Recoleta_cemetery_in_Buenos_Aires_5082265.jpg",
+      "originalSize": "2736x3648"
+    },
+    {
+      "n": 7,
+      "term": "Plaza de Mayo Buenos Aires",
+      "title": "File:Pirámide de Mayo, Buenos Aires 03.jpg",
+      "artist": "Bernard Gagnon",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Pir%C3%A1mide_de_Mayo,_Buenos_Aires_03.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/c/ca/Pir%C3%A1mide_de_Mayo%2C_Buenos_Aires_03.jpg",
+      "originalSize": "2278x3417"
+    },
+    {
+      "n": 8,
+      "term": "Palacio Barolo Buenos Aires",
+      "title": "File:Palacio Barolo visto de frente.jpg",
+      "artist": "EEJCC",
+      "license": "CC0",
+      "source": "https://commons.wikimedia.org/wiki/File:Palacio_Barolo_visto_de_frente.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/8/8d/Palacio_Barolo_visto_de_frente.jpg",
+      "originalSize": "1024x768"
+    },
+    {
+      "n": 9,
+      "term": "El Ateneo Grand Splendid Buenos Aires",
+      "title": "File:Yenny Ateneo Grand Splendid.jpg",
+      "artist": "Roberto Fiadone",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Yenny_Ateneo_Grand_Splendid.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/a/ac/Yenny_Ateneo_Grand_Splendid.jpg",
+      "originalSize": "2718x2034"
+    },
+    {
+      "n": 10,
+      "term": "Avenida 9 de Julio Buenos Aires",
+      "title": "File:Třída Avenida 9 de Julio a obelisk - Buenos Aires - panoramio.jpg",
+      "artist": "Pavel Špindler",
+      "license": "CC BY 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:T%C5%99%C3%ADda_Avenida_9_de_Julio_a_obelisk_-_Buenos_Aires_-_panoramio.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a3/T%C5%99%C3%ADda_Avenida_9_de_Julio_a_obelisk_-_Buenos_Aires_-_panoramio.jpg",
+      "originalSize": "1753x1763"
+    },
+    {
+      "n": 11,
+      "term": "Buenos Aires Cathedral",
+      "title": "File:Catedral Metropolitana - Buenos Aires2.jpg",
+      "artist": "The Cosmonaut",
+      "license": "CC BY-SA 2.5 ca",
+      "source": "https://commons.wikimedia.org/wiki/File:Catedral_Metropolitana_-_Buenos_Aires2.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b1/Catedral_Metropolitana_-_Buenos_Aires2.jpg",
+      "originalSize": "5000x3470"
+    },
+    {
+      "n": 12,
+      "term": "Buenos Aires skyline",
+      "title": "File:Florida, Buenos Aires Province skyline 2.jpg",
+      "artist": "Lombardia1",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Florida,_Buenos_Aires_Province_skyline_2.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/1/12/Florida%2C_Buenos_Aires_Province_skyline_2.jpg",
+      "originalSize": "3696x2206"
+    }
+  ],
+  "cape-town": [
+    {
+      "n": 1,
+      "term": "Table Mountain Cape Town",
+      "title": "File:Cape Town (ZA), Table Mountain -- 2024 -- 2825.jpg",
+      "artist": "Dietmar Rabich",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Cape_Town_(ZA),_Table_Mountain_--_2024_--_2825.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/4/43/Cape_Town_%28ZA%29%2C_Table_Mountain_--_2024_--_2825.jpg",
+      "originalSize": "6720x4200"
+    },
+    {
+      "n": 2,
+      "term": "Cape of Good Hope",
+      "title": "File:The Cape Of Good Hope pub in Oxford. UK.jpg",
+      "artist": "Ввласенко",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:The_Cape_Of_Good_Hope_pub_in_Oxford._UK.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/8/84/The_Cape_Of_Good_Hope_pub_in_Oxford._UK.jpg",
+      "originalSize": "5360x3925"
+    },
+    {
+      "n": 3,
+      "term": "V and A Waterfront Cape Town",
+      "title": "File:Cape Town (ZA), Waterfront, Kran -- 2024 -- 2907.jpg",
+      "artist": "Dietmar Rabich",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Cape_Town_(ZA),_Waterfront,_Kran_--_2024_--_2907.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/6/61/Cape_Town_%28ZA%29%2C_Waterfront%2C_Kran_--_2024_--_2907.jpg",
+      "originalSize": "6720x4480"
+    },
+    {
+      "n": 4,
+      "term": "Bo-Kaap Cape Town",
+      "title": "File:Cape Town (ZA), Wale Street -- 2024 -- 3536.jpg",
+      "artist": "Dietmar Rabich",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Cape_Town_(ZA),_Wale_Street_--_2024_--_3536.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d3/Cape_Town_%28ZA%29%2C_Wale_Street_--_2024_--_3536.jpg",
+      "originalSize": "6720x4480"
+    },
+    {
+      "n": 5,
+      "term": "Lions Head Cape Town",
+      "title": "File:Lions Head, Cape Town (P1050228).jpg",
+      "artist": "Matti Blume",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Lions_Head,_Cape_Town_(P1050228).jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/2/2d/Lions_Head%2C_Cape_Town_%28P1050228%29.jpg",
+      "originalSize": "4000x3000"
+    },
+    {
+      "n": 6,
+      "term": "Cape Town City Hall",
+      "title": "File:CapeTown CityHall.jpg",
+      "artist": "Martinvl",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:CapeTown_CityHall.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/c/ca/CapeTown_CityHall.jpg",
+      "originalSize": "4639x3419"
+    },
+    {
+      "n": 7,
+      "term": "Boulders Beach penguins Cape Town",
+      "title": "File:African penguin, Cape Town ( 1050598).jpg",
+      "artist": "Matti Blume",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:African_penguin,_Cape_Town_(_1050598).jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/b/bd/African_penguin%2C_Cape_Town_%28_1050598%29.jpg",
+      "originalSize": "1772x2363"
+    },
+    {
+      "n": 8,
+      "term": "Robben Island",
+      "title": "File:B-Section courtyard, Maximum Security Prison, Robben Island (01).jpg",
+      "artist": "Moheen Reeyad",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:B-Section_courtyard,_Maximum_Security_Prison,_Robben_Island_(01).jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/8/81/B-Section_courtyard%2C_Maximum_Security_Prison%2C_Robben_Island_%2801%29.jpg",
+      "originalSize": "3872x2574"
+    },
+    {
+      "n": 9,
+      "term": "Camps Bay Cape Town",
+      "title": "File:Camps Bay, Cape Town (P1050238).jpg",
+      "artist": "Matti Blume",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Camps_Bay,_Cape_Town_(P1050238).jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/0/04/Camps_Bay%2C_Cape_Town_%28P1050238%29.jpg",
+      "originalSize": "4000x3000"
+    },
+    {
+      "n": 10,
+      "term": "Cape Town Stadium",
+      "title": "File:Dassies, Cape Town (P1050367).jpg",
+      "artist": "Matti Blume",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Dassies,_Cape_Town_(P1050367).jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/7/78/Dassies%2C_Cape_Town_%28P1050367%29.jpg",
+      "originalSize": "4000x3000"
+    },
+    {
+      "n": 11,
+      "term": "Signal Hill Cape Town",
+      "title": "File:Cape Town (ZA), Sea Point, Nachtansicht -- 2024 -- 1867-70 - 2.jpg",
+      "artist": "Dietmar Rabich",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Cape_Town_(ZA),_Sea_Point,_Nachtansicht_--_2024_--_1867-70_-_2.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/5/58/Cape_Town_%28ZA%29%2C_Sea_Point%2C_Nachtansicht_--_2024_--_1867-70_-_2.jpg",
+      "originalSize": "4665x3499"
+    },
+    {
+      "n": 12,
+      "term": "Cape Town skyline",
+      "title": "File:Cape Town Skyline of CBD at Dusk.jpg",
+      "artist": "SkyPixels",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Cape_Town_Skyline_of_CBD_at_Dusk.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3a/Cape_Town_Skyline_of_CBD_at_Dusk.jpg",
+      "originalSize": "3203x1080"
+    }
+  ],
+  "barcelona": [
+    {
+      "n": 1,
+      "term": "Sagrada Familia",
+      "title": "File:Sagrada Familia March 2015-19bw.jpg",
+      "artist": "Alvesgaspar",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Sagrada_Familia_March_2015-19bw.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b9/Sagrada_Familia_March_2015-19bw.jpg",
+      "originalSize": "3903x6063"
+    },
+    {
+      "n": 2,
+      "term": "Park Guell Barcelona",
+      "title": "File:Park Güell 02.jpg",
+      "artist": "Bernard Gagnon",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Park_G%C3%BCell_02.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/c/cb/Park_G%C3%BCell_02.jpg",
+      "originalSize": "2960x2232"
+    },
+    {
+      "n": 3,
+      "term": "Casa Batllo Barcelona",
+      "title": "File:Casa Batló Barcelona May 2026-7.jpg",
+      "artist": "Alvesgaspar",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Casa_Batl%C3%B3_Barcelona_May_2026-7.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/c/cb/Casa_Batl%C3%B3_Barcelona_May_2026-7.jpg",
+      "originalSize": "3650x5907"
+    },
+    {
+      "n": 4,
+      "term": "La Rambla Barcelona",
+      "title": "File:15-10-27-Vista des de l'estàtua de Colom a Barcelona-WMA 2791.jpg",
+      "artist": "Ralf Roletschek",
+      "license": "GFDL 1.2",
+      "source": "https://commons.wikimedia.org/wiki/File:15-10-27-Vista_des_de_l%27est%C3%A0tua_de_Colom_a_Barcelona-WMA_2791.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f2/15-10-27-Vista_des_de_l%27est%C3%A0tua_de_Colom_a_Barcelona-WMA_2791.jpg",
+      "originalSize": "4016x6016"
+    },
+    {
+      "n": 5,
+      "term": "Casa Mila La Pedrera",
+      "title": "File:La Pedrera Barcelona May 2026-4a.jpg",
+      "artist": "Alvesgaspar",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:La_Pedrera_Barcelona_May_2026-4a.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e5/La_Pedrera_Barcelona_May_2026-4a.jpg",
+      "originalSize": "4841x5152"
+    },
+    {
+      "n": 6,
+      "term": "Barcelona Cathedral",
+      "title": "File:Barcelona Cathedral Interior - Saint Eulalia of Barcelona by Pedro García de Benavarre.jpg",
+      "artist": "Didier Descouens",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Barcelona_Cathedral_Interior_-_Saint_Eulalia_of_Barcelona_by_Pedro_Garc%C3%ADa_de_Benavarre.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b8/Barcelona_Cathedral_Interior_-_Saint_Eulalia_of_Barcelona_by_Pedro_Garc%C3%ADa_de_Benavarre.jpg",
+      "originalSize": "4593x7643"
+    },
+    {
+      "n": 7,
+      "term": "Camp Nou Barcelona",
+      "title": "File:LFP - Barcelona vs Mallorca pre-match - Oct 3rd 2010.jpg",
+      "artist": "Paolo Costa Baldi",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:LFP_-_Barcelona_vs_Mallorca_pre-match_-_Oct_3rd_2010.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e7/LFP_-_Barcelona_vs_Mallorca_pre-match_-_Oct_3rd_2010.jpg",
+      "originalSize": "3786x2180"
+    },
+    {
+      "n": 8,
+      "term": "Montjuic Barcelona",
+      "title": "File:Castell Montjuic, Barcelona (P1170651).jpg",
+      "artist": "Matti Blume",
+      "license": "CC BY-SA",
+      "source": "https://commons.wikimedia.org/wiki/File:Castell_Montjuic,_Barcelona_(P1170651).jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/a/ae/Castell_Montjuic%2C_Barcelona_%28P1170651%29.jpg",
+      "originalSize": "4608x3072"
+    },
+    {
+      "n": 9,
+      "term": "Gothic Quarter Barcelona",
+      "title": "File:Monument a Colom - Barcelona - Spain - panoramio.jpg",
+      "artist": "Ｊun O",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Monument_a_Colom_-_Barcelona_-_Spain_-_panoramio.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/9/96/Monument_a_Colom_-_Barcelona_-_Spain_-_panoramio.jpg",
+      "originalSize": "3264x1836"
+    },
+    {
+      "n": 10,
+      "term": "Arc de Triomf Barcelona",
+      "title": "File:Barcelona Arc de Triomf.jpg",
+      "artist": "Daniel Kraft",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Barcelona_Arc_de_Triomf.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/8/8d/Barcelona_Arc_de_Triomf.jpg",
+      "originalSize": "4600x3456"
+    },
+    {
+      "n": 11,
+      "term": "Barceloneta beach Barcelona",
+      "title": "File:Beach, Barcelona (P1170713).jpg",
+      "artist": "Matti Blume",
+      "license": "CC BY-SA",
+      "source": "https://commons.wikimedia.org/wiki/File:Beach,_Barcelona_(P1170713).jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/7/77/Beach%2C_Barcelona_%28P1170713%29.jpg",
+      "originalSize": "4608x3456"
+    },
+    {
+      "n": 12,
+      "term": "Barcelona skyline",
+      "title": "File:Skyline de Barcelona - panoramio.jpg",
+      "artist": "miki",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Skyline_de_Barcelona_-_panoramio.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d9/Skyline_de_Barcelona_-_panoramio.jpg",
+      "originalSize": "3888x2185"
+    }
+  ],
+  "amsterdam": [
+    {
+      "n": 1,
+      "term": "Amsterdam canals",
+      "title": "File:Amsterdam Canals - July 2006.jpg",
+      "artist": "Diliff",
+      "license": "CC BY 2.5",
+      "source": "https://commons.wikimedia.org/wiki/File:Amsterdam_Canals_-_July_2006.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/3/37/Amsterdam_Canals_-_July_2006.jpg",
+      "originalSize": "4017x2117"
+    },
+    {
+      "n": 2,
+      "term": "Rijksmuseum Amsterdam",
+      "title": "File:Rijksmuseum atrium glass roof seen from below in Amsterdam.jpg",
+      "artist": "Basile Morin",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Rijksmuseum_atrium_glass_roof_seen_from_below_in_Amsterdam.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a7/Rijksmuseum_atrium_glass_roof_seen_from_below_in_Amsterdam.jpg",
+      "originalSize": "6467x4311"
+    },
+    {
+      "n": 3,
+      "term": "Anne Frank House Amsterdam",
+      "title": "File:AnneFrankHouseAmsterdamtheNetherlands.jpg",
+      "artist": "Massimo Catarinella",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:AnneFrankHouseAmsterdamtheNetherlands.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/9/9c/AnneFrankHouseAmsterdamtheNetherlands.jpg",
+      "originalSize": "2562x3936"
+    },
+    {
+      "n": 4,
+      "term": "Van Gogh Museum Amsterdam",
+      "title": "File:Vincent van Gogh - Sorrow.jpg",
+      "artist": "Vincent van Gogh",
+      "license": "Public domain",
+      "source": "https://commons.wikimedia.org/wiki/File:Vincent_van_Gogh_-_Sorrow.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/5/5a/Vincent_van_Gogh_-_Sorrow.jpg",
+      "originalSize": "2336x3691"
+    },
+    {
+      "n": 5,
+      "term": "Dam Square Amsterdam",
+      "title": "File:Dam Amsterdam 7308.jpg",
+      "artist": "C messier",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Dam_Amsterdam_7308.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/7/7e/Dam_Amsterdam_7308.jpg",
+      "originalSize": "4375x3281"
+    },
+    {
+      "n": 6,
+      "term": "Amsterdam Centraal station",
+      "title": "File:Amsterdam Centraal Station2.jpg",
+      "artist": "Unknown authorUnknown author",
+      "license": "Public domain",
+      "source": "https://commons.wikimedia.org/wiki/File:Amsterdam_Centraal_Station2.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/5/5f/Amsterdam_Centraal_Station2.jpg",
+      "originalSize": "3252x2364"
+    },
+    {
+      "n": 7,
+      "term": "Royal Palace Amsterdam",
+      "title": "File:Palacio Real, Ámsterdam, Países Bajos, 2016-05-30, DD 07-09 HDR.jpg",
+      "artist": "Diego Delso",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Palacio_Real,_%C3%81msterdam,_Pa%C3%ADses_Bajos,_2016-05-30,_DD_07-09_HDR.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/5/5c/Palacio_Real%2C_%C3%81msterdam%2C_Pa%C3%ADses_Bajos%2C_2016-05-30%2C_DD_07-09_HDR.jpg",
+      "originalSize": "7846x5634"
+    },
+    {
+      "n": 8,
+      "term": "Magere Brug Amsterdam",
+      "title": "File:Magere Brug.jpg",
+      "artist": "S Sepp",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Magere_Brug.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/2/24/Magere_Brug.jpg",
+      "originalSize": "2676x1631"
+    },
+    {
+      "n": 9,
+      "term": "Jordaan Amsterdam",
+      "title": "File:Netherlands Open Air Museum, Arnhem - 2020-10-31 - View on Amsterdam Jordaan & Museum Entrance.jpg",
+      "artist": "Txllxt TxllxT",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Netherlands_Open_Air_Museum,_Arnhem_-_2020-10-31_-_View_on_Amsterdam_Jordaan_%26_Museum_Entrance.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/9/94/Netherlands_Open_Air_Museum%2C_Arnhem_-_2020-10-31_-_View_on_Amsterdam_Jordaan_%26_Museum_Entrance.jpg",
+      "originalSize": "3976x2652"
+    },
+    {
+      "n": 10,
+      "term": "Vondelpark Amsterdam",
+      "title": "File:Vondelpark amsterdam.jpg",
+      "artist": "John Salatas",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Vondelpark_amsterdam.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/a/ab/Vondelpark_amsterdam.jpg",
+      "originalSize": "3456x2304"
+    },
+    {
+      "n": 11,
+      "term": "Westerkerk Amsterdam",
+      "title": "File:Amsterdam (NL), Westerkerk -- 2015 -- 7179.jpg",
+      "artist": "Dietmar Rabich",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Amsterdam_(NL),_Westerkerk_--_2015_--_7179.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1e/Amsterdam_%28NL%29%2C_Westerkerk_--_2015_--_7179.jpg",
+      "originalSize": "2526x4613"
+    },
+    {
+      "n": 12,
+      "term": "Amsterdam canal houses",
+      "title": "File:Water reflection of canal houses at blue hour in Damrak Amsterdam the Netherlands.jpg",
+      "artist": "Basile Morin",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Water_reflection_of_canal_houses_at_blue_hour_in_Damrak_Amsterdam_the_Netherlands.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d3/Water_reflection_of_canal_houses_at_blue_hour_in_Damrak_Amsterdam_the_Netherlands.jpg",
+      "originalSize": "5388x4310"
+    }
+  ],
+  "athens": [
+    {
+      "n": 1,
+      "term": "Acropolis of Athens",
+      "title": "File:Attica 06-13 Athens 50 View from Philopappos - Acropolis Hill.jpg",
+      "artist": "A.Savin",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Attica_06-13_Athens_50_View_from_Philopappos_-_Acropolis_Hill.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c6/Attica_06-13_Athens_50_View_from_Philopappos_-_Acropolis_Hill.jpg",
+      "originalSize": "5000x3125"
+    },
+    {
+      "n": 2,
+      "term": "Parthenon Athens",
+      "title": "File:Parthenon from south.jpg",
+      "artist": "Thermos",
+      "license": "CC BY-SA 2.5",
+      "source": "https://commons.wikimedia.org/wiki/File:Parthenon_from_south.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/8/8f/Parthenon_from_south.jpg",
+      "originalSize": "2345x3519"
+    },
+    {
+      "n": 3,
+      "term": "Temple of Olympian Zeus Athens",
+      "title": "File:Attica 06-13 Athens 25 Olympian Zeus Temple.jpg",
+      "artist": "A.Savin",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Attica_06-13_Athens_25_Olympian_Zeus_Temple.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b0/Attica_06-13_Athens_25_Olympian_Zeus_Temple.jpg",
+      "originalSize": "3186x2435"
+    },
+    {
+      "n": 4,
+      "term": "Panathenaic Stadium Athens",
+      "title": "File:Panathenaic Stadium, Athens, 20240601 1007 0050.jpg",
+      "artist": "Jakub Hałun",
+      "license": "CC BY 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Panathenaic_Stadium,_Athens,_20240601_1007_0050.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/0/00/Panathenaic_Stadium%2C_Athens%2C_20240601_1007_0050.jpg",
+      "originalSize": "5396x3602"
+    },
+    {
+      "n": 5,
+      "term": "Erechtheion Athens",
+      "title": "File:Erechtheum Acropolis Athens evening moon.jpg",
+      "artist": "Jebulon",
+      "license": "CC0",
+      "source": "https://commons.wikimedia.org/wiki/File:Erechtheum_Acropolis_Athens_evening_moon.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/9/9f/Erechtheum_Acropolis_Athens_evening_moon.jpg",
+      "originalSize": "3576x3056"
+    },
+    {
+      "n": 6,
+      "term": "Ancient Agora of Athens",
+      "title": "File:Church of the Holy Apostles back ancient agora Athens.jpg",
+      "artist": "Jebulon",
+      "license": "CC0",
+      "source": "https://commons.wikimedia.org/wiki/File:Church_of_the_Holy_Apostles_back_ancient_agora_Athens.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/8/84/Church_of_the_Holy_Apostles_back_ancient_agora_Athens.jpg",
+      "originalSize": "4548x3027"
+    },
+    {
+      "n": 7,
+      "term": "Plaka Athens",
+      "title": "File:2016-08-03 Greece, Athens, Plaka DSC 9733 DxO 1.jpg",
+      "artist": "Laurens R. Krol",
+      "license": "CC BY 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:2016-08-03_Greece,_Athens,_Plaka_DSC_9733_DxO_1.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d6/2016-08-03_Greece%2C_Athens%2C_Plaka_DSC_9733_DxO_1.jpg",
+      "originalSize": "2752x4357"
+    },
+    {
+      "n": 8,
+      "term": "Syntagma Square Athens",
+      "title": "File:Attica 06-13 Athens 04 Syntagma.jpg",
+      "artist": "A.Savin",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Attica_06-13_Athens_04_Syntagma.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/5/53/Attica_06-13_Athens_04_Syntagma.jpg",
+      "originalSize": "4534x3047"
+    },
+    {
+      "n": 9,
+      "term": "Odeon of Herodes Atticus",
+      "title": "File:Wall Theatre Herodes Atticus Acropolis Athens Greece.jpg",
+      "artist": "Jebulon",
+      "license": "CC0",
+      "source": "https://commons.wikimedia.org/wiki/File:Wall_Theatre_Herodes_Atticus_Acropolis_Athens_Greece.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/0/0f/Wall_Theatre_Herodes_Atticus_Acropolis_Athens_Greece.jpg",
+      "originalSize": "6000x4000"
+    },
+    {
+      "n": 10,
+      "term": "Mount Lycabettus Athens",
+      "title": "File:Mont Lycabettus 1.jpg",
+      "artist": "Eusebius",
+      "license": "CC BY 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Mont_Lycabettus_1.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/1/13/Mont_Lycabettus_1.jpg",
+      "originalSize": "3072x2304"
+    },
+    {
+      "n": 11,
+      "term": "Hadrians Arch Athens",
+      "title": "File:Attica 06-13 Athens 24 Arch of Hadrian.jpg",
+      "artist": "A.Savin",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Attica_06-13_Athens_24_Arch_of_Hadrian.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/f/fc/Attica_06-13_Athens_24_Arch_of_Hadrian.jpg",
+      "originalSize": "3373x3961"
+    },
+    {
+      "n": 12,
+      "term": "Athens skyline",
+      "title": "File:Athens Skyline.jpg",
+      "artist": "acediscovery",
+      "license": "CC BY 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Athens_Skyline.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/2/2a/Athens_Skyline.jpg",
+      "originalSize": "3200x2063"
+    }
+  ],
+  "vienna": [
+    {
+      "n": 1,
+      "term": "Schonbrunn Palace Vienna",
+      "title": "File:Palacio de Schönbrunn, Viena, Austria, 2020-02-02, DD 10.jpg",
+      "artist": "Diego Delso",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Palacio_de_Sch%C3%B6nbrunn,_Viena,_Austria,_2020-02-02,_DD_10.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1b/Palacio_de_Sch%C3%B6nbrunn%2C_Viena%2C_Austria%2C_2020-02-02%2C_DD_10.jpg",
+      "originalSize": "4829x4844"
+    },
+    {
+      "n": 2,
+      "term": "St Stephens Cathedral Vienna",
+      "title": "File:Stephen Cathedral 2010 8.jpg",
+      "artist": "Perituss",
+      "license": "CC0",
+      "source": "https://commons.wikimedia.org/wiki/File:Stephen_Cathedral_2010_8.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/9/9d/Stephen_Cathedral_2010_8.jpg",
+      "originalSize": "5184x3456"
+    },
+    {
+      "n": 3,
+      "term": "Belvedere Palace Vienna",
+      "title": "File:Palacio Belvedere, Viena, Austria, 2020-02-01, DD 93-95 HDR.jpg",
+      "artist": "Diego Delso",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Palacio_Belvedere,_Viena,_Austria,_2020-02-01,_DD_93-95_HDR.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/8/84/Palacio_Belvedere%2C_Viena%2C_Austria%2C_2020-02-01%2C_DD_93-95_HDR.jpg",
+      "originalSize": "7785x3428"
+    },
+    {
+      "n": 4,
+      "term": "Vienna State Opera",
+      "title": "File:Staatsoper Wien DSC 5273w.jpg",
+      "artist": "P e z i",
+      "license": "CC BY-SA 3.0 at",
+      "source": "https://commons.wikimedia.org/wiki/File:Staatsoper_Wien_DSC_5273w.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/9/9a/Staatsoper_Wien_DSC_5273w.jpg",
+      "originalSize": "4984x2859"
+    },
+    {
+      "n": 5,
+      "term": "Hofburg Palace Vienna",
+      "title": "File:Monumento al emperador Francisco I y Amalienburg, Hofburg, Viena, Austria, 2020-01-31, DD 134-136 HDR.jpg",
+      "artist": "Diego Delso",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Monumento_al_emperador_Francisco_I_y_Amalienburg,_Hofburg,_Viena,_Austria,_2020-01-31,_DD_134-136_HDR.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c4/Monumento_al_emperador_Francisco_I_y_Amalienburg%2C_Hofburg%2C_Viena%2C_Austria%2C_2020-01-31%2C_DD_134-136_HDR.jpg",
+      "originalSize": "7210x3740"
+    },
+    {
+      "n": 6,
+      "term": "Vienna City Hall Rathaus",
+      "title": "File:Rathaus Vienna June 2006 165.jpg",
+      "artist": "Gryffindor",
+      "license": "CC BY 2.5",
+      "source": "https://commons.wikimedia.org/wiki/File:Rathaus_Vienna_June_2006_165.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/9/93/Rathaus_Vienna_June_2006_165.jpg",
+      "originalSize": "2365x1900"
+    },
+    {
+      "n": 7,
+      "term": "Karlskirche Vienna",
+      "title": "File:Iglesia de San Carlos Borromeo, Viena, Austria, 2020-01-31, DD 164-166 HDR.jpg",
+      "artist": "Diego Delso",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Iglesia_de_San_Carlos_Borromeo,_Viena,_Austria,_2020-01-31,_DD_164-166_HDR.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/a/ae/Iglesia_de_San_Carlos_Borromeo%2C_Viena%2C_Austria%2C_2020-01-31%2C_DD_164-166_HDR.jpg",
+      "originalSize": "6270x3696"
+    },
+    {
+      "n": 8,
+      "term": "Prater Vienna Ferris wheel",
+      "title": "File:Giant Ferris Wheel Vienna from W on 2010-09-20.jpg",
+      "artist": "Robert F. Tobler",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Giant_Ferris_Wheel_Vienna_from_W_on_2010-09-20.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/3/30/Giant_Ferris_Wheel_Vienna_from_W_on_2010-09-20.jpg",
+      "originalSize": "2560x2560"
+    },
+    {
+      "n": 9,
+      "term": "Austrian Parliament Building Vienna",
+      "title": "File:Parlament Wien-DSC 0238w.jpg",
+      "artist": "Peter Haas",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Parlament_Wien-DSC_0238w.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/b/bf/Parlament_Wien-DSC_0238w.jpg",
+      "originalSize": "3810x1302"
+    },
+    {
+      "n": 10,
+      "term": "Hundertwasserhaus Vienna",
+      "title": "File:Wien, Hundertwasserhaus -- 2018 -- 3180.jpg",
+      "artist": "Dietmar Rabich",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Wien,_Hundertwasserhaus_--_2018_--_3180.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a6/Wien%2C_Hundertwasserhaus_--_2018_--_3180.jpg",
+      "originalSize": "4480x6720"
+    },
+    {
+      "n": 11,
+      "term": "Kunsthistorisches Museum Vienna",
+      "title": "File:AT-13763 Kuppelfigur Athene am Kunsthistorischen Museum 8970.jpg",
+      "artist": "Hubertl",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:AT-13763_Kuppelfigur_Athene_am_Kunsthistorischen_Museum_8970.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e8/AT-13763_Kuppelfigur_Athene_am_Kunsthistorischen_Museum_8970.jpg",
+      "originalSize": "1738x3223"
+    },
+    {
+      "n": 12,
+      "term": "Vienna skyline",
+      "title": "File:Vienna skyline across the Danube river.jpg",
+      "artist": "Sohom Datta",
+      "license": "CC BY 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Vienna_skyline_across_the_Danube_river.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/5/50/Vienna_skyline_across_the_Danube_river.jpg",
+      "originalSize": "4305x2683"
+    }
+  ],
+  "chicago": [
+    {
+      "n": 1,
+      "term": "Cloud Gate Chicago",
+      "title": "File:Chicago from under the Cloud Gate (9694666470).jpg",
+      "artist": "Roman Boed from The Netherlands",
+      "license": "CC BY 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Chicago_from_under_the_Cloud_Gate_(9694666470).jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/e/eb/Chicago_from_under_the_Cloud_Gate_%289694666470%29.jpg",
+      "originalSize": "3318x1792"
+    },
+    {
+      "n": 2,
+      "term": "Willis Tower Chicago",
+      "title": "File:Willis Tower.jpg",
+      "artist": "Daniel Schwen",
+      "license": "CC BY-SA 2.5",
+      "source": "https://commons.wikimedia.org/wiki/File:Willis_Tower.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Willis_Tower.jpg",
+      "originalSize": "2363x3754"
+    },
+    {
+      "n": 3,
+      "term": "Chicago skyline",
+      "title": "File:Skyline de Chicago desde el centro, Illinois, Estados Unidos, 2012-10-20, DD 06.jpg",
+      "artist": "Diego Delso",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Skyline_de_Chicago_desde_el_centro,_Illinois,_Estados_Unidos,_2012-10-20,_DD_06.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/8/8e/Skyline_de_Chicago_desde_el_centro%2C_Illinois%2C_Estados_Unidos%2C_2012-10-20%2C_DD_06.jpg",
+      "originalSize": "5377x2601"
+    },
+    {
+      "n": 4,
+      "term": "Navy Pier Chicago",
+      "title": "File:Navy Pier Summer.jpg",
+      "artist": "Moses8910",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Navy_Pier_Summer.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/5/5d/Navy_Pier_Summer.jpg",
+      "originalSize": "5469x3647"
+    },
+    {
+      "n": 5,
+      "term": "Millennium Park Chicago",
+      "title": "File:Calle E Monroe St, Chicago, Illinois, Estados Unidos, 2012-10-20, DD 04.jpg",
+      "artist": "Diego Delso",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Calle_E_Monroe_St,_Chicago,_Illinois,_Estados_Unidos,_2012-10-20,_DD_04.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/5/58/Calle_E_Monroe_St%2C_Chicago%2C_Illinois%2C_Estados_Unidos%2C_2012-10-20%2C_DD_04.jpg",
+      "originalSize": "3416x5333"
+    },
+    {
+      "n": 6,
+      "term": "Michigan Avenue Chicago",
+      "title": "File:3736-3744 South Michigan Avenue, Chicago, 2025.jpg",
+      "artist": "DimiTalen",
+      "license": "CC0",
+      "source": "https://commons.wikimedia.org/wiki/File:3736-3744_South_Michigan_Avenue,_Chicago,_2025.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/8/80/3736-3744_South_Michigan_Avenue%2C_Chicago%2C_2025.jpg",
+      "originalSize": "5499x3666"
+    },
+    {
+      "n": 7,
+      "term": "Chicago River downtown",
+      "title": "File:Embassy Suites Chicago Downtown.jpg",
+      "artist": "Nick Number",
+      "license": "CC BY 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Embassy_Suites_Chicago_Downtown.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/2/29/Embassy_Suites_Chicago_Downtown.jpg",
+      "originalSize": "2660x2276"
+    },
+    {
+      "n": 8,
+      "term": "Wrigley Field Chicago",
+      "title": "File:20070616 Chris Young visits Wrigley (4)-edit3.jpg",
+      "artist": "Antonio Vernon, photographer, uploaded using the name TonyTheTiger on en.wikipedia.",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:20070616_Chris_Young_visits_Wrigley_(4)-edit3.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/2/2a/20070616_Chris_Young_visits_Wrigley_%284%29-edit3.jpg",
+      "originalSize": "1510x2310"
+    },
+    {
+      "n": 9,
+      "term": "Art Institute of Chicago",
+      "title": "File:Jean Baptiste Camille Corot - Interrupted Reading - 1922.410 - Art Institute of Chicago.jpg",
+      "artist": "Jean-Baptiste Camille Corot",
+      "license": "Public domain",
+      "source": "https://commons.wikimedia.org/wiki/File:Jean_Baptiste_Camille_Corot_-_Interrupted_Reading_-_1922.410_-_Art_Institute_of_Chicago.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e1/Jean_Baptiste_Camille_Corot_-_Interrupted_Reading_-_1922.410_-_Art_Institute_of_Chicago.jpg",
+      "originalSize": "2112x3000"
+    },
+    {
+      "n": 10,
+      "term": "John Hancock Center Chicago",
+      "title": "File:John Hancock Center 2.jpg",
+      "artist": "Joe Ravi",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:John_Hancock_Center_2.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4d/John_Hancock_Center_2.jpg",
+      "originalSize": "2633x3950"
+    },
+    {
+      "n": 11,
+      "term": "Buckingham Fountain Chicago",
+      "title": "File:Grant Park, Chicago, Illinois, Estados Unidos, 2012-10-20, DD 05.jpg",
+      "artist": "Diego Delso",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Grant_Park,_Chicago,_Illinois,_Estados_Unidos,_2012-10-20,_DD_05.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/7/7f/Grant_Park%2C_Chicago%2C_Illinois%2C_Estados_Unidos%2C_2012-10-20%2C_DD_05.jpg",
+      "originalSize": "5385x3409"
+    },
+    {
+      "n": 12,
+      "term": "Chicago Theatre",
+      "title": "File:Chicago Theatre blend.jpg",
+      "artist": "Daniel Schwen",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Chicago_Theatre_blend.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/2/26/Chicago_Theatre_blend.jpg",
+      "originalSize": "3992x2998"
+    }
+  ],
+  "san-francisco": [
+    {
+      "n": 1,
+      "term": "Golden Gate Bridge",
+      "title": "File:Golden Gate Bridge as seen from Marshall’s Beach, March 2018.jpg",
+      "artist": "Frank Schulenburg",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Golden_Gate_Bridge_as_seen_from_Marshall%E2%80%99s_Beach,_March_2018.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c7/Golden_Gate_Bridge_as_seen_from_Marshall%E2%80%99s_Beach%2C_March_2018.jpg",
+      "originalSize": "4861x2734"
+    },
+    {
+      "n": 2,
+      "term": "Alcatraz Island",
+      "title": "File:Alcatraz recreation yard, NW view.jpg",
+      "artist": "Photograph: Radomianin",
+      "license": "Public domain",
+      "source": "https://commons.wikimedia.org/wiki/File:Alcatraz_recreation_yard,_NW_view.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/2/22/Alcatraz_recreation_yard%2C_NW_view.jpg",
+      "originalSize": "5104x3251"
+    },
+    {
+      "n": 3,
+      "term": "San Francisco cable car",
+      "title": "File:Strip photo of San Francisco Cable Car 10.jpg",
+      "artist": "Dllu",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Strip_photo_of_San_Francisco_Cable_Car_10.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e0/Strip_photo_of_San_Francisco_Cable_Car_10.jpg",
+      "originalSize": "4096x1544"
+    },
+    {
+      "n": 4,
+      "term": "Painted Ladies San Francisco",
+      "title": "File:Painted Ladies San Francisco January 2013 panorama 2.jpg",
+      "artist": "King of Hearts",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Painted_Ladies_San_Francisco_January_2013_panorama_2.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/7/71/Painted_Ladies_San_Francisco_January_2013_panorama_2.jpg",
+      "originalSize": "8000x3200"
+    },
+    {
+      "n": 5,
+      "term": "Lombard Street San Francisco",
+      "title": "File:San Francisco (CA, USA), Lombard Street, Blick auf Alcatraz -- 2022 -- 3080.jpg",
+      "artist": "Dietmar Rabich",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:San_Francisco_(CA,_USA),_Lombard_Street,_Blick_auf_Alcatraz_--_2022_--_3080.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/f/fc/San_Francisco_%28CA%2C_USA%29%2C_Lombard_Street%2C_Blick_auf_Alcatraz_--_2022_--_3080.jpg",
+      "originalSize": "6720x4480"
+    },
+    {
+      "n": 6,
+      "term": "Fishermans Wharf San Francisco",
+      "title": "File:Fisherman's Wharf San Francisco January 2013 002.jpg",
+      "artist": "King of Hearts",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Fisherman%27s_Wharf_San_Francisco_January_2013_002.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/5/5e/Fisherman%27s_Wharf_San_Francisco_January_2013_002.jpg",
+      "originalSize": "4928x3264"
+    },
+    {
+      "n": 7,
+      "term": "Coit Tower San Francisco",
+      "title": "File:San francisco from coit tower.jpg",
+      "artist": "PrasanthR at Malayalam Wikipedia",
+      "license": "Public domain",
+      "source": "https://commons.wikimedia.org/wiki/File:San_francisco_from_coit_tower.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/6/63/San_francisco_from_coit_tower.jpg",
+      "originalSize": "2592x1944"
+    },
+    {
+      "n": 8,
+      "term": "San Francisco skyline",
+      "title": "File:San Francisco from Twin Peaks September 2013 panorama 5 edit.jpg",
+      "artist": "King of Hearts",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:San_Francisco_from_Twin_Peaks_September_2013_panorama_5_edit.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d2/San_Francisco_from_Twin_Peaks_September_2013_panorama_5_edit.jpg",
+      "originalSize": "7800x3250"
+    },
+    {
+      "n": 9,
+      "term": "Palace of Fine Arts San Francisco",
+      "title": "File:Palace of Fine Arts San Francisco January 2014 003.jpg",
+      "artist": "King of Hearts",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Palace_of_Fine_Arts_San_Francisco_January_2014_003.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Palace_of_Fine_Arts_San_Francisco_January_2014_003.jpg",
+      "originalSize": "4800x3000"
+    },
+    {
+      "n": 10,
+      "term": "Transamerica Pyramid San Francisco",
+      "title": "File:TransAmerica Pyramid.jpg",
+      "artist": "TheWB",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:TransAmerica_Pyramid.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/7/75/TransAmerica_Pyramid.jpg",
+      "originalSize": "3072x1756"
+    },
+    {
+      "n": 11,
+      "term": "Chinatown San Francisco",
+      "title": "File:1 chinatown san francisco arch gateway.JPG",
+      "artist": "chensiyuan",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:1_chinatown_san_francisco_arch_gateway.JPG",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b0/1_chinatown_san_francisco_arch_gateway.JPG",
+      "originalSize": "4288x2848"
+    },
+    {
+      "n": 12,
+      "term": "Bay Bridge San Francisco",
+      "title": "File:San Francisco–Oakland Bay Bridge- New and Old bridges.jpg",
+      "artist": "Frank Schulenburg",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:San_Francisco%E2%80%93Oakland_Bay_Bridge-_New_and_Old_bridges.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/7/79/San_Francisco%E2%80%93Oakland_Bay_Bridge-_New_and_Old_bridges.jpg",
+      "originalSize": "4914x3100"
+    }
+  ],
+  "toronto": [
+    {
+      "n": 1,
+      "term": "CN Tower Toronto",
+      "title": "File:Toronto - ON - Toronto Harbourfront7.jpg",
+      "artist": "Wladyslaw",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Toronto_-_ON_-_Toronto_Harbourfront7.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/9/96/Toronto_-_ON_-_Toronto_Harbourfront7.jpg",
+      "originalSize": "2434x3834"
+    },
+    {
+      "n": 2,
+      "term": "Toronto skyline",
+      "title": "File:Sunset Toronto Skyline Panorama Crop from Snake Island.jpg",
+      "artist": "Jchmrt",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Sunset_Toronto_Skyline_Panorama_Crop_from_Snake_Island.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3c/Sunset_Toronto_Skyline_Panorama_Crop_from_Snake_Island.jpg",
+      "originalSize": "6759x3001"
+    },
+    {
+      "n": 3,
+      "term": "Royal Ontario Museum",
+      "title": "File:Royal Ontario Museum in Fall 2021.jpg",
+      "artist": "Maksim Sokolov (Maxergon)",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Royal_Ontario_Museum_in_Fall_2021.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/7/72/Royal_Ontario_Museum_in_Fall_2021.jpg",
+      "originalSize": "9197x5632"
+    },
+    {
+      "n": 4,
+      "term": "Casa Loma Toronto",
+      "title": "File:Wells Hill Avenue Casa Loma Toronto.jpg",
+      "artist": "GTD Aquitaine",
+      "license": "Public domain",
+      "source": "https://commons.wikimedia.org/wiki/File:Wells_Hill_Avenue_Casa_Loma_Toronto.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/7/72/Wells_Hill_Avenue_Casa_Loma_Toronto.jpg",
+      "originalSize": "1280x960"
+    },
+    {
+      "n": 5,
+      "term": "Nathan Phillips Square Toronto",
+      "title": "File:Nathan Phillips square - Toronto.jpg",
+      "artist": "Paolo Costa Baldi",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Nathan_Phillips_square_-_Toronto.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/9/9f/Nathan_Phillips_square_-_Toronto.jpg",
+      "originalSize": "8248x3784"
+    },
+    {
+      "n": 6,
+      "term": "Distillery District Toronto",
+      "title": "File:Toronto Distillery District Condo.jpg",
+      "artist": "Gregory Karastergios",
+      "license": "CC0",
+      "source": "https://commons.wikimedia.org/wiki/File:Toronto_Distillery_District_Condo.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Toronto_Distillery_District_Condo.jpg",
+      "originalSize": "4056x2704"
+    },
+    {
+      "n": 7,
+      "term": "Rogers Centre Toronto",
+      "title": "File:Rogers Center-restitched.jpg",
+      "artist": "MarcusObal",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Rogers_Center-restitched.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/7/73/Rogers_Center-restitched.jpg",
+      "originalSize": "3246x4842"
+    },
+    {
+      "n": 8,
+      "term": "Toronto City Hall",
+      "title": "File:Toronto City Hall Ice Rink.jpg",
+      "artist": "Maksim Sokolov (Maxergon)",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Toronto_City_Hall_Ice_Rink.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/8/82/Toronto_City_Hall_Ice_Rink.jpg",
+      "originalSize": "6295x9443"
+    },
+    {
+      "n": 9,
+      "term": "Art Gallery of Ontario",
+      "title": "File:A fragment of the roof structure of the Art Gallery of Ontario.jpg",
+      "artist": "Maksim Sokolov (maxergon.com)",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:A_fragment_of_the_roof_structure_of_the_Art_Gallery_of_Ontario.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c4/A_fragment_of_the_roof_structure_of_the_Art_Gallery_of_Ontario.jpg",
+      "originalSize": "6000x4000"
+    },
+    {
+      "n": 10,
+      "term": "Union Station Toronto",
+      "title": "File:Toronto - ON - Union Station1.jpg",
+      "artist": "Taxiarchos228",
+      "license": "FAL",
+      "source": "https://commons.wikimedia.org/wiki/File:Toronto_-_ON_-_Union_Station1.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/6/62/Toronto_-_ON_-_Union_Station1.jpg",
+      "originalSize": "3514x2328"
+    },
+    {
+      "n": 11,
+      "term": "Toronto Islands",
+      "title": "File:Toronto Islands Yacht Club and Skyline.jpg",
+      "artist": "Jchmrt",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Toronto_Islands_Yacht_Club_and_Skyline.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/2/2a/Toronto_Islands_Yacht_Club_and_Skyline.jpg",
+      "originalSize": "4352x3219"
+    },
+    {
+      "n": 12,
+      "term": "Old City Hall Toronto",
+      "title": "File:Toronto August 2017 04.jpg",
+      "artist": "Arild Vågen",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Toronto_August_2017_04.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/6/6c/Toronto_August_2017_04.jpg",
+      "originalSize": "4308x3446"
+    }
+  ],
+  "lagos": [
+    {
+      "n": 1,
+      "term": "Lagos Nigeria skyline",
+      "title": "File:Skyline from ojo Lagos Nigeria IMG 20240627 183111.jpg",
+      "artist": "Tofunmi24",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Skyline_from_ojo_Lagos_Nigeria_IMG_20240627_183111.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/2/23/Skyline_from_ojo_Lagos_Nigeria_IMG_20240627_183111.jpg",
+      "originalSize": "4080x3072"
+    },
+    {
+      "n": 2,
+      "term": "Third Mainland Bridge Lagos",
+      "title": "File:Third mainland bridge .jpg",
+      "artist": "Olusegun Aderogba",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Third_mainland_bridge_.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/d/da/Third_mainland_bridge_.jpg",
+      "originalSize": "4000x2250"
+    },
+    {
+      "n": 3,
+      "term": "National Theatre Lagos",
+      "title": "File:National Arts Theatre, Lagos.jpg",
+      "artist": "Juganutt",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:National_Arts_Theatre,_Lagos.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/National_Arts_Theatre%2C_Lagos.jpg",
+      "originalSize": "3992x2992"
+    },
+    {
+      "n": 4,
+      "term": "Lekki Ikoyi Link Bridge",
+      "title": "File:Lekki Ikoyi Link Bridge.jpg",
+      "artist": "Chippla",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Lekki_Ikoyi_Link_Bridge.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/7/74/Lekki_Ikoyi_Link_Bridge.jpg",
+      "originalSize": "3279x1900"
+    },
+    {
+      "n": 5,
+      "term": "Victoria Island Lagos",
+      "title": "File:Aerial view of victoria island in Lagos, Nigeria with habours for yatches.jpg",
+      "artist": "Ayorinde Ogundele",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Aerial_view_of_victoria_island_in_Lagos,_Nigeria_with_habours_for_yatches.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/7/72/Aerial_view_of_victoria_island_in_Lagos%2C_Nigeria_with_habours_for_yatches.jpg",
+      "originalSize": "3498x2268"
+    },
+    {
+      "n": 6,
+      "term": "Tafawa Balewa Square Lagos",
+      "title": "File:Tafawa Balewa Square Onikan Lagos - 2024.jpg",
+      "artist": "Isaacayodele32",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Tafawa_Balewa_Square_Onikan_Lagos_-_2024.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/e/ec/Tafawa_Balewa_Square_Onikan_Lagos_-_2024.jpg",
+      "originalSize": "5464x3070"
+    },
+    {
+      "n": 7,
+      "term": "Nike Art Gallery Lagos",
+      "title": "File:Secretary Blinken Attends Event at Nike Art Gallery - 53485200191.jpg",
+      "artist": "U.S. Department of State",
+      "license": "Public domain",
+      "source": "https://commons.wikimedia.org/wiki/File:Secretary_Blinken_Attends_Event_at_Nike_Art_Gallery_-_53485200191.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/2/2b/Secretary_Blinken_Attends_Event_at_Nike_Art_Gallery_-_53485200191.jpg",
+      "originalSize": "1509x2111"
+    },
+    {
+      "n": 8,
+      "term": "Lagos Island",
+      "title": "File:LAGOS ISLAND 3.jpg",
+      "artist": "Sir Demo",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:LAGOS_ISLAND_3.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/7/70/LAGOS_ISLAND_3.jpg",
+      "originalSize": "4752x3168"
+    },
+    {
+      "n": 9,
+      "term": "Eko Atlantic Lagos",
+      "title": "File:Eko Atlantic (Lagos) Skyline.jpg",
+      "artist": "SmartAfricanBoy",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Eko_Atlantic_(Lagos)_Skyline.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/2/21/Eko_Atlantic_%28Lagos%29_Skyline.jpg",
+      "originalSize": "1080x1080"
+    },
+    {
+      "n": 10,
+      "term": "Lekki Conservation Centre Lagos",
+      "title": "File:LEKKI CONSERVATION CENTRE LAGOS, NIGERIA (LCC) 06.jpg",
+      "artist": "Ashinze",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:LEKKI_CONSERVATION_CENTRE_LAGOS,_NIGERIA_(LCC)_06.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/4/41/LEKKI_CONSERVATION_CENTRE_LAGOS%2C_NIGERIA_%28LCC%29_06.jpg",
+      "originalSize": "4608x3072"
+    },
+    {
+      "n": 11,
+      "term": "Freedom Park Lagos",
+      "title": "File:Images of Freedom Park 23.jpg",
+      "artist": "ReoMartins",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Images_of_Freedom_Park_23.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/4/42/Images_of_Freedom_Park_23.jpg",
+      "originalSize": "3024x4032"
+    },
+    {
+      "n": 12,
+      "term": "Marina Lagos Nigeria",
+      "title": "File:Marina Road in the evening, Lagos Nigeria.jpg",
+      "artist": "Ade Marquis",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Marina_Road_in_the_evening,_Lagos_Nigeria.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/d/dc/Marina_Road_in_the_evening%2C_Lagos_Nigeria.jpg",
+      "originalSize": "4032x3024"
+    }
+  ],
+  "los-angeles": [
+    {
+      "n": 1,
+      "term": "Hollywood Sign",
+      "title": "File:Hollywood Sign.jpg",
+      "artist": "Thomas Wolf, www.foto-tw.de",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Hollywood_Sign.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/0/00/Hollywood_Sign.jpg",
+      "originalSize": "16850x11464"
+    },
+    {
+      "n": 2,
+      "term": "Griffith Observatory",
+      "title": "File:Griffith Observatory 2012 01.jpg",
+      "artist": "Photograph by Mike Peel (www.mikepeel.net).",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Griffith_Observatory_2012_01.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b9/Griffith_Observatory_2012_01.jpg",
+      "originalSize": "5184x3456"
+    },
+    {
+      "n": 3,
+      "term": "Hollywood Walk of Fame",
+      "title": "File:Los Angeles (California, USA), Hollywood Boulevard, The Doors -- 2012 -- 5040.jpg",
+      "artist": "Dietmar Rabich",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Los_Angeles_(California,_USA),_Hollywood_Boulevard,_The_Doors_--_2012_--_5040.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b8/Los_Angeles_%28California%2C_USA%29%2C_Hollywood_Boulevard%2C_The_Doors_--_2012_--_5040.jpg",
+      "originalSize": "5107x3405"
+    },
+    {
+      "n": 4,
+      "term": "Santa Monica Pier",
+      "title": "File:USA Santa Monica Beach and pier CA.jpg",
+      "artist": "Daniel Schwen",
+      "license": "CC BY-SA 2.5",
+      "source": "https://commons.wikimedia.org/wiki/File:USA_Santa_Monica_Beach_and_pier_CA.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/1/10/USA_Santa_Monica_Beach_and_pier_CA.jpg",
+      "originalSize": "2272x1329"
+    },
+    {
+      "n": 5,
+      "term": "Los Angeles downtown skyline",
+      "title": "File:Downtown Los Angeles and 110 freeway.jpg",
+      "artist": "Camiloarenivar",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Downtown_Los_Angeles_and_110_freeway.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/6/63/Downtown_Los_Angeles_and_110_freeway.jpg",
+      "originalSize": "3712x4097"
+    },
+    {
+      "n": 6,
+      "term": "Walt Disney Concert Hall",
+      "title": "File:Image-Disney Concert Hall by Carol Highsmith edit.jpg",
+      "artist": "Carol M. Highsmith",
+      "license": "Public domain",
+      "source": "https://commons.wikimedia.org/wiki/File:Image-Disney_Concert_Hall_by_Carol_Highsmith_edit.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/2/2e/Image-Disney_Concert_Hall_by_Carol_Highsmith_edit.jpg",
+      "originalSize": "4500x3516"
+    },
+    {
+      "n": 7,
+      "term": "Getty Center building architecture",
+      "title": "File:Getty center architecture (Unsplash).jpg",
+      "artist": "Armando Castillejos acastillejos",
+      "license": "CC0",
+      "source": "https://commons.wikimedia.org/wiki/File:Getty_center_architecture_(Unsplash).jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/b/ba/Getty_center_architecture_%28Unsplash%29.jpg",
+      "originalSize": "4912x6144"
+    },
+    {
+      "n": 8,
+      "term": "Venice Beach Los Angeles",
+      "title": "File:Venice Beach, Los Angeles, CA 01.jpg",
+      "artist": "Blake Everett",
+      "license": "CC0",
+      "source": "https://commons.wikimedia.org/wiki/File:Venice_Beach,_Los_Angeles,_CA_01.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f8/Venice_Beach%2C_Los_Angeles%2C_CA_01.jpg",
+      "originalSize": "5973x3972"
+    },
+    {
+      "n": 9,
+      "term": "Los Angeles City Hall",
+      "title": "File:Los Angeles City Hall, 2022.jpg",
+      "artist": "Another Believer",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Los_Angeles_City_Hall,_2022.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Los_Angeles_City_Hall%2C_2022.jpg",
+      "originalSize": "3024x4032"
+    },
+    {
+      "n": 10,
+      "term": "Universal Studios Hollywood",
+      "title": "File:Psycho House-Universal Studios-Hollywood-California4481.JPG",
+      "artist": "Diego Delso",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Psycho_House-Universal_Studios-Hollywood-California4481.JPG",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/2/2d/Psycho_House-Universal_Studios-Hollywood-California4481.JPG",
+      "originalSize": "2454x1754"
+    },
+    {
+      "n": 11,
+      "term": "Rodeo Drive Beverly Hills",
+      "title": "File:Buildings at North Rodeo Drive, Beverly Hills, West view 20110806 1.jpg",
+      "artist": "DXR",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Buildings_at_North_Rodeo_Drive,_Beverly_Hills,_West_view_20110806_1.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/0/04/Buildings_at_North_Rodeo_Drive%2C_Beverly_Hills%2C_West_view_20110806_1.jpg",
+      "originalSize": "4375x2931"
+    },
+    {
+      "n": 12,
+      "term": "Union Station Los Angeles",
+      "title": "File:Los Angeles (California, USA), Union Station -- 2012 -- 4938.jpg",
+      "artist": "Dietmar Rabich",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Los_Angeles_(California,_USA),_Union_Station_--_2012_--_4938.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/e/eb/Los_Angeles_%28California%2C_USA%29%2C_Union_Station_--_2012_--_4938.jpg",
+      "originalSize": "4029x2718"
+    }
+  ]
+}

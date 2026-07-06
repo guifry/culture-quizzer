@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState, type CSSProperties, type FormEvent, type PointerEvent as ReactPointerEvent, type WheelEvent as ReactWheelEvent } from 'react'
 import { feature } from 'topojson-client'
-import { geoAlbersUsa, geoContains, geoEqualEarth, geoMercator, geoPath } from 'd3-geo'
+import { geoContains, geoPath } from 'd3-geo'
 import { BookOpen, Check, ChevronRight, Globe2, Image, MapPinned, RotateCcw, X } from 'lucide-react'
 import countries110m from 'world-atlas/countries-110m.json'
 import usStatesAtlas from 'us-atlas/states-10m.json'
@@ -8,9 +8,11 @@ import frDepartments from './data/geo/fr-departments.json'
 import frRegions from './data/geo/fr-regions.json'
 import ukAdmin from './data/geo/uk-counties-unitaries-2022.json'
 import './App.css'
-import { topics, type MapScope, type QuizItem, type QuizMode, type Topic } from './data/curriculum'
+import { topics, type QuizItem, type QuizMode, type Topic } from './data/curriculum'
 import { resolveImageUrl, shuffle, stripTrailingPunctuation } from './utils'
 import { HistoryDateQuiz } from './components/HistoryDateQuiz'
+import { CityQuiz } from './components/CityQuiz'
+import { WIDTH, HEIGHT, defaultMapView, clampMapView, buildProjection, type MapView } from './map/projection'
 
 type CountryFeature = GeoJSON.Feature<GeoJSON.Geometry, { name: string }>
 type BoundaryFeature = GeoJSON.Feature<GeoJSON.Geometry, Record<string, string | number | null>>
@@ -83,16 +85,6 @@ type RoundState = {
   completed?: boolean
 }
 
-type MapView = {
-  scale: number
-  x: number
-  y: number
-}
-
-const WIDTH = 960
-const HEIGHT = 560
-const defaultMapView: MapView = { scale: 1, x: 0, y: 0 }
-
 const defaultModeLabels: Record<QuizMode, string> = {
   'map-click': 'Click location',
   'map-number': 'Locate by number',
@@ -103,10 +95,17 @@ const defaultModeLabels: Record<QuizMode, string> = {
   sequence: 'Order quiz',
   'date-recall': 'Event → date',
   'event-recall': 'Date → event',
+  'city-locate': 'Locate',
+  'city-photos': 'Photos',
+  'city-clue': 'Clue',
 }
 
 function isHistoryDateTopic(topic: Topic) {
   return topic.kind === 'history-dates'
+}
+
+function isCityTopic(topic: Topic) {
+  return topic.kind === 'city-quiz'
 }
 
 function modeLabel(topic: Topic, mode: QuizMode) {
@@ -241,18 +240,6 @@ function deckKey(pool: QuizItem[]) {
   return pool.map((item) => item.id).join('|')
 }
 
-function clampMapView(view: MapView): MapView {
-  if (view.scale <= 1) return defaultMapView
-  const minX = WIDTH - WIDTH * view.scale
-  const minY = HEIGHT - HEIGHT * view.scale
-
-  return {
-    scale: view.scale,
-    x: Math.min(0, Math.max(minX, view.x)),
-    y: Math.min(0, Math.max(minY, view.y)),
-  }
-}
-
 function scoreKey(topic: Topic, mode: QuizMode, countryScope: CountryScope = 'world') {
   if (topic.id === 'world-countries') {
     return `${topic.id}:${countryScope}:${mode}`
@@ -280,18 +267,6 @@ function loadScores(): Record<string, Score> {
 
 function saveScores(scores: Record<string, Score>) {
   localStorage.setItem('culture-quizzer-scores', JSON.stringify(scores))
-}
-
-function buildProjection(scope: MapScope) {
-  if (scope === 'usa') {
-    return geoAlbersUsa().translate([WIDTH / 2, HEIGHT / 2]).scale(980)
-  }
-
-  const projection = scope === 'world' ? geoEqualEarth() : geoMercator()
-  if (scope === 'world') return projection.translate([WIDTH / 2, HEIGHT / 2]).scale(168)
-  if (scope === 'europe') return projection.center([10, 51]).scale(760).translate([WIDTH / 2, HEIGHT / 2])
-  if (scope === 'uk') return projection.center([-3.6, 55.0]).scale(1780).translate([WIDTH / 2, HEIGHT / 2])
-  return projection.center([2.7, 46.4]).scale(1900).translate([WIDTH / 2, HEIGHT / 2])
 }
 
 const territoryLabels: Record<string, string> = {
@@ -2022,7 +1997,7 @@ function App() {
             ) : null}
             </div>
 
-            {isHistoryDateTopic(activeTopic) || showingMapStage ? null : (
+            {isHistoryDateTopic(activeTopic) || isCityTopic(activeTopic) || showingMapStage ? null : (
               <section className="score-strip" aria-label="Current score">
                 <Stat label="Deck" value={pool.length} />
                 <Stat label="Progress" value={activeRound.completed ? `${pool.length}/${pool.length}` : `${Math.min(activeRound.position + 1, pool.length)}/${pool.length}`} />
@@ -2033,7 +2008,9 @@ function App() {
               </section>
             )}
 
-            {isHistoryDateTopic(activeTopic) ? (
+            {isCityTopic(activeTopic) ? (
+              <CityQuiz key={`${activeTopic.id}:${mode}`} topic={activeTopic} mode={mode} />
+            ) : isHistoryDateTopic(activeTopic) ? (
               <HistoryDateQuiz key={`${activeTopic.id}:${mode}`} topic={activeTopic} mode={mode} />
             ) : activeTopic.id === 'solar-system' ? (
               <SolarSystemQuiz topic={activeTopic} history={activeHistory} onSubmitSequence={recordSequence} onClearResult={clearSequenceResult} />

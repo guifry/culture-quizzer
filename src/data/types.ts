@@ -10,6 +10,9 @@ export type QuizMode =
   | 'sequence'
   | 'date-recall'
   | 'event-recall'
+  | 'city-locate'
+  | 'city-photos'
+  | 'city-clue'
 
 export type TopicGroup =
   | 'Geography'
@@ -49,6 +52,18 @@ export type HistoryDate = {
   summary: string
 }
 
+export type CityEntry = {
+  id: string
+  name: string
+  aliases?: string[]
+  country: string
+  usState?: string
+  lat: number
+  lon: number
+  fact: string
+  images?: number
+}
+
 export type Topic = {
   id: string
   title: string
@@ -60,6 +75,7 @@ export type Topic = {
   boundaryLayer?: 'fr-departments' | 'fr-regions' | 'uk-admin' | 'us-states'
   items: QuizItem[]
   coverage: string
-  kind?: 'history-dates'
+  kind?: 'history-dates' | 'city-quiz'
   dates?: HistoryDate[]
+  cities?: CityEntry[]
 }

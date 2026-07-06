@@ -1,8 +1,9 @@
 import countries from 'world-countries'
 import { historyDateTopics } from './history'
+import { cityTopics } from './cities'
 import type { QuizItem, Topic } from './types'
 
-export type { HistoryDate, MapScope, QuizItem, QuizMode, Topic, TopicGroup } from './types'
+export type { CityEntry, HistoryDate, MapScope, QuizItem, QuizMode, Topic, TopicGroup } from './types'
 
 const majorCountryNotes: Record<string, string> = {
   France: 'Second city to know: Marseille.',
@@ -652,4 +653,5 @@ export const topics: Topic[] = [
   { id: 'paintings', title: 'Famous Paintings Recognition', group: 'Art', description: 'See the painting; name the work or the artist.', modes: ['image', 'choice'], items: paintings, coverage: 'Core image-recognition deck with public-domain/open Wikimedia images where available.' },
   ...knowledgeQuestions,
   ...historyDateTopics,
+  ...cityTopics,
 ]
