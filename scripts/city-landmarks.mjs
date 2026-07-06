@@ -151,4 +151,87 @@ export const LANDMARKS = {
     'Victoria Island Lagos', 'Tafawa Balewa Square Lagos', 'Nike Art Gallery Lagos', 'Lagos Island',
     'Eko Atlantic Lagos', 'Lekki Conservation Centre Lagos', 'Freedom Park Lagos', 'Marina Lagos Nigeria',
   ],
+
+  // --- Lost cities (ruins, monuments and famous artefacts) ---
+  pompeii: [
+    'Pompeii Forum Vesuvius', 'Pompeii plaster casts', 'Pompeii amphitheatre', 'House of the Faun Pompeii',
+    'Pompeii Villa of the Mysteries fresco', 'Pompeii street ruins', 'Pompeii Temple of Apollo', 'Pompeii mosaic',
+    'Pompeii Garden of the Fugitives', 'Pompeii large theatre', 'Pompeii thermopolium', 'Pompeii colonnade',
+  ],
+  'machu-picchu': [
+    'Machu Picchu panorama', 'Machu Picchu Temple of the Sun', 'Machu Picchu Intihuatana', 'Machu Picchu terraces',
+    'Machu Picchu llama', 'Machu Picchu Huayna Picchu', 'Machu Picchu stonework', 'Machu Picchu ruins',
+  ],
+  petra: [
+    'Petra Treasury Al Khazneh', 'Petra Monastery Ad Deir', 'Petra Siq', 'Petra Royal Tombs',
+    'Petra amphitheatre', 'Petra Street of Facades', 'Petra rock-cut tombs', 'Petra Jordan ruins',
+  ],
+  angkor: [
+    'Angkor Wat temple', 'Bayon faces Angkor Thom', 'Ta Prohm tree roots', 'Angkor Wat sunrise reflection',
+    'Angkor Wat bas-relief', 'Banteay Srei', 'Angkor Wat towers', 'Angkor Thom south gate',
+  ],
+  troy: [
+    'Troy archaeological site', 'Trojan Horse Troy replica', 'Troy ancient walls', 'Troy ruins Turkey',
+    'Troy excavation', 'Troy ramp gate', 'Troy Hisarlik', 'Troy megaron',
+  ],
+  babylon: [
+    'Ishtar Gate', 'Lion of Babylon', 'Babylon ruins Iraq', 'Babylon reconstructed walls',
+    'Babylon Processional Way', 'Babylon palace', 'Babylon archaeological site', 'Babylon dragon relief',
+  ],
+  persepolis: [
+    'Persepolis Apadana staircase', 'Persepolis Gate of All Nations', 'Persepolis columns', 'Persepolis tribute relief',
+    'Persepolis Lamassu bull', 'Persepolis ruins', 'Persepolis Tachara palace', 'Persepolis lion bull relief',
+  ],
+  teotihuacan: [
+    'Teotihuacan Pyramid of the Sun', 'Teotihuacan Avenue of the Dead', 'Teotihuacan Pyramid of the Moon',
+    'Temple of the Feathered Serpent Teotihuacan', 'Teotihuacan mural', 'Teotihuacan panorama', 'Teotihuacan Quetzalcoatl', 'Teotihuacan stone mask',
+  ],
+  carthage: [
+    'Antonine Baths Carthage', 'Carthage ruins Tunisia', 'Byrsa Hill Carthage', 'Carthage Punic ports',
+    'Carthage Roman theatre', 'Carthage archaeological site', 'Carthage columns', 'Carthage Tophet',
+  ],
+  'mohenjo-daro': [
+    'Mohenjo-daro Great Bath', 'Priest-King Mohenjo-daro', 'Dancing Girl Mohenjo-daro', 'Mohenjo-daro ruins',
+    'Mohenjo-daro Buddhist stupa', 'Mohenjo-daro street', 'Mohenjo-daro Pashupati seal', 'Mohenjo-daro excavation',
+  ],
+  palmyra: [
+    'Palmyra Temple of Bel', 'Palmyra Great Colonnade', 'Palmyra Monumental Arch', 'Palmyra Roman theatre',
+    'Palmyra Tetrapylon', 'Palmyra ruins Syria', 'Palmyra tower tombs', 'Palmyra Temple of Baalshamin',
+  ],
+  'great-zimbabwe': [
+    'Great Zimbabwe Great Enclosure', 'Great Zimbabwe Conical Tower', 'Great Zimbabwe walls', 'Zimbabwe Bird soapstone',
+    'Great Zimbabwe Hill Complex', 'Great Zimbabwe ruins', 'Great Zimbabwe stonework', 'Great Zimbabwe passage',
+  ],
+  'chichen-itza': [
+    'Chichen Itza El Castillo', 'Chichen Itza Temple of the Warriors', 'Chichen Itza Great Ball Court', 'Chichen Itza El Caracol observatory',
+    'Chichen Itza Sacred Cenote', 'Chichen Itza serpent head', 'Chichen Itza Thousand Columns', 'Chichen Itza pyramid',
+  ],
+  tikal: [
+    'Tikal Temple I', 'Tikal Grand Plaza', 'Tikal Temple IV', 'Tikal pyramids jungle',
+    'Tikal North Acropolis', 'Tikal ruins Guatemala', 'Tikal temple above canopy', 'Tikal stela',
+  ],
+  nineveh: [
+    'Nineveh Lamassu', 'Nineveh Mashki Gate', 'Nineveh Assyrian relief', 'Nineveh ruins Mosul',
+    'Nineveh Adad Gate', 'Nineveh lion hunt relief', 'Nineveh walls', 'Nineveh palace',
+  ],
+  mycenae: [
+    'Mycenae Lion Gate', 'Mask of Agamemnon', 'Treasury of Atreus', 'Mycenae citadel ruins',
+    'Mycenae Grave Circle A', 'Mycenae cyclopean walls', 'Mycenae acropolis', 'Mycenae gold cup',
+  ],
+  knossos: [
+    'Knossos Palace ruins', 'Knossos Bull-Leaping fresco', 'Knossos Throne Room', 'Knossos North Entrance bull fresco',
+    'Knossos Prince of the Lilies fresco', 'Knossos red columns', 'Knossos Crete', 'Knossos pithoi jars',
+  ],
+  hattusa: [
+    'Hattusa Lion Gate', 'Hattusa Sphinx Gate', 'Hattusa ruins Turkey', 'Hattusa Great Temple',
+    'Yazilikaya reliefs Hattusa', "Hattusa King's Gate", 'Hattusa city walls', 'Hattusa Green Stone',
+  ],
+  timgad: [
+    'Arch of Trajan Timgad', 'Timgad Roman theatre', 'Timgad ruins Algeria', 'Timgad forum',
+    'Timgad library', 'Timgad columns', 'Timgad cardo street', 'Timgad Capitol',
+  ],
+  cahokia: [
+    'Monks Mound Cahokia', 'Cahokia Mounds', 'Cahokia Woodhenge', 'Cahokia Illinois mounds',
+    'Cahokia aerial', 'Cahokia birdman tablet', 'Cahokia Grand Plaza', 'Cahokia site',
+  ],
 }

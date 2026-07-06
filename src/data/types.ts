@@ -62,6 +62,8 @@ export type CityEntry = {
   lon: number
   fact: string
   blurb?: string
+  population?: number
+  course?: string
   images?: number
 }
 

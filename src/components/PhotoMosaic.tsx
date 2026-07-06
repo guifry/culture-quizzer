@@ -1,19 +1,12 @@
 import { useEffect, useState } from 'react'
 import type { CityEntry } from '../data/types'
-import { loadCredits, type PhotoCredit } from '../data/cities/credits'
+import { landmarkLabel, loadCredits, type PhotoCredit } from '../data/cities/credits'
 import { resolveImageUrl, shuffle } from '../utils'
 import { ImageLightbox } from './ImageLightbox'
 
 function pickThree(count: number): number[] {
   const indexes = Array.from({ length: count }, (_, index) => index + 1)
   return shuffle(indexes).slice(0, Math.min(3, count))
-}
-
-function landmarkLabel(term: string | undefined, cityName: string): string {
-  if (!term) return 'Landmark'
-  const suffix = ` ${cityName.toLowerCase()}`
-  const trimmed = term.toLowerCase().endsWith(suffix) ? term.slice(0, term.length - suffix.length) : term
-  return trimmed.trim()
 }
 
 export function PhotoMosaic({ city, revealed = false }: { city: CityEntry; revealed?: boolean }) {

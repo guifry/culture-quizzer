@@ -15,9 +15,9 @@ export const cityTopics: Topic[] = [
   buildCityTopic(
     'lost-cities-game',
     'Top 20 Lost Cities',
-    'Locate the great ruined and lost cities of history, or name them from a cultural clue.',
-    'Twenty famous lost and ancient cities, played two ways: locate and cultural clue.',
-    ['city-locate', 'city-clue'],
+    'Locate the great ruined and lost cities of history, name them from their ruins, or from a cultural clue.',
+    'Twenty famous lost and ancient cities, played three ways: locate, photos, and cultural clue.',
+    ['city-locate', 'city-photos', 'city-clue'],
     lostCities,
   ),
 ]

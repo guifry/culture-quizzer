@@ -12,6 +12,7 @@ import { topics, type QuizItem, type QuizMode, type Topic } from './data/curricu
 import { resolveImageUrl, shuffle, stripTrailingPunctuation } from './utils'
 import { HistoryDateQuiz } from './components/HistoryDateQuiz'
 import { CityQuiz } from './components/CityQuiz'
+import { CityCourse } from './components/CityCourse'
 import { WIDTH, HEIGHT, defaultMapView, clampMapView, buildProjection, type MapView } from './map/projection'
 
 type CountryFeature = GeoJSON.Feature<GeoJSON.Geometry, { name: string }>
@@ -1618,7 +1619,8 @@ function App() {
   const activeReview = reviews[activePracticeKey]
   const accuracy = activeScore.attempts ? Math.round((activeScore.correct / activeScore.attempts) * 100) : 0
   const activeCourse = courseArticles[activeTopic.id]
-  const activePageView: PageView = activeCourse ? pageView : 'practice'
+  const hasCourseView = Boolean(activeCourse) || isCityTopic(activeTopic)
+  const activePageView: PageView = hasCourseView ? (isCityTopic(activeTopic) && pageView === 'questions' ? 'practice' : pageView) : 'practice'
   const roundResultsVisible = activeRound.completed && !activeReview
   const isMapTopic = Boolean(activeTopic.mapKind) && !isHistoryDateTopic(activeTopic) && activeTopic.id !== 'solar-system'
   const mapWorkspace = activePageView === 'practice' && isMapTopic
@@ -1932,11 +1934,11 @@ function App() {
           </button>
         </header>
 
-        {activeCourse ? (
+        {hasCourseView ? (
           <div className="view-control" role="tablist" aria-label="Section view">
-            {(['practice', 'course', 'questions'] as PageView[]).map((view) => (
+            {(isCityTopic(activeTopic) ? (['practice', 'course'] as PageView[]) : (['practice', 'course', 'questions'] as PageView[])).map((view) => (
               <button key={view} className={activePageView === view ? 'view-button active' : 'view-button'} type="button" onClick={() => setPageView(view)}>
-                {view === 'practice' ? 'Practice' : view === 'course' ? 'Course' : 'Questions'}
+                {isCityTopic(activeTopic) ? (view === 'practice' ? 'Play' : 'Course') : view === 'practice' ? 'Practice' : view === 'course' ? 'Course' : 'Questions'}
               </button>
             ))}
           </div>
@@ -2069,6 +2071,8 @@ function App() {
               </div>
             )}
           </>
+        ) : activePageView === 'course' && isCityTopic(activeTopic) ? (
+          <CityCourse topic={activeTopic} />
         ) : activePageView === 'course' && activeCourse ? (
           <CoursePanel article={activeCourse} />
         ) : activePageView === 'questions' ? (
