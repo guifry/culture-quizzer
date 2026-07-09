@@ -224,18 +224,17 @@ export function ColoniesQuiz({ topic }: { topic: Topic }) {
       ? 'Type the year each colony was lost, then press Space.'
       : 'Press Space for the next empire.'
 
-  return (
-    <div className="colonies-quiz">
-      <section className="score-strip" aria-label="Current score">
-        <Stat label="Empires" value={colonisers.length} />
-        <Stat label="Progress" value={completed ? `${order.length}/${order.length}` : `${Math.min(position + 1, order.length)}/${order.length}`} />
-        <Stat label="Accuracy" value={`${accuracy}%`} />
-        {expert ? <Stat label="Year acc" value={`${yearAccuracy}%`} /> : null}
-        <Stat label="Streak" value={score.streak} />
-        <Stat label="Best" value={score.bestStreak} />
-      </section>
-
-      {completed ? (
+  if (completed) {
+    return (
+      <div className="colonies-quiz colonies-complete">
+        <section className="score-strip" aria-label="Current score">
+          <Stat label="Empires" value={colonisers.length} />
+          <Stat label="Progress" value={`${order.length}/${order.length}`} />
+          <Stat label="Accuracy" value={`${accuracy}%`} />
+          {expert ? <Stat label="Year acc" value={`${yearAccuracy}%`} /> : null}
+          <Stat label="Streak" value={score.streak} />
+          <Stat label="Best" value={score.bestStreak} />
+        </section>
         <section className="deck-complete">
           <span className="eyebrow">Round complete</span>
           <h2>All empires covered</h2>
@@ -250,26 +249,33 @@ export function ColoniesQuiz({ topic }: { topic: Topic }) {
           </button>
           <p className="coverage">{topic.coverage}</p>
         </section>
-      ) : (
-        <>
-          <div className="colonies-control">
-            <div className="colonies-prompt">
-              <span className="eyebrow">Former colonies of</span>
-              <h2>{coloniser}</h2>
-            </div>
-            <label className="expert-toggle">
-              <input type="checkbox" checked={expert} onChange={(event) => setExpert(event.target.checked)} />
-              <span>Expert: also enter the year lost</span>
-            </label>
+      </div>
+    )
+  }
+
+  return (
+    <div className="colonies-quiz map-stage colonies-stage">
+      <ColoniesMap selection={selection} expectedByName={expectedByName} reviewed={reviewed} onToggle={toggleCountry} />
+
+      <section className="score-strip score-overlay" aria-label="Current score">
+        <Stat label="Empires" value={colonisers.length} />
+        <Stat label="Progress" value={`${Math.min(position + 1, order.length)}/${order.length}`} />
+        <Stat label="Accuracy" value={`${accuracy}%`} />
+        {expert ? <Stat label="Year acc" value={`${yearAccuracy}%`} /> : null}
+        <Stat label="Streak" value={score.streak} />
+        <Stat label="Best" value={score.bestStreak} />
+      </section>
+
+      <div className="quiz-overlay colonies-overlay">
+        <div className="colonies-panel">
+          <div className="colonies-prompt">
+            <span className="eyebrow">Former colonies of</span>
+            <h2>{coloniser}</h2>
           </div>
-
-          <ColoniesMap
-            selection={selection}
-            expectedByName={expectedByName}
-            reviewed={reviewed}
-            onToggle={toggleCountry}
-          />
-
+          <label className="expert-toggle">
+            <input type="checkbox" checked={expert} onChange={(event) => setExpert(event.target.checked)} />
+            <span>Expert: also enter the year lost</span>
+          </label>
           <div className="colonies-actions">
             <span className="colonies-count">{reviewed ? `${hits.length} correct · ${missed.length} missed · ${wrongNames.length} wrong` : `${selection.size} selected`}</span>
             <div className="colonies-buttons">
@@ -285,7 +291,6 @@ export function ColoniesQuiz({ topic }: { topic: Topic }) {
             </div>
           </div>
           <p className="review-hint">{spaceHint}</p>
-
           {reviewed ? (
             <ReviewList
               expected={expected}
@@ -297,8 +302,8 @@ export function ColoniesQuiz({ topic }: { topic: Topic }) {
               onYearChange={(name, value) => setYearInputs((previous) => ({ ...previous, [name]: value }))}
             />
           ) : null}
-        </>
-      )}
+        </div>
+      </div>
     </div>
   )
 }

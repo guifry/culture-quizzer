@@ -2092,6 +2092,11 @@ function App() {
   const isMobile = useMedia(MOBILE_QUERY)
   const isLandscapePhone = useMedia(LANDSCAPE_PHONE_QUERY)
   const mobileMapGame = isMobile && mapWorkspace
+  // Self-contained map games (colonies) reuse the map-first shell: compact header + full-height
+  // flex so the component's own .map-stage fills the viewport with floating overlays.
+  const coloniesStage = activePageView === 'practice' && isColoniesTopic(activeTopic)
+  const compactHeader = mapWorkspace || coloniesStage || (activePageView === 'practice' && isCityTopic(activeTopic))
+  const fullBleedWorkspace = showingMapStage || coloniesStage
 
   const advanceRound = useCallback(() => {
     setPendingPick(null)
@@ -2445,7 +2450,7 @@ function App() {
           onReset={resetScores}
         />
       ) : (
-      <section className={['workspace', mapWorkspace ? 'map-workspace' : '', showingMapStage ? 'map-full' : ''].filter(Boolean).join(' ')}>
+      <section className={['workspace', compactHeader ? 'map-workspace' : '', fullBleedWorkspace ? 'map-full' : ''].filter(Boolean).join(' ')}>
         <header className="topbar">
           <div>
             <h1>{activeTopic.title}</h1>
