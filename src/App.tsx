@@ -2095,8 +2095,9 @@ function App() {
   // Self-contained map games (colonies) reuse the map-first shell: compact header + full-height
   // flex so the component's own .map-stage fills the viewport with floating overlays.
   const coloniesStage = activePageView === 'practice' && isColoniesTopic(activeTopic)
-  const compactHeader = mapWorkspace || coloniesStage || (activePageView === 'practice' && isCityTopic(activeTopic))
-  const fullBleedWorkspace = showingMapStage || coloniesStage
+  const cityStage = activePageView === 'practice' && isCityTopic(activeTopic)
+  const compactHeader = mapWorkspace || coloniesStage || cityStage
+  const fullBleedWorkspace = showingMapStage || coloniesStage || cityStage
 
   const advanceRound = useCallback(() => {
     setPendingPick(null)

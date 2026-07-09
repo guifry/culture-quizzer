@@ -7,16 +7,109 @@
   grid-template-columns: repeat(auto-fit, minmax(84px, 1fr));
 }
 
-.city-stage {
-  display: grid;
-  grid-template-columns: minmax(300px, 400px) 1fr;
+/* Round-complete panel (not the map stage). */
+.city-complete {
+  padding: 20px;
+  height: 100%;
+  box-sizing: border-box;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
   gap: 16px;
-  align-items: start;
 }
 
-@media (max-width: 900px) {
-  .city-stage {
-    grid-template-columns: 1fr;
+/* Map-first stage: the CityMap fills, prompt/verdict/history float in an overlay card. */
+.city-stage-map .city-map {
+  position: absolute;
+  inset: 0;
+  border: none;
+  border-radius: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.city-stage-map .city-map-controls {
+  top: auto;
+  bottom: 8px;
+  left: 8px;
+  right: auto;
+  flex-direction: row;
+}
+
+.city-stage-map .city-map-hint {
+  bottom: 46px;
+}
+
+.city-overlay {
+  width: 360px;
+}
+
+.city-overlay .city-panel {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow: auto;
+  padding: 13px 15px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: rgb(255 255 255 / 97%);
+  box-shadow: 0 6px 20px rgb(0 0 0 / 14%);
+  backdrop-filter: blur(2px);
+}
+
+.city-overlay .city-panel h2 {
+  margin: 0;
+  font-size: 20px;
+  line-height: 1.15;
+  color: var(--text-h);
+}
+
+.city-overlay .city-answer-form,
+.city-overlay .city-verdict,
+.city-overlay .next-locate {
+  margin-top: 0;
+}
+
+.city-overlay .city-history {
+  grid-template-columns: 1fr;
+  gap: 6px;
+  margin-top: 2px;
+}
+
+@media (max-width: 820px) {
+  .city-overlay {
+    width: auto;
+    max-width: none;
+  }
+
+  .city-overlay .city-panel {
+    max-height: 48vh;
+  }
+
+  .city-complete {
+    height: auto;
+  }
+
+  /* On mobile the map returns to normal flow so it stacks with the (now static) overlays. */
+  .city-stage-map .city-map {
+    position: static;
+    display: block;
+  }
+
+  .city-stage-map .city-map-controls {
+    top: 8px;
+    bottom: auto;
+  }
+
+  .city-stage-map.map-stage {
+    background: transparent;
+    gap: 10px;
+  }
+
+  .city-stage-map .city-map-hint {
+    display: none;
   }
 }
 
