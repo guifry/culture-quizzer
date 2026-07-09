@@ -119,6 +119,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  /* Match the ocean fill so the letterbox is seamless and the map reads full-bleed,
+     the same way the world-map games use ocean === container background. */
+  background: #cfe3ec;
 }
 
 .city-mmg .mmg-map .city-map {
