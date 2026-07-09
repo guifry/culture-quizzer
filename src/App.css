@@ -2014,10 +2014,32 @@
   top: 10px;
 }
 
+/* Round-complete report on mobile: a plain, page-scrolling container (no floating widget),
+   so long reports scroll and the replay action stays reachable at the top. */
 .mmg-results {
-  height: auto;
-  overflow: auto;
-  padding: 16px;
+  display: block;
+  height: 100%;
+  min-height: 0;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 14px 14px 32px;
+}
+
+.round-results-plain {
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  background: transparent;
+  overflow: visible;
+  padding: 0;
+}
+
+.round-results-plain .round-actions {
+  margin: 4px 0 18px;
+}
+
+.round-results-plain .round-actions .primary-action {
+  flex: 1;
 }
 
 /* Landscape phone map game: full-screen map + floating widget + settings drawer. */

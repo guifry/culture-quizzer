@@ -156,11 +156,29 @@
 }
 
 .city-mmg-complete {
-  overflow: auto;
+  display: block;
+  height: 100%;
+  min-height: 0;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 32px;
 }
 
 .city-mmg-complete .deck-complete {
-  margin: 16px;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  padding: 16px 16px 0;
+}
+
+.city-mmg-complete .primary-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin: 4px 0 16px;
+  background: #243238;
+  border-color: #243238;
+  color: #fff;
 }
 
 .city-prompt {

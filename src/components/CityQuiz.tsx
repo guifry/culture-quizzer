@@ -304,7 +304,21 @@ export function CityQuiz({
             {modeSelect}
             {resetButton}
           </div>
-          {deckCompletePanel}
+          <div className="deck-complete">
+            <span className="eyebrow">Deck complete</span>
+            <h2>Round finished</h2>
+            <button className="primary-action" type="button" onClick={startNewRound}>
+              <RotateCcw size={16} />
+              Start new shuffled round
+            </button>
+            <div className="deck-complete-stats">
+              <Stat label="Score" value={`${scorePct}%`} />
+              {compound ? <Stat label="Name accuracy" value={`${namePct}%`} /> : null}
+              <Stat label="Location accuracy" value={`${locationPct}%`} />
+              <Stat label="Best streak" value={score.bestStreak} />
+            </div>
+            <p className="coverage">{topic.coverage}</p>
+          </div>
         </section>
       )
     }

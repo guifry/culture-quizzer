@@ -234,15 +234,15 @@ export function ColoniesQuiz({ topic, mobile = false, onReset }: { topic: Topic;
           <div className="deck-complete">
             <span className="eyebrow">Round complete</span>
             <h2>All empires covered</h2>
+            <button className="primary-action" type="button" onClick={startNewRound}>
+              <RotateCcw size={16} />
+              Start new shuffled round
+            </button>
             <div className="deck-complete-stats">
               <Stat label="Accuracy" value={`${accuracy}%`} />
               {expert ? <Stat label="Year accuracy" value={`${yearAccuracy}%`} /> : null}
               <Stat label="Best streak" value={score.bestStreak} />
             </div>
-            <button className="primary-action" type="button" onClick={startNewRound}>
-              <RotateCcw size={16} />
-              Start new shuffled round
-            </button>
             <p className="coverage">{topic.coverage}</p>
           </div>
         </section>

@@ -722,11 +722,13 @@ function RoundResultsPanel({
   results,
   deckSize,
   onStartNewRound,
+  mobile = false,
 }: {
   topic: Topic
   results: AnswerResult[]
   deckSize: number
   onStartNewRound: () => void
+  mobile?: boolean
 }) {
   const correct = results.filter((result) => result.ok).length
   const missed = results.filter((result) => !result.ok)
@@ -734,8 +736,17 @@ function RoundResultsPanel({
   const accuracy = deckSize ? Math.round((correct / deckSize) * 100) : 0
   const verdict = roundVerdict(accuracy)
 
+  const actions = (
+    <div className="round-actions">
+      <button className="primary-action" type="button" onClick={onStartNewRound}>
+        Start new shuffled round
+      </button>
+      <span>{verdict.label}</span>
+    </div>
+  )
+
   return (
-    <section className={`round-results round-results-${verdict.tone}`}>
+    <section className={`round-results round-results-${verdict.tone}${mobile ? ' round-results-plain' : ''}`}>
       <div className="round-results-hero" style={{ '--score': `${accuracy}%` } as CSSProperties}>
         <div className="round-visual" aria-hidden="true">
           <div className="score-orbit">
@@ -752,6 +763,8 @@ function RoundResultsPanel({
           <p>{verdict.message}</p>
         </div>
       </div>
+
+      {mobile ? actions : null}
 
       <div className="round-results-stats" aria-label="Round score">
         <Stat label="Round score" value={`${correct}/${deckSize}`} />
@@ -780,12 +793,7 @@ function RoundResultsPanel({
         <p className="round-perfect">No misses in this round.</p>
       )}
 
-      <div className="round-actions">
-        <button className="primary-action" type="button" onClick={onStartNewRound}>
-          Start new shuffled round
-        </button>
-        <span>{verdict.label}</span>
-      </div>
+      {mobile ? null : actions}
       <p className="coverage">{topic.coverage}</p>
     </section>
   )
@@ -1861,7 +1869,7 @@ function MobileMapGame(props: MobileMapGameProps) {
   if (roundComplete) {
     return (
       <section className="mobile-map-game mmg-results">
-        <RoundResultsPanel topic={topic} results={props.roundResults} deckSize={pool.length} onStartNewRound={props.onStartNewRound} />
+        <RoundResultsPanel topic={topic} results={props.roundResults} deckSize={pool.length} onStartNewRound={props.onStartNewRound} mobile />
       </section>
     )
   }
