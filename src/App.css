@@ -357,6 +357,10 @@
   width: 100%;
   border: none;
   border-radius: 0;
+  /* Don't anchor the overlaid controls to the shell: the map can be taller than the
+     stage (centred + clipped), so shell-relative offsets escape the visible area behind
+     the header. Anchor them to .map-stage instead, like the score/prompt overlays. */
+  position: static;
 }
 
 .map-stage .map {
