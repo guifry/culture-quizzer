@@ -610,6 +610,39 @@ function defaultScope(topic: Topic) {
   return 'world'
 }
 
+type GameParams = { topicId: string; mode: QuizMode; scope: string; usGuess: UsGuess; pageView: PageView }
+
+// The active game (topic + all its parameters) is mirrored in the URL query string so a refresh
+// or shared link restores the exact same game, mode, region, guess and view.
+function readGameParams(topics: Topic[]): GameParams {
+  const params = new URLSearchParams(window.location.search)
+  const topic = topics.find((entry) => entry.id === params.get('topic')) ?? topics[0]
+
+  const modeParam = params.get('mode') as QuizMode | null
+  const mode = modeParam && topic.modes.includes(modeParam) ? modeParam : topic.modes[0]
+
+  const regionParam = params.get('region')
+  const scope = regionParam && regionOptions(topic).some((option) => option.key === regionParam) ? regionParam : defaultScope(topic)
+
+  const usGuess: UsGuess = params.get('guess') === 'main' ? 'main' : 'capital'
+
+  const viewParam = params.get('view')
+  const pageView: PageView = viewParam === 'course' || viewParam === 'questions' ? viewParam : 'practice'
+
+  return { topicId: topic.id, mode, scope, usGuess, pageView }
+}
+
+function writeGameParams(topic: Topic, params: { mode: QuizMode; scope: string; usGuess: UsGuess; pageView: PageView }) {
+  const query = new URLSearchParams()
+  query.set('topic', topic.id)
+  query.set('mode', params.mode)
+  if (regionOptions(topic).length) query.set('region', params.scope)
+  if (topic.id === 'us-cities') query.set('guess', params.usGuess)
+  if (Boolean(courseArticles[topic.id]) || topic.kind === 'city-quiz') query.set('view', params.pageView)
+  const next = `${window.location.pathname}?${query.toString()}${window.location.hash}`
+  window.history.replaceState(null, '', next)
+}
+
 function asFeatures(collection: unknown): BoundaryFeature[] {
   return (collection as GeoJSON.FeatureCollection<GeoJSON.Geometry, Record<string, string | number | null>>).features
 }
@@ -2060,23 +2093,25 @@ function App() {
     })
   }, [countryFeatures])
 
-  const [topicId, setTopicId] = useState(fullTopics[0].id)
+  const initialParams = useMemo(() => readGameParams(fullTopics), [fullTopics])
+  const [topicId, setTopicId] = useState(initialParams.topicId)
   const activeTopic = fullTopics.find((topic) => topic.id === topicId) ?? fullTopics[0]
-  const [mode, setMode] = useState<QuizMode>(activeTopic.modes[0])
-  const [scope, setScope] = useState<string>('world')
-  const [usGuess, setUsGuess] = useState<UsGuess>('capital')
+  const [mode, setMode] = useState<QuizMode>(initialParams.mode)
+  const [scope, setScope] = useState<string>(initialParams.scope)
+  const [usGuess, setUsGuess] = useState<UsGuess>(initialParams.usGuess)
   const [scores, setScores] = useState<Record<string, Score>>(() => loadScores())
   const [histories, setHistories] = useState<Record<string, AnswerResult[]>>({})
   const [roundResults, setRoundResults] = useState<Record<string, AnswerResult[]>>({})
   const [reviews, setReviews] = useState<Record<string, AnswerResult | undefined>>({})
-  const [pageView, setPageView] = useState<PageView>('practice')
+  const [pageView, setPageView] = useState<PageView>(initialParams.pageView)
   const [alsoNameDepartment, setAlsoNameDepartment] = useState(false)
   const [pendingPick, setPendingPick] = useState<{ code?: string; name: string } | null>(null)
   const [roundStates, setRoundStates] = useState<Record<string, RoundState>>(() => {
-    const firstTopic = fullTopics[0]
-    const firstMode = firstTopic.modes[0]
+    const firstTopic = fullTopics.find((topic) => topic.id === initialParams.topicId) ?? fullTopics[0]
     return {
-      [roundKey(firstTopic, firstMode, 'world')]: createRoundState(poolForTopic(firstTopic, firstMode, 'world')),
+      [roundKey(firstTopic, initialParams.mode, initialParams.scope, initialParams.usGuess)]: createRoundState(
+        poolForTopic(firstTopic, initialParams.mode, initialParams.scope, initialParams.usGuess),
+      ),
     }
   })
 
@@ -2093,6 +2128,10 @@ function App() {
   const activeCourse = courseArticles[activeTopic.id]
   const hasCourseView = Boolean(activeCourse) || isCityTopic(activeTopic)
   const activePageView: PageView = hasCourseView ? (isCityTopic(activeTopic) && pageView === 'questions' ? 'practice' : pageView) : 'practice'
+
+  useEffect(() => {
+    writeGameParams(activeTopic, { mode, scope, usGuess, pageView: activePageView })
+  }, [activeTopic, mode, scope, usGuess, activePageView])
   const roundResultsVisible = activeRound.completed && !activeReview
   const isMapTopic = Boolean(activeTopic.mapKind) && !isHistoryDateTopic(activeTopic) && activeTopic.id !== 'solar-system'
   const mapWorkspace = activePageView === 'practice' && isMapTopic
