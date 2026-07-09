@@ -385,15 +385,19 @@ function ColoniesMap({
   )
   const svgRef = useRef<SVGSVGElement | null>(null)
   const dragRef = useRef<{ pointerId: number; clientX: number; clientY: number; moved: boolean; view: MapView } | null>(null)
+  const pointersRef = useRef<Map<number, { x: number; y: number }>>(new Map())
+  const pinchRef = useRef<{ startDist: number; startScale: number; anchor: [number, number] } | null>(null)
   const [mapView, setMapView] = useState<MapView>(defaultMapView)
   const mapTransform = `translate(${mapView.x} ${mapView.y}) scale(${mapView.scale})`
+
+  function toView(clientX: number, clientY: number, rect: DOMRect): [number, number] {
+    return [((clientX - rect.left) / rect.width) * MAP_WIDTH, ((clientY - rect.top) / rect.height) * MAP_HEIGHT]
+  }
 
   function zoomAt(clientX: number, clientY: number, direction: number) {
     const svg = svgRef.current
     if (!svg) return
-    const rect = svg.getBoundingClientRect()
-    const pointX = ((clientX - rect.left) / rect.width) * MAP_WIDTH
-    const pointY = ((clientY - rect.top) / rect.height) * MAP_HEIGHT
+    const [pointX, pointY] = toView(clientX, clientY, svg.getBoundingClientRect())
     setMapView((previous) => {
       const nextScale = Math.min(12, Math.max(1, previous.scale * (direction > 0 ? 1.22 : 1 / 1.22)))
       const ratio = nextScale / previous.scale
@@ -405,14 +409,31 @@ function ColoniesMap({
     if (reviewed) return
     const svg = svgRef.current
     if (!svg) return
-    const rect = svg.getBoundingClientRect()
-    const viewX = ((clientX - rect.left) / rect.width) * MAP_WIDTH
-    const viewY = ((clientY - rect.top) / rect.height) * MAP_HEIGHT
+    const [viewX, viewY] = toView(clientX, clientY, svg.getBoundingClientRect())
     const point: [number, number] = [(viewX - mapView.x) / mapView.scale, (viewY - mapView.y) / mapView.scale]
     const lonLat = projection.invert?.(point)
     if (!lonLat) return
     const picked = worldCountryFeatures.find((feature) => geoContains(feature, lonLat))
     if (picked) onToggle(normalizeName(picked.properties.name))
+  }
+
+  function capturePointer(event: ReactPointerEvent<SVGSVGElement>) {
+    try {
+      event.currentTarget.setPointerCapture(event.pointerId)
+    } catch {
+      // best-effort
+    }
+  }
+
+  function beginPinch() {
+    const svg = svgRef.current
+    const [a, b] = [...pointersRef.current.values()]
+    if (!svg || !a || !b) return
+    dragRef.current = null
+    const rect = svg.getBoundingClientRect()
+    const startDist = Math.hypot(a.x - b.x, a.y - b.y)
+    const [mx, my] = toView((a.x + b.x) / 2, (a.y + b.y) / 2, rect)
+    pinchRef.current = { startDist, startScale: mapView.scale, anchor: [(mx - mapView.x) / mapView.scale, (my - mapView.y) / mapView.scale] }
   }
 
   function handleWheel(event: ReactWheelEvent<SVGSVGElement>) {
@@ -421,28 +442,54 @@ function ColoniesMap({
     zoomAt(event.clientX, event.clientY, event.deltaY < 0 ? 1 : -1)
   }
 
+  // Match Countries of the World: only capture the pointer to pan/pinch. A plain scale-1 tap
+  // is left to the per-country onClick (immediate select), so it isn't retargeted to the SVG.
   function handlePointerDown(event: ReactPointerEvent<SVGSVGElement>) {
-    dragRef.current = { pointerId: event.pointerId, clientX: event.clientX, clientY: event.clientY, moved: false, view: mapView }
-    event.currentTarget.setPointerCapture(event.pointerId)
+    pointersRef.current.set(event.pointerId, { x: event.clientX, y: event.clientY })
+    if (pointersRef.current.size >= 2) {
+      capturePointer(event)
+      beginPinch()
+    } else if (mapView.scale > 1) {
+      capturePointer(event)
+      dragRef.current = { pointerId: event.pointerId, clientX: event.clientX, clientY: event.clientY, moved: false, view: mapView }
+    }
   }
 
   function handlePointerMove(event: ReactPointerEvent<SVGSVGElement>) {
-    const drag = dragRef.current
     const svg = svgRef.current
-    if (!drag || !svg || drag.pointerId !== event.pointerId) return
-    if (Math.hypot(event.clientX - drag.clientX, event.clientY - drag.clientY) > 4) drag.moved = true
-    if (mapView.scale <= 1) return
+    if (!svg) return
+    if (pointersRef.current.has(event.pointerId)) pointersRef.current.set(event.pointerId, { x: event.clientX, y: event.clientY })
     const rect = svg.getBoundingClientRect()
+
+    const pinch = pinchRef.current
+    if (pinch && pointersRef.current.size >= 2) {
+      const [a, b] = [...pointersRef.current.values()]
+      const dist = Math.hypot(a.x - b.x, a.y - b.y)
+      const nextScale = Math.min(12, Math.max(1, (pinch.startScale * dist) / (pinch.startDist || 1)))
+      const [mx, my] = toView((a.x + b.x) / 2, (a.y + b.y) / 2, rect)
+      setMapView(clampMapView({ scale: nextScale, x: mx - pinch.anchor[0] * nextScale, y: my - pinch.anchor[1] * nextScale }))
+      return
+    }
+
+    const drag = dragRef.current
+    if (!drag || drag.pointerId !== event.pointerId || mapView.scale <= 1) return
+    if (Math.hypot(event.clientX - drag.clientX, event.clientY - drag.clientY) > 4) drag.moved = true
     const dx = ((event.clientX - drag.clientX) / rect.width) * MAP_WIDTH
     const dy = ((event.clientY - drag.clientY) / rect.height) * MAP_HEIGHT
     setMapView(clampMapView({ ...drag.view, x: drag.view.x + dx, y: drag.view.y + dy }))
   }
 
   function handlePointerUp(event: ReactPointerEvent<SVGSVGElement>) {
+    pointersRef.current.delete(event.pointerId)
+    if (pointersRef.current.size < 2) pinchRef.current = null
     const drag = dragRef.current
     if (drag?.pointerId === event.pointerId) {
       dragRef.current = null
-      if (!drag.moved) pickAtClientPoint(event.clientX, event.clientY)
+      if (!drag.moved && mapView.scale > 1) pickAtClientPoint(event.clientX, event.clientY)
+    }
+    if (pointersRef.current.size === 1 && mapView.scale > 1) {
+      const [id, pos] = [...pointersRef.current.entries()][0]
+      dragRef.current = { pointerId: id, clientX: pos.x, clientY: pos.y, moved: true, view: mapView }
     }
   }
 
@@ -484,7 +531,7 @@ function ColoniesMap({
               reviewed && isExpected && !isSelected ? 'country-missed' : '',
               reviewed && !isExpected && isSelected ? 'country-wrong' : '',
             ].filter(Boolean).join(' ')
-            return <path key={shape.name} className={klass} d={shape.d} />
+            return <path key={shape.name} className={klass} d={shape.d} onClick={!reviewed && mapView.scale <= 1 ? () => onToggle(shape.key) : undefined} />
           })}
         </g>
       </svg>

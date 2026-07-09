@@ -33,8 +33,12 @@
   width: 100%;
 }
 
-.country-selected {
-  fill: #4b8fd4;
+/* Selected picks are green and win over the base .country-clickable:hover (higher specificity),
+   so a click shows immediately instead of only when the cursor leaves the country. */
+.country-selected,
+.country-clickable.country-selected,
+.country-clickable.country-selected:hover {
+  fill: #48a868;
 }
 
 .country-hit {
