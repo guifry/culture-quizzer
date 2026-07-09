@@ -14,6 +14,9 @@ export type QuizMode =
   | 'city-locate'
   | 'city-photos'
   | 'city-clue'
+  | 'landmark-locate'
+  | 'landmark-photos'
+  | 'landmark-clue'
 
 export type TopicGroup =
   | 'Geography'
@@ -82,6 +85,38 @@ export type CityEntry = {
   images?: number
 }
 
+export type Nation = 'England' | 'Scotland' | 'Wales' | 'Northern Ireland'
+
+export type LandmarkCourse = {
+  nutshell: string
+  when: string
+  who: string
+  people?: string[]
+  events?: string[]
+  concepts: string[]
+}
+
+export type Landmark = {
+  id: string
+  name: string
+  aliases?: string[]
+  nation: Nation
+  region?: string
+  lat: number
+  lon: number
+  essential?: boolean
+  mapBlurb: string
+  course: LandmarkCourse
+  clues: string[]
+}
+
+export type GlossaryTerm = {
+  key: string
+  term: string
+  span?: string
+  definition: string
+}
+
 export type Topic = {
   id: string
   title: string
@@ -97,8 +132,10 @@ export type Topic = {
   boundaryTarget?: boolean
   items: QuizItem[]
   coverage: string
-  kind?: 'history-dates' | 'colonies' | 'city-quiz'
+  kind?: 'history-dates' | 'colonies' | 'city-quiz' | 'landmark-quiz'
   dates?: HistoryDate[]
   colonies?: ColonyRelation[]
   cities?: CityEntry[]
+  landmarks?: Landmark[]
+  glossary?: GlossaryTerm[]
 }

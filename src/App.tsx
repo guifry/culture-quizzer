@@ -16,6 +16,8 @@ import { HistoryDateQuiz } from './components/HistoryDateQuiz'
 import { ColoniesQuiz } from './components/ColoniesQuiz'
 import { CityQuiz } from './components/CityQuiz'
 import { CityCourse } from './components/CityCourse'
+import { LandmarkQuiz } from './components/LandmarkQuiz'
+import { LandmarkCourse } from './components/LandmarkCourse'
 import { WIDTH, HEIGHT, defaultMapView, buildProjection, type MapView } from './map/projection'
 
 type CountryFeature = GeoJSON.Feature<GeoJSON.Geometry, { name: string }>
@@ -103,6 +105,9 @@ const defaultModeLabels: Record<QuizMode, string> = {
   'city-locate': 'Locate',
   'city-photos': 'Photos',
   'city-clue': 'Clue',
+  'landmark-locate': 'Locate',
+  'landmark-photos': 'Photos',
+  'landmark-clue': 'Clue',
 }
 
 function isHistoryDateTopic(topic: Topic) {
@@ -115,6 +120,16 @@ function isColoniesTopic(topic: Topic) {
 
 function isCityTopic(topic: Topic) {
   return topic.kind === 'city-quiz'
+}
+
+function isLandmarkTopic(topic: Topic) {
+  return topic.kind === 'landmark-quiz'
+}
+
+// City and landmark games share the same "Play / Course" shell (no generic engine, no
+// questions view, own score strip).
+function isCoursePairTopic(topic: Topic) {
+  return isCityTopic(topic) || isLandmarkTopic(topic)
 }
 
 function modeLabel(topic: Topic, mode: QuizMode) {
@@ -2126,8 +2141,8 @@ function App() {
   const activeReview = reviews[activePracticeKey]
   const accuracy = activeScore.attempts ? Math.round((activeScore.correct / activeScore.attempts) * 100) : 0
   const activeCourse = courseArticles[activeTopic.id]
-  const hasCourseView = Boolean(activeCourse) || isCityTopic(activeTopic)
-  const activePageView: PageView = hasCourseView ? (isCityTopic(activeTopic) && pageView === 'questions' ? 'practice' : pageView) : 'practice'
+  const hasCourseView = Boolean(activeCourse) || isCoursePairTopic(activeTopic)
+  const activePageView: PageView = hasCourseView ? (isCoursePairTopic(activeTopic) && pageView === 'questions' ? 'practice' : pageView) : 'practice'
 
   useEffect(() => {
     writeGameParams(activeTopic, { mode, scope, usGuess, pageView: activePageView })
@@ -2142,12 +2157,12 @@ function App() {
   // Self-contained map games (colonies) reuse the map-first shell: compact header + full-height
   // flex so the component's own .map-stage fills the viewport with floating overlays.
   const coloniesStage = activePageView === 'practice' && isColoniesTopic(activeTopic)
-  const cityStage = activePageView === 'practice' && isCityTopic(activeTopic)
-  const compactHeader = mapWorkspace || coloniesStage || cityStage
-  const fullBleedWorkspace = showingMapStage || coloniesStage || cityStage
-  // Self-contained map games (colonies, cities) get the same dedicated mobile layout as the
-  // generic map games: dropdown toolbar + prompt on top, map filling the rest.
-  const mobileSelfContained = isMobile && (coloniesStage || cityStage)
+  const coursePairStage = activePageView === 'practice' && isCoursePairTopic(activeTopic)
+  const compactHeader = mapWorkspace || coloniesStage || coursePairStage
+  const fullBleedWorkspace = showingMapStage || coloniesStage || coursePairStage
+  // Colonies and cities have a dedicated mobile self-contained layout; landmarks fall back to the
+  // standard responsive workspace (LandmarkQuiz has no mobile-specific layout yet).
+  const mobileSelfContained = isMobile && (coloniesStage || (activePageView === 'practice' && isCityTopic(activeTopic)))
   const mobileMapActive = mobileMapGame || mobileSelfContained
 
   const advanceRound = useCallback(() => {
@@ -2529,9 +2544,9 @@ function App() {
 
         {hasCourseView ? (
           <div className="view-control" role="tablist" aria-label="Section view">
-            {(isCityTopic(activeTopic) ? (['practice', 'course'] as PageView[]) : (['practice', 'course', 'questions'] as PageView[])).map((view) => (
+            {(isCoursePairTopic(activeTopic) ? (['practice', 'course'] as PageView[]) : (['practice', 'course', 'questions'] as PageView[])).map((view) => (
               <button key={view} className={activePageView === view ? 'view-button active' : 'view-button'} type="button" onClick={() => setPageView(view)}>
-                {isCityTopic(activeTopic) ? (view === 'practice' ? 'Play' : 'Course') : view === 'practice' ? 'Practice' : view === 'course' ? 'Course' : 'Questions'}
+                {isCoursePairTopic(activeTopic) ? (view === 'practice' ? 'Play' : 'Course') : view === 'practice' ? 'Practice' : view === 'course' ? 'Course' : 'Questions'}
               </button>
             ))}
           </div>
@@ -2612,7 +2627,7 @@ function App() {
             </div>
             )}
 
-            {isHistoryDateTopic(activeTopic) || isColoniesTopic(activeTopic) || isCityTopic(activeTopic) || showingMapStage ? null : (
+            {isHistoryDateTopic(activeTopic) || isColoniesTopic(activeTopic) || isCoursePairTopic(activeTopic) || showingMapStage ? null : (
               <section className="score-strip" aria-label="Current score">
                 <Stat label="Deck" value={pool.length} />
                 <Stat label="Progress" value={activeRound.completed ? `${pool.length}/${pool.length}` : `${Math.min(activeRound.position + 1, pool.length)}/${pool.length}`} />
@@ -2627,6 +2642,8 @@ function App() {
               <ColoniesQuiz key={activeTopic.id} topic={activeTopic} />
             ) : isCityTopic(activeTopic) ? (
               <CityQuiz key={`${activeTopic.id}:${mode}`} topic={activeTopic} mode={mode} />
+            ) : isLandmarkTopic(activeTopic) ? (
+              <LandmarkQuiz key={`${activeTopic.id}:${mode}`} topic={activeTopic} mode={mode} />
             ) : isHistoryDateTopic(activeTopic) ? (
               <HistoryDateQuiz key={`${activeTopic.id}:${mode}`} topic={activeTopic} mode={mode} />
             ) : activeTopic.id === 'solar-system' ? (
@@ -2688,6 +2705,8 @@ function App() {
           </>
         ) : activePageView === 'course' && isCityTopic(activeTopic) ? (
           <CityCourse topic={activeTopic} />
+        ) : activePageView === 'course' && isLandmarkTopic(activeTopic) ? (
+          <LandmarkCourse topic={activeTopic} />
         ) : activePageView === 'course' && activeCourse ? (
           <CoursePanel article={activeCourse} />
         ) : activePageView === 'questions' ? (

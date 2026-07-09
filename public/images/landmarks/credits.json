@@ -1,0 +1,2476 @@
+{
+  "stonehenge": [
+    {
+      "n": 1,
+      "term": "Stonehenge stone circle",
+      "title": "File:Stonehenge, stone circle - geograph.org.uk - 3685958.jpg",
+      "artist": "Mike Faherty",
+      "license": "CC BY-SA 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Stonehenge,_stone_circle_-_geograph.org.uk_-_3685958.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/8/85/Stonehenge%2C_stone_circle_-_geograph.org.uk_-_3685958.jpg",
+      "originalSize": "1024x767"
+    },
+    {
+      "n": 2,
+      "term": "Stonehenge aerial",
+      "title": "File:Summer Solstice Sunrise over Stonehenge 2005.jpg",
+      "artist": "Unknown",
+      "license": "CC BY-SA 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Summer_Solstice_Sunrise_over_Stonehenge_2005.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/5/52/Summer_Solstice_Sunrise_over_Stonehenge_2005.jpg",
+      "originalSize": "1224x854"
+    },
+    {
+      "n": 3,
+      "term": "Stonehenge trilithon",
+      "title": "File:A Stonehenge trilithon.jpg",
+      "artist": "TobyEditor",
+      "license": "CC BY 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:A_Stonehenge_trilithon.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/b/be/A_Stonehenge_trilithon.jpg",
+      "originalSize": "4000x6000"
+    },
+    {
+      "n": 4,
+      "term": "Stonehenge sunrise",
+      "title": "File:Stonehenge sunrise shadows.jpg",
+      "artist": "Cbuske46",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Stonehenge_sunrise_shadows.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a2/Stonehenge_sunrise_shadows.jpg",
+      "originalSize": "4000x3000"
+    },
+    {
+      "n": 5,
+      "term": "Stonehenge winter",
+      "title": "File:Stonehenge Winter Solstice 2011.jpg",
+      "artist": "Ethan Doyle White",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Stonehenge_Winter_Solstice_2011.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/9/91/Stonehenge_Winter_Solstice_2011.jpg",
+      "originalSize": "3072x2304"
+    },
+    {
+      "n": 6,
+      "term": "Stonehenge sarsen stones",
+      "title": "File:Stonehenge Heel Stone.jpg",
+      "artist": "DeFacto",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Stonehenge_Heel_Stone.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/6/63/Stonehenge_Heel_Stone.jpg",
+      "originalSize": "2936x4777"
+    },
+    {
+      "n": 7,
+      "term": "Stonehenge panorama",
+      "title": "File:Stonehenge from north, August 2010.jpg",
+      "artist": "Julie Anne Workman",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Stonehenge_from_north,_August_2010.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d1/Stonehenge_from_north%2C_August_2010.jpg",
+      "originalSize": "6907x2637"
+    },
+    {
+      "n": 8,
+      "term": "Stonehenge close up",
+      "title": "File:Stonehenge up close.jpg",
+      "artist": "Noushin Nabavi",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Stonehenge_up_close.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1e/Stonehenge_up_close.jpg",
+      "originalSize": "2048x1535"
+    }
+  ],
+  "palace-of-westminster": [
+    {
+      "n": 1,
+      "term": "Palace of Westminster river",
+      "title": "File:Palace of Westminster, London - Feb 2007.jpg",
+      "artist": "Diliff",
+      "license": "CC BY-SA 2.5",
+      "source": "https://commons.wikimedia.org/wiki/File:Palace_of_Westminster,_London_-_Feb_2007.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/9/97/Palace_of_Westminster%2C_London_-_Feb_2007.jpg",
+      "originalSize": "3200x1261"
+    },
+    {
+      "n": 2,
+      "term": "Big Ben Elizabeth Tower",
+      "title": "File:Big Ben at sunset - 2014-10-27 17-30.jpg",
+      "artist": "Colin",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Big_Ben_at_sunset_-_2014-10-27_17-30.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/9/97/Big_Ben_at_sunset_-_2014-10-27_17-30.jpg",
+      "originalSize": "5575x3774"
+    },
+    {
+      "n": 3,
+      "term": "Houses of Parliament London",
+      "title": "File:Claude Monet, Houses of Parliament, London, 1900-1903, 1933.1164, Art Institute of Chicago.jpg",
+      "artist": "Claude Monet",
+      "license": "CC0",
+      "source": "https://commons.wikimedia.org/wiki/File:Claude_Monet,_Houses_of_Parliament,_London,_1900-1903,_1933.1164,_Art_Institute_of_Chicago.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a5/Claude_Monet%2C_Houses_of_Parliament%2C_London%2C_1900-1903%2C_1933.1164%2C_Art_Institute_of_Chicago.jpg",
+      "originalSize": "3000x2620"
+    },
+    {
+      "n": 4,
+      "term": "Palace of Westminster night",
+      "title": "File:PalaceOfWestminsterAtNight.jpg",
+      "artist": "Photograph © Andrew Dunn, Website: http://www.andrewdunnphoto.com/",
+      "license": "CC BY-SA 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:PalaceOfWestminsterAtNight.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/2/2c/PalaceOfWestminsterAtNight.jpg",
+      "originalSize": "1084x768"
+    },
+    {
+      "n": 5,
+      "term": "Westminster Bridge Big Ben",
+      "title": "File:Westminster palace.jpg",
+      "artist": "DaniKauf",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Westminster_palace.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/4/48/Westminster_palace.jpg",
+      "originalSize": "1024x768"
+    },
+    {
+      "n": 6,
+      "term": "Victoria Tower Palace of Westminster",
+      "title": "File:Palace of Westminster Victoria Tower Gardens South 2020 Tower.jpg",
+      "artist": "Julian Herzog (Website)",
+      "license": "CC BY 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Palace_of_Westminster_Victoria_Tower_Gardens_South_2020_Tower.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e2/Palace_of_Westminster_Victoria_Tower_Gardens_South_2020_Tower.jpg",
+      "originalSize": "5448x7149"
+    },
+    {
+      "n": 7,
+      "term": "Houses of Parliament Thames",
+      "title": "File:River Thames and Houses of Parliament - geograph.org.uk - 2340856.jpg",
+      "artist": "Christine Matthews",
+      "license": "CC BY-SA 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:River_Thames_and_Houses_of_Parliament_-_geograph.org.uk_-_2340856.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/4/41/River_Thames_and_Houses_of_Parliament_-_geograph.org.uk_-_2340856.jpg",
+      "originalSize": "1024x683"
+    },
+    {
+      "n": 8,
+      "term": "Elizabeth Tower clock",
+      "title": "File:Big Ben Elizabeth Tower London 2023 01.jpg",
+      "artist": "Julian Herzog (Website)",
+      "license": "CC BY 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Big_Ben_Elizabeth_Tower_London_2023_01.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f7/Big_Ben_Elizabeth_Tower_London_2023_01.jpg",
+      "originalSize": "5630x6512"
+    }
+  ],
+  "tower-of-london": [
+    {
+      "n": 1,
+      "term": "Tower of London White Tower",
+      "title": "File:Jubilee and Munin, Ravens, Tower of London 2016-04-30.jpg",
+      "artist": "Colin",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Jubilee_and_Munin,_Ravens,_Tower_of_London_2016-04-30.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/3/30/Jubilee_and_Munin%2C_Ravens%2C_Tower_of_London_2016-04-30.jpg",
+      "originalSize": "2723x2723"
+    },
+    {
+      "n": 2,
+      "term": "Tower of London walls",
+      "title": "File:London, Tower of London, Traitors' Gate -- 2016 -- 4652.jpg",
+      "artist": "Dietmar Rabich",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:London,_Tower_of_London,_Traitors%27_Gate_--_2016_--_4652.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/7/74/London%2C_Tower_of_London%2C_Traitors%27_Gate_--_2016_--_4652.jpg",
+      "originalSize": "3559x5339"
+    },
+    {
+      "n": 3,
+      "term": "Tower of London ravens",
+      "title": "File:Tower of London Raven.jpg",
+      "artist": "Bizkit Wizperer",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Tower_of_London_Raven.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/7/76/Tower_of_London_Raven.jpg",
+      "originalSize": "3024x4032"
+    },
+    {
+      "n": 4,
+      "term": "Tower of London Traitors Gate",
+      "title": "File:The Traitors' Gate. Tower of London, GB.jpg",
+      "artist": "Ввласенко",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:The_Traitors%27_Gate._Tower_of_London,_GB.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/7/7a/The_Traitors%27_Gate._Tower_of_London%2C_GB.jpg",
+      "originalSize": "3345x2466"
+    },
+    {
+      "n": 5,
+      "term": "Tower of London aerial",
+      "title": "File:Aerial Tower of London.jpg",
+      "artist": "Rafa Esteve",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Aerial_Tower_of_London.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/d/df/Aerial_Tower_of_London.jpg",
+      "originalSize": "4687x2636"
+    },
+    {
+      "n": 6,
+      "term": "White Tower keep London",
+      "title": "File:London, Tower of London, White Tower -- 2016 -- 4678.jpg",
+      "artist": "Dietmar Rabich",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:London,_Tower_of_London,_White_Tower_--_2016_--_4678.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d0/London%2C_Tower_of_London%2C_White_Tower_--_2016_--_4678.jpg",
+      "originalSize": "3344x5016"
+    },
+    {
+      "n": 7,
+      "term": "Tower of London moat",
+      "title": "File:The Tower of London moat - geograph.org.uk - 2200837.jpg",
+      "artist": "Steve Daniels",
+      "license": "CC BY-SA 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:The_Tower_of_London_moat_-_geograph.org.uk_-_2200837.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c6/The_Tower_of_London_moat_-_geograph.org.uk_-_2200837.jpg",
+      "originalSize": "1500x992"
+    },
+    {
+      "n": 8,
+      "term": "Tower of London battlements",
+      "title": "File:Tower of London Tower Hill Tower Hamlets London England.jpg",
+      "artist": "Acabashi",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Tower_of_London_Tower_Hill_Tower_Hamlets_London_England.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/7/76/Tower_of_London_Tower_Hill_Tower_Hamlets_London_England.jpg",
+      "originalSize": "4518x3389"
+    }
+  ],
+  "tower-bridge": [
+    {
+      "n": 1,
+      "term": "Tower Bridge London",
+      "title": "File:Tower Bridge London Dusk Feb 2006.jpg",
+      "artist": "Diliff",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Tower_Bridge_London_Dusk_Feb_2006.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/5/5f/Tower_Bridge_London_Dusk_Feb_2006.jpg",
+      "originalSize": "6589x2922"
+    },
+    {
+      "n": 2,
+      "term": "Tower Bridge open bascule",
+      "title": "File:Tower Bridge, Bascule Bridge - geograph.org.uk - 2942276.jpg",
+      "artist": "Colin Smith",
+      "license": "CC BY-SA 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Tower_Bridge,_Bascule_Bridge_-_geograph.org.uk_-_2942276.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/4/47/Tower_Bridge%2C_Bascule_Bridge_-_geograph.org.uk_-_2942276.jpg",
+      "originalSize": "4288x3216"
+    },
+    {
+      "n": 3,
+      "term": "Tower Bridge night",
+      "title": "File:Tower Bridge Lights.jpg",
+      "artist": "Martin Falbisoner",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Tower_Bridge_Lights.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/3/33/Tower_Bridge_Lights.jpg",
+      "originalSize": "2826x4239"
+    },
+    {
+      "n": 4,
+      "term": "Tower Bridge walkway",
+      "title": "File:Tower Bridge elevated walkway.jpg",
+      "artist": "APK",
+      "license": "CC BY 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Tower_Bridge_elevated_walkway.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e1/Tower_Bridge_elevated_walkway.jpg",
+      "originalSize": "2799x3032"
+    },
+    {
+      "n": 5,
+      "term": "Tower Bridge Thames",
+      "title": "File:Tower Bridge London Feb 2006.jpg",
+      "artist": "Diliff",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Tower_Bridge_London_Feb_2006.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/4/44/Tower_Bridge_London_Feb_2006.jpg",
+      "originalSize": "9462x4734"
+    },
+    {
+      "n": 6,
+      "term": "Tower Bridge towers",
+      "title": "File:Puente de la Torre, Londres, Inglaterra, 2014-08-11, DD 092.JPG",
+      "artist": "Diego Delso",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Puente_de_la_Torre,_Londres,_Inglaterra,_2014-08-11,_DD_092.JPG",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/4/46/Puente_de_la_Torre%2C_Londres%2C_Inglaterra%2C_2014-08-11%2C_DD_092.JPG",
+      "originalSize": "5369x3579"
+    },
+    {
+      "n": 7,
+      "term": "Tower Bridge from river",
+      "title": "File:HMS Belfast and Tower Bridge before sunrise.jpg",
+      "artist": "Aleem Yousaf",
+      "license": "CC BY-SA 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:HMS_Belfast_and_Tower_Bridge_before_sunrise.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/9/93/HMS_Belfast_and_Tower_Bridge_before_sunrise.jpg",
+      "originalSize": "6964x3004"
+    },
+    {
+      "n": 8,
+      "term": "Tower Bridge sunset",
+      "title": "File:Tower Bridge golden hour.jpg",
+      "artist": "The Cosmonaut",
+      "license": "CC BY-SA 2.5 ca",
+      "source": "https://commons.wikimedia.org/wiki/File:Tower_Bridge_golden_hour.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c9/Tower_Bridge_golden_hour.jpg",
+      "originalSize": "5510x3825"
+    }
+  ],
+  "buckingham-palace": [
+    {
+      "n": 1,
+      "term": "Buckingham Palace facade",
+      "title": "File:Buckingham Palace, West Facade - geograph.org.uk - 3271199.jpg",
+      "artist": "Richard Cooke",
+      "license": "CC BY-SA 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Buckingham_Palace,_West_Facade_-_geograph.org.uk_-_3271199.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/7/79/Buckingham_Palace%2C_West_Facade_-_geograph.org.uk_-_3271199.jpg",
+      "originalSize": "3968x2232"
+    },
+    {
+      "n": 2,
+      "term": "Buckingham Palace gates",
+      "title": "File:Buckingham Palace East Gates 2020.jpg",
+      "artist": "Julian Herzog (Website)",
+      "license": "CC BY 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Buckingham_Palace_East_Gates_2020.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/1/19/Buckingham_Palace_East_Gates_2020.jpg",
+      "originalSize": "6032x7661"
+    },
+    {
+      "n": 3,
+      "term": "Buckingham Palace Changing of the Guard",
+      "title": "File:Guard of Buckingham Palace - 01.jpg",
+      "artist": "Carlos Delgado",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Guard_of_Buckingham_Palace_-_01.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/9/90/Guard_of_Buckingham_Palace_-_01.jpg",
+      "originalSize": "3200x2400"
+    },
+    {
+      "n": 4,
+      "term": "Buckingham Palace Victoria Memorial",
+      "title": "File:Buckingham Palace, London - April 2009.jpg",
+      "artist": "Diliff",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Buckingham_Palace,_London_-_April_2009.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Buckingham_Palace%2C_London_-_April_2009.jpg",
+      "originalSize": "3072x2011"
+    },
+    {
+      "n": 5,
+      "term": "Buckingham Palace balcony",
+      "title": "File:Buckingham Palace - The famous balcony at the front of the palace - geograph.org.uk - 8158006.jpg",
+      "artist": "Chris Gorringe",
+      "license": "CC BY-SA 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Buckingham_Palace_-_The_famous_balcony_at_the_front_of_the_palace_-_geograph.org.uk_-_8158006.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d8/Buckingham_Palace_-_The_famous_balcony_at_the_front_of_the_palace_-_geograph.org.uk_-_8158006.jpg",
+      "originalSize": "4288x2848"
+    },
+    {
+      "n": 6,
+      "term": "Buckingham Palace forecourt",
+      "title": "File:Buckingham Palace forecourt, South screen.JPG",
+      "artist": "Ham",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Buckingham_Palace_forecourt,_South_screen.JPG",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d9/Buckingham_Palace_forecourt%2C_South_screen.JPG",
+      "originalSize": "3262x2446"
+    },
+    {
+      "n": 7,
+      "term": "Buckingham Palace guards",
+      "title": "File:Band of the Welsh Guards, Buckingham Palace, London - Diliff.jpg",
+      "artist": "Diliff",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Band_of_the_Welsh_Guards,_Buckingham_Palace,_London_-_Diliff.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Band_of_the_Welsh_Guards%2C_Buckingham_Palace%2C_London_-_Diliff.jpg",
+      "originalSize": "4700x2815"
+    },
+    {
+      "n": 8,
+      "term": "Buckingham Palace The Mall",
+      "title": "File:London - Constitution Hill - View East along Green Park (left) towards Victoria Memorial & The Mall - Garden at Buckingham Palace (right).jpg",
+      "artist": "Txllxt TxllxT",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:London_-_Constitution_Hill_-_View_East_along_Green_Park_(left)_towards_Victoria_Memorial_%26_The_Mall_-_Garden_at_Buckingham_Palace_(right).jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/b/ba/London_-_Constitution_Hill_-_View_East_along_Green_Park_%28left%29_towards_Victoria_Memorial_%26_The_Mall_-_Garden_at_Buckingham_Palace_%28right%29.jpg",
+      "originalSize": "6040x4032"
+    }
+  ],
+  "st-pauls-cathedral": [
+    {
+      "n": 1,
+      "term": "St Pauls Cathedral dome",
+      "title": "File:St Paul's Cathedral Dome from One New Change - Square Crop.jpg",
+      "artist": "Colin",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:St_Paul%27s_Cathedral_Dome_from_One_New_Change_-_Square_Crop.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/4/43/St_Paul%27s_Cathedral_Dome_from_One_New_Change_-_Square_Crop.jpg",
+      "originalSize": "7514x7514"
+    },
+    {
+      "n": 2,
+      "term": "St Pauls Cathedral London facade",
+      "title": "File:St Paul's Cathedral West Facade Night 2020.jpg",
+      "artist": "Julian Herzog (Website)",
+      "license": "CC BY 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:St_Paul%27s_Cathedral_West_Facade_Night_2020.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/8/8b/St_Paul%27s_Cathedral_West_Facade_Night_2020.jpg",
+      "originalSize": "5914x3906"
+    },
+    {
+      "n": 3,
+      "term": "St Pauls Cathedral interior",
+      "title": "File:St Paul's Cathedral Interior Dome 3, London, UK - Diliff.jpg",
+      "artist": "Diliff",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:St_Paul%27s_Cathedral_Interior_Dome_3,_London,_UK_-_Diliff.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/7/70/St_Paul%27s_Cathedral_Interior_Dome_3%2C_London%2C_UK_-_Diliff.jpg",
+      "originalSize": "6000x6009"
+    },
+    {
+      "n": 4,
+      "term": "St Pauls Cathedral aerial",
+      "title": "File:St Pauls aerial (cropped).jpg",
+      "artist": "Mark Fosh",
+      "license": "CC BY 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:St_Pauls_aerial_(cropped).jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/c/cb/St_Pauls_aerial_%28cropped%29.jpg",
+      "originalSize": "1833x1259"
+    },
+    {
+      "n": 5,
+      "term": "St Pauls Cathedral Millennium Bridge",
+      "title": "File:St Pauls Cathedral and Millennium Bridge.jpg",
+      "artist": "Alexandre Buisse (Nattfodd)",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:St_Pauls_Cathedral_and_Millennium_Bridge.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/8/80/St_Pauls_Cathedral_and_Millennium_Bridge.jpg",
+      "originalSize": "2712x1803"
+    },
+    {
+      "n": 6,
+      "term": "St Pauls Cathedral night",
+      "title": "File:St Pauls Cathedral from West - Feb 2007.jpg",
+      "artist": "Diliff",
+      "license": "CC BY 2.5",
+      "source": "https://commons.wikimedia.org/wiki/File:St_Pauls_Cathedral_from_West_-_Feb_2007.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/5/5b/St_Pauls_Cathedral_from_West_-_Feb_2007.jpg",
+      "originalSize": "6220x6288"
+    },
+    {
+      "n": 7,
+      "term": "St Pauls Cathedral west front",
+      "title": "File:St Paul's Cathedral Choir looking west, London, UK - Diliff.jpg",
+      "artist": "Diliff",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:St_Paul%27s_Cathedral_Choir_looking_west,_London,_UK_-_Diliff.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a2/St_Paul%27s_Cathedral_Choir_looking_west%2C_London%2C_UK_-_Diliff.jpg",
+      "originalSize": "6000x6958"
+    },
+    {
+      "n": 8,
+      "term": "St Pauls Cathedral nave",
+      "title": "File:St Paul's Cathedral Nave, London, UK - Diliff.jpg",
+      "artist": "Diliff",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:St_Paul%27s_Cathedral_Nave,_London,_UK_-_Diliff.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f0/St_Paul%27s_Cathedral_Nave%2C_London%2C_UK_-_Diliff.jpg",
+      "originalSize": "6000x5230"
+    }
+  ],
+  "westminster-abbey": [
+    {
+      "n": 1,
+      "term": "Westminster Abbey west front",
+      "title": "File:West Front, Westminster Abbey - geograph.org.uk - 2499793.jpg",
+      "artist": "Philip Pankhurst",
+      "license": "CC BY-SA 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:West_Front,_Westminster_Abbey_-_geograph.org.uk_-_2499793.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f6/West_Front%2C_Westminster_Abbey_-_geograph.org.uk_-_2499793.jpg",
+      "originalSize": "3095x2865"
+    },
+    {
+      "n": 2,
+      "term": "Westminster Abbey nave interior",
+      "title": "File:Westminster Abbey (Interior) 05.jpg",
+      "artist": "Maksim Sokolov (maxergon.com)",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Westminster_Abbey_(Interior)_05.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b5/Westminster_Abbey_%28Interior%29_05.jpg",
+      "originalSize": "6336x9504"
+    },
+    {
+      "n": 3,
+      "term": "Westminster Abbey towers",
+      "title": "File:Westminster Abbey Towers - geograph.org.uk - 2379352.jpg",
+      "artist": "Colin Smith",
+      "license": "CC BY-SA 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Westminster_Abbey_Towers_-_geograph.org.uk_-_2379352.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1b/Westminster_Abbey_Towers_-_geograph.org.uk_-_2379352.jpg",
+      "originalSize": "2560x1920"
+    },
+    {
+      "n": 4,
+      "term": "Westminster Abbey exterior",
+      "title": "File:London, Westminster Abbey -- 2016 -- 4811.jpg",
+      "artist": "Dietmar Rabich",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:London,_Westminster_Abbey_--_2016_--_4811.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/5/55/London%2C_Westminster_Abbey_--_2016_--_4811.jpg",
+      "originalSize": "3138x4707"
+    },
+    {
+      "n": 5,
+      "term": "Westminster Abbey north entrance",
+      "title": "File:Westminster Abbey (North Entrance).101 - London.jpg",
+      "artist": "Fernando Losada Rodríguez",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Westminster_Abbey_(North_Entrance).101_-_London.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/5/5c/Westminster_Abbey_%28North_Entrance%29.101_-_London.jpg",
+      "originalSize": "4000x3000"
+    },
+    {
+      "n": 6,
+      "term": "Westminster Abbey ceiling",
+      "title": "File:View of the ceiling in the quire of Westminster Abbey - geograph.org.uk - 6915522.jpg",
+      "artist": "Robert Lamb",
+      "license": "CC BY-SA 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:View_of_the_ceiling_in_the_quire_of_Westminster_Abbey_-_geograph.org.uk_-_6915522.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/9/9b/View_of_the_ceiling_in_the_quire_of_Westminster_Abbey_-_geograph.org.uk_-_6915522.jpg",
+      "originalSize": "3872x2592"
+    },
+    {
+      "n": 7,
+      "term": "Westminster Abbey cloisters",
+      "title": "File:The Great Cloisters of Westminster Abbey.JPG",
+      "artist": "Xaviguillen",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:The_Great_Cloisters_of_Westminster_Abbey.JPG",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e3/The_Great_Cloisters_of_Westminster_Abbey.JPG",
+      "originalSize": "4608x3072"
+    },
+    {
+      "n": 8,
+      "term": "Westminster Abbey London",
+      "title": "File:Westminster Abbey - 02.jpg",
+      "artist": "Carlos Delgado",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Westminster_Abbey_-_02.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e0/Westminster_Abbey_-_02.jpg",
+      "originalSize": "2800x2100"
+    }
+  ],
+  "british-museum": [
+    {
+      "n": 1,
+      "term": "British Museum Great Court",
+      "title": "File:British Museum Great Court, London, UK - Diliff.jpg",
+      "artist": "Diliff",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:British_Museum_Great_Court,_London,_UK_-_Diliff.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/5/5a/British_Museum_Great_Court%2C_London%2C_UK_-_Diliff.jpg",
+      "originalSize": "3806x3736"
+    },
+    {
+      "n": 2,
+      "term": "British Museum reading room",
+      "title": "File:British Museum Reading Room Panorama Feb 2006.jpg",
+      "artist": "Diliff",
+      "license": "CC BY 2.5",
+      "source": "https://commons.wikimedia.org/wiki/File:British_Museum_Reading_Room_Panorama_Feb_2006.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c5/British_Museum_Reading_Room_Panorama_Feb_2006.jpg",
+      "originalSize": "4996x1701"
+    },
+    {
+      "n": 3,
+      "term": "British Museum entrance",
+      "title": "File:British Museum entrance 2024-10-05.jpg",
+      "artist": "Matt Brown",
+      "license": "CC BY 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:British_Museum_entrance_2024-10-05.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/a/ad/British_Museum_entrance_2024-10-05.jpg",
+      "originalSize": "4032x3024"
+    },
+    {
+      "n": 4,
+      "term": "British Museum portico",
+      "title": "File:Central portico on the southern elevation of the British Museum - closeup.jpg",
+      "artist": "APK",
+      "license": "CC BY 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Central_portico_on_the_southern_elevation_of_the_British_Museum_-_closeup.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/f/fe/Central_portico_on_the_southern_elevation_of_the_British_Museum_-_closeup.jpg",
+      "originalSize": "3432x2731"
+    },
+    {
+      "n": 5,
+      "term": "British Museum roof",
+      "title": "File:British Museum Great Court roof.jpg",
+      "artist": "Andrew Dunn, http://www.andrewdunnphoto.com/",
+      "license": "CC BY-SA 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:British_Museum_Great_Court_roof.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/1/19/British_Museum_Great_Court_roof.jpg",
+      "originalSize": "1107x1557"
+    },
+    {
+      "n": 6,
+      "term": "British Museum Bloomsbury",
+      "title": "File:British Museum (aerial).jpg",
+      "artist": "Luke Massey &amp; the Greater London National Park City Initiative",
+      "license": "CC BY 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:British_Museum_(aerial).jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/8/86/British_Museum_%28aerial%29.jpg",
+      "originalSize": "2100x1575"
+    },
+    {
+      "n": 7,
+      "term": "British Museum courtyard",
+      "title": "File:Fabulous Courtyard at the British Museum - panoramio.jpg",
+      "artist": "Adrian Farwell",
+      "license": "CC BY 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Fabulous_Courtyard_at_the_British_Museum_-_panoramio.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d9/Fabulous_Courtyard_at_the_British_Museum_-_panoramio.jpg",
+      "originalSize": "3240x4320"
+    }
+  ],
+  "trafalgar-square": [
+    {
+      "n": 1,
+      "term": "Trafalgar Square Nelson Column",
+      "title": "File:TrafalgarSquareEvening.jpg",
+      "artist": "Andreas Tille",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:TrafalgarSquareEvening.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e9/TrafalgarSquareEvening.jpg",
+      "originalSize": "3072x1982"
+    },
+    {
+      "n": 2,
+      "term": "Trafalgar Square lions",
+      "title": "File:Lions, Trafalgar Square - geograph.org.uk - 6378540.jpg",
+      "artist": "Robin Webster",
+      "license": "CC BY-SA 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Lions,_Trafalgar_Square_-_geograph.org.uk_-_6378540.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/9/91/Lions%2C_Trafalgar_Square_-_geograph.org.uk_-_6378540.jpg",
+      "originalSize": "1024x768"
+    },
+    {
+      "n": 3,
+      "term": "Trafalgar Square fountains",
+      "title": "File:Trafalgar Square LED Fountains - June 2009.jpg",
+      "artist": "Diliff",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Trafalgar_Square_LED_Fountains_-_June_2009.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/6/67/Trafalgar_Square_LED_Fountains_-_June_2009.jpg",
+      "originalSize": "3210x2144"
+    },
+    {
+      "n": 4,
+      "term": "Trafalgar Square London aerial",
+      "title": "File:Trafalgar Square from the London Eye - geograph.org.uk - 7444338.jpg",
+      "artist": "Ralph Greig",
+      "license": "CC BY-SA 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Trafalgar_Square_from_the_London_Eye_-_geograph.org.uk_-_7444338.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c0/Trafalgar_Square_from_the_London_Eye_-_geograph.org.uk_-_7444338.jpg",
+      "originalSize": "1600x1200"
+    },
+    {
+      "n": 5,
+      "term": "Nelson Column Trafalgar",
+      "title": "File:London, Trafalgar Square, Nelson's Column -- 2016 -- 4851.jpg",
+      "artist": "Dietmar Rabich",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:London,_Trafalgar_Square,_Nelson%27s_Column_--_2016_--_4851.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/d/da/London%2C_Trafalgar_Square%2C_Nelson%27s_Column_--_2016_--_4851.jpg",
+      "originalSize": "2991x4187"
+    },
+    {
+      "n": 6,
+      "term": "Trafalgar Square from National Gallery",
+      "title": "File:Trafalgar Square, London 2 - Jun 2009.jpg",
+      "artist": "Diliff",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Trafalgar_Square,_London_2_-_Jun_2009.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a6/Trafalgar_Square%2C_London_2_-_Jun_2009.jpg",
+      "originalSize": "4161x2754"
+    },
+    {
+      "n": 7,
+      "term": "Trafalgar Square fourth plinth",
+      "title": "File:The Fourth Plinth in Trafalgar Square between exhibits - the empty plinth.jpg",
+      "artist": "LondonHistoryatHome",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:The_Fourth_Plinth_in_Trafalgar_Square_between_exhibits_-_the_empty_plinth.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/2/2a/The_Fourth_Plinth_in_Trafalgar_Square_between_exhibits_-_the_empty_plinth.jpg",
+      "originalSize": "1944x2592"
+    },
+    {
+      "n": 8,
+      "term": "Trafalgar Square crowd",
+      "title": "File:Trafalgar Square 2009 - geograph.org.uk - 1604956.jpg",
+      "artist": "Peter Trimming",
+      "license": "CC BY-SA 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Trafalgar_Square_2009_-_geograph.org.uk_-_1604956.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/e/ea/Trafalgar_Square_2009_-_geograph.org.uk_-_1604956.jpg",
+      "originalSize": "1071x1600"
+    }
+  ],
+  "london-eye": [
+    {
+      "n": 1,
+      "term": "London Eye wheel",
+      "title": "File:London Eye at Night (long exposure).JPG",
+      "artist": "Martin Falbisoner",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:London_Eye_at_Night_(long_exposure).JPG",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c9/London_Eye_at_Night_%28long_exposure%29.JPG",
+      "originalSize": "3437x3437"
+    },
+    {
+      "n": 2,
+      "term": "London Eye South Bank",
+      "title": "File:South Bank Lion and London Eye 2024-12-12.jpg",
+      "artist": "Suzanne Schroeter",
+      "license": "CC BY-SA 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:South_Bank_Lion_and_London_Eye_2024-12-12.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/0/04/South_Bank_Lion_and_London_Eye_2024-12-12.jpg",
+      "originalSize": "2078x2910"
+    },
+    {
+      "n": 3,
+      "term": "London Eye night",
+      "title": "File:London Eye Twilight April 2006.jpg",
+      "artist": "User:Diliff",
+      "license": "CC BY 2.5",
+      "source": "https://commons.wikimedia.org/wiki/File:London_Eye_Twilight_April_2006.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b4/London_Eye_Twilight_April_2006.jpg",
+      "originalSize": "2100x1400"
+    },
+    {
+      "n": 4,
+      "term": "London Eye capsules",
+      "title": "File:London Eye 2011 013.jpg",
+      "artist": "Perituss",
+      "license": "CC0",
+      "source": "https://commons.wikimedia.org/wiki/File:London_Eye_2011_013.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d4/London_Eye_2011_013.jpg",
+      "originalSize": "5184x3456"
+    },
+    {
+      "n": 5,
+      "term": "London Eye Thames",
+      "title": "File:London Eye at sunset 2013-07-19.jpg",
+      "artist": "Bob Collowan",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:London_Eye_at_sunset_2013-07-19.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/1/12/London_Eye_at_sunset_2013-07-19.jpg",
+      "originalSize": "2368x3857"
+    },
+    {
+      "n": 6,
+      "term": "London Eye from Westminster",
+      "title": "File:Thames and London Eye from Westminster Bridge.jpg",
+      "artist": "Domob",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Thames_and_London_Eye_from_Westminster_Bridge.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/9/90/Thames_and_London_Eye_from_Westminster_Bridge.jpg",
+      "originalSize": "7376x4224"
+    },
+    {
+      "n": 7,
+      "term": "London Eye sunset",
+      "title": "File:London Eye Thames.JPG",
+      "artist": "Martin Falbisoner",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:London_Eye_Thames.JPG",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1b/London_Eye_Thames.JPG",
+      "originalSize": "3632x2724"
+    },
+    {
+      "n": 8,
+      "term": "London Eye close up",
+      "title": "File:Big ben close up.jpg",
+      "artist": "0ChrisLambert0",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Big_ben_close_up.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e3/Big_ben_close_up.jpg",
+      "originalSize": "3840x2160"
+    }
+  ],
+  "hadrians-wall": [
+    {
+      "n": 1,
+      "term": "Hadrians Wall Northumberland",
+      "title": "File:2018-06-07 Sycamore Gap Tree (Acer pseudoplatanus), next to Hadrian’s Wall UK.jpg",
+      "artist": "Gordon Leggett",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:2018-06-07_Sycamore_Gap_Tree_(Acer_pseudoplatanus),_next_to_Hadrian%E2%80%99s_Wall_UK.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/5/5c/2018-06-07_Sycamore_Gap_Tree_%28Acer_pseudoplatanus%29%2C_next_to_Hadrian%E2%80%99s_Wall_UK.jpg",
+      "originalSize": "5445x2932"
+    },
+    {
+      "n": 2,
+      "term": "Hadrians Wall Housesteads",
+      "title": "File:Housesteads Roman Fort 2014 16.jpg",
+      "artist": "Photograph by Mike Peel (www.mikepeel.net).",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Housesteads_Roman_Fort_2014_16.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/0/03/Housesteads_Roman_Fort_2014_16.jpg",
+      "originalSize": "3456x5184"
+    },
+    {
+      "n": 3,
+      "term": "Hadrians Wall Sycamore Gap",
+      "title": "File:Tree hadrian's wall.jpg",
+      "artist": "This picture has been taken, uploaded and the copyright owned by Tom Habibi, but released in the licences below. ' Image Details: Canon EOS 300D w/18-55mm kit lens, 1/125 sec, F/7.1, 2005/07/04, 18mm (approx equiv to 26mm) Photoshopped: Fiddled slightly with contrast, brightness (and converted to greyscale) ID (if you require the original which I would strongly recommend if you are using this photo): 3444 As with all my work if you require other licenses please let me know and I'll see what I can do. Please quote the id.",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Tree_hadrian%27s_wall.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d6/Tree_hadrian%27s_wall.jpg",
+      "originalSize": "2048x3072"
+    },
+    {
+      "n": 4,
+      "term": "Hadrians Wall landscape",
+      "title": "File:Hadrian's Wall landscape ^4 - geograph.org.uk - 4209179.jpg",
+      "artist": "Bobby Clegg",
+      "license": "CC BY-SA 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Hadrian%27s_Wall_landscape_%5E4_-_geograph.org.uk_-_4209179.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1d/Hadrian%27s_Wall_landscape_%5E4_-_geograph.org.uk_-_4209179.jpg",
+      "originalSize": "4655x2185"
+    },
+    {
+      "n": 5,
+      "term": "Hadrians Wall milecastle",
+      "title": "File:Remains of Milecastle 49 on Hadrian's Wall - geograph.org.uk - 4971764.jpg",
+      "artist": "Russel Wills",
+      "license": "CC BY-SA 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Remains_of_Milecastle_49_on_Hadrian%27s_Wall_-_geograph.org.uk_-_4971764.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/b/bc/Remains_of_Milecastle_49_on_Hadrian%27s_Wall_-_geograph.org.uk_-_4971764.jpg",
+      "originalSize": "1600x1424"
+    },
+    {
+      "n": 6,
+      "term": "Hadrians Wall Steel Rigg",
+      "title": "File:Hadrian's Wall , Steel Rigg - geograph.org.uk - 7235395.jpg",
+      "artist": "Jim Osley",
+      "license": "CC BY-SA 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Hadrian%27s_Wall_,_Steel_Rigg_-_geograph.org.uk_-_7235395.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/6/62/Hadrian%27s_Wall_%2C_Steel_Rigg_-_geograph.org.uk_-_7235395.jpg",
+      "originalSize": "1600x1200"
+    },
+    {
+      "n": 7,
+      "term": "Hadrians Wall Roman fort",
+      "title": "File:Chesters Roman fort barracks.jpg",
+      "artist": "Steven Fruitsmaak",
+      "license": "Public domain",
+      "source": "https://commons.wikimedia.org/wiki/File:Chesters_Roman_fort_barracks.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/0/09/Chesters_Roman_fort_barracks.jpg",
+      "originalSize": "3008x2000"
+    },
+    {
+      "n": 8,
+      "term": "Hadrians Wall path",
+      "title": "File:Hadrian's Wall Path - geograph.org.uk - 5385536.jpg",
+      "artist": "Graham Robson",
+      "license": "CC BY-SA 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Hadrian%27s_Wall_Path_-_geograph.org.uk_-_5385536.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/5/52/Hadrian%27s_Wall_Path_-_geograph.org.uk_-_5385536.jpg",
+      "originalSize": "2000x1500"
+    }
+  ],
+  "roman-baths": [
+    {
+      "n": 1,
+      "term": "Roman Baths Bath Great Bath",
+      "title": "File:Roman Baths in Bath Spa, England - July 2006 edit3.jpg",
+      "artist": "Diliff (with modifications by uploader; see original)",
+      "license": "CC BY 2.5",
+      "source": "https://commons.wikimedia.org/wiki/File:Roman_Baths_in_Bath_Spa,_England_-_July_2006_edit3.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/1/13/Roman_Baths_in_Bath_Spa%2C_England_-_July_2006_edit3.jpg",
+      "originalSize": "2499x2103"
+    },
+    {
+      "n": 2,
+      "term": "Roman Baths Bath terrace",
+      "title": "File:Great Bath Roman Baths Bath England dllu.jpg",
+      "artist": "Daniel Lu (User:dllu)",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Great_Bath_Roman_Baths_Bath_England_dllu.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/9/92/Great_Bath_Roman_Baths_Bath_England_dllu.jpg",
+      "originalSize": "11270x8679"
+    },
+    {
+      "n": 3,
+      "term": "Roman Baths Bath columns",
+      "title": "File:Roman Baths Bath. ( Explored ) - Flickr - Oneterry AKA Terry Kearney.jpg",
+      "artist": "Terry Kearney from liverpool, merseyside",
+      "license": "CC0",
+      "source": "https://commons.wikimedia.org/wiki/File:Roman_Baths_Bath._(_Explored_)_-_Flickr_-_Oneterry_AKA_Terry_Kearney.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/c/cf/Roman_Baths_Bath._%28_Explored_%29_-_Flickr_-_Oneterry_AKA_Terry_Kearney.jpg",
+      "originalSize": "4610x3073"
+    },
+    {
+      "n": 4,
+      "term": "Roman Baths Bath statues",
+      "title": "File:Roman Baths, Bath, Somerset 111.jpg",
+      "artist": "Simon Burchell",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Roman_Baths,_Bath,_Somerset_111.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/8/83/Roman_Baths%2C_Bath%2C_Somerset_111.jpg",
+      "originalSize": "3000x4000"
+    },
+    {
+      "n": 5,
+      "term": "Roman Baths Bath interior",
+      "title": "File:Roman Baths, Bath, Somerset 147.jpg",
+      "artist": "Simon Burchell",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Roman_Baths,_Bath,_Somerset_147.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/5/56/Roman_Baths%2C_Bath%2C_Somerset_147.jpg",
+      "originalSize": "4000x3000"
+    },
+    {
+      "n": 6,
+      "term": "Roman Baths Bath steam",
+      "title": "File:(Miss)adventures- A weekend travel through time (5040958).jpg",
+      "artist": "U.S. Air Force photo by Airman 1st Class Madeline Herzog",
+      "license": "Public domain",
+      "source": "https://commons.wikimedia.org/wiki/File:(Miss)adventures-_A_weekend_travel_through_time_(5040958).jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/3/38/%28Miss%29adventures-_A_weekend_travel_through_time_%285040958%29.jpg",
+      "originalSize": "3577x5365"
+    },
+    {
+      "n": 7,
+      "term": "Roman Baths Bath pool",
+      "title": "File:The plunge pool at the Roman baths in Bath - geograph.org.uk - 8124562.jpg",
+      "artist": "Chris Gorringe",
+      "license": "CC BY-SA 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:The_plunge_pool_at_the_Roman_baths_in_Bath_-_geograph.org.uk_-_8124562.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c1/The_plunge_pool_at_the_Roman_baths_in_Bath_-_geograph.org.uk_-_8124562.jpg",
+      "originalSize": "3872x2592"
+    }
+  ],
+  "canterbury-cathedral": [
+    {
+      "n": 1,
+      "term": "Canterbury Cathedral exterior",
+      "title": "File:Top of The Corona from the south, Canterbury Cathedral, 2019.jpg",
+      "artist": "DimiTalen",
+      "license": "CC0",
+      "source": "https://commons.wikimedia.org/wiki/File:Top_of_The_Corona_from_the_south,_Canterbury_Cathedral,_2019.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/7/70/Top_of_The_Corona_from_the_south%2C_Canterbury_Cathedral%2C_2019.jpg",
+      "originalSize": "5631x3744"
+    },
+    {
+      "n": 2,
+      "term": "Canterbury Cathedral nave",
+      "title": "File:Canterbury Cathedral Nave 1, Kent, UK - Diliff.jpg",
+      "artist": "Diliff",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Canterbury_Cathedral_Nave_1,_Kent,_UK_-_Diliff.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d6/Canterbury_Cathedral_Nave_1%2C_Kent%2C_UK_-_Diliff.jpg",
+      "originalSize": "5329x5066"
+    },
+    {
+      "n": 3,
+      "term": "Canterbury Cathedral Bell Harry Tower",
+      "title": "File:Bell Harry Tower from the Cloisters, Canterbury Cathedral - geograph.org.uk - 2647450.jpg",
+      "artist": "Julian P Guffogg",
+      "license": "CC BY-SA 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Bell_Harry_Tower_from_the_Cloisters,_Canterbury_Cathedral_-_geograph.org.uk_-_2647450.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/2/2a/Bell_Harry_Tower_from_the_Cloisters%2C_Canterbury_Cathedral_-_geograph.org.uk_-_2647450.jpg",
+      "originalSize": "1496x2256"
+    },
+    {
+      "n": 4,
+      "term": "Canterbury Cathedral cloisters",
+      "title": "File:Canterbury Cathedral Cloisters, Kent, UK - Diliff.jpg",
+      "artist": "Diliff",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Canterbury_Cathedral_Cloisters,_Kent,_UK_-_Diliff.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f3/Canterbury_Cathedral_Cloisters%2C_Kent%2C_UK_-_Diliff.jpg",
+      "originalSize": "6161x4745"
+    },
+    {
+      "n": 5,
+      "term": "Canterbury Cathedral west front",
+      "title": "File:Canterbury Cathedral Choir 2, Kent, UK - Diliff.jpg",
+      "artist": "Diliff",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Canterbury_Cathedral_Choir_2,_Kent,_UK_-_Diliff.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/7/7e/Canterbury_Cathedral_Choir_2%2C_Kent%2C_UK_-_Diliff.jpg",
+      "originalSize": "8000x5910"
+    },
+    {
+      "n": 6,
+      "term": "Canterbury Cathedral aerial",
+      "title": "File:Canterbury Cathedral aerial view.jpg",
+      "artist": "Lieven Smits",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Canterbury_Cathedral_aerial_view.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/f/ff/Canterbury_Cathedral_aerial_view.jpg",
+      "originalSize": "2956x1852"
+    },
+    {
+      "n": 7,
+      "term": "Canterbury Cathedral quire",
+      "title": "File:Canterbury Cathedral (quire).jpg",
+      "artist": "Hadrianus1959",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Canterbury_Cathedral_(quire).jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/9/9e/Canterbury_Cathedral_%28quire%29.jpg",
+      "originalSize": "5152x3864"
+    },
+    {
+      "n": 8,
+      "term": "Canterbury Cathedral stained glass",
+      "title": "File:Canterbury Cathedral Trinity Chapel Stained Glass, Kent, UK - Diliff.jpg",
+      "artist": "Diliff",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Canterbury_Cathedral_Trinity_Chapel_Stained_Glass,_Kent,_UK_-_Diliff.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/3/39/Canterbury_Cathedral_Trinity_Chapel_Stained_Glass%2C_Kent%2C_UK_-_Diliff.jpg",
+      "originalSize": "5358x6796"
+    }
+  ],
+  "york-minster": [
+    {
+      "n": 1,
+      "term": "York Minster exterior",
+      "title": "File:York Minster, exterior.jpg",
+      "artist": "Robert-brook",
+      "license": "CC0",
+      "source": "https://commons.wikimedia.org/wiki/File:York_Minster,_exterior.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/7/78/York_Minster%2C_exterior.jpg",
+      "originalSize": "1536x2048"
+    },
+    {
+      "n": 2,
+      "term": "York Minster nave",
+      "title": "File:York Minster Nave 1, Nth Yorkshire, UK - Diliff.jpg",
+      "artist": "Diliff",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:York_Minster_Nave_1,_Nth_Yorkshire,_UK_-_Diliff.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b6/York_Minster_Nave_1%2C_Nth_Yorkshire%2C_UK_-_Diliff.jpg",
+      "originalSize": "10000x7714"
+    },
+    {
+      "n": 3,
+      "term": "York Minster Great East Window",
+      "title": "File:York Minster - Great East Window - top.jpg",
+      "artist": "Coventry glazier John Thornton",
+      "license": "Public domain",
+      "source": "https://commons.wikimedia.org/wiki/File:York_Minster_-_Great_East_Window_-_top.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/c/ce/York_Minster_-_Great_East_Window_-_top.jpg",
+      "originalSize": "1680x1297"
+    },
+    {
+      "n": 4,
+      "term": "York Minster towers",
+      "title": "File:York Minster 2015 1.jpg",
+      "artist": "Photograph by Mike Peel (www.mikepeel.net).",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:York_Minster_2015_1.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e5/York_Minster_2015_1.jpg",
+      "originalSize": "3013x5184"
+    },
+    {
+      "n": 5,
+      "term": "York Minster chapter house",
+      "title": "File:York Minster Chapter House Ceiling.jpg",
+      "artist": "Michael D Beckwith",
+      "license": "CC0",
+      "source": "https://commons.wikimedia.org/wiki/File:York_Minster_Chapter_House_Ceiling.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/9/9c/York_Minster_Chapter_House_Ceiling.jpg",
+      "originalSize": "8688x5792"
+    },
+    {
+      "n": 6,
+      "term": "York Minster aerial",
+      "title": "File:York Minster aerial view.jpg",
+      "artist": "Bthv",
+      "license": "Public domain",
+      "source": "https://commons.wikimedia.org/wiki/File:York_Minster_aerial_view.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/6/66/York_Minster_aerial_view.jpg",
+      "originalSize": "3488x2616"
+    },
+    {
+      "n": 7,
+      "term": "York Minster rose window",
+      "title": "File:York Minster - Rose Window - geograph.org.uk - 7856764.jpg",
+      "artist": "Colin Smith",
+      "license": "CC BY-SA 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:York_Minster_-_Rose_Window_-_geograph.org.uk_-_7856764.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e5/York_Minster_-_Rose_Window_-_geograph.org.uk_-_7856764.jpg",
+      "originalSize": "4077x3627"
+    },
+    {
+      "n": 8,
+      "term": "York Minster from city walls",
+      "title": "File:York Minster from the City Walls - geograph.org.uk - 4308760.jpg",
+      "artist": "Peter Jeffery",
+      "license": "CC BY-SA 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:York_Minster_from_the_City_Walls_-_geograph.org.uk_-_4308760.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/f/fc/York_Minster_from_the_City_Walls_-_geograph.org.uk_-_4308760.jpg",
+      "originalSize": "1799x1199"
+    }
+  ],
+  "durham-cathedral": [
+    {
+      "n": 1,
+      "term": "Durham Cathedral exterior",
+      "title": "File:Durham MMB 02 Cathedral.jpg",
+      "artist": "mattbuck (category)",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Durham_MMB_02_Cathedral.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d6/Durham_MMB_02_Cathedral.jpg",
+      "originalSize": "4668x2814"
+    },
+    {
+      "n": 2,
+      "term": "Durham Cathedral nave",
+      "title": "File:Durham Cathedral Nave.jpg",
+      "artist": "Michael D Beckwith",
+      "license": "CC0",
+      "source": "https://commons.wikimedia.org/wiki/File:Durham_Cathedral_Nave.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/7/7c/Durham_Cathedral_Nave.jpg",
+      "originalSize": "8687x5791"
+    },
+    {
+      "n": 3,
+      "term": "Durham Cathedral river Wear",
+      "title": "File:River Wear ^ Durham Cathedral - geograph.org.uk - 4749175.jpg",
+      "artist": "Richard Cooke",
+      "license": "CC BY-SA 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:River_Wear_%5E_Durham_Cathedral_-_geograph.org.uk_-_4749175.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c1/River_Wear_%5E_Durham_Cathedral_-_geograph.org.uk_-_4749175.jpg",
+      "originalSize": "2784x1568"
+    },
+    {
+      "n": 4,
+      "term": "Durham Cathedral towers",
+      "title": "File:Durham Townscape , The Western Towers of Durham Cathedral - geograph.org.uk - 3126142.jpg",
+      "artist": "Richard West",
+      "license": "CC BY-SA 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Durham_Townscape_,_The_Western_Towers_of_Durham_Cathedral_-_geograph.org.uk_-_3126142.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/7/79/Durham_Townscape_%2C_The_Western_Towers_of_Durham_Cathedral_-_geograph.org.uk_-_3126142.jpg",
+      "originalSize": "1600x1200"
+    },
+    {
+      "n": 5,
+      "term": "Durham Cathedral cloister",
+      "title": "File:Durham Cathedral Cloister (7166957256).jpg",
+      "artist": "Michael Beckwith",
+      "license": "CC BY 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Durham_Cathedral_Cloister_(7166957256).jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e9/Durham_Cathedral_Cloister_%287166957256%29.jpg",
+      "originalSize": "5184x3456"
+    },
+    {
+      "n": 6,
+      "term": "Durham Cathedral aerial",
+      "title": "File:Durham March 1972 (5158163778).jpg",
+      "artist": "Tyne &amp; Wear Archives &amp; Museums",
+      "license": "No restrictions",
+      "source": "https://commons.wikimedia.org/wiki/File:Durham_March_1972_(5158163778).jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d8/Durham_March_1972_%285158163778%29.jpg",
+      "originalSize": "1079x906"
+    },
+    {
+      "n": 7,
+      "term": "Durham Cathedral interior columns",
+      "title": "File:Durham - Cathedral - panoramio crop piers and columns.jpg",
+      "artist": "giomodica",
+      "license": "CC BY 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Durham_-_Cathedral_-_panoramio_crop_piers_and_columns.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/6/61/Durham_-_Cathedral_-_panoramio_crop_piers_and_columns.jpg",
+      "originalSize": "1529x2192"
+    },
+    {
+      "n": 8,
+      "term": "Durham Cathedral from railway",
+      "title": "File:Durham Cathedral from the railway station in 1938 - geograph.org.uk - 2160208.jpg",
+      "artist": "George Baker",
+      "license": "CC BY-SA 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Durham_Cathedral_from_the_railway_station_in_1938_-_geograph.org.uk_-_2160208.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d0/Durham_Cathedral_from_the_railway_station_in_1938_-_geograph.org.uk_-_2160208.jpg",
+      "originalSize": "1402x882"
+    }
+  ],
+  "windsor-castle": [
+    {
+      "n": 1,
+      "term": "Windsor Castle Round Tower",
+      "title": "File:Round Tower, Windsor Castle, England - Nov 2006.jpg",
+      "artist": "Diliff",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Round_Tower,_Windsor_Castle,_England_-_Nov_2006.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/9/94/Round_Tower%2C_Windsor_Castle%2C_England_-_Nov_2006.jpg",
+      "originalSize": "4368x2658"
+    },
+    {
+      "n": 2,
+      "term": "Windsor Castle exterior",
+      "title": "File:Castle View from Alexandra Park - Round Tower, St George’s Chapel and the Curfew Tower. Windsor, UK.jpg",
+      "artist": "Ввласенко",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Castle_View_from_Alexandra_Park_-_Round_Tower,_St_George%E2%80%99s_Chapel_and_the_Curfew_Tower._Windsor,_UK.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/6/64/Castle_View_from_Alexandra_Park_-_Round_Tower%2C_St_George%E2%80%99s_Chapel_and_the_Curfew_Tower._Windsor%2C_UK.jpg",
+      "originalSize": "5491x3020"
+    },
+    {
+      "n": 3,
+      "term": "Windsor Castle Long Walk",
+      "title": "File:View of the Castle and Park st. from the Long Walk. Windsor, UK.jpg",
+      "artist": "Ввласенко",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:View_of_the_Castle_and_Park_st._from_the_Long_Walk._Windsor,_UK.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/1/10/View_of_the_Castle_and_Park_st._from_the_Long_Walk._Windsor%2C_UK.jpg",
+      "originalSize": "5963x2495"
+    },
+    {
+      "n": 4,
+      "term": "Windsor Castle St Georges Chapel",
+      "title": "File:St. Georges Chapel, Windsor Castle (2).jpg",
+      "artist": "Aurelien Guichard from London, United Kingdom (changes by Rabanus Flavus)",
+      "license": "CC BY-SA 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:St._Georges_Chapel,_Windsor_Castle_(2).jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/7/7d/St._Georges_Chapel%2C_Windsor_Castle_%282%29.jpg",
+      "originalSize": "5473x3537"
+    },
+    {
+      "n": 5,
+      "term": "Windsor Castle aerial",
+      "title": "File:Cmglee Windsor Castle aerial view.jpg",
+      "artist": "Cmglee",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Cmglee_Windsor_Castle_aerial_view.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Cmglee_Windsor_Castle_aerial_view.jpg",
+      "originalSize": "2048x768"
+    },
+    {
+      "n": 6,
+      "term": "Windsor Castle state apartments",
+      "title": "File:Windsor , Windsor Castle - State Apartments - geograph.org.uk - 4227738.jpg",
+      "artist": "Lewis Clarke",
+      "license": "CC BY-SA 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Windsor_,_Windsor_Castle_-_State_Apartments_-_geograph.org.uk_-_4227738.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/f/fa/Windsor_%2C_Windsor_Castle_-_State_Apartments_-_geograph.org.uk_-_4227738.jpg",
+      "originalSize": "4288x2848"
+    },
+    {
+      "n": 7,
+      "term": "Windsor Castle gate",
+      "title": "File:King George IV Gate in the South Wing of Castle. Windsor, UK.jpg",
+      "artist": "Ввласенко",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:King_George_IV_Gate_in_the_South_Wing_of_Castle._Windsor,_UK.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3e/King_George_IV_Gate_in_the_South_Wing_of_Castle._Windsor%2C_UK.jpg",
+      "originalSize": "4775x3595"
+    },
+    {
+      "n": 8,
+      "term": "Windsor Castle from river",
+      "title": "File:Joseph Mallord William Turner (1775-1851) - Windsor Castle from the River - N02306 - National Gallery.jpg",
+      "artist": "J. M. W. Turner",
+      "license": "Public domain",
+      "source": "https://commons.wikimedia.org/wiki/File:Joseph_Mallord_William_Turner_(1775-1851)_-_Windsor_Castle_from_the_River_-_N02306_-_National_Gallery.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a7/Joseph_Mallord_William_Turner_%281775-1851%29_-_Windsor_Castle_from_the_River_-_N02306_-_National_Gallery.jpg",
+      "originalSize": "1200x648"
+    }
+  ],
+  "edinburgh-castle": [
+    {
+      "n": 1,
+      "term": "Edinburgh Castle rock",
+      "title": "File:Edinburgh Castle Rock.jpg",
+      "artist": "Saffron Blaze",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Edinburgh_Castle_Rock.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/e/ef/Edinburgh_Castle_Rock.jpg",
+      "originalSize": "4256x2832"
+    },
+    {
+      "n": 2,
+      "term": "Edinburgh Castle from Princes Street",
+      "title": "File:Castle, City of Edinburgh (IMG 20190628 180330).jpg",
+      "artist": "Matti Blume",
+      "license": "CC BY-SA",
+      "source": "https://commons.wikimedia.org/wiki/File:Castle,_City_of_Edinburgh_(IMG_20190628_180330).jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/c/ce/Castle%2C_City_of_Edinburgh_%28IMG_20190628_180330%29.jpg",
+      "originalSize": "4000x2667"
+    },
+    {
+      "n": 3,
+      "term": "Edinburgh Castle esplanade",
+      "title": "File:Edinburgh Castle from Esplanade 20211019.jpg",
+      "artist": "Daniel Kraft",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Edinburgh_Castle_from_Esplanade_20211019.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/b/bb/Edinburgh_Castle_from_Esplanade_20211019.jpg",
+      "originalSize": "3832x2750"
+    },
+    {
+      "n": 4,
+      "term": "Edinburgh Castle Half Moon Battery",
+      "title": "File:Half-Moon battery Edinburgh Castle dec.23.jpg",
+      "artist": "Peulle",
+      "license": "CC BY 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Half-Moon_battery_Edinburgh_Castle_dec.23.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/3/32/Half-Moon_battery_Edinburgh_Castle_dec.23.jpg",
+      "originalSize": "4928x3264"
+    },
+    {
+      "n": 5,
+      "term": "Edinburgh Castle aerial",
+      "title": "File:Edinburgh Castle - aerial - 2025-04-19 06.jpg",
+      "artist": "瑞丽江的河水",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Edinburgh_Castle_-_aerial_-_2025-04-19_06.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/3/37/Edinburgh_Castle_-_aerial_-_2025-04-19_06.jpg",
+      "originalSize": "4032x2268"
+    },
+    {
+      "n": 6,
+      "term": "Edinburgh Castle night",
+      "title": "File:Edinburgh castle by night 01.JPG",
+      "artist": "Ad Meskens",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Edinburgh_castle_by_night_01.JPG",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/1/16/Edinburgh_castle_by_night_01.JPG",
+      "originalSize": "2733x2034"
+    },
+    {
+      "n": 7,
+      "term": "Edinburgh Castle Mons Meg",
+      "title": "File:Mons Meg at Edinburgh Castle.jpg",
+      "artist": "Kim Traynor",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Mons_Meg_at_Edinburgh_Castle.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/2/2f/Mons_Meg_at_Edinburgh_Castle.jpg",
+      "originalSize": "2557x1849"
+    },
+    {
+      "n": 8,
+      "term": "Edinburgh Castle gatehouse",
+      "title": "File:City of Edinburgh - Edinburgh Castle, Gate House - 20190813221636.jpg",
+      "artist": "Virtual-Pano",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:City_of_Edinburgh_-_Edinburgh_Castle,_Gate_House_-_20190813221636.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e3/City_of_Edinburgh_-_Edinburgh_Castle%2C_Gate_House_-_20190813221636.jpg",
+      "originalSize": "6737x4185"
+    }
+  ],
+  "caernarfon-castle": [
+    {
+      "n": 1,
+      "term": "Caernarfon Castle towers",
+      "title": "File:Eagle Tower, Caernarfon Castle - geograph.org.uk - 2598322.jpg",
+      "artist": "Gareth James",
+      "license": "CC BY-SA 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Eagle_Tower,_Caernarfon_Castle_-_geograph.org.uk_-_2598322.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/2/25/Eagle_Tower%2C_Caernarfon_Castle_-_geograph.org.uk_-_2598322.jpg",
+      "originalSize": "2112x2816"
+    },
+    {
+      "n": 2,
+      "term": "Caernarfon Castle from river",
+      "title": "File:Caernarfon castle and river - geograph.org.uk - 4613805.jpg",
+      "artist": "Oliver Mills",
+      "license": "CC BY-SA 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Caernarfon_castle_and_river_-_geograph.org.uk_-_4613805.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/3/38/Caernarfon_castle_and_river_-_geograph.org.uk_-_4613805.jpg",
+      "originalSize": "1600x1067"
+    },
+    {
+      "n": 3,
+      "term": "Caernarfon Castle walls",
+      "title": "File:Caernarfon , Castle Walls - geograph.org.uk - 7758249.jpg",
+      "artist": "Lewis Clarke",
+      "license": "CC BY-SA 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Caernarfon_,_Castle_Walls_-_geograph.org.uk_-_7758249.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/9/93/Caernarfon_%2C_Castle_Walls_-_geograph.org.uk_-_7758249.jpg",
+      "originalSize": "6400x4267"
+    },
+    {
+      "n": 4,
+      "term": "Caernarfon Castle aerial",
+      "title": "File:Caernarfon Castle from the air.jpg",
+      "artist": "Kadpot",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Caernarfon_Castle_from_the_air.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d2/Caernarfon_Castle_from_the_air.jpg",
+      "originalSize": "4701x3306"
+    },
+    {
+      "n": 5,
+      "term": "Caernarfon Castle Eagle Tower",
+      "title": "File:The Eagle Tower of Caernarfon Castle - geograph.org.uk - 2135247.jpg",
+      "artist": "Steve Daniels",
+      "license": "CC BY-SA 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:The_Eagle_Tower_of_Caernarfon_Castle_-_geograph.org.uk_-_2135247.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4c/The_Eagle_Tower_of_Caernarfon_Castle_-_geograph.org.uk_-_2135247.jpg",
+      "originalSize": "1000x1500"
+    },
+    {
+      "n": 6,
+      "term": "Caernarfon Castle courtyard",
+      "title": "File:Caernarfon Castle Courtyard.jpg",
+      "artist": "Nessy-Pic",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Caernarfon_Castle_Courtyard.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/1/12/Caernarfon_Castle_Courtyard.jpg",
+      "originalSize": "3648x2432"
+    },
+    {
+      "n": 7,
+      "term": "Caernarfon Castle Menai",
+      "title": "File:View across the Menai Straits from Caernarfon Castle - geograph.org.uk - 2211582.jpg",
+      "artist": "Christopher Hilton",
+      "license": "CC BY-SA 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:View_across_the_Menai_Straits_from_Caernarfon_Castle_-_geograph.org.uk_-_2211582.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3c/View_across_the_Menai_Straits_from_Caernarfon_Castle_-_geograph.org.uk_-_2211582.jpg",
+      "originalSize": "1024x681"
+    }
+  ],
+  "stirling-castle": [
+    {
+      "n": 1,
+      "term": "Stirling Castle rock",
+      "title": "File:King's Old Building, Stirling Castle - geograph.org.uk - 6383237.jpg",
+      "artist": "Richard Sutcliffe",
+      "license": "CC BY-SA 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:King%27s_Old_Building,_Stirling_Castle_-_geograph.org.uk_-_6383237.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/5/57/King%27s_Old_Building%2C_Stirling_Castle_-_geograph.org.uk_-_6383237.jpg",
+      "originalSize": "1017x1600"
+    },
+    {
+      "n": 2,
+      "term": "Stirling Castle exterior",
+      "title": "File:Chapel Royal exterior Stirling Castle 6957881322.jpg",
+      "artist": "Uriah Welcome",
+      "license": "CC BY 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Chapel_Royal_exterior_Stirling_Castle_6957881322.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/4/40/Chapel_Royal_exterior_Stirling_Castle_6957881322.jpg",
+      "originalSize": "3840x2160"
+    },
+    {
+      "n": 3,
+      "term": "Stirling Castle Great Hall",
+      "title": "File:Stirling Castle Great Hall 2016.jpg",
+      "artist": "DeFacto",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Stirling_Castle_Great_Hall_2016.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/6/67/Stirling_Castle_Great_Hall_2016.jpg",
+      "originalSize": "4448x3118"
+    },
+    {
+      "n": 4,
+      "term": "Stirling Castle from Wallace Monument",
+      "title": "File:Stirling Castle from the Wallace Monument - geograph.org.uk - 4526347.jpg",
+      "artist": "Mike Pennington",
+      "license": "CC BY-SA 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Stirling_Castle_from_the_Wallace_Monument_-_geograph.org.uk_-_4526347.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/7/7c/Stirling_Castle_from_the_Wallace_Monument_-_geograph.org.uk_-_4526347.jpg",
+      "originalSize": "1024x680"
+    },
+    {
+      "n": 5,
+      "term": "Stirling Castle palace",
+      "title": "File:Stirling Castle Royal Palace.jpg",
+      "artist": "DeFacto",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Stirling_Castle_Royal_Palace.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f0/Stirling_Castle_Royal_Palace.jpg",
+      "originalSize": "4114x2732"
+    },
+    {
+      "n": 6,
+      "term": "Stirling Castle aerial",
+      "title": "File:Stirling Castle Aerial Photo.jpg",
+      "artist": "John McPake",
+      "license": "CC BY 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Stirling_Castle_Aerial_Photo.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/5/5c/Stirling_Castle_Aerial_Photo.jpg",
+      "originalSize": "2364x1604"
+    },
+    {
+      "n": 7,
+      "term": "Stirling Castle gatehouse",
+      "title": "File:Stirling Castle Forework Gatehouse.jpg",
+      "artist": "Wknight94",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Stirling_Castle_Forework_Gatehouse.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/b/bd/Stirling_Castle_Forework_Gatehouse.jpg",
+      "originalSize": "3072x2304"
+    },
+    {
+      "n": 8,
+      "term": "Stirling Castle ramparts",
+      "title": "File:Stirling Castle from the southern ramparts - geograph.org.uk - 3212425.jpg",
+      "artist": "Mike Pennington",
+      "license": "CC BY-SA 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Stirling_Castle_from_the_southern_ramparts_-_geograph.org.uk_-_3212425.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/5/5d/Stirling_Castle_from_the_southern_ramparts_-_geograph.org.uk_-_3212425.jpg",
+      "originalSize": "1024x681"
+    }
+  ],
+  "hampton-court": [
+    {
+      "n": 1,
+      "term": "Hampton Court Palace facade",
+      "title": "File:Hampton Court Palace East Facade - geograph.org.uk - 1690391.jpg",
+      "artist": "Mark Percy",
+      "license": "CC BY-SA 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Hampton_Court_Palace_East_Facade_-_geograph.org.uk_-_1690391.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/1/19/Hampton_Court_Palace_East_Facade_-_geograph.org.uk_-_1690391.jpg",
+      "originalSize": "2048x1536"
+    },
+    {
+      "n": 2,
+      "term": "Hampton Court Palace Tudor chimneys",
+      "title": "File:Bell Tower and Tudor Chimneys at Hampton Court Palace - panoramio.jpg",
+      "artist": "Maxwell Hamilton",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Bell_Tower_and_Tudor_Chimneys_at_Hampton_Court_Palace_-_panoramio.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e7/Bell_Tower_and_Tudor_Chimneys_at_Hampton_Court_Palace_-_panoramio.jpg",
+      "originalSize": "2000x1500"
+    },
+    {
+      "n": 3,
+      "term": "Hampton Court Palace gardens",
+      "title": "File:Hampton court garden - Yew trees (2016).jpg",
+      "artist": "Terragio67",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Hampton_court_garden_-_Yew_trees_(2016).jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4b/Hampton_court_garden_-_Yew_trees_%282016%29.jpg",
+      "originalSize": "3067x2160"
+    },
+    {
+      "n": 4,
+      "term": "Hampton Court Palace Great Gatehouse",
+      "title": "File:Hampton Court Great Gatehouse.jpg",
+      "artist": "Steve Cadman from London, U.K.",
+      "license": "CC BY-SA 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Hampton_Court_Great_Gatehouse.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4b/Hampton_Court_Great_Gatehouse.jpg",
+      "originalSize": "2447x2287"
+    },
+    {
+      "n": 5,
+      "term": "Hampton Court Palace maze",
+      "title": "File:In the Maze, Hampton Court Palace - geograph.org.uk - 4968472.jpg",
+      "artist": "Jim Barton",
+      "license": "CC BY-SA 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:In_the_Maze,_Hampton_Court_Palace_-_geograph.org.uk_-_4968472.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/e/ea/In_the_Maze%2C_Hampton_Court_Palace_-_geograph.org.uk_-_4968472.jpg",
+      "originalSize": "1024x682"
+    },
+    {
+      "n": 6,
+      "term": "Hampton Court Palace astronomical clock",
+      "title": "File:Hampton Court Astrological Clock.jpg",
+      "artist": "Mike Cattell",
+      "license": "CC BY 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Hampton_Court_Astrological_Clock.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/5/5a/Hampton_Court_Astrological_Clock.jpg",
+      "originalSize": "3218x2389"
+    },
+    {
+      "n": 7,
+      "term": "Hampton Court Palace east front",
+      "title": "File:Hampton Court Palace - East Front - geograph.org.uk - 6624314.jpg",
+      "artist": "Colin Smith",
+      "license": "CC BY-SA 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Hampton_Court_Palace_-_East_Front_-_geograph.org.uk_-_6624314.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/6/6a/Hampton_Court_Palace_-_East_Front_-_geograph.org.uk_-_6624314.jpg",
+      "originalSize": "5152x3864"
+    }
+  ],
+  "radcliffe-camera": [
+    {
+      "n": 1,
+      "term": "Radcliffe Camera Oxford",
+      "title": "File:Radcliffe Camera, Oxford - Oct 2006.jpg",
+      "artist": "Diliff",
+      "license": "CC BY 2.5",
+      "source": "https://commons.wikimedia.org/wiki/File:Radcliffe_Camera,_Oxford_-_Oct_2006.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/2/2b/Radcliffe_Camera%2C_Oxford_-_Oct_2006.jpg",
+      "originalSize": "3077x4524"
+    },
+    {
+      "n": 2,
+      "term": "Radcliffe Camera dome",
+      "title": "File:Bodleian Old Library and Radcliffe Camera dome from the Upper Reading Room, Bodleian Library.jpg",
+      "artist": "Locolates",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Bodleian_Old_Library_and_Radcliffe_Camera_dome_from_the_Upper_Reading_Room,_Bodleian_Library.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e7/Bodleian_Old_Library_and_Radcliffe_Camera_dome_from_the_Upper_Reading_Room%2C_Bodleian_Library.jpg",
+      "originalSize": "3024x4032"
+    },
+    {
+      "n": 3,
+      "term": "Radcliffe Camera aerial",
+      "title": "File:Aerial view of Oxford - geograph.org.uk - 4481514.jpg",
+      "artist": "Dave Price",
+      "license": "CC BY-SA 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Aerial_view_of_Oxford_-_geograph.org.uk_-_4481514.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/0/05/Aerial_view_of_Oxford_-_geograph.org.uk_-_4481514.jpg",
+      "originalSize": "3942x2958"
+    },
+    {
+      "n": 4,
+      "term": "Radcliffe Camera All Souls",
+      "title": "File:Radcliffe Camera Oxford 2018 03.jpg",
+      "artist": "Julian Herzog (Website)",
+      "license": "CC BY 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Radcliffe_Camera_Oxford_2018_03.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b2/Radcliffe_Camera_Oxford_2018_03.jpg",
+      "originalSize": "8257x7157"
+    },
+    {
+      "n": 5,
+      "term": "Radcliffe Camera night",
+      "title": "File:1 radcliffe camera night 2012.jpg",
+      "artist": "chensiyuan",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:1_radcliffe_camera_night_2012.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/6/66/1_radcliffe_camera_night_2012.jpg",
+      "originalSize": "4256x2832"
+    },
+    {
+      "n": 6,
+      "term": "Radcliffe Square Oxford",
+      "title": "File:Oxford - Radcliffe Square - University Church of St Mary the Virgin, Brasenose College, Radcliffe Camera 1737-48 by James Gibbs, Bodleian Library & All Souls College 03.jpg",
+      "artist": "Txllxt TxllxT",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Oxford_-_Radcliffe_Square_-_University_Church_of_St_Mary_the_Virgin,_Brasenose_College,_Radcliffe_Camera_1737-48_by_James_Gibbs,_Bodleian_Library_%26_All_Souls_College_03.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/6/65/Oxford_-_Radcliffe_Square_-_University_Church_of_St_Mary_the_Virgin%2C_Brasenose_College%2C_Radcliffe_Camera_1737-48_by_James_Gibbs%2C_Bodleian_Library_%26_All_Souls_College_03.jpg",
+      "originalSize": "5934x3955"
+    }
+  ],
+  "kings-college-chapel": [
+    {
+      "n": 1,
+      "term": "Kings College Chapel fan vault",
+      "title": "File:Kings College Chapel 2018 004.jpg",
+      "artist": "Bs0u10e01",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Kings_College_Chapel_2018_004.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/d/de/Kings_College_Chapel_2018_004.jpg",
+      "originalSize": "3606x3977"
+    },
+    {
+      "n": 2,
+      "term": "Kings College Chapel from the Backs",
+      "title": "File:Kings College Chapel and the Gibbs Building from the Backs.JPG",
+      "artist": "Ozeye",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Kings_College_Chapel_and_the_Gibbs_Building_from_the_Backs.JPG",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4f/Kings_College_Chapel_and_the_Gibbs_Building_from_the_Backs.JPG",
+      "originalSize": "3072x2304"
+    },
+    {
+      "n": 3,
+      "term": "Kings College Chapel interior",
+      "title": "File:Kings College Chapel - geograph.org.uk - 1990285.jpg",
+      "artist": "Colin Smith",
+      "license": "CC BY-SA 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Kings_College_Chapel_-_geograph.org.uk_-_1990285.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/7/7c/Kings_College_Chapel_-_geograph.org.uk_-_1990285.jpg",
+      "originalSize": "2560x1920"
+    },
+    {
+      "n": 4,
+      "term": "Kings College Chapel choir",
+      "title": "File:Kings College Chapel 2018 002.jpg",
+      "artist": "Bs0u10e01",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Kings_College_Chapel_2018_002.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d2/Kings_College_Chapel_2018_002.jpg",
+      "originalSize": "2117x3345"
+    },
+    {
+      "n": 5,
+      "term": "Kings College Chapel pinnacles",
+      "title": "File:20130808 Kings College Chapel Closeup 01.jpg",
+      "artist": "Dmitry Tonkonog",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:20130808_Kings_College_Chapel_Closeup_01.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/3/36/20130808_Kings_College_Chapel_Closeup_01.jpg",
+      "originalSize": "5400x3600"
+    },
+    {
+      "n": 6,
+      "term": "Kings College Chapel river Cam",
+      "title": "File:Kings College Cambridge Chapel from the river.jpg",
+      "artist": "Martinvl",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Kings_College_Cambridge_Chapel_from_the_river.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/4/46/Kings_College_Cambridge_Chapel_from_the_river.jpg",
+      "originalSize": "3013x4020"
+    },
+    {
+      "n": 7,
+      "term": "Kings College Chapel facade",
+      "title": "File:20130215 Kings College Chapel Hi-res 02.jpg",
+      "artist": "Dmitry Tonkonog",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:20130215_Kings_College_Chapel_Hi-res_02.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/7/7c/20130215_Kings_College_Chapel_Hi-res_02.jpg",
+      "originalSize": "7000x5387"
+    }
+  ],
+  "shakespeares-birthplace": [
+    {
+      "n": 1,
+      "term": "Shakespeares Birthplace Stratford",
+      "title": "File:Birthplace of Shakespeare.jpg",
+      "artist": "Martinvl",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Birthplace_of_Shakespeare.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/e/ec/Birthplace_of_Shakespeare.jpg",
+      "originalSize": "4998x3129"
+    },
+    {
+      "n": 2,
+      "term": "Shakespeares Birthplace half timbered",
+      "title": "File:Shakespeare's-birthplace.jpg",
+      "artist": "Saldeplata",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Shakespeare%27s-birthplace.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f8/Shakespeare%27s-birthplace.jpg",
+      "originalSize": "2000x1344"
+    },
+    {
+      "n": 3,
+      "term": "Shakespeares Birthplace garden",
+      "title": "File:Shakespeare's Birthplace - geograph.org.uk - 7482148.jpg",
+      "artist": "Philip Halling",
+      "license": "CC BY-SA 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Shakespeare%27s_Birthplace_-_geograph.org.uk_-_7482148.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/7/72/Shakespeare%27s_Birthplace_-_geograph.org.uk_-_7482148.jpg",
+      "originalSize": "1600x1069"
+    },
+    {
+      "n": 4,
+      "term": "Shakespeares Birthplace street",
+      "title": "File:British School - Shakespeare's Birthplace, Henley Street, Stratford-upon-Avon, Warwickshire - SBT 1993-31-243 - Shakespeare Birthplace Trust.jpg",
+      "artist": "anonymous",
+      "license": "Public domain",
+      "source": "https://commons.wikimedia.org/wiki/File:British_School_-_Shakespeare%27s_Birthplace,_Henley_Street,_Stratford-upon-Avon,_Warwickshire_-_SBT_1993-31-243_-_Shakespeare_Birthplace_Trust.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/2/2e/British_School_-_Shakespeare%27s_Birthplace%2C_Henley_Street%2C_Stratford-upon-Avon%2C_Warwickshire_-_SBT_1993-31-243_-_Shakespeare_Birthplace_Trust.jpg",
+      "originalSize": "1000x715"
+    },
+    {
+      "n": 5,
+      "term": "Shakespeares Birthplace interior",
+      "title": "File:Anne Hathaway's Cottage interior - DPLA - 7a1755b5c0003164f0da183729c870d3.jpg",
+      "artist": "Edmund F. Arras",
+      "license": "Public domain",
+      "source": "https://commons.wikimedia.org/wiki/File:Anne_Hathaway%27s_Cottage_interior_-_DPLA_-_7a1755b5c0003164f0da183729c870d3.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/1/10/Anne_Hathaway%27s_Cottage_interior_-_DPLA_-_7a1755b5c0003164f0da183729c870d3.jpg",
+      "originalSize": "4158x2707"
+    },
+    {
+      "n": 6,
+      "term": "Shakespeares Birthplace Henley Street",
+      "title": "File:Shakespeare's Birthplace in Henley Street - geograph.org.uk - 6545722.jpg",
+      "artist": "Steve Daniels",
+      "license": "CC BY-SA 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Shakespeare%27s_Birthplace_in_Henley_Street_-_geograph.org.uk_-_6545722.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4f/Shakespeare%27s_Birthplace_in_Henley_Street_-_geograph.org.uk_-_6545722.jpg",
+      "originalSize": "4800x3600"
+    },
+    {
+      "n": 7,
+      "term": "Shakespeares Birthplace timber frame",
+      "title": "File:Shakespeare's Birthplace - DPLA - 35c9c36964f794fab89f618748dbfb6a.jpg",
+      "artist": "Edmund F. Arras",
+      "license": "Public domain",
+      "source": "https://commons.wikimedia.org/wiki/File:Shakespeare%27s_Birthplace_-_DPLA_-_35c9c36964f794fab89f618748dbfb6a.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/e/ed/Shakespeare%27s_Birthplace_-_DPLA_-_35c9c36964f794fab89f618748dbfb6a.jpg",
+      "originalSize": "4551x2866"
+    }
+  ],
+  "royal-crescent": [
+    {
+      "n": 1,
+      "term": "Royal Crescent Bath",
+      "title": "File:Royal Crescent, Bath 2014 10.jpg",
+      "artist": "Photograph by Mike Peel (www.mikepeel.net).",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Royal_Crescent,_Bath_2014_10.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b0/Royal_Crescent%2C_Bath_2014_10.jpg",
+      "originalSize": "5184x3456"
+    },
+    {
+      "n": 2,
+      "term": "Royal Crescent aerial",
+      "title": "File:Royal.crescent.aerial.bath.arp.jpg",
+      "artist": "Unknown",
+      "license": "Public domain",
+      "source": "https://commons.wikimedia.org/wiki/File:Royal.crescent.aerial.bath.arp.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/3/31/Royal.crescent.aerial.bath.arp.jpg",
+      "originalSize": "1800x1372"
+    },
+    {
+      "n": 3,
+      "term": "Royal Crescent lawn",
+      "title": "File:ENG Bath Royal Crescent 02.jpg",
+      "artist": "-wuppertaler",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:ENG_Bath_Royal_Crescent_02.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/4/44/ENG_Bath_Royal_Crescent_02.jpg",
+      "originalSize": "3940x2955"
+    },
+    {
+      "n": 4,
+      "term": "Royal Crescent panorama",
+      "title": "File:Royal Crescent panorama.jpg",
+      "artist": "Tristan Surtel",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Royal_Crescent_panorama.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/9/9d/Royal_Crescent_panorama.jpg",
+      "originalSize": "11389x3844"
+    },
+    {
+      "n": 5,
+      "term": "Royal Crescent Bath Georgian",
+      "title": "File:Royal Crescent in Bath - geograph.org.uk - 7845942.jpg",
+      "artist": "Kevin Pearson",
+      "license": "CC BY-SA 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Royal_Crescent_in_Bath_-_geograph.org.uk_-_7845942.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/5/55/Royal_Crescent_in_Bath_-_geograph.org.uk_-_7845942.jpg",
+      "originalSize": "4080x3060"
+    },
+    {
+      "n": 6,
+      "term": "Royal Crescent from park",
+      "title": "File:View of Royal Crescent from Royal Victoria Park - geograph.org.uk - 7678092.jpg",
+      "artist": "Robert Lamb",
+      "license": "CC BY-SA 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:View_of_Royal_Crescent_from_Royal_Victoria_Park_-_geograph.org.uk_-_7678092.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/2/2f/View_of_Royal_Crescent_from_Royal_Victoria_Park_-_geograph.org.uk_-_7678092.jpg",
+      "originalSize": "6000x4000"
+    }
+  ],
+  "clifton-suspension-bridge": [
+    {
+      "n": 1,
+      "term": "Clifton Suspension Bridge Bristol",
+      "title": "File:Bristol MMB «C0 Clifton Suspension Bridge.jpg",
+      "artist": "mattbuck (category)",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Bristol_MMB_%C2%ABC0_Clifton_Suspension_Bridge.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/9/9d/Bristol_MMB_%C2%ABC0_Clifton_Suspension_Bridge.jpg",
+      "originalSize": "2359x1560"
+    },
+    {
+      "n": 2,
+      "term": "Clifton Suspension Bridge Avon Gorge",
+      "title": "File:Clifton Suspension Bridge and the Avon Gorge - geograph.org.uk - 4754843.jpg",
+      "artist": "Steve Whalley",
+      "license": "CC BY-SA 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Clifton_Suspension_Bridge_and_the_Avon_Gorge_-_geograph.org.uk_-_4754843.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/d/dd/Clifton_Suspension_Bridge_and_the_Avon_Gorge_-_geograph.org.uk_-_4754843.jpg",
+      "originalSize": "1600x1392"
+    },
+    {
+      "n": 3,
+      "term": "Clifton Suspension Bridge night",
+      "title": "File:View of Clifton Suspension Bridge at night from Sion Hill.jpg",
+      "artist": "lewispb",
+      "license": "CC0",
+      "source": "https://commons.wikimedia.org/wiki/File:View_of_Clifton_Suspension_Bridge_at_night_from_Sion_Hill.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/6/64/View_of_Clifton_Suspension_Bridge_at_night_from_Sion_Hill.jpg",
+      "originalSize": "5456x3632"
+    },
+    {
+      "n": 4,
+      "term": "Clifton Suspension Bridge from below",
+      "title": "File:Clifton Suspension Bridge from below - geograph.org.uk - 5565400.jpg",
+      "artist": "Bill Boaden",
+      "license": "CC BY-SA 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Clifton_Suspension_Bridge_from_below_-_geograph.org.uk_-_5565400.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/5/54/Clifton_Suspension_Bridge_from_below_-_geograph.org.uk_-_5565400.jpg",
+      "originalSize": "6000x4000"
+    },
+    {
+      "n": 5,
+      "term": "Clifton Suspension Bridge towers",
+      "title": "File:Bristol MMB «B8 Clifton Suspension Bridge.jpg",
+      "artist": "mattbuck (category)",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Bristol_MMB_%C2%ABB8_Clifton_Suspension_Bridge.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e4/Bristol_MMB_%C2%ABB8_Clifton_Suspension_Bridge.jpg",
+      "originalSize": "2331x1542"
+    },
+    {
+      "n": 6,
+      "term": "Clifton Suspension Bridge deck",
+      "title": "File:The deck (4436297468).jpg",
+      "artist": "Ben Salter from Wales",
+      "license": "CC BY 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:The_deck_(4436297468).jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b5/The_deck_%284436297468%29.jpg",
+      "originalSize": "1280x853"
+    },
+    {
+      "n": 7,
+      "term": "Clifton Suspension Bridge sunset",
+      "title": "File:Clifton Suspension Bridge, Bristol (2016).jpg",
+      "artist": "Bs0u10e0",
+      "license": "CC BY-SA 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Clifton_Suspension_Bridge,_Bristol_(2016).jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/0/09/Clifton_Suspension_Bridge%2C_Bristol_%282016%29.jpg",
+      "originalSize": "5694x3529"
+    }
+  ],
+  "angel-of-the-north": [
+    {
+      "n": 1,
+      "term": "Angel of the North Gateshead",
+      "title": "File:Fly-Angel.jpg",
+      "artist": "David Wilson Clarke",
+      "license": "CC BY 2.5",
+      "source": "https://commons.wikimedia.org/wiki/File:Fly-Angel.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/5/5a/Fly-Angel.jpg",
+      "originalSize": "3474x2314"
+    },
+    {
+      "n": 2,
+      "term": "Angel of the North front",
+      "title": "File:Angel of the North, Gateshead, United Kingdom.jpg",
+      "artist": "Alvin Leong",
+      "license": "CC BY-SA 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Angel_of_the_North,_Gateshead,_United_Kingdom.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d2/Angel_of_the_North%2C_Gateshead%2C_United_Kingdom.jpg",
+      "originalSize": "3968x2232"
+    },
+    {
+      "n": 3,
+      "term": "Angel of the North wings",
+      "title": "File:Angel of the North viewed from East Coast Mainline train.jpg",
+      "artist": "Peter Reed",
+      "license": "CC BY-SA 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Angel_of_the_North_viewed_from_East_Coast_Mainline_train.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Angel_of_the_North_viewed_from_East_Coast_Mainline_train.jpg",
+      "originalSize": "2613x1960"
+    },
+    {
+      "n": 4,
+      "term": "Angel of the North silhouette",
+      "title": "File:Angel of the North, Gormley.jpg",
+      "artist": "Tony Grist",
+      "license": "Public domain",
+      "source": "https://commons.wikimedia.org/wiki/File:Angel_of_the_North,_Gormley.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/8/81/Angel_of_the_North%2C_Gormley.jpg",
+      "originalSize": "1600x1200"
+    },
+    {
+      "n": 5,
+      "term": "Angel of the North base",
+      "title": "File:Angel of the north through trees.jpeg",
+      "artist": "Toon1981",
+      "license": "Public domain",
+      "source": "https://commons.wikimedia.org/wiki/File:Angel_of_the_north_through_trees.jpeg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/b/be/Angel_of_the_north_through_trees.jpeg",
+      "originalSize": "3072x2304"
+    },
+    {
+      "n": 6,
+      "term": "Angel of the North landscape",
+      "title": "File:Angel of the North - 6150534524.jpg",
+      "artist": "Barly..",
+      "license": "CC BY 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Angel_of_the_North_-_6150534524.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/1/10/Angel_of_the_North_-_6150534524.jpg",
+      "originalSize": "1600x931"
+    },
+    {
+      "n": 7,
+      "term": "Angel of the North sunset",
+      "title": "File:Angel of the North at Sunset - 30.05.26.jpg",
+      "artist": "Oscaracton",
+      "license": "CC BY 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Angel_of_the_North_at_Sunset_-_30.05.26.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/6/65/Angel_of_the_North_at_Sunset_-_30.05.26.jpg",
+      "originalSize": "1280x853"
+    },
+    {
+      "n": 8,
+      "term": "Angel of the North side",
+      "title": "File:Angel of the North - Side view - geograph.org.uk - 7288318.jpg",
+      "artist": "Rob Farrow",
+      "license": "CC BY-SA 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Angel_of_the_North_-_Side_view_-_geograph.org.uk_-_7288318.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/7/71/Angel_of_the_North_-_Side_view_-_geograph.org.uk_-_7288318.jpg",
+      "originalSize": "1000x1333"
+    }
+  ],
+  "giants-causeway": [
+    {
+      "n": 1,
+      "term": "Giants Causeway columns",
+      "title": "File:Antrim Coast - Giant's Causeway - Closeup of Basalt Columns - geograph.org.uk - 3719472.jpg",
+      "artist": "Joseph Mischyshyn",
+      "license": "CC BY-SA 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Antrim_Coast_-_Giant%27s_Causeway_-_Closeup_of_Basalt_Columns_-_geograph.org.uk_-_3719472.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/5/56/Antrim_Coast_-_Giant%27s_Causeway_-_Closeup_of_Basalt_Columns_-_geograph.org.uk_-_3719472.jpg",
+      "originalSize": "1960x3008"
+    },
+    {
+      "n": 2,
+      "term": "Giants Causeway coast",
+      "title": "File:Giant's Causeway (14).JPG",
+      "artist": "Chmee2",
+      "license": "CC BY 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Giant%27s_Causeway_(14).JPG",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d5/Giant%27s_Causeway_%2814%29.JPG",
+      "originalSize": "3840x2543"
+    },
+    {
+      "n": 3,
+      "term": "Giants Causeway hexagons",
+      "title": "File:Hexagonal shaped rocks, Giant's Causeway - geograph.org.uk - 3791398.jpg",
+      "artist": "Kenneth Allen",
+      "license": "CC BY-SA 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Hexagonal_shaped_rocks,_Giant%27s_Causeway_-_geograph.org.uk_-_3791398.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e9/Hexagonal_shaped_rocks%2C_Giant%27s_Causeway_-_geograph.org.uk_-_3791398.jpg",
+      "originalSize": "2560x1920"
+    },
+    {
+      "n": 4,
+      "term": "Giants Causeway waves",
+      "title": "File:Atlantic waves breaking on the Giant's Causeway - geograph.org.uk - 3738986.jpg",
+      "artist": "Eric Jones",
+      "license": "CC BY-SA 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Atlantic_waves_breaking_on_the_Giant%27s_Causeway_-_geograph.org.uk_-_3738986.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c9/Atlantic_waves_breaking_on_the_Giant%27s_Causeway_-_geograph.org.uk_-_3738986.jpg",
+      "originalSize": "1024x768"
+    },
+    {
+      "n": 5,
+      "term": "Giants Causeway path",
+      "title": "File:The Giant's Causeway from the path to Port Reostan - geograph.org.uk - 3736027.jpg",
+      "artist": "Eric Jones",
+      "license": "CC BY-SA 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:The_Giant%27s_Causeway_from_the_path_to_Port_Reostan_-_geograph.org.uk_-_3736027.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/3/39/The_Giant%27s_Causeway_from_the_path_to_Port_Reostan_-_geograph.org.uk_-_3736027.jpg",
+      "originalSize": "1024x768"
+    },
+    {
+      "n": 6,
+      "term": "Giants Causeway basalt",
+      "title": "File:Basalt roch formations at the giant's causeway - panoramio.jpg",
+      "artist": "el ui",
+      "license": "CC BY 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Basalt_roch_formations_at_the_giant%27s_causeway_-_panoramio.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/e/ec/Basalt_roch_formations_at_the_giant%27s_causeway_-_panoramio.jpg",
+      "originalSize": "1536x2048"
+    },
+    {
+      "n": 7,
+      "term": "Giants Causeway panorama",
+      "title": "File:20180408 123923 Giants Causeway.jpg",
+      "artist": "Bernard Ladenthin",
+      "license": "CC BY 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:20180408_123923_Giants_Causeway.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/e/ea/20180408_123923_Giants_Causeway.jpg",
+      "originalSize": "10576x3808"
+    }
+  ],
+  "white-cliffs-of-dover": [
+    {
+      "n": 1,
+      "term": "White Cliffs of Dover",
+      "title": "File:Dover White Cliffs 9.jpg",
+      "artist": "kallerna",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Dover_White_Cliffs_9.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/a/ad/Dover_White_Cliffs_9.jpg",
+      "originalSize": "5400x3600"
+    },
+    {
+      "n": 2,
+      "term": "White Cliffs of Dover aerial",
+      "title": "File:Aerial Dover Ferry Port Aerial image (8636008602).jpg",
+      "artist": "John Fielding from Norwich, UK",
+      "license": "CC BY 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Aerial_Dover_Ferry_Port_Aerial_image_(8636008602).jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d2/Aerial_Dover_Ferry_Port_Aerial_image_%288636008602%29.jpg",
+      "originalSize": "2000x1496"
+    },
+    {
+      "n": 3,
+      "term": "White Cliffs of Dover lighthouse",
+      "title": "File:South Foreland Lighthouse and cliffs from Strait of Dover 2.jpg",
+      "artist": "Nilfanion",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:South_Foreland_Lighthouse_and_cliffs_from_Strait_of_Dover_2.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4b/South_Foreland_Lighthouse_and_cliffs_from_Strait_of_Dover_2.jpg",
+      "originalSize": "3032x2216"
+    },
+    {
+      "n": 4,
+      "term": "White Cliffs of Dover from sea",
+      "title": "File:Crossing the English Channel (Le Manche). White cliffs of Dover in background.jpg",
+      "artist": "Timitrius from Great Britain",
+      "license": "CC BY-SA 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Crossing_the_English_Channel_(Le_Manche)._White_cliffs_of_Dover_in_background.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/5/5c/Crossing_the_English_Channel_%28Le_Manche%29._White_cliffs_of_Dover_in_background.jpg",
+      "originalSize": "1760x1168"
+    },
+    {
+      "n": 5,
+      "term": "White Cliffs of Dover coast",
+      "title": "File:Dover White Cliffs 1.jpg",
+      "artist": "kallerna",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Dover_White_Cliffs_1.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/6/66/Dover_White_Cliffs_1.jpg",
+      "originalSize": "4580x5000"
+    },
+    {
+      "n": 6,
+      "term": "White Cliffs of Dover path",
+      "title": "File:White Cliffs of Dover (264098158).jpg",
+      "artist": "Ian Wilson from London, England",
+      "license": "CC BY 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:White_Cliffs_of_Dover_(264098158).jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/9/97/White_Cliffs_of_Dover_%28264098158%29.jpg",
+      "originalSize": "1024x768"
+    },
+    {
+      "n": 7,
+      "term": "White Cliffs of Dover ferry",
+      "title": "File:White Cliffs of Dover from Ferry.jpg",
+      "artist": "GeorgeM2011",
+      "license": "CC BY 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:White_Cliffs_of_Dover_from_Ferry.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/1/12/White_Cliffs_of_Dover_from_Ferry.jpg",
+      "originalSize": "4080x1836"
+    },
+    {
+      "n": 8,
+      "term": "White Cliffs of Dover panorama",
+      "title": "File:The White Cliffs of Dover (48904125611).jpg",
+      "artist": "Mustang Joe",
+      "license": "CC0",
+      "source": "https://commons.wikimedia.org/wiki/File:The_White_Cliffs_of_Dover_(48904125611).jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/e/ea/The_White_Cliffs_of_Dover_%2848904125611%29.jpg",
+      "originalSize": "5688x2467"
+    }
+  ],
+  "snowdon": [
+    {
+      "n": 1,
+      "term": "Snowdon summit",
+      "title": "File:Snowdon summit - geograph.org.uk - 6588778.jpg",
+      "artist": "Kevin Williams",
+      "license": "CC BY-SA 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Snowdon_summit_-_geograph.org.uk_-_6588778.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1b/Snowdon_summit_-_geograph.org.uk_-_6588778.jpg",
+      "originalSize": "1024x768"
+    },
+    {
+      "n": 2,
+      "term": "Snowdon Yr Wyddfa",
+      "title": "File:Yr Wyddfa towards Llyn Llydaw Crib Goch 2019 01.jpg",
+      "artist": "Julian Herzog (Website)",
+      "license": "CC BY 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Yr_Wyddfa_towards_Llyn_Llydaw_Crib_Goch_2019_01.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/8/8d/Yr_Wyddfa_towards_Llyn_Llydaw_Crib_Goch_2019_01.jpg",
+      "originalSize": "6016x4016"
+    },
+    {
+      "n": 3,
+      "term": "Snowdon mountain railway",
+      "title": "File:Clogwyn Station with steam train.jpg",
+      "artist": "Denis Egan",
+      "license": "CC BY 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Clogwyn_Station_with_steam_train.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/3/39/Clogwyn_Station_with_steam_train.jpg",
+      "originalSize": "3264x2448"
+    },
+    {
+      "n": 4,
+      "term": "Snowdon from Llyn Llydaw",
+      "title": "File:Llyn Llydaw and Snowdon - geograph.org.uk - 4302038.jpg",
+      "artist": "Peter S",
+      "license": "CC BY-SA 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Llyn_Llydaw_and_Snowdon_-_geograph.org.uk_-_4302038.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f5/Llyn_Llydaw_and_Snowdon_-_geograph.org.uk_-_4302038.jpg",
+      "originalSize": "4608x3456"
+    },
+    {
+      "n": 5,
+      "term": "Snowdon ridge",
+      "title": "File:Snowdon - Ridge in Fog.jpg",
+      "artist": "Runner1928",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Snowdon_-_Ridge_in_Fog.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a9/Snowdon_-_Ridge_in_Fog.jpg",
+      "originalSize": "2592x1944"
+    },
+    {
+      "n": 6,
+      "term": "Snowdon panorama",
+      "title": "File:Panorama at summit of Mount Snowdon (21261572053).jpg",
+      "artist": "Takver from Australia",
+      "license": "CC BY-SA 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Panorama_at_summit_of_Mount_Snowdon_(21261572053).jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/0/00/Panorama_at_summit_of_Mount_Snowdon_%2821261572053%29.jpg",
+      "originalSize": "4000x1420"
+    },
+    {
+      "n": 7,
+      "term": "Snowdon Crib Goch",
+      "title": "File:Snowdon and Glaslyn from Crib Goch - geograph.org.uk - 3018592.jpg",
+      "artist": "Peter S",
+      "license": "CC BY-SA 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Snowdon_and_Glaslyn_from_Crib_Goch_-_geograph.org.uk_-_3018592.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/e/eb/Snowdon_and_Glaslyn_from_Crib_Goch_-_geograph.org.uk_-_3018592.jpg",
+      "originalSize": "3968x2976"
+    },
+    {
+      "n": 8,
+      "term": "Snowdon peak snow",
+      "title": "File:The Sports Field at Ysgol Brynrefail - geograph.org.uk - 1724437.jpg",
+      "artist": "Eric Jones",
+      "license": "CC BY-SA 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:The_Sports_Field_at_Ysgol_Brynrefail_-_geograph.org.uk_-_1724437.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c9/The_Sports_Field_at_Ysgol_Brynrefail_-_geograph.org.uk_-_1724437.jpg",
+      "originalSize": "3264x2448"
+    }
+  ],
+  "loch-ness": [
+    {
+      "n": 1,
+      "term": "Loch Ness Urquhart Castle",
+      "title": "File:The Loch Ness and Urquhart castle.jpg",
+      "artist": "Eusebius",
+      "license": "CC BY 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:The_Loch_Ness_and_Urquhart_castle.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/2/21/The_Loch_Ness_and_Urquhart_castle.jpg",
+      "originalSize": "4185x2790"
+    },
+    {
+      "n": 2,
+      "term": "Loch Ness water",
+      "title": "File:Loch Ness - geograph.org.uk - 7282750.jpg",
+      "artist": "Matthew Chadwick",
+      "license": "CC BY-SA 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Loch_Ness_-_geograph.org.uk_-_7282750.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/0/0e/Loch_Ness_-_geograph.org.uk_-_7282750.jpg",
+      "originalSize": "1024x768"
+    },
+    {
+      "n": 3,
+      "term": "Loch Ness aerial",
+      "title": "File:Aerial view of Loch Ness.jpg",
+      "artist": "Bmazerolles",
+      "license": "CC BY 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Aerial_view_of_Loch_Ness.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/7/7f/Aerial_view_of_Loch_Ness.jpg",
+      "originalSize": "2682x3576"
+    },
+    {
+      "n": 4,
+      "term": "Loch Ness shore",
+      "title": "File:The Eastern Shore of Loch Ness - geograph.org.uk - 7211701.jpg",
+      "artist": "David Dixon",
+      "license": "CC BY-SA 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:The_Eastern_Shore_of_Loch_Ness_-_geograph.org.uk_-_7211701.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/1/18/The_Eastern_Shore_of_Loch_Ness_-_geograph.org.uk_-_7211701.jpg",
+      "originalSize": "1024x768"
+    },
+    {
+      "n": 5,
+      "term": "Loch Ness panorama",
+      "title": "File:Panorama Urquhart Castle.jpg",
+      "artist": "JavierOlivares",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Panorama_Urquhart_Castle.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c7/Panorama_Urquhart_Castle.jpg",
+      "originalSize": "4389x2965"
+    },
+    {
+      "n": 6,
+      "term": "Loch Ness from above",
+      "title": "File:Loch Ness from above Tigh na Coille - geograph.org.uk - 1744832.jpg",
+      "artist": "Sarah McGuire",
+      "license": "CC BY-SA 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Loch_Ness_from_above_Tigh_na_Coille_-_geograph.org.uk_-_1744832.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/8/81/Loch_Ness_from_above_Tigh_na_Coille_-_geograph.org.uk_-_1744832.jpg",
+      "originalSize": "3264x2448"
+    },
+    {
+      "n": 7,
+      "term": "Loch Ness Great Glen",
+      "title": "File:The Great Glen, Loch Ness - geograph.org.uk - 7210785.jpg",
+      "artist": "David Dixon",
+      "license": "CC BY-SA 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:The_Great_Glen,_Loch_Ness_-_geograph.org.uk_-_7210785.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/5/56/The_Great_Glen%2C_Loch_Ness_-_geograph.org.uk_-_7210785.jpg",
+      "originalSize": "1024x683"
+    },
+    {
+      "n": 8,
+      "term": "Loch Ness landscape",
+      "title": "File:Loch Ness By Jane Nasmyth.jpg",
+      "artist": "Jane Nasmyth",
+      "license": "Public domain",
+      "source": "https://commons.wikimedia.org/wiki/File:Loch_Ness_By_Jane_Nasmyth.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/1/11/Loch_Ness_By_Jane_Nasmyth.jpg",
+      "originalSize": "1200x876"
+    }
+  ],
+  "lake-district": [
+    {
+      "n": 1,
+      "term": "Lake District Windermere",
+      "title": "File:Windermere lake in Lake District 01.jpg",
+      "artist": "DariusLT",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Windermere_lake_in_Lake_District_01.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/7/75/Windermere_lake_in_Lake_District_01.jpg",
+      "originalSize": "4000x1800"
+    },
+    {
+      "n": 2,
+      "term": "Lake District fells",
+      "title": "File:Wasdale Tree under Kirk Fell Lake District 2025 01.jpg",
+      "artist": "Julian Herzog (Website)",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Wasdale_Tree_under_Kirk_Fell_Lake_District_2025_01.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/6/62/Wasdale_Tree_under_Kirk_Fell_Lake_District_2025_01.jpg",
+      "originalSize": "8048x5030"
+    },
+    {
+      "n": 3,
+      "term": "Lake District Derwentwater",
+      "title": "File:Friars' Crag Derwentwater Lake District 2022 01.jpg",
+      "artist": "Julian Herzog (Website)",
+      "license": "CC BY 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Friars%27_Crag_Derwentwater_Lake_District_2022_01.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/7/72/Friars%27_Crag_Derwentwater_Lake_District_2022_01.jpg",
+      "originalSize": "8434x3467"
+    },
+    {
+      "n": 4,
+      "term": "Lake District Wastwater",
+      "title": "File:Wast Water in the evening.jpg",
+      "artist": "Andrew Hayward",
+      "license": "CC BY 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Wast_Water_in_the_evening.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/9/91/Wast_Water_in_the_evening.jpg",
+      "originalSize": "1024x768"
+    },
+    {
+      "n": 5,
+      "term": "Lake District valley",
+      "title": "File:Ritson's Force Lake District 2021 01.jpg",
+      "artist": "Julian Herzog (Website)",
+      "license": "CC BY 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Ritson%27s_Force_Lake_District_2021_01.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/0/01/Ritson%27s_Force_Lake_District_2021_01.jpg",
+      "originalSize": "5830x3892"
+    },
+    {
+      "n": 6,
+      "term": "Lake District panorama",
+      "title": "File:Catbells Northern Ascent, Lake District - June 2009.jpg",
+      "artist": "Diliff",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Catbells_Northern_Ascent,_Lake_District_-_June_2009.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/3/38/Catbells_Northern_Ascent%2C_Lake_District_-_June_2009.jpg",
+      "originalSize": "9835x4074"
+    },
+    {
+      "n": 7,
+      "term": "Lake District Buttermere",
+      "title": "File:Buttermere Lake 2022.jpg",
+      "artist": "Julian Herzog (Website)",
+      "license": "CC BY 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Buttermere_Lake_2022.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/6/6b/Buttermere_Lake_2022.jpg",
+      "originalSize": "3991x5598"
+    },
+    {
+      "n": 8,
+      "term": "Lake District mountains",
+      "title": "File:Keswick Panorama - Oct 2009.jpg",
+      "artist": "Diliff",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Keswick_Panorama_-_Oct_2009.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/a/ab/Keswick_Panorama_-_Oct_2009.jpg",
+      "originalSize": "10814x3822"
+    }
+  ],
+  "titanic-belfast": [
+    {
+      "n": 1,
+      "term": "Titanic Belfast building",
+      "title": "File:Titanic Signature Building, Belfast 20180427.jpg",
+      "artist": "Suicasmo",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Titanic_Signature_Building,_Belfast_20180427.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/6/6f/Titanic_Signature_Building%2C_Belfast_20180427.jpg",
+      "originalSize": "5184x3456"
+    },
+    {
+      "n": 2,
+      "term": "Titanic Belfast facade",
+      "title": "File:Titanic Building (32495187087).jpg",
+      "artist": "Conall from Downpatrick, Northern Ireland",
+      "license": "CC BY 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Titanic_Building_(32495187087).jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/9/9f/Titanic_Building_%2832495187087%29.jpg",
+      "originalSize": "4480x2859"
+    },
+    {
+      "n": 3,
+      "term": "Titanic Belfast night",
+      "title": "File:Titanic Belfast at night - geograph.org.uk - 6052536.jpg",
+      "artist": "Rossographer",
+      "license": "CC BY-SA 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Titanic_Belfast_at_night_-_geograph.org.uk_-_6052536.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e8/Titanic_Belfast_at_night_-_geograph.org.uk_-_6052536.jpg",
+      "originalSize": "1280x720"
+    },
+    {
+      "n": 4,
+      "term": "Titanic Belfast aerial",
+      "title": "File:Titanic Quarter aerial (3).jpg",
+      "artist": "Titanic Belfast",
+      "license": "CC BY 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Titanic_Quarter_aerial_(3).jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/1/16/Titanic_Quarter_aerial_%283%29.jpg",
+      "originalSize": "1250x938"
+    },
+    {
+      "n": 5,
+      "term": "Titanic Belfast entrance",
+      "title": "File:Belfast - Titanic Quarter - Sculpture at Entrance to Titanic Belfast - geograph.org.uk - 3699863.jpg",
+      "artist": "Joseph Mischyshyn",
+      "license": "CC BY-SA 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Belfast_-_Titanic_Quarter_-_Sculpture_at_Entrance_to_Titanic_Belfast_-_geograph.org.uk_-_3699863.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f8/Belfast_-_Titanic_Quarter_-_Sculpture_at_Entrance_to_Titanic_Belfast_-_geograph.org.uk_-_3699863.jpg",
+      "originalSize": "2247x1498"
+    }
+  ]
+}

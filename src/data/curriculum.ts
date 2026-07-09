@@ -2,6 +2,7 @@ import countries from 'world-countries'
 import { historyDateTopics } from './history'
 import { coloniesTopic } from './geo/colonies'
 import { cityTopics } from './cities'
+import { landmarkTopics } from './landmarks'
 import type { QuizItem, Topic } from './types'
 
 export type { CityEntry, HistoryDate, MapScope, QuizItem, QuizMode, Topic, TopicGroup } from './types'
@@ -690,4 +691,5 @@ export const topics: Topic[] = [
   ...knowledgeQuestions,
   ...historyDateTopics,
   ...cityTopics,
+  ...landmarkTopics,
 ]
