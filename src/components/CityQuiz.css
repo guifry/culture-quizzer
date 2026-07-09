@@ -113,6 +113,53 @@
   }
 }
 
+/* Mobile: reuse the shared .mobile-map-game shell (toolbar dropdowns + prompt + flex map),
+   mirroring MobileMapGame so the map dominates and controls are dropdowns at the top. */
+.city-mmg .mmg-map {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.city-mmg .mmg-map .city-map {
+  width: 100%;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+}
+
+.city-mmg .city-map-hint {
+  display: none;
+}
+
+.city-mmg-prompt {
+  max-height: 44vh;
+  overflow: auto;
+}
+
+.city-mmg-prompt .city-answer-form,
+.city-mmg-prompt .next-locate,
+.city-mmg-prompt .city-verdict {
+  margin-top: 10px;
+}
+
+.city-mmg-prompt .city-history {
+  grid-template-columns: 1fr;
+  margin-top: 10px;
+}
+
+.city-mmg-prompt .photo-mosaic {
+  gap: 6px;
+}
+
+.city-mmg-complete {
+  overflow: auto;
+}
+
+.city-mmg-complete .deck-complete {
+  margin: 16px;
+}
+
 .city-prompt {
   border: 1px solid var(--border);
   border-radius: 8px;

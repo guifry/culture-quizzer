@@ -2098,6 +2098,10 @@ function App() {
   const cityStage = activePageView === 'practice' && isCityTopic(activeTopic)
   const compactHeader = mapWorkspace || coloniesStage || cityStage
   const fullBleedWorkspace = showingMapStage || coloniesStage || cityStage
+  // Self-contained map games (colonies, cities) get the same dedicated mobile layout as the
+  // generic map games: dropdown toolbar + prompt on top, map filling the rest.
+  const mobileSelfContained = isMobile && (coloniesStage || cityStage)
+  const mobileMapActive = mobileMapGame || mobileSelfContained
 
   const advanceRound = useCallback(() => {
     setPendingPick(null)
@@ -2357,7 +2361,7 @@ function App() {
   }, [fullTopics])
 
   return (
-    <main className={['app-shell', mobileMapGame ? 'mobile-map-active' : '', mobileMapGame && isLandscapePhone ? 'mobile-landscape' : ''].filter(Boolean).join(' ')}>
+    <main className={['app-shell', mobileMapActive ? 'mobile-map-active' : '', mobileMapGame && isLandscapePhone ? 'mobile-landscape' : ''].filter(Boolean).join(' ')}>
       <header className="mobile-header">
         <div className="mobile-brand">
           <Globe2 size={20} />
@@ -2448,6 +2452,19 @@ function App() {
             setAlsoNameDepartment(value)
             setPendingPick(null)
           }}
+          onReset={resetScores}
+        />
+      ) : mobileSelfContained && isColoniesTopic(activeTopic) ? (
+        <ColoniesQuiz key={activeTopic.id} topic={activeTopic} mobile onReset={resetScores} />
+      ) : mobileSelfContained && isCityTopic(activeTopic) ? (
+        <CityQuiz
+          key={`${activeTopic.id}:${mode}`}
+          topic={activeTopic}
+          mode={mode}
+          mobile
+          pageView={activePageView}
+          onPageView={setPageView}
+          onMode={(nextMode) => activateMode(activeTopic, nextMode)}
           onReset={resetScores}
         />
       ) : (

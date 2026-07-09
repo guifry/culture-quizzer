@@ -104,6 +104,56 @@
   fill: #48a868;
 }
 
+/* Mobile: reuse the shared .mobile-map-game shell (toolbar + prompt + flex map). */
+.colonies-mmg .mmg-map .map {
+  height: auto;
+  aspect-ratio: 960 / 560;
+}
+
+.colonies-mmg .colonies-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 2px;
+}
+
+.colonies-mmg .colonies-count {
+  font-variant-numeric: tabular-nums;
+  color: var(--text);
+  font-size: 0.85rem;
+}
+
+.colonies-mmg-review {
+  max-height: 34vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  margin-top: 8px;
+}
+
+.colonies-mmg-review .colony-rows {
+  grid-template-columns: 1fr;
+}
+
+.colonies-mmg-review .colony-row {
+  flex-wrap: wrap;
+  row-gap: 2px;
+}
+
+.colonies-mmg-review .colony-note {
+  white-space: normal;
+}
+
+.colonies-mmg-review .colony-year,
+.colonies-mmg-review .colony-year-input {
+  margin-left: 26px;
+}
+
+.colonies-mmg-complete {
+  padding: 18px 16px;
+  overflow: auto;
+}
+
 .country-hit {
   fill: #48a868;
 }

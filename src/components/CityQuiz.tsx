@@ -67,7 +67,27 @@ function Stat({ label, value }: { label: string; value: string | number }) {
   )
 }
 
-export function CityQuiz({ topic, mode }: { topic: Topic; mode: QuizMode }) {
+function cityModeLabel(mode: QuizMode) {
+  return mode === 'city-locate' ? 'Locate' : mode === 'city-photos' ? 'Photos' : 'Clue'
+}
+
+export function CityQuiz({
+  topic,
+  mode,
+  mobile = false,
+  pageView,
+  onPageView,
+  onMode,
+  onReset,
+}: {
+  topic: Topic
+  mode: QuizMode
+  mobile?: boolean
+  pageView?: string
+  onPageView?: (view: 'practice' | 'course') => void
+  onMode?: (mode: QuizMode) => void
+  onReset?: () => void
+}) {
   const cities = topic.cities ?? []
   const compound = mode !== 'city-locate'
   const scoreKey = `${topic.id}:${mode}`
@@ -153,6 +173,167 @@ export function CityQuiz({ topic, mode }: { topic: Topic; mode: QuizMode }) {
   const displayGuess = review ? review.guess : guess
   const displayLocationOk = review ? review.locationOk : false
 
+  const promptBody =
+    mode === 'city-locate' ? (
+      <>
+        <span className="eyebrow">Locate on the map</span>
+        <h2>{city.name}</h2>
+        <p className="prompt-help">Click where this city is{city.usState ? ' — for a US city, click the correct state' : ''}.</p>
+      </>
+    ) : mode === 'city-photos' ? (
+      <>
+        <span className="eyebrow">{review ? 'What you were looking at' : 'Name the city from its photos'}</span>
+        <PhotoMosaic key={`${city.id}:${position}`} city={city} revealed={Boolean(review)} />
+      </>
+    ) : (
+      <>
+        <span className="eyebrow">Name the city from this clue</span>
+        <p className="city-clue-text">{city.fact}</p>
+      </>
+    )
+
+  const formBody = compound ? (
+    <form className="city-answer-form" onSubmit={submitCompound}>
+      <input
+        key={`name:${position}`}
+        value={nameInput}
+        onChange={(event) => setNameInput(event.target.value)}
+        placeholder="Type the city name"
+        autoComplete="off"
+        readOnly={Boolean(review)}
+      />
+      {review ? (
+        <button type="button" className="primary-action" onClick={advance}>
+          Next <ChevronRight size={16} />
+        </button>
+      ) : (
+        <button type="submit" disabled={!guess && !nameInput.trim()}>
+          Check
+        </button>
+      )}
+    </form>
+  ) : review ? (
+    <button type="button" className="primary-action next-locate" onClick={advance}>
+      Next <ChevronRight size={16} />
+    </button>
+  ) : null
+
+  const verdictBody = review ? (
+    <div className="city-verdict">
+      {compound ? (
+        <p className={review.nameOk ? 'verdict-line ok' : 'verdict-line bad'}>
+          <span>{review.nameOk ? <Check size={15} /> : <X size={15} />}</span>
+          <span>Name: {review.nameOk ? 'correct' : `it was ${city.name}`}{review.submittedName.trim() ? ` (you wrote “${review.submittedName.trim()}”)` : ''}.</span>
+        </p>
+      ) : null}
+      <p className={review.locationOk ? 'verdict-line ok' : 'verdict-line bad'}>
+        <span>{review.locationOk ? <Check size={15} /> : <X size={15} />}</span>
+        <span>Location: {review.locationOk ? 'correct' : `it is in ${regionLabel(city)}`}.</span>
+      </p>
+      {mode !== 'city-clue' ? <p className="city-fact-reveal">{city.fact}</p> : null}
+    </div>
+  ) : null
+
+  const historyBody = history.length ? (
+    <div className="city-history" aria-label="Answer history">
+      {history.map((result) => {
+        const tone = result.points === 1 ? 'pass' : result.points === 0 ? 'fail' : 'mid'
+        return (
+          <article key={result.id} className={`city-history-card ${tone}`}>
+            <strong>{result.city.name}</strong>
+            <p>
+              {result.compound ? `Name ${result.nameOk ? '✓' : '✗'} · ` : ''}Location {result.locationOk ? '✓' : `✗ (${regionLabel(result.city)})`}
+            </p>
+          </article>
+        )
+      })}
+    </div>
+  ) : null
+
+  const deckCompletePanel = (
+    <section className="deck-complete">
+      <span className="eyebrow">Deck complete</span>
+      <h2>Round finished</h2>
+      <div className="deck-complete-stats">
+        <Stat label="Score" value={`${scorePct}%`} />
+        {compound ? <Stat label="Name accuracy" value={`${namePct}%`} /> : null}
+        <Stat label="Location accuracy" value={`${locationPct}%`} />
+        <Stat label="Best streak" value={score.bestStreak} />
+      </div>
+      <button className="primary-action" type="button" onClick={startNewRound}>
+        <RotateCcw size={16} />
+        Start new shuffled round
+      </button>
+      <p className="coverage">{topic.coverage}</p>
+    </section>
+  )
+
+  if (mobile) {
+    const modeSelect = (
+      <label className="mmg-select">
+        <span>Quiz type</span>
+        <select value={mode} onChange={(event) => onMode?.(event.target.value as QuizMode)}>
+          {topic.modes.map((availableMode) => (
+            <option key={availableMode} value={availableMode}>
+              {cityModeLabel(availableMode)}
+            </option>
+          ))}
+        </select>
+      </label>
+    )
+    const viewSelect = onPageView ? (
+      <label className="mmg-select">
+        <span>View</span>
+        <select value={pageView === 'course' ? 'course' : 'practice'} onChange={(event) => onPageView(event.target.value as 'practice' | 'course')}>
+          <option value="practice">Play</option>
+          <option value="course">Course</option>
+        </select>
+      </label>
+    ) : null
+    const resetButton = onReset ? (
+      <button className="mmg-reset" type="button" onClick={onReset} aria-label="Reset scores">
+        <RotateCcw size={16} />
+      </button>
+    ) : null
+
+    if (completed) {
+      return (
+        <section className="mobile-map-game city-mmg-complete">
+          <div className="mmg-toolbar">
+            {viewSelect}
+            {modeSelect}
+            {resetButton}
+          </div>
+          {deckCompletePanel}
+        </section>
+      )
+    }
+
+    return (
+      <section className="mobile-map-game city-mmg">
+        <div className="mmg-toolbar">
+          {viewSelect}
+          {modeSelect}
+          {resetButton}
+        </div>
+        <div className="mmg-prompt city-mmg-prompt">
+          <div className="mmg-status">
+            <span>{Math.min(position + 1, cities.length)}/{cities.length}</span>
+            <span>{scorePct}% score</span>
+            <span>🔥 {score.streak}</span>
+          </div>
+          {promptBody}
+          {formBody}
+          {verdictBody}
+          {historyBody}
+        </div>
+        <div className="mmg-map city-mmg-map">
+          <CityMap city={city} guess={displayGuess} review={Boolean(review)} locationOk={displayLocationOk} interactive={!review} onPick={handlePick} />
+        </div>
+      </section>
+    )
+  }
+
   if (completed) {
     return (
       <div className="city-quiz city-complete">
@@ -165,21 +346,7 @@ export function CityQuiz({ topic, mode }: { topic: Topic; mode: QuizMode }) {
           <Stat label="Streak" value={score.streak} />
           <Stat label="Best" value={score.bestStreak} />
         </section>
-        <section className="deck-complete">
-          <span className="eyebrow">Deck complete</span>
-          <h2>Round finished</h2>
-          <div className="deck-complete-stats">
-            <Stat label="Score" value={`${scorePct}%`} />
-            {compound ? <Stat label="Name accuracy" value={`${namePct}%`} /> : null}
-            <Stat label="Location accuracy" value={`${locationPct}%`} />
-            <Stat label="Best streak" value={score.bestStreak} />
-          </div>
-          <button className="primary-action" type="button" onClick={startNewRound}>
-            <RotateCcw size={16} />
-            Start new shuffled round
-          </button>
-          <p className="coverage">{topic.coverage}</p>
-        </section>
+        {deckCompletePanel}
       </div>
     )
   }
@@ -200,81 +367,10 @@ export function CityQuiz({ topic, mode }: { topic: Topic; mode: QuizMode }) {
 
       <div className="quiz-overlay city-overlay">
         <div className="city-panel">
-          {mode === 'city-locate' ? (
-            <>
-              <span className="eyebrow">Locate on the map</span>
-              <h2>{city.name}</h2>
-              <p className="prompt-help">Click where this city is{city.usState ? ' — for a US city, click the correct state' : ''}.</p>
-            </>
-          ) : mode === 'city-photos' ? (
-            <>
-              <span className="eyebrow">{review ? 'What you were looking at' : 'Name the city from its photos'}</span>
-              <PhotoMosaic key={`${city.id}:${position}`} city={city} revealed={Boolean(review)} />
-            </>
-          ) : (
-            <>
-              <span className="eyebrow">Name the city from this clue</span>
-              <p className="city-clue-text">{city.fact}</p>
-            </>
-          )}
-
-          {compound ? (
-            <form className="city-answer-form" onSubmit={submitCompound}>
-              <input
-                key={`name:${position}`}
-                value={nameInput}
-                onChange={(event) => setNameInput(event.target.value)}
-                placeholder="Type the city name"
-                autoComplete="off"
-                readOnly={Boolean(review)}
-              />
-              {review ? (
-                <button type="button" className="primary-action" onClick={advance}>
-                  Next <ChevronRight size={16} />
-                </button>
-              ) : (
-                <button type="submit" disabled={!guess && !nameInput.trim()}>
-                  Check
-                </button>
-              )}
-            </form>
-          ) : review ? (
-            <button type="button" className="primary-action next-locate" onClick={advance}>
-              Next <ChevronRight size={16} />
-            </button>
-          ) : null}
-
-          {review ? (
-            <div className="city-verdict">
-              {compound ? (
-                <p className={review.nameOk ? 'verdict-line ok' : 'verdict-line bad'}>
-                  <span>{review.nameOk ? <Check size={15} /> : <X size={15} />}</span>
-                  <span>Name: {review.nameOk ? 'correct' : `it was ${city.name}`}{review.submittedName.trim() ? ` (you wrote “${review.submittedName.trim()}”)` : ''}.</span>
-                </p>
-              ) : null}
-              <p className={review.locationOk ? 'verdict-line ok' : 'verdict-line bad'}>
-                <span>{review.locationOk ? <Check size={15} /> : <X size={15} />}</span>
-                <span>Location: {review.locationOk ? 'correct' : `it is in ${regionLabel(city)}`}.</span>
-              </p>
-              {mode !== 'city-clue' ? <p className="city-fact-reveal">{city.fact}</p> : null}
-            </div>
-          ) : null}
-
-          {history.length ? (
-            <div className="city-history" aria-label="Answer history">
-              {history.map((result) => {
-                const tone = result.points === 1 ? 'pass' : result.points === 0 ? 'fail' : 'mid'
-                return (
-                  <article key={result.id} className={`city-history-card ${tone}`}>
-                    <strong>{result.city.name}</strong>
-                    <p>
-                      {result.compound ? `Name ${result.nameOk ? '✓' : '✗'} · ` : ''}Location {result.locationOk ? '✓' : `✗ (${regionLabel(result.city)})`}
-                    </p>
-                  </article>
-                )
-              })}
-            </div>
-          ) : null}
+          {promptBody}
+          {formBody}
+          {verdictBody}
+          {historyBody}
         </div>
       </div>
     </div>

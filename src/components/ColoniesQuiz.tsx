@@ -79,7 +79,7 @@ function Stat({ label, value }: { label: string; value: string | number }) {
   )
 }
 
-export function ColoniesQuiz({ topic }: { topic: Topic }) {
+export function ColoniesQuiz({ topic, mobile = false, onReset }: { topic: Topic; mobile?: boolean; onReset?: () => void }) {
   const relations = useMemo(() => (topic.colonies ?? []).filter((relation) => relation.status === 'former'), [topic.colonies])
   const byColoniser = useMemo(() => {
     const grouped = new Map<string, ColonyRelation[]>()
@@ -223,6 +223,87 @@ export function ColoniesQuiz({ topic }: { topic: Topic }) {
     : needsYearStage
       ? 'Type the year each colony was lost, then press Space.'
       : 'Press Space for the next empire.'
+
+  const countText = reviewed ? `${hits.length} correct · ${missed.length} missed · ${wrongNames.length} wrong` : `${selection.size} selected`
+  const actionLabel = !reviewed ? 'Check' : needsYearStage ? 'Check years' : 'Next empire'
+
+  if (mobile) {
+    if (completed) {
+      return (
+        <section className="mobile-map-game colonies-mmg-complete">
+          <div className="deck-complete">
+            <span className="eyebrow">Round complete</span>
+            <h2>All empires covered</h2>
+            <div className="deck-complete-stats">
+              <Stat label="Accuracy" value={`${accuracy}%`} />
+              {expert ? <Stat label="Year accuracy" value={`${yearAccuracy}%`} /> : null}
+              <Stat label="Best streak" value={score.bestStreak} />
+            </div>
+            <button className="primary-action" type="button" onClick={startNewRound}>
+              <RotateCcw size={16} />
+              Start new shuffled round
+            </button>
+            <p className="coverage">{topic.coverage}</p>
+          </div>
+        </section>
+      )
+    }
+    return (
+      <section className="mobile-map-game colonies-mmg">
+        <div className="mmg-toolbar">
+          <label className="mmg-toggle">
+            <input type="checkbox" checked={expert} onChange={(event) => setExpert(event.target.checked)} />
+            <span>Expert: also enter the year lost</span>
+          </label>
+          {onReset ? (
+            <button className="mmg-reset" type="button" onClick={onReset} aria-label="Reset scores">
+              <RotateCcw size={16} />
+            </button>
+          ) : null}
+        </div>
+        <div className="mmg-prompt">
+          <div className="mmg-status">
+            <span>{Math.min(position + 1, order.length)}/{order.length}</span>
+            <span>{accuracy}% acc</span>
+            <span>🔥 {score.streak}</span>
+          </div>
+          <h2>Former colonies of {coloniser}</h2>
+          <div className="colonies-actions">
+            <span className="colonies-count">{countText}</span>
+            <div className="colonies-buttons">
+              {!reviewed ? (
+                <button className="ghost-action" type="button" onClick={() => setSelection(new Set())} disabled={!selection.size}>
+                  Clear
+                </button>
+              ) : null}
+              <button className="primary-action" type="button" onClick={handleSpace}>
+                {actionLabel}
+                <ChevronRight size={16} />
+              </button>
+            </div>
+          </div>
+          {reviewed ? (
+            <div className="colonies-mmg-review">
+              <ReviewList
+                expected={expected}
+                selectedNames={selection}
+                wrongNames={wrongNames}
+                expert={expert}
+                yearInputs={yearInputs}
+                yearsChecked={yearsChecked}
+                onYearChange={(name, value) => setYearInputs((previous) => ({ ...previous, [name]: value }))}
+              />
+            </div>
+          ) : (
+            <p className="review-hint">{spaceHint}</p>
+          )}
+        </div>
+        <div className="mmg-map">
+          <ColoniesMap selection={selection} expectedByName={expectedByName} reviewed={reviewed} onToggle={toggleCountry} />
+        </div>
+      </section>
+    )
+  }
 
   if (completed) {
     return (
