@@ -2,6 +2,8 @@
 
 React + TypeScript + Vite quiz app. SVG maps (d3-geo + world-atlas / us-atlas / local GeoJSON), reusable curriculum data.
 
+> Building a new curated "Top-N" recognition game (locate / photos / clue + course)? Follow `docs/game-authoring-playbook.md` — curation heuristic, course/clue/photo methodology, and the self-contained-variant architecture. Reference implementation: the UK Landmarks game (`src/data/landmarks/`, `src/components/Landmark*.tsx`).
+
 ## Layout
 - `src/data/curriculum.ts` — master `topics: Topic[]`. Register new topics here.
 - `src/data/types.ts` — `Topic`, `QuizItem`, `QuizMode`, `ColonyRelation`, etc.
