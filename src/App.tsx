@@ -658,6 +658,11 @@ function writeGameParams(topic: Topic, params: { mode: QuizMode; scope: string; 
   if (regionOptions(topic).length) query.set('region', params.scope)
   if (topic.id === 'us-cities') query.set('guess', params.usGuess)
   if (Boolean(courseArticles[topic.id]) || topic.kind === 'city-quiz') query.set('view', params.pageView)
+  if (topic.kind === 'paintings-quiz') {
+    const cur = new URLSearchParams(window.location.search)
+    const t = cur.get('tier')
+    if (t && ['10', '20', '31'].includes(t)) query.set('tier', t)
+  }
   const next = `${window.location.pathname}?${query.toString()}${window.location.hash}`
   window.history.replaceState(null, '', next)
 }

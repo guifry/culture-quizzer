@@ -68,7 +68,17 @@ export function PaintingQuiz({ topic, mode }: { topic: Topic; mode: QuizMode }) 
   const isExpert = mode === 'paintings-expert'
   const scorePrefix = 'paintings'
 
-  const [tier, setTier] = useState<number>(31)
+  const TIER_STORAGE_KEY = `culture-quizzer-${topic.id}-tier`
+  const [tier, setTier] = useState<number>(() => {
+    const params = new URLSearchParams(window.location.search)
+    const fromUrl = params.get('tier')
+    if (fromUrl && ['10', '20', '31'].includes(fromUrl)) return parseInt(fromUrl, 10)
+    try {
+      const stored = localStorage.getItem(TIER_STORAGE_KEY)
+      if (stored && ['10', '20', '31'].includes(stored)) return parseInt(stored, 10)
+    } catch { /* ignore */ }
+    return 10
+  })
   const paintings = allPaintings.slice(0, tier)
   const scoreKey = `${topic.id}:${mode}:tier${tier}`
 
@@ -84,6 +94,13 @@ export function PaintingQuiz({ topic, mode }: { topic: Topic; mode: QuizMode }) 
   useEffect(() => {
     saveScore(scorePrefix, scoreKey, score)
   }, [scoreKey, score])
+
+  useEffect(() => {
+    localStorage.setItem(TIER_STORAGE_KEY, String(tier))
+    const url = new URL(window.location.href)
+    url.searchParams.set('tier', String(tier))
+    window.history.replaceState(null, '', url.toString())
+  }, [tier, TIER_STORAGE_KEY])
 
   const painting = paintings[order[position]]
 
@@ -130,6 +147,18 @@ export function PaintingQuiz({ topic, mode }: { topic: Topic; mode: QuizMode }) 
       return prev + 1
     })
   }, [order.length])
+
+  useEffect(() => {
+    function onKeyDown(e: KeyboardEvent) {
+      if (!review) return
+      if (e.key === ' ' || e.key === 'Enter') {
+        e.preventDefault()
+        advance()
+      }
+    }
+    window.addEventListener('keydown', onKeyDown)
+    return () => window.removeEventListener('keydown', onKeyDown)
+  }, [review, advance])
 
   function startNewRound() {
     setOrder(shuffle(paintings.map((_, i) => i)))
