@@ -2158,8 +2158,8 @@ function App() {
   const coursePairStage = activePageView === 'practice' && isCoursePairTopic(activeTopic)
   const compactHeader = mapWorkspace || coloniesStage || coursePairStage
   const fullBleedWorkspace = showingMapStage || coloniesStage || coursePairStage
-  // Colonies, cities and painting games have a dedicated mobile self-contained layout.
-  const mobileSelfContained = isMobile && (coloniesStage || (activePageView === 'practice' && (isCityTopic(activeTopic) || isPaintingTopic(activeTopic))))
+  // Colonies, cities AND landmarks have a dedicated mobile self-contained layout.
+  const mobileSelfContained = isMobile && (coloniesStage || (activePageView === 'practice' && (isCityTopic(activeTopic) || isLandmarkTopic(activeTopic) || isPaintingTopic(activeTopic))))
   const mobileMapActive = mobileMapGame || mobileSelfContained
 
   const advanceRound = useCallback(() => {
@@ -2517,6 +2517,17 @@ function App() {
         <ColoniesQuiz key={activeTopic.id} topic={activeTopic} mobile onReset={resetScores} />
       ) : mobileSelfContained && isCityTopic(activeTopic) ? (
         <CityQuiz
+          key={`${activeTopic.id}:${mode}`}
+          topic={activeTopic}
+          mode={mode}
+          mobile
+          pageView={activePageView}
+          onPageView={setPageView}
+          onMode={(nextMode) => activateMode(activeTopic, nextMode)}
+          onReset={resetScores}
+        />
+      ) : mobileSelfContained && isLandmarkTopic(activeTopic) ? (
+        <LandmarkQuiz
           key={`${activeTopic.id}:${mode}`}
           topic={activeTopic}
           mode={mode}

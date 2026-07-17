@@ -35,8 +35,6 @@ const SCORE_STORAGE_KEY = 'culture-quizzer-landmark-scores'
 
 const emptyScore = (): LandmarkScore => ({ attempts: 0, points: 0, nameAttempts: 0, nameCorrect: 0, locationCorrect: 0, streak: 0, bestStreak: 0 })
 
-// One random clue index per landmark, chosen once per shuffled round (each landmark is
-// seen once per round, so this is effectively a fresh random clue per encounter).
 function pickClues(landmarks: Landmark[]): number[] {
   return landmarks.map((landmark) => Math.floor(Math.random() * Math.max(1, landmark.clues.length)))
 }
@@ -67,6 +65,10 @@ function star(landmark: Landmark) {
   return landmark.essential ? ' ★' : ''
 }
 
+function modeLabel(mode: QuizMode) {
+  return mode === 'landmark-locate' ? 'Locate' : mode === 'landmark-photos' ? 'Photos' : 'Clue'
+}
+
 function Stat({ label, value }: { label: string; value: string | number }) {
   return (
     <div className="stat">
@@ -76,7 +78,23 @@ function Stat({ label, value }: { label: string; value: string | number }) {
   )
 }
 
-export function LandmarkQuiz({ topic, mode }: { topic: Topic; mode: QuizMode }) {
+export function LandmarkQuiz({
+  topic,
+  mode,
+  mobile = false,
+  pageView,
+  onPageView,
+  onMode,
+  onReset,
+}: {
+  topic: Topic
+  mode: QuizMode
+  mobile?: boolean
+  pageView?: string
+  onPageView?: (view: 'practice' | 'course') => void
+  onMode?: (mode: QuizMode) => void
+  onReset?: () => void
+}) {
   const landmarks = topic.landmarks ?? []
   const compound = mode !== 'landmark-locate'
   const scoreKey = `${topic.id}:${mode}`
@@ -165,11 +183,205 @@ export function LandmarkQuiz({ topic, mode }: { topic: Topic; mode: QuizMode }) 
   const displayGuess = review ? review.guess : guess
   const displayLocationOk = review ? review.locationOk : false
 
+  const promptBody = mode === 'landmark-locate' ? (
+    <>
+      <span className="eyebrow">Locate on the map</span>
+      <h2>{landmark.name}{star(landmark)}</h2>
+      <p className="prompt-help">{`Click where this landmark is in ${topic.mapScope === 'france' ? 'France' : 'the United Kingdom'}.`}</p>
+    </>
+  ) : mode === 'landmark-photos' ? (
+    <>
+      <span className="eyebrow">{review ? 'What you were looking at' : 'Name the landmark from its photos'}</span>
+      <LandmarkPhotos key={`${landmark.id}:${position}`} landmark={landmark} revealed={Boolean(review)} />
+    </>
+  ) : (
+    <>
+      <span className="eyebrow">Name the landmark from this clue</span>
+      <p className="city-clue-text">{clue}</p>
+    </>
+  )
+
+  const formBody = compound ? (
+    <form className="city-answer-form" onSubmit={submitCompound}>
+      <input
+        key={`name:${position}`}
+        value={nameInput}
+        onChange={(event) => setNameInput(event.target.value)}
+        placeholder="Type the landmark name"
+        autoComplete="off"
+        readOnly={Boolean(review)}
+        autoFocus
+      />
+      {review ? (
+        <button type="button" className="primary-action" onClick={advance}>
+          Next <ChevronRight size={16} />
+        </button>
+      ) : (
+        <button type="submit" disabled={!guess && !nameInput.trim()}>
+          Check
+        </button>
+      )}
+    </form>
+  ) : review ? (
+    <button type="button" className="primary-action next-locate" onClick={advance}>
+      Next <ChevronRight size={16} />
+    </button>
+  ) : null
+
+  const verdictBody = review ? (
+    <div className="city-verdict">
+      {compound ? (
+        <p className={review.nameOk ? 'verdict-line ok' : 'verdict-line bad'}>
+          <span>{review.nameOk ? <Check size={15} /> : <X size={15} />}</span>
+          <span>Name: {review.nameOk ? 'correct' : `it was ${landmark.name}`}{review.submittedName.trim() ? ` (you wrote "${review.submittedName.trim()}")` : ''}.</span>
+        </p>
+      ) : null}
+      <p className={review.locationOk ? 'verdict-line ok' : 'verdict-line bad'}>
+        <span>{review.locationOk ? <Check size={15} /> : <X size={15} />}</span>
+        <span>Location: {review.locationOk ? 'correct' : `it is in ${regionLabel(landmark)}`}.</span>
+      </p>
+      <p className="city-fact-reveal">{landmark.course.nutshell}</p>
+    </div>
+  ) : null
+
+  const historyBody = history.length ? (
+    <div className="city-history" aria-label="Answer history">
+      {history.map((result) => {
+        const tone = result.points === 1 ? 'pass' : result.points === 0 ? 'fail' : 'mid'
+        return (
+          <article key={result.id} className={`city-history-card ${tone}`}>
+            <strong>{result.landmark.name}{star(result.landmark)}</strong>
+            <p>
+              {result.compound ? `Name ${result.nameOk ? '✓' : '✗'} · ` : ''}Location {result.locationOk ? '✓' : `✗ (${regionLabel(result.landmark)})`}
+            </p>
+          </article>
+        )
+      })}
+    </div>
+  ) : null
+
+  const deckCompletePanel = (
+    <section className="deck-complete">
+      <span className="eyebrow">Deck complete</span>
+      <h2>Round finished</h2>
+      <div className="deck-complete-stats">
+        <Stat label="Score" value={`${scorePct}%`} />
+        {compound ? <Stat label="Name accuracy" value={`${namePct}%`} /> : null}
+        <Stat label="Location accuracy" value={`${locationPct}%`} />
+        <Stat label="Best streak" value={score.bestStreak} />
+      </div>
+      <button className="primary-action" type="button" onClick={startNewRound}>
+        <RotateCcw size={16} />
+        Start new shuffled round
+      </button>
+      <p className="coverage">{topic.coverage}</p>
+    </section>
+  )
+
+  if (mobile) {
+    const modeSelect = (
+      <label className="mmg-select">
+        <span>Quiz type</span>
+        <select value={mode} onChange={(event) => onMode?.(event.target.value as QuizMode)}>
+          {topic.modes.map((availableMode) => (
+            <option key={availableMode} value={availableMode}>
+              {modeLabel(availableMode)}
+            </option>
+          ))}
+        </select>
+      </label>
+    )
+    const viewSelect = onPageView ? (
+      <label className="mmg-select">
+        <span>View</span>
+        <select value={pageView === 'course' ? 'course' : 'practice'} onChange={(event) => onPageView(event.target.value as 'practice' | 'course')}>
+          <option value="practice">Play</option>
+          <option value="course">Course</option>
+        </select>
+      </label>
+    ) : null
+    const resetButton = onReset ? (
+      <button className="mmg-reset" type="button" onClick={onReset} aria-label="Reset scores">
+        <RotateCcw size={16} />
+      </button>
+    ) : null
+
+    if (completed) {
+      return (
+        <section className="mobile-map-game city-mmg-complete">
+          <div className="mmg-toolbar">
+            {viewSelect}
+            {modeSelect}
+            {resetButton}
+          </div>
+          <div className="deck-complete">
+            <span className="eyebrow">Deck complete</span>
+            <h2>Round finished</h2>
+            <button className="primary-action" type="button" onClick={startNewRound}>
+              <RotateCcw size={16} />
+              Start new shuffled round
+            </button>
+            <div className="deck-complete-stats">
+              <Stat label="Score" value={`${scorePct}%`} />
+              {compound ? <Stat label="Name accuracy" value={`${namePct}%`} /> : null}
+              <Stat label="Location accuracy" value={`${locationPct}%`} />
+              <Stat label="Best streak" value={score.bestStreak} />
+            </div>
+            <p className="coverage">{topic.coverage}</p>
+          </div>
+        </section>
+      )
+    }
+
+    return (
+      <section className="mobile-map-game city-mmg">
+        <div className="mmg-toolbar">
+          {viewSelect}
+          {modeSelect}
+          {resetButton}
+        </div>
+        <div className="mmg-prompt city-mmg-prompt">
+          <div className="mmg-status">
+            <span>{Math.min(position + 1, landmarks.length)}/{landmarks.length}</span>
+            <span>{scorePct}% score</span>
+            <span>🔥 {score.streak}</span>
+          </div>
+          {promptBody}
+          {formBody}
+          {verdictBody}
+          {historyBody}
+        </div>
+        <div className="mmg-map city-mmg-map">
+          <LandmarkMap landmark={landmark} guess={displayGuess} review={Boolean(review)} locationOk={displayLocationOk} interactive={!review} onPick={handlePick} mapScope={topic.mapScope} />
+        </div>
+      </section>
+    )
+  }
+
+  if (completed) {
+    return (
+      <div className="city-quiz city-complete">
+        <section className="score-strip" aria-label="Current score">
+          <Stat label="Deck" value={landmarks.length} />
+          <Stat label="Progress" value={`${landmarks.length}/${landmarks.length}`} />
+          <Stat label="Score" value={`${scorePct}%`} />
+          {compound ? <Stat label="Name" value={`${namePct}%`} /> : null}
+          <Stat label="Location" value={`${locationPct}%`} />
+          <Stat label="Streak" value={score.streak} />
+          <Stat label="Best" value={score.bestStreak} />
+        </section>
+        {deckCompletePanel}
+      </div>
+    )
+  }
+
   return (
-    <div className="city-quiz">
-      <section className="score-strip" aria-label="Current score">
+    <div className="city-quiz map-stage city-stage-map">
+      <LandmarkMap landmark={landmark} guess={displayGuess} review={Boolean(review)} locationOk={displayLocationOk} interactive={!review} onPick={handlePick} mapScope={topic.mapScope} />
+
+      <section className="score-strip score-overlay" aria-label="Current score">
         <Stat label="Deck" value={landmarks.length} />
-        <Stat label="Progress" value={completed ? `${landmarks.length}/${landmarks.length}` : `${Math.min(position + 1, landmarks.length)}/${landmarks.length}`} />
+        <Stat label="Progress" value={`${Math.min(position + 1, landmarks.length)}/${landmarks.length}`} />
         <Stat label="Score" value={`${scorePct}%`} />
         {compound ? <Stat label="Name" value={`${namePct}%`} /> : null}
         <Stat label="Location" value={`${locationPct}%`} />
@@ -177,106 +389,14 @@ export function LandmarkQuiz({ topic, mode }: { topic: Topic; mode: QuizMode }) 
         <Stat label="Best" value={score.bestStreak} />
       </section>
 
-      {completed ? (
-        <section className="deck-complete">
-          <span className="eyebrow">Deck complete</span>
-          <h2>Round finished</h2>
-          <div className="deck-complete-stats">
-            <Stat label="Score" value={`${scorePct}%`} />
-            {compound ? <Stat label="Name accuracy" value={`${namePct}%`} /> : null}
-            <Stat label="Location accuracy" value={`${locationPct}%`} />
-            <Stat label="Best streak" value={score.bestStreak} />
-          </div>
-          <button className="primary-action" type="button" onClick={startNewRound}>
-            <RotateCcw size={16} />
-            Start new shuffled round
-          </button>
-          <p className="coverage">{topic.coverage}</p>
-        </section>
-      ) : (
-        <div className="city-stage">
-          <div className="city-prompt">
-            {mode === 'landmark-locate' ? (
-              <>
-                <span className="eyebrow">Locate on the map</span>
-                <h2>{landmark.name}{star(landmark)}</h2>
-                <p className="prompt-help">{`Click where this landmark is in ${topic.mapScope === 'france' ? 'France' : 'the United Kingdom'}.`}</p>
-              </>
-            ) : mode === 'landmark-photos' ? (
-              <>
-                <span className="eyebrow">{review ? 'What you were looking at' : 'Name the landmark from its photos'}</span>
-                <LandmarkPhotos key={`${landmark.id}:${position}`} landmark={landmark} revealed={Boolean(review)} />
-              </>
-            ) : (
-              <>
-                <span className="eyebrow">Name the landmark from this clue</span>
-                <p className="city-clue-text">{clue}</p>
-              </>
-            )}
-
-            {compound ? (
-              <form className="city-answer-form" onSubmit={submitCompound}>
-                <input
-                  key={`name:${position}`}
-                  value={nameInput}
-                  onChange={(event) => setNameInput(event.target.value)}
-                  placeholder="Type the landmark name"
-                  autoComplete="off"
-                  readOnly={Boolean(review)}
-                  autoFocus
-                />
-                {review ? (
-                  <button type="button" className="primary-action" onClick={advance}>
-                    Next <ChevronRight size={16} />
-                  </button>
-                ) : (
-                  <button type="submit" disabled={!guess && !nameInput.trim()}>
-                    Check
-                  </button>
-                )}
-              </form>
-            ) : review ? (
-              <button type="button" className="primary-action next-locate" onClick={advance}>
-                Next <ChevronRight size={16} />
-              </button>
-            ) : null}
-
-            {review ? (
-              <div className="city-verdict">
-                {compound ? (
-                  <p className={review.nameOk ? 'verdict-line ok' : 'verdict-line bad'}>
-                    <span>{review.nameOk ? <Check size={15} /> : <X size={15} />}</span>
-                    <span>Name: {review.nameOk ? 'correct' : `it was ${landmark.name}`}{review.submittedName.trim() ? ` (you wrote “${review.submittedName.trim()}”)` : ''}.</span>
-                  </p>
-                ) : null}
-                <p className={review.locationOk ? 'verdict-line ok' : 'verdict-line bad'}>
-                  <span>{review.locationOk ? <Check size={15} /> : <X size={15} />}</span>
-                  <span>Location: {review.locationOk ? 'correct' : `it is in ${regionLabel(landmark)}`}.</span>
-                </p>
-                <p className="city-fact-reveal">{landmark.course.nutshell}</p>
-              </div>
-            ) : null}
-          </div>
-
-          <LandmarkMap landmark={landmark} guess={displayGuess} review={Boolean(review)} locationOk={displayLocationOk} interactive={!review} onPick={handlePick} mapScope={topic.mapScope} />
+      <div className="quiz-overlay city-overlay">
+        <div className="city-panel">
+          {promptBody}
+          {formBody}
+          {verdictBody}
+          {historyBody}
         </div>
-      )}
-
-      {history.length ? (
-        <div className="city-history" aria-label="Answer history">
-          {history.map((result) => {
-            const tone = result.points === 1 ? 'pass' : result.points === 0 ? 'fail' : 'mid'
-            return (
-              <article key={result.id} className={`city-history-card ${tone}`}>
-                <strong>{result.landmark.name}{star(result.landmark)}</strong>
-                <p>
-                  {result.compound ? `Name ${result.nameOk ? '✓' : '✗'} · ` : ''}Location {result.locationOk ? '✓' : `✗ (${regionLabel(result.landmark)})`}
-                </p>
-              </article>
-            )
-          })}
-        </div>
-      ) : null}
+      </div>
     </div>
   )
 }
