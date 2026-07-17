@@ -26,16 +26,6 @@ function levenshtein(a: string, b: string): number {
   return previous[b.length]
 }
 
-function threshold(length: number): number {
-  if (length < 4) return 0
-  if (length < 6) return 1
-  return 2
-}
-
-function nameMatch(input: string, candidates: string[]): boolean {
-  return candidates.some((candidate) => input === candidate || levenshtein(input, candidate) <= threshold(candidate.length))
-}
-
 function fuzzyIncludes(text: string, needle: string): boolean {
   return text.includes(needle) || levenshtein(text, needle) <= 2
 }
@@ -45,7 +35,9 @@ export function matchesPaintingAnswer(input: string, painting: Painting): boolea
   if (!clean) return false
   const nameCandidates = [painting.name, ...(painting.aliases ?? [])].map(normalize)
   const artistCandidates = [painting.artist, ...(painting.artistAliases ?? [])].map(normalize)
-  return nameMatch(clean, nameCandidates) && nameMatch(clean, artistCandidates)
+  const nameOk = nameCandidates.some((candidate) => fuzzyIncludes(clean, candidate))
+  const artistOk = artistCandidates.some((candidate) => fuzzyIncludes(clean, candidate))
+  return nameOk && artistOk
 }
 
 export function matchesPaintingExpertAnswer(input: string, painting: Painting): boolean {
@@ -54,15 +46,13 @@ export function matchesPaintingExpertAnswer(input: string, painting: Painting): 
 
   const nameCandidates = [painting.name, ...(painting.aliases ?? [])].map(normalize)
   const artistCandidates = [painting.artist, ...(painting.artistAliases ?? [])].map(normalize)
-  if (!nameMatch(clean, nameCandidates)) return false
-  if (!nameMatch(clean, artistCandidates)) return false
+  if (!nameCandidates.some((candidate) => fuzzyIncludes(clean, candidate))) return false
+  if (!artistCandidates.some((candidate) => fuzzyIncludes(clean, candidate))) return false
 
   const centuryNorm = normalize(painting.century)
-  if (!fuzzyIncludes(clean, centuryNorm)) {
-    const centuryNum = painting.century.match(/\d+/)?.[0]
-    if (centuryNum && fuzzyIncludes(clean, `${centuryNum}th`)) return false
-    return false
-  }
+  const centuryNum = painting.century.match(/\d+/)?.[0]
+  const centuryOk = fuzzyIncludes(clean, centuryNorm) || (centuryNum ? fuzzyIncludes(clean, `${centuryNum}th`) : false)
+  if (!centuryOk) return false
 
   const movementNorm = normalize(painting.movement)
   const movementCandidates = [

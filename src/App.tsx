@@ -2146,7 +2146,9 @@ function App() {
     writeGameParams(activeTopic, { mode, scope, usGuess, pageView: activePageView })
   }, [activeTopic, mode, scope, usGuess, activePageView])
   const roundResultsVisible = activeRound.completed && !activeReview
-  const isMapTopic = Boolean(activeTopic.mapKind) && !isHistoryDateTopic(activeTopic) && activeTopic.id !== 'solar-system'
+  // Self-contained course-pair games (cities, landmarks, paintings) render their own component
+  // even though a landmark topic carries a mapKind — never route them through the generic map engine.
+  const isMapTopic = Boolean(activeTopic.mapKind) && !isHistoryDateTopic(activeTopic) && activeTopic.id !== 'solar-system' && !isCoursePairTopic(activeTopic)
   const mapWorkspace = activePageView === 'practice' && isMapTopic
   const showingMapStage = mapWorkspace && !roundResultsVisible
   const isMobile = useMedia(MOBILE_QUERY)
@@ -2155,11 +2157,14 @@ function App() {
   // Self-contained map games (colonies) reuse the map-first shell: compact header + full-height
   // flex so the component's own .map-stage fills the viewport with floating overlays.
   const coloniesStage = activePageView === 'practice' && isColoniesTopic(activeTopic)
-  const coursePairStage = activePageView === 'practice' && isCoursePairTopic(activeTopic)
-  const compactHeader = mapWorkspace || coloniesStage || coursePairStage
-  const fullBleedWorkspace = showingMapStage || coloniesStage || coursePairStage
-  // Colonies, cities AND landmarks have a dedicated mobile self-contained layout.
-  const mobileSelfContained = isMobile && (coloniesStage || (activePageView === 'practice' && (isCityTopic(activeTopic) || isLandmarkTopic(activeTopic) || isPaintingTopic(activeTopic))))
+  // Cities and landmarks are map-first (full-bleed map + floating overlays). Paintings is a
+  // course-pair game too, but it has no map — it uses the normal, padded document workspace.
+  const mapCoursePair = activePageView === 'practice' && (isCityTopic(activeTopic) || isLandmarkTopic(activeTopic))
+  const paintingPractice = activePageView === 'practice' && isPaintingTopic(activeTopic)
+  // Paintings gets the compact header (reclaims vertical space) but NOT the full-bleed map shell.
+  const compactHeader = mapWorkspace || coloniesStage || mapCoursePair || paintingPractice
+  const fullBleedWorkspace = showingMapStage || coloniesStage || mapCoursePair
+  const mobileSelfContained = isMobile && (coloniesStage || mapCoursePair)
   const mobileMapActive = mobileMapGame || mobileSelfContained
 
   const advanceRound = useCallback(() => {
@@ -2528,17 +2533,6 @@ function App() {
         />
       ) : mobileSelfContained && isLandmarkTopic(activeTopic) ? (
         <LandmarkQuiz
-          key={`${activeTopic.id}:${mode}`}
-          topic={activeTopic}
-          mode={mode}
-          mobile
-          pageView={activePageView}
-          onPageView={setPageView}
-          onMode={(nextMode) => activateMode(activeTopic, nextMode)}
-          onReset={resetScores}
-        />
-      ) : mobileSelfContained && isPaintingTopic(activeTopic) ? (
-        <PaintingQuiz
           key={`${activeTopic.id}:${mode}`}
           topic={activeTopic}
           mode={mode}
