@@ -18,6 +18,8 @@ import { CityQuiz } from './components/CityQuiz'
 import { CityCourse } from './components/CityCourse'
 import { LandmarkQuiz } from './components/LandmarkQuiz'
 import { LandmarkCourse } from './components/LandmarkCourse'
+import { PaintingQuiz } from './components/PaintingQuiz'
+import { PaintingCourse } from './components/PaintingCourse'
 import { WIDTH, HEIGHT, defaultMapView, buildProjection, type MapView } from './map/projection'
 
 type CountryFeature = GeoJSON.Feature<GeoJSON.Geometry, { name: string }>
@@ -108,6 +110,9 @@ const defaultModeLabels: Record<QuizMode, string> = {
   'landmark-locate': 'Locate',
   'landmark-photos': 'Photos',
   'landmark-clue': 'Clue',
+  'paintings-identify': 'Identify',
+  'paintings-clue': 'Clue',
+  'paintings-expert': 'Expert',
 }
 
 function isHistoryDateTopic(topic: Topic) {
@@ -126,18 +131,17 @@ function isLandmarkTopic(topic: Topic) {
   return topic.kind === 'landmark-quiz'
 }
 
-// City and landmark games share the same "Play / Course" shell (no generic engine, no
-// questions view, own score strip).
+function isPaintingTopic(topic: Topic) {
+  return topic.kind === 'paintings-quiz'
+}
+
+// City, landmark and painting games share the same "Play / Course" shell (no generic
+// engine, no questions view, own score strip).
 function isCoursePairTopic(topic: Topic) {
-  return isCityTopic(topic) || isLandmarkTopic(topic)
+  return isCityTopic(topic) || isLandmarkTopic(topic) || isPaintingTopic(topic)
 }
 
 function modeLabel(topic: Topic, mode: QuizMode) {
-  if (topic.id === 'paintings') {
-    if (mode === 'image') return 'Image: type title or artist'
-    if (mode === 'choice') return 'Image: choose artist'
-  }
-
   if (mode === 'type' && (topic.id === 'french-regions' || topic.id === 'french-departments')) {
     return 'Recall biggest city'
   }
@@ -714,8 +718,6 @@ function attachBoundaryCodes(topic: Topic): Topic {
 }
 
 function promptLabel(topic: Topic, mode: QuizMode, item: QuizItem) {
-  if (topic.id === 'paintings' && mode === 'image') return 'Painting image'
-  if (topic.id === 'paintings' && mode === 'choice') return 'Painting artist'
   if (mode === 'map-click' && topic.id === 'us-cities') return `Click the state of ${item.answer ?? item.name}`
   if (mode === 'map-click') return `Click ${item.label ?? item.name}`
   if (mode === 'map-number') return `Click department ${item.code ?? item.name}`
@@ -1568,11 +1570,7 @@ function QuizPanel({
   }, [item, mode, pool])
 
   const title =
-    topic.id === 'paintings' && mode === 'image'
-      ? 'Name this painting or artist'
-      : topic.id === 'paintings' && mode === 'choice'
-        ? 'Choose the artist'
-        : mode === 'map-click' && topic.id === 'us-cities'
+    mode === 'map-click' && topic.id === 'us-cities'
           ? `Click the state of ${item.answer ?? item.name}`
           : mode === 'map-click'
           ? `Click: ${item.name}`
@@ -2160,9 +2158,8 @@ function App() {
   const coursePairStage = activePageView === 'practice' && isCoursePairTopic(activeTopic)
   const compactHeader = mapWorkspace || coloniesStage || coursePairStage
   const fullBleedWorkspace = showingMapStage || coloniesStage || coursePairStage
-  // Colonies and cities have a dedicated mobile self-contained layout; landmarks fall back to the
-  // standard responsive workspace (LandmarkQuiz has no mobile-specific layout yet).
-  const mobileSelfContained = isMobile && (coloniesStage || (activePageView === 'practice' && isCityTopic(activeTopic)))
+  // Colonies, cities and painting games have a dedicated mobile self-contained layout.
+  const mobileSelfContained = isMobile && (coloniesStage || (activePageView === 'practice' && (isCityTopic(activeTopic) || isPaintingTopic(activeTopic))))
   const mobileMapActive = mobileMapGame || mobileSelfContained
 
   const advanceRound = useCallback(() => {
@@ -2529,6 +2526,17 @@ function App() {
           onMode={(nextMode) => activateMode(activeTopic, nextMode)}
           onReset={resetScores}
         />
+      ) : mobileSelfContained && isPaintingTopic(activeTopic) ? (
+        <PaintingQuiz
+          key={`${activeTopic.id}:${mode}`}
+          topic={activeTopic}
+          mode={mode}
+          mobile
+          pageView={activePageView}
+          onPageView={setPageView}
+          onMode={(nextMode) => activateMode(activeTopic, nextMode)}
+          onReset={resetScores}
+        />
       ) : (
       <section className={['workspace', compactHeader ? 'map-workspace' : '', fullBleedWorkspace ? 'map-full' : ''].filter(Boolean).join(' ')}>
         <header className="topbar">
@@ -2644,6 +2652,8 @@ function App() {
               <CityQuiz key={`${activeTopic.id}:${mode}`} topic={activeTopic} mode={mode} />
             ) : isLandmarkTopic(activeTopic) ? (
               <LandmarkQuiz key={`${activeTopic.id}:${mode}`} topic={activeTopic} mode={mode} />
+            ) : isPaintingTopic(activeTopic) ? (
+              <PaintingQuiz key={`${activeTopic.id}:${mode}`} topic={activeTopic} mode={mode} />
             ) : isHistoryDateTopic(activeTopic) ? (
               <HistoryDateQuiz key={`${activeTopic.id}:${mode}`} topic={activeTopic} mode={mode} />
             ) : activeTopic.id === 'solar-system' ? (
@@ -2707,6 +2717,8 @@ function App() {
           <CityCourse topic={activeTopic} />
         ) : activePageView === 'course' && isLandmarkTopic(activeTopic) ? (
           <LandmarkCourse topic={activeTopic} />
+        ) : activePageView === 'course' && isPaintingTopic(activeTopic) ? (
+          <PaintingCourse topic={activeTopic} />
         ) : activePageView === 'course' && activeCourse ? (
           <CoursePanel article={activeCourse} />
         ) : activePageView === 'questions' ? (

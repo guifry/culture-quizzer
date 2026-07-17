@@ -3,6 +3,7 @@ import { historyDateTopics } from './history'
 import { coloniesTopic } from './geo/colonies'
 import { cityTopics } from './cities'
 import { landmarkTopics } from './landmarks'
+import { paintingTopics } from './paintings'
 import type { QuizItem, Topic } from './types'
 
 export type { CityEntry, HistoryDate, MapScope, QuizItem, QuizMode, Topic, TopicGroup } from './types'
@@ -378,15 +379,7 @@ const mountainRanges: QuizItem[] = [
   },
 ]
 
-const paintings: QuizItem[] = [
-  { id: 'mona-lisa', name: 'Mona Lisa', answer: 'Leonardo da Vinci', prompt: 'Name this painting or its artist', imageUrl: '/images/paintings/mona-lisa.jpg', detail: 'Renaissance portrait, Louvre.' },
-  { id: 'starry-night', name: 'The Starry Night', answer: 'Vincent van Gogh', prompt: 'Name this painting or its artist', imageUrl: '/images/paintings/starry-night.jpg', detail: 'Post-Impressionism, 1889.' },
-  { id: 'girl-pearl', name: 'Girl with a Pearl Earring', answer: 'Johannes Vermeer', imageUrl: '/images/paintings/girl-pearl.jpg', detail: 'Dutch Golden Age.' },
-  { id: 'venus', name: 'The Birth of Venus', answer: 'Sandro Botticelli', imageUrl: '/images/paintings/birth-venus.jpg' },
-  { id: 'las-meninas', name: 'Las Meninas', answer: 'Diego Velazquez', imageUrl: '/images/paintings/las-meninas.jpg' },
-  { id: 'scream', name: 'The Scream', answer: 'Edvard Munch', imageUrl: '/images/paintings/the-scream.jpg' },
-  { id: 'american-gothic', name: 'American Gothic', answer: 'Grant Wood', imageUrl: '/images/paintings/american-gothic.jpg' },
-]
+const paintings: QuizItem[] = []
 
 const solarSystemItems: QuizItem[] = [
   { id: 'mercury', name: 'Mercury', detail: 'Smallest planet and closest to the Sun.' },
@@ -692,4 +685,5 @@ export const topics: Topic[] = [
   ...historyDateTopics,
   ...cityTopics,
   ...landmarkTopics,
+  ...paintingTopics,
 ]
