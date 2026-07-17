@@ -200,7 +200,7 @@ export function LandmarkQuiz({ topic, mode }: { topic: Topic; mode: QuizMode }) 
               <>
                 <span className="eyebrow">Locate on the map</span>
                 <h2>{landmark.name}{star(landmark)}</h2>
-                <p className="prompt-help">Click where this landmark is in the United Kingdom.</p>
+                <p className="prompt-help">{`Click where this landmark is in ${topic.mapScope === 'france' ? 'France' : 'the United Kingdom'}.`}</p>
               </>
             ) : mode === 'landmark-photos' ? (
               <>
@@ -258,7 +258,7 @@ export function LandmarkQuiz({ topic, mode }: { topic: Topic; mode: QuizMode }) 
             ) : null}
           </div>
 
-          <LandmarkMap landmark={landmark} guess={displayGuess} review={Boolean(review)} locationOk={displayLocationOk} interactive={!review} onPick={handlePick} />
+          <LandmarkMap landmark={landmark} guess={displayGuess} review={Boolean(review)} locationOk={displayLocationOk} interactive={!review} onPick={handlePick} mapScope={topic.mapScope} />
         </div>
       )}
 

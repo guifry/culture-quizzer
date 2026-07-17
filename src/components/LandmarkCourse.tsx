@@ -56,10 +56,10 @@ export function LandmarkCourse({ topic }: { topic: Topic }) {
 
       <div className="course-main">
         <header className="course-head">
-          <h2>The Top 32 UK Landmarks</h2>
+          <h2>{topic.title}</h2>
           <p>
-            The cultural landmarks of the United Kingdom worth knowing to understand its history and heritage — ranked
-            editorially, with the ★ Must-Know set marked. Read the course, browse the photos, or explore them on the map.
+            {`The cultural landmarks of ${topic.mapScope === 'france' ? 'France' : 'the United Kingdom'} worth knowing to understand its history and heritage — ranked
+            editorially, with the ★ Must-Know set marked. Read the course, browse the photos, or explore them on the map.`}
           </p>
         </header>
 
@@ -93,7 +93,7 @@ export function LandmarkCourse({ topic }: { topic: Topic }) {
         </div>
 
         {tab === 'map' ? (
-          <LandmarkAtlas landmarks={landmarks} onLearnMore={learnMore} />
+          <LandmarkAtlas landmarks={landmarks} onLearnMore={learnMore} mapScope={topic.mapScope} />
         ) : (
           <>
             <div className="course-entries">

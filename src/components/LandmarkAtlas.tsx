@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react'
 import { geoPath } from 'd3-geo'
 import { ArrowRight } from 'lucide-react'
-import type { Landmark } from '../data/types'
+import type { Landmark, MapScope } from '../data/types'
 import { WIDTH, HEIGHT, buildProjection } from '../map/projection'
 import { worldCountryFeatures } from '../map/features'
 import './CityQuiz.css'
@@ -10,14 +10,14 @@ type Placed = { landmark: Landmark; x: number; y: number }
 type Cluster = { x: number; y: number; members: Placed[] }
 
 // Markers within this pixel radius (viewBox units) collapse into one cluster badge; the
-// dense London group expands on click into a fanned ring of its members.
+// dense Paris group expands on click into a fanned ring of its members.
 const CLUSTER_PX = 8
 const FAN_RADIUS = 58
 
 type Selected = { landmark: Landmark; x: number; y: number }
 
-export function LandmarkAtlas({ landmarks, onLearnMore }: { landmarks: Landmark[]; onLearnMore: (id: string) => void }) {
-  const projection = useMemo(() => buildProjection('uk'), [])
+export function LandmarkAtlas({ landmarks, onLearnMore, mapScope = 'uk' }: { landmarks: Landmark[]; onLearnMore: (id: string) => void; mapScope?: MapScope }) {
+  const projection = useMemo(() => buildProjection(mapScope), [mapScope])
   const path = useMemo(() => geoPath(projection), [projection])
   const countryPaths = useMemo(() => worldCountryFeatures.map((feat) => ({ key: feat.properties.name, d: path(feat) ?? '' })), [path])
 
@@ -65,7 +65,7 @@ export function LandmarkAtlas({ landmarks, onLearnMore }: { landmarks: Landmark[
   return (
     <div className="landmark-atlas">
       <div className="atlas-frame">
-        <svg viewBox={`0 0 ${WIDTH} ${HEIGHT}`} className="atlas-svg" role="img" aria-label="Map of UK landmarks" onClick={() => { setSelected(null); setExpanded(null) }}>
+        <svg viewBox={`0 0 ${WIDTH} ${HEIGHT}`} className="atlas-svg" role="img" aria-label={`Map of ${mapScope === 'uk' ? 'UK' : mapScope === 'france' ? 'France' : ''} landmarks`} onClick={() => { setSelected(null); setExpanded(null) }}>
           <rect width={WIDTH} height={HEIGHT} className="city-ocean" />
           {countryPaths.map((c) => (
             <path key={c.key} d={c.d} className="city-country" />
@@ -118,7 +118,7 @@ export function LandmarkAtlas({ landmarks, onLearnMore }: { landmarks: Landmark[
           </div>
         ) : null}
       </div>
-      <p className="atlas-hint">Click a marker for a summary · the London cluster expands on click.</p>
+      <p className="atlas-hint">{`Click a marker for a summary · the ${mapScope === 'uk' ? 'London' : mapScope === 'france' ? 'Paris' : ''} cluster expands on click.`}</p>
     </div>
   )
 }

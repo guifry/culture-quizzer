@@ -1,4 +1,4 @@
-import type { GlossaryTerm, Landmark, QuizMode, Topic } from '../types'
+import type { GlossaryTerm, Landmark, MapScope, QuizMode, Topic } from '../types'
 import { distanceKm } from '../../map/containment'
 
 // A locate-mode click counts as correct within this radius of the true point. Generous
@@ -57,6 +57,8 @@ export function buildLandmarkTopic(
   modes: QuizMode[],
   landmarks: Landmark[],
   glossary: GlossaryTerm[],
+  mapScope: MapScope = 'uk',
+  mapKind: 'country-polygons' | 'points' = 'points',
 ): Topic {
   return {
     id,
@@ -66,7 +68,8 @@ export function buildLandmarkTopic(
     coverage,
     modes,
     kind: 'landmark-quiz',
-    mapScope: 'uk',
+    mapScope,
+    mapKind,
     landmarks,
     glossary,
     items: landmarks.map((landmark) => ({ id: landmark.id, name: landmark.name, lat: landmark.lat, lon: landmark.lon })),

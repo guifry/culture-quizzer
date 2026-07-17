@@ -1,14 +1,14 @@
 import { useMemo, useRef, useState, type PointerEvent as ReactPointerEvent, type WheelEvent as ReactWheelEvent } from 'react'
 import { geoPath } from 'd3-geo'
 import { Minus, Plus, RotateCcw } from 'lucide-react'
-import type { Landmark } from '../data/types'
+import type { Landmark, MapScope } from '../data/types'
 import { WIDTH, HEIGHT, defaultMapView, clampMapView, buildProjection, type MapView } from '../map/projection'
 import { worldCountryFeatures } from '../map/features'
 import './CityQuiz.css'
 
 type LonLat = [number, number]
 
-// Locate-mode map for the UK landmarks game: a UK-centred projection over which the
+// Locate-mode map for the landmarks game: a scope-centred projection over which the
 // player clicks the position of the named landmark. Pan/zoom mirrors CityMap; correctness
 // (proximity to the true point) is judged by the parent.
 export function LandmarkMap({
@@ -18,6 +18,7 @@ export function LandmarkMap({
   locationOk,
   interactive,
   onPick,
+  mapScope = 'uk',
 }: {
   landmark: Landmark
   guess: LonLat | null
@@ -25,8 +26,9 @@ export function LandmarkMap({
   locationOk: boolean
   interactive: boolean
   onPick: (lonLat: LonLat) => void
+  mapScope?: MapScope
 }) {
-  const projection = useMemo(() => buildProjection('uk'), [])
+  const projection = useMemo(() => buildProjection(mapScope ?? 'uk'), [mapScope])
   const path = useMemo(() => geoPath(projection), [projection])
   const svgRef = useRef<SVGSVGElement | null>(null)
   const dragRef = useRef<{ pointerId: number; clientX: number; clientY: number; moved: boolean; view: MapView } | null>(null)
@@ -128,7 +130,7 @@ export function LandmarkMap({
         onPointerCancel={handlePointerUp}
         onClick={handleClick}
         role="img"
-        aria-label="Map of the United Kingdom"
+        aria-label={`Map of ${mapScope === 'uk' ? 'the United Kingdom' : mapScope === 'france' ? 'France' : ''}`}
       >
         <rect width={WIDTH} height={HEIGHT} className="city-ocean" />
         <g transform={mapTransform}>

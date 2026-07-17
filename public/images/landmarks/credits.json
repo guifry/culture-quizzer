@@ -2472,5 +2472,2301 @@
       "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f8/Belfast_-_Titanic_Quarter_-_Sculpture_at_Entrance_to_Titanic_Belfast_-_geograph.org.uk_-_3699863.jpg",
       "originalSize": "2247x1498"
     }
+  ],
+  "eiffel-tower": [
+    {
+      "n": 1,
+      "term": "Eiffel Tower Paris",
+      "title": "File:Tour Eiffel Wikimedia Commons.jpg",
+      "artist": "Benh LIEU SONG",
+      "license": "Public domain",
+      "source": "https://commons.wikimedia.org/wiki/File:Tour_Eiffel_Wikimedia_Commons.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a8/Tour_Eiffel_Wikimedia_Commons.jpg",
+      "originalSize": "2900x5367"
+    },
+    {
+      "n": 2,
+      "term": "Eiffel Tower Champ de Mars",
+      "title": "File:Louis-Emile Durandelle, The Eiffel Tower - State of the Construction, 1888.jpg",
+      "artist": "Louis-Emile Durandelle",
+      "license": "Public domain",
+      "source": "https://commons.wikimedia.org/wiki/File:Louis-Emile_Durandelle,_The_Eiffel_Tower_-_State_of_the_Construction,_1888.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/1/14/Louis-Emile_Durandelle%2C_The_Eiffel_Tower_-_State_of_the_Construction%2C_1888.jpg",
+      "originalSize": "3277x4169"
+    },
+    {
+      "n": 3,
+      "term": "Eiffel Tower night",
+      "title": "File:Eiffel Tower and Pont Alexandre III at night.jpg",
+      "artist": "Getfunky Paris",
+      "license": "CC BY 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Eiffel_Tower_and_Pont_Alexandre_III_at_night.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/d/de/Eiffel_Tower_and_Pont_Alexandre_III_at_night.jpg",
+      "originalSize": "4288x2748"
+    },
+    {
+      "n": 4,
+      "term": "Tour Eiffel Paris",
+      "title": "File:Reflet-tour-Eiffel-Paris-Luc-Viatour.jpg",
+      "artist": "Lviatour",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Reflet-tour-Eiffel-Paris-Luc-Viatour.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b5/Reflet-tour-Eiffel-Paris-Luc-Viatour.jpg",
+      "originalSize": "2608x3880"
+    },
+    {
+      "n": 5,
+      "term": "Eiffel Tower close up",
+      "title": "File:Eiffel Tower up close angle view.jpg",
+      "artist": "APK",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Eiffel_Tower_up_close_angle_view.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3e/Eiffel_Tower_up_close_angle_view.jpg",
+      "originalSize": "1661x1893"
+    },
+    {
+      "n": 6,
+      "term": "Eiffel Tower Trocadero",
+      "title": "File:Tour eiffel at sunrise from the trocadero.jpg",
+      "artist": "Tristan Nitot",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Tour_eiffel_at_sunrise_from_the_trocadero.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/a/af/Tour_eiffel_at_sunrise_from_the_trocadero.jpg",
+      "originalSize": "2336x3504"
+    },
+    {
+      "n": 7,
+      "term": "Eiffel Tower from below",
+      "title": "File:Tour Eiffel - 20150801 15h30 (10621).jpg",
+      "artist": "Another one of my pictures: This photograph was taken by Medium69 (William Crochot) and released under the license stated below. You are free to use it for any purpose as long as you credit the author (William Crochot), the Source (Wikimedia Commons) and the license (CC-BY-SA 4.0) in close relation to the image. Please do not upload an updated image here without consultation with the Author. The author would like to make corrections only at his own source RAW. This ensures that the changes are preserved.Please if you think that any changes should be required, please inform the author.Otherwise you can upload a new image with a new name. Please use one of the templates derivative or extract.",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Tour_Eiffel_-_20150801_15h30_(10621).jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b0/Tour_Eiffel_-_20150801_15h30_%2810621%29.jpg",
+      "originalSize": "3187x4781"
+    },
+    {
+      "n": 8,
+      "term": "Eiffel Tower Seine",
+      "title": "File:Eiffel Tower from north Avenue de New York, Aug 2010.jpg",
+      "artist": "Julie Anne Workman",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Eiffel_Tower_from_north_Avenue_de_New_York,_Aug_2010.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/7/78/Eiffel_Tower_from_north_Avenue_de_New_York%2C_Aug_2010.jpg",
+      "originalSize": "5311x10216"
+    }
+  ],
+  "arc-de-triomphe": [
+    {
+      "n": 1,
+      "term": "Arc de Triomphe Paris",
+      "title": "File:Arc Triomphe.jpg",
+      "artist": "Benh LIEU SONG",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Arc_Triomphe.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c4/Arc_Triomphe.jpg",
+      "originalSize": "3929x4260"
+    },
+    {
+      "n": 2,
+      "term": "Arc de Triomphe Champs Elysees",
+      "title": "File:Crowds of French patriots line the Champs Elysees-edit2.jpg",
+      "artist": "Jack Downey, U.S. Office of War Information",
+      "license": "Public domain",
+      "source": "https://commons.wikimedia.org/wiki/File:Crowds_of_French_patriots_line_the_Champs_Elysees-edit2.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/7/78/Crowds_of_French_patriots_line_the_Champs_Elysees-edit2.jpg",
+      "originalSize": "7210x5663"
+    },
+    {
+      "n": 3,
+      "term": "Arc de Triomphe aerial",
+      "title": "File:Arc de Triomphe, Paris 5 February 2019.jpg",
+      "artist": "Guillaume Abel Blouet / Jean-Nicolas Huyot / Louis-Robert Goust / Jean-François Chalgrin",
+      "license": "Public domain",
+      "source": "https://commons.wikimedia.org/wiki/File:Arc_de_Triomphe,_Paris_5_February_2019.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e2/Arc_de_Triomphe%2C_Paris_5_February_2019.jpg",
+      "originalSize": "3000x2000"
+    },
+    {
+      "n": 4,
+      "term": "Arc de Triomphe night",
+      "title": "File:Arc de Triomphe de l'Étoile at night vertical fix.jpg",
+      "artist": "Wilfredor",
+      "license": "CC0",
+      "source": "https://commons.wikimedia.org/wiki/File:Arc_de_Triomphe_de_l%27%C3%89toile_at_night_vertical_fix.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/8/8e/Arc_de_Triomphe_de_l%27%C3%89toile_at_night_vertical_fix.jpg",
+      "originalSize": "6784x4863"
+    },
+    {
+      "n": 5,
+      "term": "Arc de Triomphe relief",
+      "title": "File:Le Départ des Volontaires (La Marseillaise) par Rude, Arc de Triomphe Etoile Paris.jpg",
+      "artist": "Jebulon",
+      "license": "CC0",
+      "source": "https://commons.wikimedia.org/wiki/File:Le_D%C3%A9part_des_Volontaires_(La_Marseillaise)_par_Rude,_Arc_de_Triomphe_Etoile_Paris.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/8/83/Le_D%C3%A9part_des_Volontaires_%28La_Marseillaise%29_par_Rude%2C_Arc_de_Triomphe_Etoile_Paris.jpg",
+      "originalSize": "2594x4160"
+    },
+    {
+      "n": 6,
+      "term": "Arc de Triomphe top view",
+      "title": "File:Arc de Triomphe de l'Étoile 20221115 (01).jpg",
+      "artist": "Katie Chan",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Arc_de_Triomphe_de_l%27%C3%89toile_20221115_(01).jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/9/9e/Arc_de_Triomphe_de_l%27%C3%89toile_20221115_%2801%29.jpg",
+      "originalSize": "6241x4161"
+    },
+    {
+      "n": 7,
+      "term": "Arc de Triomphe flame",
+      "title": "File:Arc de Triomphe - 54141413023.jpg",
+      "artist": "xiquinhosilva",
+      "license": "CC BY 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Arc_de_Triomphe_-_54141413023.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/e/ed/Arc_de_Triomphe_-_54141413023.jpg",
+      "originalSize": "1709x2560"
+    },
+    {
+      "n": 8,
+      "term": "Arc de Triomphe unknown soldier",
+      "title": "File:Paris Arc de Triomphe de l'Étoile Grabmal des Unbekannten Soldaten 2.jpg",
+      "artist": "Zairon",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Paris_Arc_de_Triomphe_de_l%27%C3%89toile_Grabmal_des_Unbekannten_Soldaten_2.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/5/52/Paris_Arc_de_Triomphe_de_l%27%C3%89toile_Grabmal_des_Unbekannten_Soldaten_2.jpg",
+      "originalSize": "4586x3440"
+    }
+  ],
+  "calanques-de-piana": [
+    {
+      "n": 1,
+      "term": "Calanques Piana Corsica",
+      "title": "File:Calanques de Piana, Corsica (8132779554).jpg",
+      "artist": "Michal Osmenda from Brussels, Belgium",
+      "license": "CC BY 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Calanques_de_Piana,_Corsica_(8132779554).jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/1/11/Calanques_de_Piana%2C_Corsica_%288132779554%29.jpg",
+      "originalSize": "2715x4089"
+    },
+    {
+      "n": 2,
+      "term": "Calanques Piana sea",
+      "title": "File:Corse-Du-Sud Calanques De Piana - panoramio.jpg",
+      "artist": "rene boulay",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Corse-Du-Sud_Calanques_De_Piana_-_panoramio.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/7/73/Corse-Du-Sud_Calanques_De_Piana_-_panoramio.jpg",
+      "originalSize": "1821x1139"
+    },
+    {
+      "n": 3,
+      "term": "Calanques Piana sunset",
+      "title": "File:Piana Cœur des Calanche.jpg",
+      "artist": "Pierre Bona",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Piana_C%C5%93ur_des_Calanche.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/6/62/Piana_C%C5%93ur_des_Calanche.jpg",
+      "originalSize": "4032x3024"
+    },
+    {
+      "n": 4,
+      "term": "Calanques Piana coast",
+      "title": "File:Corse-Du-Sud Calanques De Piana - panoramio (2).jpg",
+      "artist": "rene boulay",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Corse-Du-Sud_Calanques_De_Piana_-_panoramio_(2).jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/5/51/Corse-Du-Sud_Calanques_De_Piana_-_panoramio_%282%29.jpg",
+      "originalSize": "2050x3159"
+    },
+    {
+      "n": 5,
+      "term": "Calanques Piana gulf Porto",
+      "title": "File:Piana Golfe vu des Calanche.jpg",
+      "artist": "Pierre Bona",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Piana_Golfe_vu_des_Calanche.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/1/10/Piana_Golfe_vu_des_Calanche.jpg",
+      "originalSize": "4032x3024"
+    }
+  ],
+  "amiens-cathedral": [
+    {
+      "n": 1,
+      "term": "Amiens cathedral west front",
+      "title": "File:Amiens Cathedral Organ and Rose Window, Picardy, France - Diliff.jpg",
+      "artist": "Diliff",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Amiens_Cathedral_Organ_and_Rose_Window,_Picardy,_France_-_Diliff.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f5/Amiens_Cathedral_Organ_and_Rose_Window%2C_Picardy%2C_France_-_Diliff.jpg",
+      "originalSize": "5992x8288"
+    },
+    {
+      "n": 2,
+      "term": "Amiens cathedral nave",
+      "title": "File:Amiens Cathedral Nave 2, Picardy, France - Diliff.jpg",
+      "artist": "Diliff",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Amiens_Cathedral_Nave_2,_Picardy,_France_-_Diliff.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Amiens_Cathedral_Nave_2%2C_Picardy%2C_France_-_Diliff.jpg",
+      "originalSize": "7000x5871"
+    },
+    {
+      "n": 3,
+      "term": "Amiens cathedral exterior",
+      "title": "File:Amiens France Cathédrale-Notre-Dame-d-Amiens-03d.jpg",
+      "artist": "CEphoto, Uwe Aranas",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Amiens_France_Cath%C3%A9drale-Notre-Dame-d-Amiens-03d.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c5/Amiens_France_Cath%C3%A9drale-Notre-Dame-d-Amiens-03d.jpg",
+      "originalSize": "2997x3639"
+    },
+    {
+      "n": 4,
+      "term": "Amiens cathedral interior",
+      "title": "File:Interior da Catedral de Amiens by Jules Victor Genisson, 1842.jpg",
+      "artist": "Jules Victor Génisson",
+      "license": "Public domain",
+      "source": "https://commons.wikimedia.org/wiki/File:Interior_da_Catedral_de_Amiens_by_Jules_Victor_Genisson,_1842.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/3/32/Interior_da_Catedral_de_Amiens_by_Jules_Victor_Genisson%2C_1842.jpg",
+      "originalSize": "5024x6687"
+    },
+    {
+      "n": 5,
+      "term": "Amiens cathedral flying buttresses",
+      "title": "File:Amiens Cathedral gallery roof and buttresses 1980-1.jpg",
+      "artist": "Acroterion",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Amiens_Cathedral_gallery_roof_and_buttresses_1980-1.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/8/8b/Amiens_Cathedral_gallery_roof_and_buttresses_1980-1.jpg",
+      "originalSize": "3306x4944"
+    },
+    {
+      "n": 6,
+      "term": "Amiens cathedral facade",
+      "title": "File:Amiens Cathedral. West Facade Detail (3485970833).jpg",
+      "artist": "Cornell University Library",
+      "license": "No restrictions",
+      "source": "https://commons.wikimedia.org/wiki/File:Amiens_Cathedral._West_Facade_Detail_(3485970833).jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/0/06/Amiens_Cathedral._West_Facade_Detail_%283485970833%29.jpg",
+      "originalSize": "1223x1536"
+    },
+    {
+      "n": 7,
+      "term": "Amiens cathedral towers",
+      "title": "File:Amiens - Impasse Joron - View SSW & Up - Rich variety of Gargoyles & Pinnacles on the North Front Tower of Amiens Cathedral II.jpg",
+      "artist": "Txllxt TxllxT",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Amiens_-_Impasse_Joron_-_View_SSW_%26_Up_-_Rich_variety_of_Gargoyles_%26_Pinnacles_on_the_North_Front_Tower_of_Amiens_Cathedral_II.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/4/46/Amiens_-_Impasse_Joron_-_View_SSW_%26_Up_-_Rich_variety_of_Gargoyles_%26_Pinnacles_on_the_North_Front_Tower_of_Amiens_Cathedral_II.jpg",
+      "originalSize": "6048x4032"
+    },
+    {
+      "n": 8,
+      "term": "Amiens cathedral rose window",
+      "title": "File:Amiens Cathedral Transept Crossing, Picardy, France - Diliff.jpg",
+      "artist": "Diliff",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Amiens_Cathedral_Transept_Crossing,_Picardy,_France_-_Diliff.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3c/Amiens_Cathedral_Transept_Crossing%2C_Picardy%2C_France_-_Diliff.jpg",
+      "originalSize": "7015x5116"
+    }
+  ],
+  "arles-amphitheatre": [
+    {
+      "n": 1,
+      "term": "Arles arena exterior",
+      "title": "File:0 Arènes d'Arles et église du Couvent des Cordeliers.jpg",
+      "artist": "Jean-Pol GRANDMONT",
+      "license": "CC BY 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:0_Ar%C3%A8nes_d%27Arles_et_%C3%A9glise_du_Couvent_des_Cordeliers.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/2/2f/0_Ar%C3%A8nes_d%27Arles_et_%C3%A9glise_du_Couvent_des_Cordeliers.jpg",
+      "originalSize": "6234x4144"
+    },
+    {
+      "n": 2,
+      "term": "Arles amphitheatre wall",
+      "title": "File:The corridor within the Amphitheatre in Arles.jpg",
+      "artist": "Guenter09",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:The_corridor_within_the_Amphitheatre_in_Arles.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1d/The_corridor_within_the_Amphitheatre_in_Arles.jpg",
+      "originalSize": "2272x1704"
+    },
+    {
+      "n": 3,
+      "term": "Arles Roman monument",
+      "title": "File:Detail Arles Roman Arena.jpg",
+      "artist": "Didier Devèze",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Detail_Arles_Roman_Arena.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/0/04/Detail_Arles_Roman_Arena.jpg",
+      "originalSize": "3000x2000"
+    },
+    {
+      "n": 4,
+      "term": "Arles amphitheatre bull",
+      "title": "File:Arles Arena Course 10.jpg",
+      "artist": "Jjshapiro",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Arles_Arena_Course_10.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c7/Arles_Arena_Course_10.jpg",
+      "originalSize": "1024x768"
+    }
+  ],
+  "hospices-de-beaune": [
+    {
+      "n": 1,
+      "term": "Hospices de Beaune roof",
+      "title": "File:Hospices beaune toits1.jpg",
+      "artist": "Jebulon",
+      "license": "Public domain",
+      "source": "https://commons.wikimedia.org/wiki/File:Hospices_beaune_toits1.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e0/Hospices_beaune_toits1.jpg",
+      "originalSize": "4572x3040"
+    },
+    {
+      "n": 2,
+      "term": "Hospices de Beaune courtyard",
+      "title": "File:Beaune - Hôtel-Dieu - Cour - 03.jpg",
+      "artist": "Benjamin Smith",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Beaune_-_H%C3%B4tel-Dieu_-_Cour_-_03.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b2/Beaune_-_H%C3%B4tel-Dieu_-_Cour_-_03.jpg",
+      "originalSize": "3736x6046"
+    },
+    {
+      "n": 3,
+      "term": "Hospices de Beaune exterior",
+      "title": "File:Hospices de Beaune 0100 82.jpg",
+      "artist": "FrDr",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Hospices_de_Beaune_0100_82.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c9/Hospices_de_Beaune_0100_82.jpg",
+      "originalSize": "3648x5472"
+    }
+  ],
+  "albi-cathedral": [
+    {
+      "n": 1,
+      "term": "Albi cathedral fresco interior",
+      "title": "File:Albi cathedral - vault detail.jpg",
+      "artist": "Pom²",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Albi_cathedral_-_vault_detail.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/b/be/Albi_cathedral_-_vault_detail.jpg",
+      "originalSize": "2800x1874"
+    },
+    {
+      "n": 2,
+      "term": "Albi cathedral bell tower",
+      "title": "File:(Albi) Bell tower of the Ste Cécile Cathedral - West exposure.jpg",
+      "artist": "Didier Descouens",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:(Albi)_Bell_tower_of_the_Ste_C%C3%A9cile_Cathedral_-_West_exposure.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/8/86/%28Albi%29_Bell_tower_of_the_Ste_C%C3%A9cile_Cathedral_-_West_exposure.jpg",
+      "originalSize": "4840x8929"
+    },
+    {
+      "n": 3,
+      "term": "Albi cathedral Tarn",
+      "title": "File:Albi cathedral - choir and choir screen.jpg",
+      "artist": "Pom²",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Albi_cathedral_-_choir_and_choir_screen.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/b/ba/Albi_cathedral_-_choir_and_choir_screen.jpg",
+      "originalSize": "3192x2394"
+    },
+    {
+      "n": 4,
+      "term": "Albi cathedral fortress",
+      "title": "File:Catedral de Santa Cecilia, Albi, Francia, 2023-01-07, DD 146.jpg",
+      "artist": "Diego Delso",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Catedral_de_Santa_Cecilia,_Albi,_Francia,_2023-01-07,_DD_146.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/7/7d/Catedral_de_Santa_Cecilia%2C_Albi%2C_Francia%2C_2023-01-07%2C_DD_146.jpg",
+      "originalSize": "6112x5072"
+    },
+    {
+      "n": 5,
+      "term": "Albi cathedral choir",
+      "title": "File:Cathedral of Saint Cecilia of Albi - 7095 - Altar and choir.jpg",
+      "artist": "Pierre-Selim Huard",
+      "license": "CC BY 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Cathedral_of_Saint_Cecilia_of_Albi_-_7095_-_Altar_and_choir.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/a/ae/Cathedral_of_Saint_Cecilia_of_Albi_-_7095_-_Altar_and_choir.jpg",
+      "originalSize": "4089x2719"
+    }
+  ],
+  "rouen-cathedral": [
+    {
+      "n": 1,
+      "term": "Rouen cathedral west front",
+      "title": "File:Joseph Pennell, The West Front, Rouen Cathedral, 1907, NGA 32895.jpg",
+      "artist": "Joseph Pennell",
+      "license": "CC0",
+      "source": "https://commons.wikimedia.org/wiki/File:Joseph_Pennell,_The_West_Front,_Rouen_Cathedral,_1907,_NGA_32895.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/0/02/Joseph_Pennell%2C_The_West_Front%2C_Rouen_Cathedral%2C_1907%2C_NGA_32895.jpg",
+      "originalSize": "3079x3976"
+    },
+    {
+      "n": 2,
+      "term": "Rouen cathedral spire",
+      "title": "File:Cathédrale Notre-Dame de Rouen, South-West View from Mont Gargan 140215 4.jpg",
+      "artist": "DXR",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Cath%C3%A9drale_Notre-Dame_de_Rouen,_South-West_View_from_Mont_Gargan_140215_4.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/8/81/Cath%C3%A9drale_Notre-Dame_de_Rouen%2C_South-West_View_from_Mont_Gargan_140215_4.jpg",
+      "originalSize": "3303x5374"
+    },
+    {
+      "n": 3,
+      "term": "Rouen cathedral facade",
+      "title": "File:Rouen Cathedral as seen from Gros Horloge 140215 4.jpg",
+      "artist": "DXR",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Rouen_Cathedral_as_seen_from_Gros_Horloge_140215_4.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1a/Rouen_Cathedral_as_seen_from_Gros_Horloge_140215_4.jpg",
+      "originalSize": "3953x6328"
+    },
+    {
+      "n": 4,
+      "term": "Rouen cathedral towers",
+      "title": "File:Rouen Cathedral Façade and Tour d'Albane (Morning Effect) SC197957.jpg",
+      "artist": "Claude Monet",
+      "license": "Public domain",
+      "source": "https://commons.wikimedia.org/wiki/File:Rouen_Cathedral_Fa%C3%A7ade_and_Tour_d%27Albane_(Morning_Effect)_SC197957.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/7/7e/Rouen_Cathedral_Fa%C3%A7ade_and_Tour_d%27Albane_%28Morning_Effect%29_SC197957.jpg",
+      "originalSize": "1113x1600"
+    },
+    {
+      "n": 5,
+      "term": "Rouen cathedral interior",
+      "title": "File:Rouen Cathedral, View up the transept and tower 20140215 1.jpg",
+      "artist": "DXR",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Rouen_Cathedral,_View_up_the_transept_and_tower_20140215_1.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/0/0d/Rouen_Cathedral%2C_View_up_the_transept_and_tower_20140215_1.jpg",
+      "originalSize": "7065x4715"
+    },
+    {
+      "n": 6,
+      "term": "Rouen cathedral Monet",
+      "title": "File:Rouen Cathedrale Monet Belgrade W1329.jpg",
+      "artist": "Claude Monet",
+      "license": "Public domain",
+      "source": "https://commons.wikimedia.org/wiki/File:Rouen_Cathedrale_Monet_Belgrade_W1329.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/4/43/Rouen_Cathedrale_Monet_Belgrade_W1329.jpg",
+      "originalSize": "2362x3629"
+    },
+    {
+      "n": 7,
+      "term": "Rouen cathedral flying buttresses",
+      "title": "File:Tympanum depicting Christ and people surrounding him, those to his right heading for Heaven and those to his left heading for the fiery pits of Hell - Eglise Saint-Maclou (30784941782).jpg",
+      "artist": "Jorge Láscar from Melbourne, Australia",
+      "license": "CC BY 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Tympanum_depicting_Christ_and_people_surrounding_him,_those_to_his_right_heading_for_Heaven_and_those_to_his_left_heading_for_the_fiery_pits_of_Hell_-_Eglise_Saint-Maclou_(30784941782).jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/7/7d/Tympanum_depicting_Christ_and_people_surrounding_him%2C_those_to_his_right_heading_for_Heaven_and_those_to_his_left_heading_for_the_fiery_pits_of_Hell_-_Eglise_Saint-Maclou_%2830784941782%29.jpg",
+      "originalSize": "5520x3680"
+    },
+    {
+      "n": 8,
+      "term": "Rouen cathedral night",
+      "title": "File:Claude Monet - The Rouen Cathedral at Sunset - Pushkin museum.jpg",
+      "artist": "Claude Monet",
+      "license": "Public domain",
+      "source": "https://commons.wikimedia.org/wiki/File:Claude_Monet_-_The_Rouen_Cathedral_at_Sunset_-_Pushkin_museum.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/8/8c/Claude_Monet_-_The_Rouen_Cathedral_at_Sunset_-_Pushkin_museum.jpg",
+      "originalSize": "1280x2081"
+    }
+  ],
+  "basilique-fourviere": [
+    {
+      "n": 1,
+      "term": "Fourviere basilica Lyon exterior",
+      "title": "File:Exterior Basilica of Notre Dame de Fourvière Lyon France.jpg",
+      "artist": "Tim Adams",
+      "license": "CC BY 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Exterior_Basilica_of_Notre_Dame_de_Fourvi%C3%A8re_Lyon_France.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b6/Exterior_Basilica_of_Notre_Dame_de_Fourvi%C3%A8re_Lyon_France.jpg",
+      "originalSize": "3227x4531"
+    },
+    {
+      "n": 2,
+      "term": "Fourviere basilica Lyon night",
+      "title": "File:Lyon - Basilique Notre-Dame de Fourvière by night.jpg",
+      "artist": "This picture belongs to Xavier Caré. Please credit : Xavier Caré / Wikimedia Commons / CC-BY-SA. If you would like special permission to use, license, or purchase the image please contact me to negotiate terms. I'd appreciate if you could let me know about it or mail me ( xavier.carepm.me) if you want to use this picture out of the Wikimedia project scope.",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Lyon_-_Basilique_Notre-Dame_de_Fourvi%C3%A8re_by_night.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d4/Lyon_-_Basilique_Notre-Dame_de_Fourvi%C3%A8re_by_night.jpg",
+      "originalSize": "5184x3456"
+    },
+    {
+      "n": 3,
+      "term": "Fourviere basilica interior",
+      "title": "File:Interior of the Basilica of Notre Dame de Fourvière in Lyon, France with candles.jpg",
+      "artist": "Tim Adams",
+      "license": "CC BY 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Interior_of_the_Basilica_of_Notre_Dame_de_Fourvi%C3%A8re_in_Lyon,_France_with_candles.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/2/21/Interior_of_the_Basilica_of_Notre_Dame_de_Fourvi%C3%A8re_in_Lyon%2C_France_with_candles.jpg",
+      "originalSize": "3133x4700"
+    },
+    {
+      "n": 4,
+      "term": "Fourviere basilica Lyon hill",
+      "title": "File:Place Bellecour with Basilique de Fourviere Lyon 2026.JPG",
+      "artist": "Mike is Michi",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Place_Bellecour_with_Basilique_de_Fourviere_Lyon_2026.JPG",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/0/02/Place_Bellecour_with_Basilique_de_Fourviere_Lyon_2026.JPG",
+      "originalSize": "5660x4240"
+    },
+    {
+      "n": 5,
+      "term": "Fourviere basilica statue",
+      "title": "File:France-002971 - Basilica of Notre-Dame de Fourvière (16124922681).jpg",
+      "artist": "Dennis G. Jarvis",
+      "license": "CC BY-SA 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:France-002971_-_Basilica_of_Notre-Dame_de_Fourvi%C3%A8re_(16124922681).jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/0/0f/France-002971_-_Basilica_of_Notre-Dame_de_Fourvi%C3%A8re_%2816124922681%29.jpg",
+      "originalSize": "4000x6000"
+    },
+    {
+      "n": 6,
+      "term": "Fourviere basilica golden virgin",
+      "title": "File:Lyon 5e - Chapelle Saint-Thomas - Clocher et Vierge, depuis le toit de la basilique Notre-Dame de Fourvière 02.jpg",
+      "artist": "Joseph-Hugues Fabisch",
+      "license": "Public domain",
+      "source": "https://commons.wikimedia.org/wiki/File:Lyon_5e_-_Chapelle_Saint-Thomas_-_Clocher_et_Vierge,_depuis_le_toit_de_la_basilique_Notre-Dame_de_Fourvi%C3%A8re_02.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/3/36/Lyon_5e_-_Chapelle_Saint-Thomas_-_Clocher_et_Vierge%2C_depuis_le_toit_de_la_basilique_Notre-Dame_de_Fourvi%C3%A8re_02.jpg",
+      "originalSize": "4014x6030"
+    }
+  ],
+  "centre-pompidou": [
+    {
+      "n": 1,
+      "term": "Centre Pompidou facade",
+      "title": "File:Centre Pompidou, seen from Tour Montparnasse.jpg",
+      "artist": "Alf van Beem",
+      "license": "CC0",
+      "source": "https://commons.wikimedia.org/wiki/File:Centre_Pompidou,_seen_from_Tour_Montparnasse.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/f/fb/Centre_Pompidou%2C_seen_from_Tour_Montparnasse.jpg",
+      "originalSize": "3488x2616"
+    },
+    {
+      "n": 2,
+      "term": "Centre Pompidou night",
+      "title": "File:Pompidou Centre.jpg",
+      "artist": "Infinitescreen",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Pompidou_Centre.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/2/2d/Pompidou_Centre.jpg",
+      "originalSize": "6486x6483"
+    },
+    {
+      "n": 3,
+      "term": "Centre Pompidou aerial",
+      "title": "File:Centre Pompidou-nacelles-2025-a.jpg",
+      "artist": "MHM55",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Centre_Pompidou-nacelles-2025-a.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/a/ad/Centre_Pompidou-nacelles-2025-a.jpg",
+      "originalSize": "1216x1013"
+    },
+    {
+      "n": 4,
+      "term": "Centre Pompidou Stravinsky fountain",
+      "title": "File:Paris 75004 Place Igor-Stravinsky Fountain 01b.jpg",
+      "artist": "ChrisSampson87",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Paris_75004_Place_Igor-Stravinsky_Fountain_01b.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/e/ec/Paris_75004_Place_Igor-Stravinsky_Fountain_01b.jpg",
+      "originalSize": "3648x2736"
+    },
+    {
+      "n": 5,
+      "term": "Centre Pompidou Beaubourg",
+      "title": "File:Centre Pompidou, intérieur.jpg",
+      "artist": "Juliette Jourdan",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Centre_Pompidou,_int%C3%A9rieur.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/9/90/Centre_Pompidou%2C_int%C3%A9rieur.jpg",
+      "originalSize": "4608x3072"
+    }
+  ],
+  "les-landes-coast": [
+    {
+      "n": 1,
+      "term": "Landes forest Atlantic",
+      "title": "File:Smoke from southeastern wild fires over the Atlantic Ocean (MODIS 2016-11-23).jpg",
+      "artist": "Jeff Schmaltz, MODIS Land Rapid Response Team, NASA GSFC",
+      "license": "Public domain",
+      "source": "https://commons.wikimedia.org/wiki/File:Smoke_from_southeastern_wild_fires_over_the_Atlantic_Ocean_(MODIS_2016-11-23).jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/0/09/Smoke_from_southeastern_wild_fires_over_the_Atlantic_Ocean_%28MODIS_2016-11-23%29.jpg",
+      "originalSize": "2800x2200"
+    },
+    {
+      "n": 2,
+      "term": "Landes coast beach",
+      "title": "File:Laguna Beach Paddleboard with Dog in Palm Springs-South Coast Field Office (37239000290).jpg",
+      "artist": "blmcalifornia",
+      "license": "Public domain",
+      "source": "https://commons.wikimedia.org/wiki/File:Laguna_Beach_Paddleboard_with_Dog_in_Palm_Springs-South_Coast_Field_Office_(37239000290).jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/a/ad/Laguna_Beach_Paddleboard_with_Dog_in_Palm_Springs-South_Coast_Field_Office_%2837239000290%29.jpg",
+      "originalSize": "4272x2848"
+    },
+    {
+      "n": 3,
+      "term": "Landes Hossegor surf",
+      "title": "File:SurfHossegor.JPG",
+      "artist": "ElfeJediBiochimiste Kelly Walter",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:SurfHossegor.JPG",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a2/SurfHossegor.JPG",
+      "originalSize": "3072x2304"
+    },
+    {
+      "n": 4,
+      "term": "Landes sand dune",
+      "title": "File:Crescent Sand Dune Pt 1 (55016232261).jpg",
+      "artist": "BLM Nevada",
+      "license": "Public domain",
+      "source": "https://commons.wikimedia.org/wiki/File:Crescent_Sand_Dune_Pt_1_(55016232261).jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/3/38/Crescent_Sand_Dune_Pt_1_%2855016232261%29.jpg",
+      "originalSize": "4032x3024"
+    },
+    {
+      "n": 5,
+      "term": "Landes ocean sunset",
+      "title": "File:Sunset over the Indian Ocean seen from Grigsons Lookout, September 2023 01.jpg",
+      "artist": "Calistemon",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Sunset_over_the_Indian_Ocean_seen_from_Grigsons_Lookout,_September_2023_01.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/6/67/Sunset_over_the_Indian_Ocean_seen_from_Grigsons_Lookout%2C_September_2023_01.jpg",
+      "originalSize": "4608x3456"
+    },
+    {
+      "n": 6,
+      "term": "Landes maritime pine",
+      "title": "File:Pinus pinaster, Embalse de los Bermejales, Andalusia, Spain.jpg",
+      "artist": "Jebulon",
+      "license": "CC0",
+      "source": "https://commons.wikimedia.org/wiki/File:Pinus_pinaster,_Embalse_de_los_Bermejales,_Andalusia,_Spain.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/7/7a/Pinus_pinaster%2C_Embalse_de_los_Bermejales%2C_Andalusia%2C_Spain.jpg",
+      "originalSize": "4592x3056"
+    }
+  ],
+  "louvre-museum": [
+    {
+      "n": 1,
+      "term": "Louvre Museum pyramid",
+      "title": "File:Louvre Museum Wikimedia Commons.jpg",
+      "artist": "Benh LIEU SONG (Flickr)",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Louvre_Museum_Wikimedia_Commons.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/6/66/Louvre_Museum_Wikimedia_Commons.jpg",
+      "originalSize": "6740x2832"
+    },
+    {
+      "n": 2,
+      "term": "Louvre Palace facade",
+      "title": "File:Louvre aile Richelieu.jpg",
+      "artist": "Jebulon",
+      "license": "CC0",
+      "source": "https://commons.wikimedia.org/wiki/File:Louvre_aile_Richelieu.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3a/Louvre_aile_Richelieu.jpg",
+      "originalSize": "3181x2006"
+    },
+    {
+      "n": 3,
+      "term": "Louvre Museum interior",
+      "title": "File:Allegory Treaty of the Pyrenees - Giovanni Francesco Romanelli - Louvre, INV 20349.jpg",
+      "artist": "Terragio67",
+      "license": "Public domain",
+      "source": "https://commons.wikimedia.org/wiki/File:Allegory_Treaty_of_the_Pyrenees_-_Giovanni_Francesco_Romanelli_-_Louvre,_INV_20349.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/6/6f/Allegory_Treaty_of_the_Pyrenees_-_Giovanni_Francesco_Romanelli_-_Louvre%2C_INV_20349.jpg",
+      "originalSize": "6718x8624"
+    },
+    {
+      "n": 4,
+      "term": "Louvre Museum night",
+      "title": "File:Cour Napoléon at night - Louvre.jpg",
+      "artist": "Benh LIEU SONG",
+      "license": "CC BY 2.5",
+      "source": "https://commons.wikimedia.org/wiki/File:Cour_Napol%C3%A9on_at_night_-_Louvre.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/2/28/Cour_Napol%C3%A9on_at_night_-_Louvre.jpg",
+      "originalSize": "3048x1209"
+    },
+    {
+      "n": 5,
+      "term": "Louvre Museum courtyard",
+      "title": "File:Louvre Courtyard, Looking West.jpg",
+      "artist": "Benh LIEU SONG (Flickr)",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Louvre_Courtyard,_Looking_West.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a2/Louvre_Courtyard%2C_Looking_West.jpg",
+      "originalSize": "15359x5730"
+    },
+    {
+      "n": 6,
+      "term": "Louvre Museum glass pyramid",
+      "title": "File:View of the Louvre Palace from inside of the Louvre Pyramid in 2009.jpg",
+      "artist": "Vinceesq",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:View_of_the_Louvre_Palace_from_inside_of_the_Louvre_Pyramid_in_2009.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e1/View_of_the_Louvre_Palace_from_inside_of_the_Louvre_Pyramid_in_2009.jpg",
+      "originalSize": "3008x2000"
+    },
+    {
+      "n": 7,
+      "term": "Louvre Museum Denon wing",
+      "title": "File:Ceiling of the Salon Denon, Louvre 2011.jpg",
+      "artist": "Charles Louis Müller",
+      "license": "CC BY-SA 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Ceiling_of_the_Salon_Denon,_Louvre_2011.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Ceiling_of_the_Salon_Denon%2C_Louvre_2011.jpg",
+      "originalSize": "5457x3642"
+    },
+    {
+      "n": 8,
+      "term": "Louvre Museum colonnade",
+      "title": "File:Escalier nord de la colonnade, Louvre Museum (2019 59).jpg",
+      "artist": "Sandra Soster",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Escalier_nord_de_la_colonnade,_Louvre_Museum_(2019_59).jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/3/34/Escalier_nord_de_la_colonnade%2C_Louvre_Museum_%282019_59%29.jpg",
+      "originalSize": "1836x3264"
+    }
+  ],
+  "palace-of-versailles": [
+    {
+      "n": 1,
+      "term": "Versailles palace exterior",
+      "title": "File:Palace of Versailles exterior sculpture.jpg",
+      "artist": "APK",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Palace_of_Versailles_exterior_sculpture.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/e/eb/Palace_of_Versailles_exterior_sculpture.jpg",
+      "originalSize": "2175x1446"
+    },
+    {
+      "n": 2,
+      "term": "Versailles Hall of Mirrors",
+      "title": "File:Chateau Versailles Galerie des Glaces.jpg",
+      "artist": "Myrabella",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Chateau_Versailles_Galerie_des_Glaces.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f1/Chateau_Versailles_Galerie_des_Glaces.jpg",
+      "originalSize": "3892x2584"
+    },
+    {
+      "n": 3,
+      "term": "Versailles gardens",
+      "title": "File:Versailles view from the Parterre d'eau.jpg",
+      "artist": "Paolo Costa Baldi",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Versailles_view_from_the_Parterre_d%27eau.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/8/8f/Versailles_view_from_the_Parterre_d%27eau.jpg",
+      "originalSize": "3933x2474"
+    },
+    {
+      "n": 4,
+      "term": "Versailles palace facade",
+      "title": "File:Versailles - vasque et façade.jpg",
+      "artist": "Jean-Baptiste Tuby",
+      "license": "CC BY 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Versailles_-_vasque_et_fa%C3%A7ade.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/1/11/Versailles_-_vasque_et_fa%C3%A7ade.jpg",
+      "originalSize": "4038x2692"
+    },
+    {
+      "n": 5,
+      "term": "Versailles Grand Trianon",
+      "title": "File:Salon of mirrors with royal chandelier in the Grand Trianon Domain of Versailles France.jpg",
+      "artist": "Basile Morin",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Salon_of_mirrors_with_royal_chandelier_in_the_Grand_Trianon_Domain_of_Versailles_France.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/3/37/Salon_of_mirrors_with_royal_chandelier_in_the_Grand_Trianon_Domain_of_Versailles_France.jpg",
+      "originalSize": "5005x3092"
+    },
+    {
+      "n": 6,
+      "term": "Versailles royal chapel",
+      "title": "File:Organ chapel royal Versailles.jpg",
+      "artist": "Jebulon",
+      "license": "CC0",
+      "source": "https://commons.wikimedia.org/wiki/File:Organ_chapel_royal_Versailles.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/3/39/Organ_chapel_royal_Versailles.jpg",
+      "originalSize": "2646x2500"
+    },
+    {
+      "n": 7,
+      "term": "Versailles palace fountain",
+      "title": "File:Panoramic view of the Park of Versailles with Latona Fountain a sunny morning in France.jpg",
+      "artist": "Basile Morin",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Panoramic_view_of_the_Park_of_Versailles_with_Latona_Fountain_a_sunny_morning_in_France.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3d/Panoramic_view_of_the_Park_of_Versailles_with_Latona_Fountain_a_sunny_morning_in_France.jpg",
+      "originalSize": "7749x4359"
+    },
+    {
+      "n": 8,
+      "term": "Versailles Orangerie",
+      "title": "File:Orangerie.jpg",
+      "artist": "Urban at French Wikipedia",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Orangerie.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a1/Orangerie.jpg",
+      "originalSize": "1600x1200"
+    }
+  ],
+  "notre-dame-de-paris": [
+    {
+      "n": 1,
+      "term": "Notre Dame Paris exterior",
+      "title": "File:Cathédrale Notre-Dame (exterior).107 - Paris.jpg",
+      "artist": "Fernando Losada Rodríguez",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Cath%C3%A9drale_Notre-Dame_(exterior).107_-_Paris.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/7/78/Cath%C3%A9drale_Notre-Dame_%28exterior%29.107_-_Paris.jpg",
+      "originalSize": "3864x5152"
+    },
+    {
+      "n": 2,
+      "term": "Notre Dame Paris flying buttresses",
+      "title": "File:Notre Dame de Paris, East View 140207 1.jpg",
+      "artist": "DXR",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Notre_Dame_de_Paris,_East_View_140207_1.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/b/be/Notre_Dame_de_Paris%2C_East_View_140207_1.jpg",
+      "originalSize": "4234x5690"
+    },
+    {
+      "n": 3,
+      "term": "Notre Dame Paris rose window",
+      "title": "File:Rozeta Paryż notre-dame chalger.jpg",
+      "artist": "Krzysztof Mizera",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Rozeta_Pary%C5%BC_notre-dame_chalger.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/7/77/Rozeta_Pary%C5%BC_notre-dame_chalger.jpg",
+      "originalSize": "2209x2209"
+    },
+    {
+      "n": 4,
+      "term": "Notre Dame Paris front",
+      "title": "File:Notre Dame Paris front facade lower.jpg",
+      "artist": "Benh LIEU SONG",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Notre_Dame_Paris_front_facade_lower.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/4/42/Notre_Dame_Paris_front_facade_lower.jpg",
+      "originalSize": "3880x2097"
+    },
+    {
+      "n": 5,
+      "term": "Notre Dame Paris Ile de la Cite",
+      "title": "File:NotreDameDeParis.jpg",
+      "artist": "Sanchezn",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:NotreDameDeParis.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a4/NotreDameDeParis.jpg",
+      "originalSize": "2865x3806"
+    },
+    {
+      "n": 6,
+      "term": "Notre Dame Paris towers",
+      "title": "File:Cathedrale Notre-Dame de Paris nef nouvelles cloches.jpg",
+      "artist": "Myrabella",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Cathedrale_Notre-Dame_de_Paris_nef_nouvelles_cloches.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/1/18/Cathedrale_Notre-Dame_de_Paris_nef_nouvelles_cloches.jpg",
+      "originalSize": "3125x2710"
+    },
+    {
+      "n": 7,
+      "term": "Notre Dame Paris spire",
+      "title": "File:Flèche en feu - Spire on Fire.jpeg",
+      "artist": "LEVRIER Guillaume",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Fl%C3%A8che_en_feu_-_Spire_on_Fire.jpeg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/1/12/Fl%C3%A8che_en_feu_-_Spire_on_Fire.jpeg",
+      "originalSize": "3712x5208"
+    },
+    {
+      "n": 8,
+      "term": "Notre Dame Paris nave",
+      "title": "File:Paris Notre-Dame Vaults 01.JPG",
+      "artist": "Uoaei1",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Paris_Notre-Dame_Vaults_01.JPG",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4d/Paris_Notre-Dame_Vaults_01.JPG",
+      "originalSize": "3810x5978"
+    }
+  ],
+  "mont-saint-michel": [
+    {
+      "n": 1,
+      "term": "Mont Saint Michel abbey",
+      "title": "File:Cloître Abbaye du Mont Saint-Michel 2015-05-28.jpg",
+      "artist": "Benh LIEU SONG (Flickr)",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Clo%C3%AEtre_Abbaye_du_Mont_Saint-Michel_2015-05-28.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/8/86/Clo%C3%AEtre_Abbaye_du_Mont_Saint-Michel_2015-05-28.jpg",
+      "originalSize": "7551x3972"
+    },
+    {
+      "n": 2,
+      "term": "Mont Saint Michel aerial",
+      "title": "File:Mont Saint Michel at sunset, April 2025.jpg",
+      "artist": "Giladtop",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Mont_Saint_Michel_at_sunset,_April_2025.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e5/Mont_Saint_Michel_at_sunset%2C_April_2025.jpg",
+      "originalSize": "5096x3512"
+    },
+    {
+      "n": 3,
+      "term": "Mont Saint Michel bay",
+      "title": "File:Mont St Michel – ramparts (1).jpg",
+      "artist": "Lynx1211",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Mont_St_Michel_%E2%80%93_ramparts_(1).jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/9/9e/Mont_St_Michel_%E2%80%93_ramparts_%281%29.jpg",
+      "originalSize": "6000x4000"
+    },
+    {
+      "n": 4,
+      "term": "Mont Saint Michel tidal",
+      "title": "File:Mont Saint-Michel tidal plane.JPG",
+      "artist": "Dror Feitelson",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Mont_Saint-Michel_tidal_plane.JPG",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1e/Mont_Saint-Michel_tidal_plane.JPG",
+      "originalSize": "3000x4000"
+    },
+    {
+      "n": 5,
+      "term": "Mont Saint Michel narrow street",
+      "title": "File:Mont Saint Michel Abbey walls (32921329435).jpg",
+      "artist": "Jorge Láscar from Melbourne, Australia",
+      "license": "CC BY 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Mont_Saint_Michel_Abbey_walls_(32921329435).jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/6/64/Mont_Saint_Michel_Abbey_walls_%2832921329435%29.jpg",
+      "originalSize": "7360x4912"
+    },
+    {
+      "n": 6,
+      "term": "Mont Saint Michel silhouette",
+      "title": "File:Mont Saint-Michel vu à contre-jour du large au nord (été 2019).JPG",
+      "artist": "Florian Pépellin",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Mont_Saint-Michel_vu_%C3%A0_contre-jour_du_large_au_nord_(%C3%A9t%C3%A9_2019).JPG",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/5/5a/Mont_Saint-Michel_vu_%C3%A0_contre-jour_du_large_au_nord_%28%C3%A9t%C3%A9_2019%29.JPG",
+      "originalSize": "3220x2392"
+    },
+    {
+      "n": 7,
+      "term": "Mont Saint Michel ramparts",
+      "title": "File:Mont St Michel – ramparts (2).jpg",
+      "artist": "Lynx1211",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Mont_St_Michel_%E2%80%93_ramparts_(2).jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/8/8f/Mont_St_Michel_%E2%80%93_ramparts_%282%29.jpg",
+      "originalSize": "6000x4000"
+    },
+    {
+      "n": 8,
+      "term": "Mont Saint Michel cloister",
+      "title": "File:Mont St Michel – cloister.jpg",
+      "artist": "Lynx1211",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Mont_St_Michel_%E2%80%93_cloister.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e9/Mont_St_Michel_%E2%80%93_cloister.jpg",
+      "originalSize": "4000x6000"
+    }
+  ],
+  "carcassonne": [
+    {
+      "n": 1,
+      "term": "Carcassonne castle walls",
+      "title": "File:Carcassonne walls and towers count castle.JPG",
+      "artist": "Janmad",
+      "license": "CC BY 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Carcassonne_walls_and_towers_count_castle.JPG",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/7/78/Carcassonne_walls_and_towers_count_castle.JPG",
+      "originalSize": "3872x2592"
+    },
+    {
+      "n": 2,
+      "term": "Carcassonne aerial view",
+      "title": "File:1 carcassonne aerial 2016.jpg",
+      "artist": "Chensiyuan",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:1_carcassonne_aerial_2016.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/2/25/1_carcassonne_aerial_2016.jpg",
+      "originalSize": "7007x4134"
+    },
+    {
+      "n": 3,
+      "term": "Carcassonne ramparts",
+      "title": "File:The Ramparts of Carcassonne MET DP150967.jpg",
+      "artist": "Gustave Le Gray / Auguste Mestral",
+      "license": "CC0",
+      "source": "https://commons.wikimedia.org/wiki/File:The_Ramparts_of_Carcassonne_MET_DP150967.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1b/The_Ramparts_of_Carcassonne_MET_DP150967.jpg",
+      "originalSize": "3863x2748"
+    },
+    {
+      "n": 4,
+      "term": "Carcassonne towers",
+      "title": "File:Cité de Carcassonne – Tour de la Charpenterie (1).jpg",
+      "artist": "Lynx1211",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Cit%C3%A9_de_Carcassonne_%E2%80%93_Tour_de_la_Charpenterie_(1).jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/6/66/Cit%C3%A9_de_Carcassonne_%E2%80%93_Tour_de_la_Charpenterie_%281%29.jpg",
+      "originalSize": "4803x3202"
+    },
+    {
+      "n": 5,
+      "term": "Carcassonne castle night",
+      "title": "File:Muralles de Carcassona (França) - panoramio (2).jpg",
+      "artist": "Literat Tours",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Muralles_de_Carcassona_(Fran%C3%A7a)_-_panoramio_(2).jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/0/0f/Muralles_de_Carcassona_%28Fran%C3%A7a%29_-_panoramio_%282%29.jpg",
+      "originalSize": "3968x2976"
+    },
+    {
+      "n": 6,
+      "term": "Carcassonne medieval city",
+      "title": "File:Ramparts of the historic fortified city of Carcassone 10.jpg",
+      "artist": "Krzysztof Golik",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Ramparts_of_the_historic_fortified_city_of_Carcassone_10.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/2/2d/Ramparts_of_the_historic_fortified_city_of_Carcassone_10.jpg",
+      "originalSize": "3840x2560"
+    },
+    {
+      "n": 7,
+      "term": "Carcassonne drawbridge",
+      "title": "File:Carcassonne - Drawbridge-Entrance to the Citadel - View WNW.jpg",
+      "artist": "Txllxt TxllxT",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Carcassonne_-_Drawbridge-Entrance_to_the_Citadel_-_View_WNW.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c6/Carcassonne_-_Drawbridge-Entrance_to_the_Citadel_-_View_WNW.jpg",
+      "originalSize": "3024x2016"
+    },
+    {
+      "n": 8,
+      "term": "Carcassonne citadel",
+      "title": "File:Ramparts of the historic fortified city of Carcassone 08.jpg",
+      "artist": "Krzysztof Golik",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Ramparts_of_the_historic_fortified_city_of_Carcassone_08.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f1/Ramparts_of_the_historic_fortified_city_of_Carcassone_08.jpg",
+      "originalSize": "4557x3224"
+    }
+  ],
+  "chateau-de-chambord": [
+    {
+      "n": 1,
+      "term": "Chambord castle staircase",
+      "title": "File:North-east staircase - Chambord Castle, FRANCE.jpg",
+      "artist": "Ignaz Wiradi",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:North-east_staircase_-_Chambord_Castle,_FRANCE.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c6/North-east_staircase_-_Chambord_Castle%2C_FRANCE.jpg",
+      "originalSize": "1944x2896"
+    },
+    {
+      "n": 2,
+      "term": "Chambord castle aerial",
+      "title": "File:Chambord castle, aerial view.jpg",
+      "artist": "Lieven Smits",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Chambord_castle,_aerial_view.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Chambord_castle%2C_aerial_view.jpg",
+      "originalSize": "3769x2452"
+    },
+    {
+      "n": 3,
+      "term": "Chambord castle roof",
+      "title": "File:Roof of the Chambord Castle 03.jpg",
+      "artist": "Krzysztof Golik",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Roof_of_the_Chambord_Castle_03.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c9/Roof_of_the_Chambord_Castle_03.jpg",
+      "originalSize": "3724x2789"
+    },
+    {
+      "n": 4,
+      "term": "Chambord castle towers",
+      "title": "File:West tower of the Chambord Castle.jpg",
+      "artist": "Krzysztof Golik",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:West_tower_of_the_Chambord_Castle.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/0/03/West_tower_of_the_Chambord_Castle.jpg",
+      "originalSize": "2960x4699"
+    },
+    {
+      "n": 5,
+      "term": "Chambord Loire castle",
+      "title": "File:Chambord Castle Northwest facade.jpg",
+      "artist": "Benh LIEU SONG",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Chambord_Castle_Northwest_facade.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/4/47/Chambord_Castle_Northwest_facade.jpg",
+      "originalSize": "15605x6256"
+    },
+    {
+      "n": 6,
+      "term": "Chambord castle facade",
+      "title": "File:Facade of the Chambord Castle 02.jpg",
+      "artist": "Krzysztof Golik",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Facade_of_the_Chambord_Castle_02.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b6/Facade_of_the_Chambord_Castle_02.jpg",
+      "originalSize": "2920x3841"
+    },
+    {
+      "n": 7,
+      "term": "Chambord castle keep",
+      "title": "File:Chambord - château, extérieur (18).jpg",
+      "artist": "Fab5669",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Chambord_-_ch%C3%A2teau,_ext%C3%A9rieur_(18).jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/1/12/Chambord_-_ch%C3%A2teau%2C_ext%C3%A9rieur_%2818%29.jpg",
+      "originalSize": "2448x3264"
+    }
+  ],
+  "pont-du-gard": [
+    {
+      "n": 1,
+      "term": "Pont du Gard aqueduct",
+      "title": "File:Pont du Gard BLS.jpg",
+      "artist": "Benh LIEU SONG (Flickr)",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Pont_du_Gard_BLS.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/4/42/Pont_du_Gard_BLS.jpg",
+      "originalSize": "12648x4882"
+    },
+    {
+      "n": 2,
+      "term": "Pont du Gard arches",
+      "title": "File:Le pont du Gard (8110616773).jpg",
+      "artist": "Иерей Максим Массалитин from Rabat, Maroc",
+      "license": "CC BY-SA 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Le_pont_du_Gard_(8110616773).jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/0/06/Le_pont_du_Gard_%288110616773%29.jpg",
+      "originalSize": "4928x3264"
+    },
+    {
+      "n": 3,
+      "term": "Pont du Gard river",
+      "title": "File:Pont Du Gard From River.JPG",
+      "artist": "Chris0693",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Pont_Du_Gard_From_River.JPG",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/5/50/Pont_Du_Gard_From_River.JPG",
+      "originalSize": "2576x1920"
+    },
+    {
+      "n": 4,
+      "term": "Pont du Gard tiers",
+      "title": "File:Pont du Gard Arch Underside.jpg",
+      "artist": "Elihbeckman",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Pont_du_Gard_Arch_Underside.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/a/ab/Pont_du_Gard_Arch_Underside.jpg",
+      "originalSize": "6016x4000"
+    },
+    {
+      "n": 5,
+      "term": "Pont du Gard aerial",
+      "title": "File:1012 Pont du Gard Photo by Giles Laurent.jpg",
+      "artist": "Giles Laurent",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:1012_Pont_du_Gard_Photo_by_Giles_Laurent.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/9/93/1012_Pont_du_Gard_Photo_by_Giles_Laurent.jpg",
+      "originalSize": "3479x2610"
+    },
+    {
+      "n": 6,
+      "term": "Pont du Gard stone",
+      "title": "File:Pont du Gar and Avignon forests around him.jpg",
+      "artist": "Natalie Azarova",
+      "license": "CC BY 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Pont_du_Gar_and_Avignon_forests_around_him.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f7/Pont_du_Gar_and_Avignon_forests_around_him.jpg",
+      "originalSize": "3872x2592"
+    },
+    {
+      "n": 7,
+      "term": "Pont du Gard sunset",
+      "title": "File:Pont du Gard aqueduct at sunset (sat10mar2012-18.24h).jpg",
+      "artist": "Rik Schuiling",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Pont_du_Gard_aqueduct_at_sunset_(sat10mar2012-18.24h).jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/d/dc/Pont_du_Gard_aqueduct_at_sunset_%28sat10mar2012-18.24h%29.jpg",
+      "originalSize": "3000x2008"
+    },
+    {
+      "n": 8,
+      "term": "Pont du Gard landscape",
+      "title": "File:Pont du Gard 2017.jpg",
+      "artist": "This Photo was taken by Wolfgang Moroder. Feel free to use my photos, but please mention me as the author and send me a message. This image is not in the public domain. Please respect the copyright protection. It may only be used according to the rules mentioned here. This specifically excludes use in social media, if applicable terms of the licenses listed here not appropriate. Please do not upload an updated image here without consultation with the Author. The author would like to make corrections only at his own source. This ensures that the changes are preserved.Please if you think that any changes should be required, please inform the author.Otherwise you can upload a new image with a new name. Please use one of the templates derivative or extract.",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Pont_du_Gard_2017.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/9/98/Pont_du_Gard_2017.jpg",
+      "originalSize": "15000x6663"
+    }
+  ],
+  "lascaux-cave": [
+    {
+      "n": 1,
+      "term": "Lascaux cave painting horses",
+      "title": "File:Lascaux, replica 03.JPG",
+      "artist": "HTO",
+      "license": "Public domain",
+      "source": "https://commons.wikimedia.org/wiki/File:Lascaux,_replica_03.JPG",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/1/19/Lascaux%2C_replica_03.JPG",
+      "originalSize": "2816x2112"
+    },
+    {
+      "n": 2,
+      "term": "Lascaux cave art deer",
+      "title": "File:Lascaux, Megaloceros.jpg",
+      "artist": "HTO",
+      "license": "Public domain",
+      "source": "https://commons.wikimedia.org/wiki/File:Lascaux,_Megaloceros.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1d/Lascaux%2C_Megaloceros.jpg",
+      "originalSize": "1775x1744"
+    },
+    {
+      "n": 3,
+      "term": "Lascaux prehistoric painting",
+      "title": "File:Lascaux 026.jpg",
+      "artist": "JoJan",
+      "license": "CC BY 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Lascaux_026.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/b/bd/Lascaux_026.jpg",
+      "originalSize": "2560x1920"
+    },
+    {
+      "n": 4,
+      "term": "Lascaux cave wall",
+      "title": "File:Scene from one of the cave walls at Lascaux Wellcome M0011681.jpg",
+      "artist": "Unknown",
+      "license": "CC BY 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Scene_from_one_of_the_cave_walls_at_Lascaux_Wellcome_M0011681.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/3/36/Scene_from_one_of_the_cave_walls_at_Lascaux_Wellcome_M0011681.jpg",
+      "originalSize": "4051x2604"
+    }
+  ],
+  "mont-blanc": [
+    {
+      "n": 1,
+      "term": "Mont Blanc peak",
+      "title": "File:Mont Blanc, Saint-Gervais-les-Bains (P1070994).jpg",
+      "artist": "Matti Blume",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Mont_Blanc,_Saint-Gervais-les-Bains_(P1070994).jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c1/Mont_Blanc%2C_Saint-Gervais-les-Bains_%28P1070994%29.jpg",
+      "originalSize": "4000x3000"
+    },
+    {
+      "n": 2,
+      "term": "Mont Blanc massif",
+      "title": "File:Massif du Mont-Blanc from Lac de Joux Plane 03.jpg",
+      "artist": "Krzysztof Golik",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Massif_du_Mont-Blanc_from_Lac_de_Joux_Plane_03.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c5/Massif_du_Mont-Blanc_from_Lac_de_Joux_Plane_03.jpg",
+      "originalSize": "6478x2798"
+    },
+    {
+      "n": 3,
+      "term": "Mont Blanc aerial",
+      "title": "File:Aerial view of Mont Blanc 02.jpg",
+      "artist": "Olivier Cleynen",
+      "license": "CC BY 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Aerial_view_of_Mont_Blanc_02.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/8/8f/Aerial_view_of_Mont_Blanc_02.jpg",
+      "originalSize": "3648x2432"
+    },
+    {
+      "n": 4,
+      "term": "Mont Blanc Chamonix",
+      "title": "File:Mont Blanc du Tacul depuis l'Aiguille du Midi.jpg",
+      "artist": "Alexandre Buisse (Nattfodd)",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Mont_Blanc_du_Tacul_depuis_l%27Aiguille_du_Midi.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/2/28/Mont_Blanc_du_Tacul_depuis_l%27Aiguille_du_Midi.jpg",
+      "originalSize": "3008x2000"
+    },
+    {
+      "n": 5,
+      "term": "Mont Blanc snow",
+      "title": "File:Mont Blanc from Les Arcs 1950.jpg",
+      "artist": "Dmitry A. Mottl",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Mont_Blanc_from_Les_Arcs_1950.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/7/7b/Mont_Blanc_from_Les_Arcs_1950.jpg",
+      "originalSize": "5259x2958"
+    },
+    {
+      "n": 6,
+      "term": "Mont Blanc sunset",
+      "title": "File:Mont Blanc from the Vosges.jpg",
+      "artist": "Jörg Braukmann",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Mont_Blanc_from_the_Vosges.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/9/91/Mont_Blanc_from_the_Vosges.jpg",
+      "originalSize": "4000x3000"
+    },
+    {
+      "n": 7,
+      "term": "Mont Blanc range",
+      "title": "File:Mont-Blanc range.jpg",
+      "artist": "Brücke-Osteuropa",
+      "license": "CC0",
+      "source": "https://commons.wikimedia.org/wiki/File:Mont-Blanc_range.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b3/Mont-Blanc_range.jpg",
+      "originalSize": "3913x1355"
+    },
+    {
+      "n": 8,
+      "term": "Mont Blanc glacier",
+      "title": "File:Glacier du Mont Mallet (Glacier du Géant) & Mont Blanc, 2010 July.jpg",
+      "artist": "Ximonic, Simo Räsänen",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Glacier_du_Mont_Mallet_(Glacier_du_G%C3%A9ant)_%26_Mont_Blanc,_2010_July.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a7/Glacier_du_Mont_Mallet_%28Glacier_du_G%C3%A9ant%29_%26_Mont_Blanc%2C_2010_July.jpg",
+      "originalSize": "2400x1600"
+    }
+  ],
+  "sacre-coeur": [
+    {
+      "n": 1,
+      "term": "Sacré Coeur Montmartre",
+      "title": "File:Sacre Coeur cor Jesu-DSC 1455w.jpg",
+      "artist": "P e z i",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Sacre_Coeur_cor_Jesu-DSC_1455w.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a9/Sacre_Coeur_cor_Jesu-DSC_1455w.jpg",
+      "originalSize": "3780x5806"
+    },
+    {
+      "n": 2,
+      "term": "Sacré Coeur Paris exterior",
+      "title": "File:Paris - Basilique du Sacré-Cœur de Montmartre - 2025-09-30 23-31-57 001.jpg",
+      "artist": "Giò Terra (Terragio67)",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Paris_-_Basilique_du_Sacr%C3%A9-C%C5%93ur_de_Montmartre_-_2025-09-30_23-31-57_001.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d0/Paris_-_Basilique_du_Sacr%C3%A9-C%C5%93ur_de_Montmartre_-_2025-09-30_23-31-57_001.jpg",
+      "originalSize": "9228x7488"
+    },
+    {
+      "n": 3,
+      "term": "Sacré Coeur dome",
+      "title": "File:Paris - Sacré-Cœur - Kuppel zur blauen Stunde.jpg",
+      "artist": "Taxiarchos228",
+      "license": "CC BY 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Paris_-_Sacr%C3%A9-C%C5%93ur_-_Kuppel_zur_blauen_Stunde.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d9/Paris_-_Sacr%C3%A9-C%C5%93ur_-_Kuppel_zur_blauen_Stunde.jpg",
+      "originalSize": "2167x3520"
+    },
+    {
+      "n": 4,
+      "term": "Sacré Coeur white basilica",
+      "title": "File:Sacré-Coeur Basilica.jpg",
+      "artist": "Defne1616",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Sacr%C3%A9-Coeur_Basilica.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e7/Sacr%C3%A9-Coeur_Basilica.jpg",
+      "originalSize": "1125x1503"
+    },
+    {
+      "n": 5,
+      "term": "Sacré Coeur steps",
+      "title": "File:Approaching Sacre Coeur.jpg",
+      "artist": "Diddaw",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Approaching_Sacre_Coeur.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/a/aa/Approaching_Sacre_Coeur.jpg",
+      "originalSize": "1600x1200"
+    },
+    {
+      "n": 6,
+      "term": "Sacré Coeur Paris night",
+      "title": "File:Paris by night - Basilique du Sacré-Cœur de Montmartre.jpg",
+      "artist": "Luc Viatour",
+      "license": "CC BY-SA 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Paris_by_night_-_Basilique_du_Sacr%C3%A9-C%C5%93ur_de_Montmartre.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b5/Paris_by_night_-_Basilique_du_Sacr%C3%A9-C%C5%93ur_de_Montmartre.jpg",
+      "originalSize": "1940x2633"
+    },
+    {
+      "n": 7,
+      "term": "Sacré Coeur interior mosaic",
+      "title": "File:Basilique du Sacré-Cœur mosaic of the Jesuit Chapel 2026-01-03-2.jpg",
+      "artist": "Renée Kools",
+      "license": "CC BY 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Basilique_du_Sacr%C3%A9-C%C5%93ur_mosaic_of_the_Jesuit_Chapel_2026-01-03-2.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3e/Basilique_du_Sacr%C3%A9-C%C5%93ur_mosaic_of_the_Jesuit_Chapel_2026-01-03-2.jpg",
+      "originalSize": "7100x5100"
+    }
+  ],
+  "musee-dorsay": [
+    {
+      "n": 1,
+      "term": "Musee d Orsay clock",
+      "title": "File:Musee d Orsay main hall Paris 2023 dllu.jpg",
+      "artist": "Daniel Lu (User:dllu)",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Musee_d_Orsay_main_hall_Paris_2023_dllu.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e0/Musee_d_Orsay_main_hall_Paris_2023_dllu.jpg",
+      "originalSize": "11646x8615"
+    },
+    {
+      "n": 2,
+      "term": "Musee d Orsay sculptures",
+      "title": "File:Musée d”Orsay 09 12 24 947000.jpeg",
+      "artist": "Cnbrb",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Mus%C3%A9e_d%E2%80%9DOrsay_09_12_24_947000.jpeg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/9/94/Mus%C3%A9e_d%E2%80%9DOrsay_09_12_24_947000.jpeg",
+      "originalSize": "4032x2268"
+    },
+    {
+      "n": 3,
+      "term": "Musee d Orsay Seine",
+      "title": "File:Musée D Orsay At Sunset (134278411).jpeg",
+      "artist": "Joe Desousa",
+      "license": "CC BY 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Mus%C3%A9e_D_Orsay_At_Sunset_(134278411).jpeg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/6/69/Mus%C3%A9e_D_Orsay_At_Sunset_%28134278411%29.jpeg",
+      "originalSize": "2048x1367"
+    },
+    {
+      "n": 4,
+      "term": "Musee d Orsay facade",
+      "title": "File:Clock-Musee-dOrsay-Paris.jpg",
+      "artist": "Acediscovery",
+      "license": "CC BY 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Clock-Musee-dOrsay-Paris.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/2/28/Clock-Musee-dOrsay-Paris.jpg",
+      "originalSize": "2736x3648"
+    }
+  ],
+  "pantheon": [
+    {
+      "n": 1,
+      "term": "Pantheon Paris building",
+      "title": "File:Pantheon wider centered.jpg",
+      "artist": "Jean-Pierre Lavoie (Jplavoie)",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Pantheon_wider_centered.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/8/8f/Pantheon_wider_centered.jpg",
+      "originalSize": "2647x1024"
+    },
+    {
+      "n": 2,
+      "term": "Pantheon Paris dome",
+      "title": "File:Panthéon de Paris (Dome).jpg",
+      "artist": "Maksim Sokolov (maxergon.com)",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Panth%C3%A9on_de_Paris_(Dome).jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/e/ea/Panth%C3%A9on_de_Paris_%28Dome%29.jpg",
+      "originalSize": "3756x5671"
+    },
+    {
+      "n": 3,
+      "term": "Pantheon Paris exterior",
+      "title": "File:Panthéon de Paris in July 2022 (2).jpg",
+      "artist": "Maksim Sokolov (maxergon.com)",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Panth%C3%A9on_de_Paris_in_July_2022_(2).jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/0/0f/Panth%C3%A9on_de_Paris_in_July_2022_%282%29.jpg",
+      "originalSize": "5145x3598"
+    },
+    {
+      "n": 4,
+      "term": "Pantheon Paris colonnade",
+      "title": "File:Funérailles de Victor Hugo - Foule et personnalités devant la colonnade du Panthéon.jpg",
+      "artist": "AnonymousUnknown author",
+      "license": "Public domain",
+      "source": "https://commons.wikimedia.org/wiki/File:Fun%C3%A9railles_de_Victor_Hugo_-_Foule_et_personnalit%C3%A9s_devant_la_colonnade_du_Panth%C3%A9on.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/6/63/Fun%C3%A9railles_de_Victor_Hugo_-_Foule_et_personnalit%C3%A9s_devant_la_colonnade_du_Panth%C3%A9on.jpg",
+      "originalSize": "5079x4195"
+    },
+    {
+      "n": 5,
+      "term": "Pantheon Paris interior",
+      "title": "File:Panteón, París, Francia, 2022-10-29, DD 13-15 HDR.jpg",
+      "artist": "Diego Delso",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Pante%C3%B3n,_Par%C3%ADs,_Francia,_2022-10-29,_DD_13-15_HDR.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/7/77/Pante%C3%B3n%2C_Par%C3%ADs%2C_Francia%2C_2022-10-29%2C_DD_13-15_HDR.jpg",
+      "originalSize": "5595x8541"
+    },
+    {
+      "n": 6,
+      "term": "Pantheon Paris facade",
+      "title": "File:Paris, Panthéon -- 2014 -- 1678.jpg",
+      "artist": "Dietmar Rabich",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Paris,_Panth%C3%A9on_--_2014_--_1678.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/e/ef/Paris%2C_Panth%C3%A9on_--_2014_--_1678.jpg",
+      "originalSize": "3575x5362"
+    },
+    {
+      "n": 7,
+      "term": "Pantheon Paris aerial",
+      "title": "File:Charles Soulier, Panorama de Paris - Pris de la tour Saint Jacques, ca. 1865.jpg",
+      "artist": "Charles Soulier",
+      "license": "Public domain",
+      "source": "https://commons.wikimedia.org/wiki/File:Charles_Soulier,_Panorama_de_Paris_-_Pris_de_la_tour_Saint_Jacques,_ca._1865.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/8/85/Charles_Soulier%2C_Panorama_de_Paris_-_Pris_de_la_tour_Saint_Jacques%2C_ca._1865.jpg",
+      "originalSize": "5881x4082"
+    },
+    {
+      "n": 8,
+      "term": "Pantheon Paris crypt",
+      "title": "File:Interior of Panthéon 11, Paris 29 September 2012.jpg",
+      "artist": "Marko Kudjerski from Toronto, Canada",
+      "license": "CC BY 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Interior_of_Panth%C3%A9on_11,_Paris_29_September_2012.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/6/62/Interior_of_Panth%C3%A9on_11%2C_Paris_29_September_2012.jpg",
+      "originalSize": "5184x3456"
+    }
+  ],
+  "chartres-cathedral": [
+    {
+      "n": 1,
+      "term": "Chartres cathedral west front",
+      "title": "File:Chartres Cathedral, West Front (3486767308).jpg",
+      "artist": "Cornell University Library",
+      "license": "No restrictions",
+      "source": "https://commons.wikimedia.org/wiki/File:Chartres_Cathedral,_West_Front_(3486767308).jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4f/Chartres_Cathedral%2C_West_Front_%283486767308%29.jpg",
+      "originalSize": "1156x1536"
+    },
+    {
+      "n": 2,
+      "term": "Chartres cathedral stained glass",
+      "title": "File:Vitrail Chartres 210209 07.jpg",
+      "artist": "Vassil",
+      "license": "Public domain",
+      "source": "https://commons.wikimedia.org/wiki/File:Vitrail_Chartres_210209_07.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/c/cc/Vitrail_Chartres_210209_07.jpg",
+      "originalSize": "2089x2089"
+    },
+    {
+      "n": 3,
+      "term": "Chartres cathedral towers",
+      "title": "File:Roof of Chartres Cathedral 20160326 2.jpg",
+      "artist": "DXR",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Roof_of_Chartres_Cathedral_20160326_2.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/5/58/Roof_of_Chartres_Cathedral_20160326_2.jpg",
+      "originalSize": "6140x4912"
+    },
+    {
+      "n": 4,
+      "term": "Chartres cathedral flying buttresses",
+      "title": "File:Chartres Cathedral Buttresses N 2007 08 31.jpg",
+      "artist": "Andreas F. Borchert",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Chartres_Cathedral_Buttresses_N_2007_08_31.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e7/Chartres_Cathedral_Buttresses_N_2007_08_31.jpg",
+      "originalSize": "3452x2268"
+    },
+    {
+      "n": 5,
+      "term": "Chartres cathedral nave",
+      "title": "File:Cleaned and restored Nave Chartres Cathedral.jpg",
+      "artist": "Stephen Taber",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Cleaned_and_restored_Nave_Chartres_Cathedral.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c7/Cleaned_and_restored_Nave_Chartres_Cathedral.jpg",
+      "originalSize": "4032x3024"
+    },
+    {
+      "n": 6,
+      "term": "Chartres cathedral rose window",
+      "title": "File:South rose window of Chartres Cathedral.jpg",
+      "artist": "image/photo was taken by Wikipedia and Wikimedia Commons user Ludwig Schneider. I would appreciate being notified if you use my work outside Wikimedia. Do not copy this image illegally by ignoring the terms of the license below, as it is not in the public domain. If you would like special permission to use, license, or purchase the image please contact me to negotiate terms. When reusing, please credit me as: Ludwig Schneider / Wikimedia.",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:South_rose_window_of_Chartres_Cathedral.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f1/South_rose_window_of_Chartres_Cathedral.jpg",
+      "originalSize": "1729x2639"
+    },
+    {
+      "n": 7,
+      "term": "Chartres cathedral spire",
+      "title": "File:North-Spire-Chartres-Cathedral-01.jpg",
+      "artist": "Toni Hisgett and User:Claurin",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:North-Spire-Chartres-Cathedral-01.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/2/28/North-Spire-Chartres-Cathedral-01.jpg",
+      "originalSize": "2549x2583"
+    },
+    {
+      "n": 8,
+      "term": "Chartres cathedral labyrinth",
+      "title": "File:Labyrinth at Chartres Cathedral.JPG",
+      "artist": "Unknown",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Labyrinth_at_Chartres_Cathedral.JPG",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/6/68/Labyrinth_at_Chartres_Cathedral.JPG",
+      "originalSize": "2560x1920"
+    }
+  ],
+  "reims-cathedral": [
+    {
+      "n": 1,
+      "term": "Reims cathedral west front",
+      "title": "File:Reims Cathedral (Cathédrale Notre-Dame de Reims).jpg",
+      "artist": "The Crazy Tourist (thecrazytourist.com)",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Reims_Cathedral_(Cath%C3%A9drale_Notre-Dame_de_Reims).jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d7/Reims_Cathedral_%28Cath%C3%A9drale_Notre-Dame_de_Reims%29.jpg",
+      "originalSize": "3648x5472"
+    },
+    {
+      "n": 2,
+      "term": "Reims cathedral smiling angel",
+      "title": "File:Reims Cathedrale Notre Dame 019 smiling angel.JPG",
+      "artist": "Mattana",
+      "license": "Public domain",
+      "source": "https://commons.wikimedia.org/wiki/File:Reims_Cathedrale_Notre_Dame_019_smiling_angel.JPG",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/8/89/Reims_Cathedrale_Notre_Dame_019_smiling_angel.JPG",
+      "originalSize": "1200x900"
+    },
+    {
+      "n": 3,
+      "term": "Reims cathedral rose window",
+      "title": "File:Reims cathedral rose window 6.jpg",
+      "artist": "Ad Meskens You are free to use this picture for any purpose as long as you credit its author, Ad Meskens. Example: © Ad Meskens / Wikimedia Commons If you use this work outside of the Wikimedia projects, a message or a copy is very much appreciated. This image is not in the public domain. A statement such as \"From Wikimedia Commons\" or similar is not by itself sufficient. If you do not provide clear attribution to the author you do not comply with the terms of the file's license and you may not use this file. If you are unable or unwilling to provide attribution you should contact Ad Meskens to negotiate a different license.",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Reims_cathedral_rose_window_6.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c3/Reims_cathedral_rose_window_6.jpg",
+      "originalSize": "5184x6000"
+    },
+    {
+      "n": 4,
+      "term": "Reims cathedral exterior",
+      "title": "File:Reims Cathedral, exterior (4).jpg",
+      "artist": "Magnus Manske",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Reims_Cathedral,_exterior_(4).jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/0/03/Reims_Cathedral%2C_exterior_%284%29.jpg",
+      "originalSize": "1704x2272"
+    },
+    {
+      "n": 5,
+      "term": "Reims cathedral nave",
+      "title": "File:Reims Cathedral Nave, France - Diliff.jpg",
+      "artist": "Diliff",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Reims_Cathedral_Nave,_France_-_Diliff.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/2/2e/Reims_Cathedral_Nave%2C_France_-_Diliff.jpg",
+      "originalSize": "7962x5394"
+    },
+    {
+      "n": 6,
+      "term": "Reims cathedral towers",
+      "title": "File:Reims Cathedral East Tower.jpg",
+      "artist": "Ad Meskens You are free to use this picture for any purpose as long as you credit its author, Ad Meskens. Example: © Ad Meskens / Wikimedia Commons If you use this work outside of the Wikimedia projects, a message or a copy is very much appreciated. This image is not in the public domain. A statement such as \"From Wikimedia Commons\" or similar is not by itself sufficient. If you do not provide clear attribution to the author you do not comply with the terms of the file's license and you may not use this file. If you are unable or unwilling to provide attribution you should contact Ad Meskens to negotiate a different license.",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Reims_Cathedral_East_Tower.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/9/9e/Reims_Cathedral_East_Tower.jpg",
+      "originalSize": "5184x3888"
+    },
+    {
+      "n": 7,
+      "term": "Reims cathedral flying buttresses",
+      "title": "File:Reims Cathedral, view from Tower over Buttresses (3485967201).jpg",
+      "artist": "Cornell University Library",
+      "license": "No restrictions",
+      "source": "https://commons.wikimedia.org/wiki/File:Reims_Cathedral,_view_from_Tower_over_Buttresses_(3485967201).jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/1/16/Reims_Cathedral%2C_view_from_Tower_over_Buttresses_%283485967201%29.jpg",
+      "originalSize": "1536x1236"
+    },
+    {
+      "n": 8,
+      "term": "Reims cathedral interior",
+      "title": "File:Reims Cathedral Choir, France - Diliff.jpg",
+      "artist": "Diliff",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Reims_Cathedral_Choir,_France_-_Diliff.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/2/24/Reims_Cathedral_Choir%2C_France_-_Diliff.jpg",
+      "originalSize": "7000x6086"
+    }
+  ],
+  "strasbourg-cathedral": [
+    {
+      "n": 1,
+      "term": "Strasbourg cathedral spire",
+      "title": "File:Strasbourg Cathedral, spire.jpg",
+      "artist": "Tinker George Jemmott",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Strasbourg_Cathedral,_spire.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/0/01/Strasbourg_Cathedral%2C_spire.jpg",
+      "originalSize": "2736x3648"
+    },
+    {
+      "n": 2,
+      "term": "Strasbourg cathedral astronomical clock",
+      "title": "File:Strasbourg Cathedral Astronomical Clock - Diliff.jpg",
+      "artist": "Diliff",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Strasbourg_Cathedral_Astronomical_Clock_-_Diliff.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/2/27/Strasbourg_Cathedral_Astronomical_Clock_-_Diliff.jpg",
+      "originalSize": "1754x2886"
+    },
+    {
+      "n": 3,
+      "term": "Strasbourg cathedral west front",
+      "title": "File:Strasbourg Cathedral Exterior - Diliff.jpg",
+      "artist": "Diliff",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Strasbourg_Cathedral_Exterior_-_Diliff.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/7/7e/Strasbourg_Cathedral_Exterior_-_Diliff.jpg",
+      "originalSize": "6574x8402"
+    },
+    {
+      "n": 4,
+      "term": "Strasbourg cathedral exterior",
+      "title": "File:Strasbourg - South Transept of the Cathedral III.jpg",
+      "artist": "Txllxt TxllxT",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Strasbourg_-_South_Transept_of_the_Cathedral_III.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/7/76/Strasbourg_-_South_Transept_of_the_Cathedral_III.jpg",
+      "originalSize": "3872x2592"
+    },
+    {
+      "n": 5,
+      "term": "Strasbourg cathedral rose window",
+      "title": "File:Strasbourg - Rose Window Cathedral.jpg",
+      "artist": "Txllxt TxllxT",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Strasbourg_-_Rose_Window_Cathedral.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/3/39/Strasbourg_-_Rose_Window_Cathedral.jpg",
+      "originalSize": "3872x2592"
+    },
+    {
+      "n": 6,
+      "term": "Strasbourg cathedral nave",
+      "title": "File:Strasbourg Cathedral nave looking east- Diliff.jpg",
+      "artist": "Diliff",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Strasbourg_Cathedral_nave_looking_east-_Diliff.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b9/Strasbourg_Cathedral_nave_looking_east-_Diliff.jpg",
+      "originalSize": "4068x4221"
+    },
+    {
+      "n": 7,
+      "term": "Strasbourg cathedral stained glass",
+      "title": "File:Strasbourg - Notre-Dame de Strasbourg - Southern side nave - Cathedral Organ in the central nave, stained glass windows.jpg",
+      "artist": "Txllxt TxllxT",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Strasbourg_-_Notre-Dame_de_Strasbourg_-_Southern_side_nave_-_Cathedral_Organ_in_the_central_nave,_stained_glass_windows.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/2/2a/Strasbourg_-_Notre-Dame_de_Strasbourg_-_Southern_side_nave_-_Cathedral_Organ_in_the_central_nave%2C_stained_glass_windows.jpg",
+      "originalSize": "3060x4082"
+    }
+  ],
+  "chateau-de-chenonceau": [
+    {
+      "n": 1,
+      "term": "Chenonceau castle river Cher",
+      "title": "File:Chateau de Chenonceau 2008E.jpg",
+      "artist": "It is a derivative work of Ra-smit's photo.",
+      "license": "GFDL",
+      "source": "https://commons.wikimedia.org/wiki/File:Chateau_de_Chenonceau_2008E.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d0/Chateau_de_Chenonceau_2008E.jpg",
+      "originalSize": "5208x2800"
+    },
+    {
+      "n": 2,
+      "term": "Chenonceau castle gallery",
+      "title": "File:Schloss Chenonceau.JPG",
+      "artist": "Wladyslaw (talk)",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Schloss_Chenonceau.JPG",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/3/31/Schloss_Chenonceau.JPG",
+      "originalSize": "2990x1993"
+    },
+    {
+      "n": 3,
+      "term": "Chenonceau aerial view",
+      "title": "File:Aerial image of Château de Chenonceau (view from the west).jpg",
+      "artist": "Carsten Steger",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Aerial_image_of_Ch%C3%A2teau_de_Chenonceau_(view_from_the_west).jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/1/10/Aerial_image_of_Ch%C3%A2teau_de_Chenonceau_%28view_from_the_west%29.jpg",
+      "originalSize": "4100x2900"
+    },
+    {
+      "n": 4,
+      "term": "Chenonceau castle exterior",
+      "title": "File:Castle of Chenonceau 16.jpg",
+      "artist": "Krzysztof Golik",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Castle_of_Chenonceau_16.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/b/bb/Castle_of_Chenonceau_16.jpg",
+      "originalSize": "4123x2749"
+    },
+    {
+      "n": 5,
+      "term": "Chenonceau gardens",
+      "title": "File:Château de Chenonceau. View from the garden of Catherine de' Medici.jpg",
+      "artist": "Ввласенко",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Ch%C3%A2teau_de_Chenonceau._View_from_the_garden_of_Catherine_de%27_Medici.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/8/81/Ch%C3%A2teau_de_Chenonceau._View_from_the_garden_of_Catherine_de%27_Medici.jpg",
+      "originalSize": "4064x2744"
+    },
+    {
+      "n": 6,
+      "term": "Chenonceau castle bridge",
+      "title": "File:Chenonceau castle (7229539886).jpg",
+      "artist": "Benh LIEU SONG from Torcy, France",
+      "license": "CC BY-SA 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Chenonceau_castle_(7229539886).jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/5/55/Chenonceau_castle_%287229539886%29.jpg",
+      "originalSize": "2999x1999"
+    },
+    {
+      "n": 7,
+      "term": "Chenonceau castle facade",
+      "title": "File:Castle of Chenonceau 26.jpg",
+      "artist": "Krzysztof Golik",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Castle_of_Chenonceau_26.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a3/Castle_of_Chenonceau_26.jpg",
+      "originalSize": "4230x1723"
+    },
+    {
+      "n": 8,
+      "term": "Chenonceau Loire castle",
+      "title": "File:Château de Chenonceau - pont-levis (Chenonceaux) (1).jpg",
+      "artist": "Gzen92",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Ch%C3%A2teau_de_Chenonceau_-_pont-levis_(Chenonceaux)_(1).jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/0/0e/Ch%C3%A2teau_de_Chenonceau_-_pont-levis_%28Chenonceaux%29_%281%29.jpg",
+      "originalSize": "5472x3648"
+    }
+  ],
+  "palais-des-papes-avignon": [
+    {
+      "n": 1,
+      "term": "Palais des Papes Avignon",
+      "title": "File:Avignon Papstpalast Gartenseite 20250629.jpg",
+      "artist": "Uoaei1",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Avignon_Papstpalast_Gartenseite_20250629.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f1/Avignon_Papstpalast_Gartenseite_20250629.jpg",
+      "originalSize": "5201x4000"
+    },
+    {
+      "n": 2,
+      "term": "Palais des Papes exterior",
+      "title": "File:Palais-des-Papes-Avignon-June-2012.jpg",
+      "artist": "Acediscovery",
+      "license": "CC BY 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Palais-des-Papes-Avignon-June-2012.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c7/Palais-des-Papes-Avignon-June-2012.jpg",
+      "originalSize": "3648x2736"
+    },
+    {
+      "n": 3,
+      "term": "Palais des Papes towers",
+      "title": "File:Avignon - Place du Palais - View ESE on Cathédrale Notre-Dame des Doms d'Avignon & Palais des Papes d'Avignon.jpg",
+      "artist": "Txllxt TxllxT",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Avignon_-_Place_du_Palais_-_View_ESE_on_Cath%C3%A9drale_Notre-Dame_des_Doms_d%27Avignon_%26_Palais_des_Papes_d%27Avignon.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b7/Avignon_-_Place_du_Palais_-_View_ESE_on_Cath%C3%A9drale_Notre-Dame_des_Doms_d%27Avignon_%26_Palais_des_Papes_d%27Avignon.jpg",
+      "originalSize": "5731x3820"
+    },
+    {
+      "n": 4,
+      "term": "Palais des Papes walls",
+      "title": "File:Avignon - Rue du Vice Légat - View West on Palais des Papes (Grande Audience & Tour Saint-Laurent) along the walls of Verger Urbain V.jpg",
+      "artist": "Txllxt TxllxT",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Avignon_-_Rue_du_Vice_L%C3%A9gat_-_View_West_on_Palais_des_Papes_(Grande_Audience_%26_Tour_Saint-Laurent)_along_the_walls_of_Verger_Urbain_V.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/9/93/Avignon_-_Rue_du_Vice_L%C3%A9gat_-_View_West_on_Palais_des_Papes_%28Grande_Audience_%26_Tour_Saint-Laurent%29_along_the_walls_of_Verger_Urbain_V.jpg",
+      "originalSize": "3858x5789"
+    },
+    {
+      "n": 5,
+      "term": "Palais des Papes interior",
+      "title": "File:2010 Avignon Interior of Palais des Papes (2).jpg",
+      "artist": "Chris06",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:2010_Avignon_Interior_of_Palais_des_Papes_(2).jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c8/2010_Avignon_Interior_of_Palais_des_Papes_%282%29.jpg",
+      "originalSize": "1038x1515"
+    },
+    {
+      "n": 6,
+      "term": "Palais des Papes courtyard",
+      "title": "File:Palais des Papes consistory courtyard 2.JPG",
+      "artist": "BrokenSphere",
+      "license": "CC BY 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Palais_des_Papes_consistory_courtyard_2.JPG",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/0/0e/Palais_des_Papes_consistory_courtyard_2.JPG",
+      "originalSize": "2272x1704"
+    },
+    {
+      "n": 7,
+      "term": "Avignon Papal Palace",
+      "title": "File:Avignon Papal Palace - Court d'honneur.jpg",
+      "artist": "Ingo Mehling",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Avignon_Papal_Palace_-_Court_d%27honneur.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/2/22/Avignon_Papal_Palace_-_Court_d%27honneur.jpg",
+      "originalSize": "4180x1760"
+    }
+  ],
+  "etretat": [
+    {
+      "n": 1,
+      "term": "Etretat cliffs arch",
+      "title": "File:Cliffs of Etretat, Normandy, France, December 2022.jpg",
+      "artist": "Mathieu Chollet - MChollet",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Cliffs_of_Etretat,_Normandy,_France,_December_2022.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/3/34/Cliffs_of_Etretat%2C_Normandy%2C_France%2C_December_2022.jpg",
+      "originalSize": "4032x3024"
+    },
+    {
+      "n": 2,
+      "term": "Etretat needle",
+      "title": "File:Etretat Needle Under Eleanor Tempest (242594471).jpeg",
+      "artist": "Max",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Etretat_Needle_Under_Eleanor_Tempest_(242594471).jpeg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e4/Etretat_Needle_Under_Eleanor_Tempest_%28242594471%29.jpeg",
+      "originalSize": "2048x1822"
+    },
+    {
+      "n": 3,
+      "term": "Etretat aerial",
+      "title": "File:Aerial image of the Cliffs of Étretat (view from the southwest).jpg",
+      "artist": "Carsten Steger",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Aerial_image_of_the_Cliffs_of_%C3%89tretat_(view_from_the_southwest).jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1d/Aerial_image_of_the_Cliffs_of_%C3%89tretat_%28view_from_the_southwest%29.jpg",
+      "originalSize": "4400x3200"
+    },
+    {
+      "n": 4,
+      "term": "Etretat alabaster coast",
+      "title": "File:00 20017 Étretat - Frankreich.jpg",
+      "artist": "W. Bulach",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:00_20017_%C3%89tretat_-_Frankreich.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f9/00_20017_%C3%89tretat_-_Frankreich.jpg",
+      "originalSize": "2168x1440"
+    },
+    {
+      "n": 5,
+      "term": "Etretat landscape",
+      "title": "File:Bemberg Fondation Toulouse - Bateaux sur la plage à Etretat - Claude Monet - 1883 65x81 Inv.2077.jpg",
+      "artist": "Didier Descouens",
+      "license": "Public domain",
+      "source": "https://commons.wikimedia.org/wiki/File:Bemberg_Fondation_Toulouse_-_Bateaux_sur_la_plage_%C3%A0_Etretat_-_Claude_Monet_-_1883_65x81_Inv.2077.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/6/69/Bemberg_Fondation_Toulouse_-_Bateaux_sur_la_plage_%C3%A0_Etretat_-_Claude_Monet_-_1883_65x81_Inv.2077.jpg",
+      "originalSize": "4683x3763"
+    },
+    {
+      "n": 6,
+      "term": "Etretat sea arch",
+      "title": "File:Gustave Courbet - The Sea Arch at Étretat.jpg",
+      "artist": "Derbrauni",
+      "license": "CC BY 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Gustave_Courbet_-_The_Sea_Arch_at_%C3%89tretat.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/1/18/Gustave_Courbet_-_The_Sea_Arch_at_%C3%89tretat.jpg",
+      "originalSize": "2576x1608"
+    },
+    {
+      "n": 7,
+      "term": "Etretat beach",
+      "title": "File:Beach and Cliffs of Étretat, Normandy-8172.jpg",
+      "artist": "Raimond Spekking",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Beach_and_Cliffs_of_%C3%89tretat,_Normandy-8172.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/f/fd/Beach_and_Cliffs_of_%C3%89tretat%2C_Normandy-8172.jpg",
+      "originalSize": "5184x2916"
+    },
+    {
+      "n": 8,
+      "term": "Etretat sunset",
+      "title": "File:Monet - Sonnenaufgang bei Etretat.jpg",
+      "artist": "Claude Monet",
+      "license": "Public domain",
+      "source": "https://commons.wikimedia.org/wiki/File:Monet_-_Sonnenaufgang_bei_Etretat.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/9/9f/Monet_-_Sonnenaufgang_bei_Etretat.jpg",
+      "originalSize": "5898x4362"
+    }
+  ],
+  "dune-du-pilat": [
+    {
+      "n": 1,
+      "term": "Dune du Pilat sand",
+      "title": "File:Sommet de la Dune du Pilat.jpg",
+      "artist": "Jörg Braukmann",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Sommet_de_la_Dune_du_Pilat.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/d/db/Sommet_de_la_Dune_du_Pilat.jpg",
+      "originalSize": "7000x3937"
+    },
+    {
+      "n": 2,
+      "term": "Dune du Pilat aerial",
+      "title": "File:Aerial view of Bassin d'Arcachon and Dune du Pilat (2).JPG",
+      "artist": "Bdx",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Aerial_view_of_Bassin_d%27Arcachon_and_Dune_du_Pilat_(2).JPG",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b1/Aerial_view_of_Bassin_d%27Arcachon_and_Dune_du_Pilat_%282%29.JPG",
+      "originalSize": "2491x1926"
+    },
+    {
+      "n": 3,
+      "term": "Dune du Pilat forest",
+      "title": "File:Dune-du-Pilat+pinede-byMmeRundvald.jpg",
+      "artist": "Rundvald",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Dune-du-Pilat%2Bpinede-byMmeRundvald.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/6/6b/Dune-du-Pilat%2Bpinede-byMmeRundvald.jpg",
+      "originalSize": "2912x1711"
+    },
+    {
+      "n": 4,
+      "term": "Dune du Pilat ocean",
+      "title": "File:Dune-du-Pilat-enfant-byRundvald.jpg",
+      "artist": "Rundvald",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Dune-du-Pilat-enfant-byRundvald.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/7/71/Dune-du-Pilat-enfant-byRundvald.jpg",
+      "originalSize": "3888x2592"
+    },
+    {
+      "n": 5,
+      "term": "Dune du Pilat top",
+      "title": "File:Dune du Pilat 1132.jpg",
+      "artist": "Springmann",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Dune_du_Pilat_1132.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e2/Dune_du_Pilat_1132.jpg",
+      "originalSize": "1140x760"
+    },
+    {
+      "n": 6,
+      "term": "Dune du Pilat arcachon",
+      "title": "File:Entree du bassin d Arcachon depuis la dune du Pilat - 2016b.jpg",
+      "artist": "Franck-fnba",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Entree_du_bassin_d_Arcachon_depuis_la_dune_du_Pilat_-_2016b.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/8/81/Entree_du_bassin_d_Arcachon_depuis_la_dune_du_Pilat_-_2016b.jpg",
+      "originalSize": "3264x2448"
+    },
+    {
+      "n": 7,
+      "term": "Dune du Pilat panorama",
+      "title": "File:Sunrise Cap Ferret Banc du Toulinguet - Arcachon - Océan Atlantique - Picture Image Photography - Sunset - Coucher de soleil - Dune du pilat pyla - Banc d'arguin water eau vagues waves beach plage sky colors red yellow (14501089751).jpg",
+      "artist": "Grand Parc - Bordeaux, France from France",
+      "license": "CC BY 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Sunrise_Cap_Ferret_Banc_du_Toulinguet_-_Arcachon_-_Oc%C3%A9an_Atlantique_-_Picture_Image_Photography_-_Sunset_-_Coucher_de_soleil_-_Dune_du_pilat_pyla_-_Banc_d%27arguin_water_eau_vagues_waves_beach_plage_sky_colors_red_yellow_(14501089751).jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c9/Sunrise_Cap_Ferret_Banc_du_Toulinguet_-_Arcachon_-_Oc%C3%A9an_Atlantique_-_Picture_Image_Photography_-_Sunset_-_Coucher_de_soleil_-_Dune_du_pilat_pyla_-_Banc_d%27arguin_water_eau_vagues_waves_beach_plage_sky_colors_red_yellow_%2814501089751%29.jpg",
+      "originalSize": "5597x3732"
+    },
+    {
+      "n": 8,
+      "term": "Dune du Pilat people climbing",
+      "title": "File:Dune de Pilat - Dune du Pyla - Bassin d'Arcachon France Sunset Coucher de Soleil Image Picture Photography (12729481064).jpg",
+      "artist": "Grand Parc - Bordeaux, France from France",
+      "license": "CC BY-SA 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Dune_de_Pilat_-_Dune_du_Pyla_-_Bassin_d%27Arcachon_France_Sunset_Coucher_de_Soleil_Image_Picture_Photography_(12729481064).jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c9/Dune_de_Pilat_-_Dune_du_Pyla_-_Bassin_d%27Arcachon_France_Sunset_Coucher_de_Soleil_Image_Picture_Photography_%2812729481064%29.jpg",
+      "originalSize": "5558x3706"
+    }
+  ],
+  "gorges-du-verdon": [
+    {
+      "n": 1,
+      "term": "Gorges du Verdon turquoise",
+      "title": "File:Route des Crêtes-Gorges du Verdon West.jpg",
+      "artist": "Tobi 87",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Route_des_Cr%C3%AAtes-Gorges_du_Verdon_West.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/3/34/Route_des_Cr%C3%AAtes-Gorges_du_Verdon_West.jpg",
+      "originalSize": "6369x3626"
+    },
+    {
+      "n": 2,
+      "term": "Gorges du Verdon cliffs",
+      "title": "File:Verdon-cliff-eperon-Sublime-vude-Trescaire.jpg",
+      "artist": "Denis E. Corpet",
+      "license": "CC BY-SA 2.5",
+      "source": "https://commons.wikimedia.org/wiki/File:Verdon-cliff-eperon-Sublime-vude-Trescaire.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3d/Verdon-cliff-eperon-Sublime-vude-Trescaire.jpg",
+      "originalSize": "1400x1683"
+    },
+    {
+      "n": 3,
+      "term": "Gorges du Verdon aerial",
+      "title": "File:Aerial view of the outlet of the Verdon gorge.jpg",
+      "artist": "Olivier Cleynen",
+      "license": "CC BY 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Aerial_view_of_the_outlet_of_the_Verdon_gorge.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d6/Aerial_view_of_the_outlet_of_the_Verdon_gorge.jpg",
+      "originalSize": "4056x3040"
+    },
+    {
+      "n": 4,
+      "term": "Gorges du Verdon kayak",
+      "title": "File:Sea Kayak in Georges du Verdon - panoramio.jpg",
+      "artist": "Carsten Wiehe",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Sea_Kayak_in_Georges_du_Verdon_-_panoramio.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/d/dd/Sea_Kayak_in_Georges_du_Verdon_-_panoramio.jpg",
+      "originalSize": "3648x2736"
+    },
+    {
+      "n": 5,
+      "term": "Gorges du Verdon canyon",
+      "title": "File:Verdon Gorge 1.jpg",
+      "artist": "kallerna",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Verdon_Gorge_1.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f9/Verdon_Gorge_1.jpg",
+      "originalSize": "9000x6000"
+    },
+    {
+      "n": 6,
+      "term": "Gorges du Verdon road",
+      "title": "File:Gorges du Verdon - Rougon and rock - Point Sublime at D 952 road - Massif du Montdenier (cropped).jpg",
+      "artist": "Benjamin Silve",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Gorges_du_Verdon_-_Rougon_and_rock_-_Point_Sublime_at_D_952_road_-_Massif_du_Montdenier_(cropped).jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/4/40/Gorges_du_Verdon_-_Rougon_and_rock_-_Point_Sublime_at_D_952_road_-_Massif_du_Montdenier_%28cropped%29.jpg",
+      "originalSize": "2108x2292"
+    },
+    {
+      "n": 7,
+      "term": "Verdon river gorge",
+      "title": "File:Gorges du Verdon River from Bottom 0364.jpg",
+      "artist": "Dirk Beyer",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Gorges_du_Verdon_River_from_Bottom_0364.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f3/Gorges_du_Verdon_River_from_Bottom_0364.jpg",
+      "originalSize": "2048x1536"
+    },
+    {
+      "n": 8,
+      "term": "Gorges du Verdon panoramic",
+      "title": "File:Verdon 1983.jpg",
+      "artist": "LBM1948",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Verdon_1983.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/3/37/Verdon_1983.jpg",
+      "originalSize": "5415x2115"
+    }
+  ],
+  "millau-viaduct": [
+    {
+      "n": 1,
+      "term": "Millau viaduct bridge",
+      "title": "File:00 0237 Millau - Département Aveyron.jpg",
+      "artist": "User:Kmtextor",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:00_0237_Millau_-_Département_Aveyron.jpg",
+      "originalUrl": "",
+      "originalSize": "3600x2400"
+    },
+    {
+      "n": 2,
+      "term": "Millau viaduct pylons",
+      "title": "File:Millau 00 0238 (2).jpg",
+      "artist": "User:Kmtextor",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Millau_00_0238_(2).jpg",
+      "originalUrl": "",
+      "originalSize": "3600x1696"
+    },
+    {
+      "n": 3,
+      "term": "Millau viaduct valley",
+      "title": "File:Overview of the Millau viaduct (The famous Millau bridge in the A75) as seen from Embarry, with Millau in the Tarn Valley - panoramio.jpg",
+      "artist": "User:Kompetent",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Overview_of_the_Millau_viaduct_(The_famous_Millau_bridge_in_the_A75)_as_seen_from_Embarry,_with_Millau_in_the_Tarn_Valley_-_panoramio.jpg",
+      "originalUrl": "",
+      "originalSize": "4288x2848"
+    }
+  ],
+  "carnac-standing-stones": [
+    {
+      "n": 1,
+      "term": "Carnac alignments megaliths",
+      "title": "File:Carnac megalith alignment 3.jpg",
+      "artist": "Unknown",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Carnac_megalith_alignment_3.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e2/Carnac_megalith_alignment_3.jpg",
+      "originalSize": "1280x960"
+    },
+    {
+      "n": 2,
+      "term": "Carnac standing stones rows",
+      "title": "File:The Carnac Stones (29380172948).jpg",
+      "artist": "Carol",
+      "license": "CC BY-SA 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:The_Carnac_Stones_(29380172948).jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f4/The_Carnac_Stones_%2829380172948%29.jpg",
+      "originalSize": "4928x3264"
+    },
+    {
+      "n": 3,
+      "term": "Carnac menhirs",
+      "title": "File:Menhirs de Carnac (2).jpg",
+      "artist": "Avi1111 dr. avishai teicher",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Menhirs_de_Carnac_(2).jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f2/Menhirs_de_Carnac_%282%29.jpg",
+      "originalSize": "4608x3456"
+    },
+    {
+      "n": 4,
+      "term": "Carnac stones landscape",
+      "title": "File:Menhirgjenbruk.jpg",
+      "artist": "Bjørn som tegner",
+      "license": "CC BY-SA 3.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Menhirgjenbruk.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/4/45/Menhirgjenbruk.jpg",
+      "originalSize": "3648x2736"
+    },
+    {
+      "n": 5,
+      "term": "Carnac dolmen",
+      "title": "File:Carnac Kermario Dolmen 4.jpg",
+      "artist": "Vassil",
+      "license": "Public domain",
+      "source": "https://commons.wikimedia.org/wiki/File:Carnac_Kermario_Dolmen_4.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/8/81/Carnac_Kermario_Dolmen_4.jpg",
+      "originalSize": "2932x2139"
+    },
+    {
+      "n": 6,
+      "term": "Carnac menhir rows",
+      "title": "File:The Carnac Stones (42346564485).jpg",
+      "artist": "Carol",
+      "license": "CC BY-SA 2.0",
+      "source": "https://commons.wikimedia.org/wiki/File:The_Carnac_Stones_(42346564485).jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b0/The_Carnac_Stones_%2842346564485%29.jpg",
+      "originalSize": "4928x3264"
+    }
   ]
 }

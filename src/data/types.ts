@@ -85,7 +85,7 @@ export type CityEntry = {
   images?: number
 }
 
-export type Nation = 'England' | 'Scotland' | 'Wales' | 'Northern Ireland'
+export type Nation = string
 
 export type LandmarkCourse = {
   nutshell: string
