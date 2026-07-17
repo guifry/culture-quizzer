@@ -16,6 +16,24 @@
   gap: 12px;
 }
 
+/* .primary-action's default background is var(--result-accent), which is only defined in the
+   round-results scope — here it resolves to transparent (white-on-nothing = invisible). Give
+   the Next and "Start new round" buttons a solid dark fill, matching the Check button. */
+.painting-quiz .primary-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 42px;
+  padding: 10px 14px;
+  border: 1px solid #243238;
+  border-radius: 7px;
+  background: #243238;
+  color: #fff;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
 /* Paintings shows 5 stats, not the generic 6 — close the empty trailing column, and let the
    columns shrink so all five fit narrow phones without clipping. */
 .painting-quiz .score-strip {
