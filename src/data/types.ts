@@ -17,6 +17,9 @@ export type QuizMode =
   | 'landmark-locate'
   | 'landmark-photos'
   | 'landmark-clue'
+  | 'paintings-identify'
+  | 'paintings-clue'
+  | 'paintings-expert'
 
 export type TopicGroup =
   | 'Geography'
@@ -110,6 +113,31 @@ export type Landmark = {
   clues: string[]
 }
 
+export type PaintingCourse = {
+  nutshell: string
+  when: string
+  who: string
+  analysis: string
+  anecdote?: string
+  concepts: string[]
+}
+
+export type Painting = {
+  id: string
+  name: string
+  aliases?: string[]
+  artist: string
+  artistAliases?: string[]
+  nationality: string
+  century: string
+  movement: string
+  movementAliases?: string[]
+  year: number
+  essential?: boolean
+  course: PaintingCourse
+  clues: string[]
+}
+
 export type GlossaryTerm = {
   key: string
   term: string
@@ -132,10 +160,11 @@ export type Topic = {
   boundaryTarget?: boolean
   items: QuizItem[]
   coverage: string
-  kind?: 'history-dates' | 'colonies' | 'city-quiz' | 'landmark-quiz'
+  kind?: 'history-dates' | 'colonies' | 'city-quiz' | 'landmark-quiz' | 'paintings-quiz'
   dates?: HistoryDate[]
   colonies?: ColonyRelation[]
   cities?: CityEntry[]
   landmarks?: Landmark[]
+  paintings?: Painting[]
   glossary?: GlossaryTerm[]
 }

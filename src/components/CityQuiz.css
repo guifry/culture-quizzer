@@ -440,6 +440,20 @@
   pointer-events: none;
 }
 
+.ref-city-dot {
+  fill: #6b7280;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.ref-city-label {
+  fill: #6b7280;
+  opacity: 0.7;
+  font-size: 9px;
+  font-family: system-ui, sans-serif;
+  pointer-events: none;
+}
+
 .guess-marker circle {
   fill: #243238;
   stroke: #fff;

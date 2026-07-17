@@ -1,0 +1,101 @@
+.painting-tier-select {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 12px;
+}
+
+.tier-btn {
+  flex: 1;
+  padding: 6px 10px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--surface);
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  transition: all 0.15s;
+}
+
+.tier-btn.active {
+  background: var(--accent);
+  color: var(--accent-text, #fff);
+  border-color: var(--accent);
+}
+
+.tier-btn:hover:not(.active) {
+  background: var(--surface-hover, #f0f0f0);
+}
+
+.painting-image-container {
+  margin: 12px 0;
+  text-align: center;
+}
+
+.painting-quiz-image {
+  max-width: 100%;
+  max-height: 50vh;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  object-fit: contain;
+}
+
+.painting-stage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.painting-overlay {
+  max-width: 640px;
+  width: 100%;
+}
+
+.painting-panel {
+  width: 100%;
+}
+
+.painting-verdict {
+  margin-top: 12px;
+}
+
+.painting-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.painting-gallery-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  text-decoration: none;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.painting-gallery-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.painting-gallery-card img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.painting-gallery-label {
+  padding: 6px 8px 2px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.painting-gallery-artist {
+  padding: 0 8px 6px;
+  font-size: 0.7rem;
+  color: var(--text-secondary);
+}
