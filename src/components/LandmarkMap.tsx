@@ -4,13 +4,43 @@ import { Minus, Plus, RotateCcw } from 'lucide-react'
 import type { Landmark, MapScope } from '../data/types'
 import { WIDTH, HEIGHT, defaultMapView, clampMapView, buildProjection, type MapView } from '../map/projection'
 import { worldCountryFeatures } from '../map/features'
+import ukAdmin from '../data/geo/uk-counties-unitaries-2022.json'
+import frRegions from '../data/geo/fr-regions.json'
 import './CityQuiz.css'
 
 type LonLat = [number, number]
+type BoundaryFeature = GeoJSON.Feature<GeoJSON.Geometry, Record<string, string | number | null>>
 
-// Locate-mode map for the landmarks game: a scope-centred projection over which the
-// player clicks the position of the named landmark. Pan/zoom mirrors CityMap; correctness
-// (proximity to the true point) is judged by the parent.
+const UK_REF_CITIES = [
+  { name: 'London', lat: 51.5072, lon: -0.1276 },
+  { name: 'Birmingham', lat: 52.4862, lon: -1.8904 },
+  { name: 'Leeds', lat: 53.8008, lon: -1.5491 },
+  { name: 'Glasgow', lat: 55.8642, lon: -4.2518 },
+  { name: 'Sheffield', lat: 53.3811, lon: -1.4701 },
+  { name: 'Manchester', lat: 53.4808, lon: -2.2426 },
+  { name: 'Liverpool', lat: 53.4084, lon: -2.9916 },
+  { name: 'Edinburgh', lat: 55.9533, lon: -3.1883 },
+  { name: 'Bristol', lat: 51.4545, lon: -2.5879 },
+  { name: 'Cardiff', lat: 51.4816, lon: -3.1791 },
+]
+
+const FR_REF_CITIES = [
+  { name: 'Paris', lat: 48.8566, lon: 2.3522 },
+  { name: 'Marseille', lat: 43.2965, lon: 5.3698 },
+  { name: 'Lyon', lat: 45.764, lon: 4.8357 },
+  { name: 'Toulouse', lat: 43.6047, lon: 1.4442 },
+  { name: 'Nice', lat: 43.7102, lon: 7.262 },
+  { name: 'Nantes', lat: 47.2184, lon: -1.5536 },
+  { name: 'Strasbourg', lat: 48.5734, lon: 7.7521 },
+  { name: 'Bordeaux', lat: 44.8378, lon: -0.5792 },
+  { name: 'Lille', lat: 50.6292, lon: 3.0573 },
+  { name: 'Montpellier', lat: 43.611, lon: 3.8767 },
+]
+
+function boundaryName(f: BoundaryFeature): string {
+  return String(f.properties.CTYUA22NM ?? f.properties.nom ?? f.properties.name ?? '')
+}
+
 export function LandmarkMap({
   landmark,
   guess,
@@ -28,7 +58,7 @@ export function LandmarkMap({
   onPick: (lonLat: LonLat) => void
   mapScope?: MapScope
 }) {
-  const projection = useMemo(() => buildProjection(mapScope ?? 'uk'), [mapScope])
+  const projection = useMemo(() => buildProjection(mapScope), [mapScope])
   const path = useMemo(() => geoPath(projection), [projection])
   const svgRef = useRef<SVGSVGElement | null>(null)
   const dragRef = useRef<{ pointerId: number; clientX: number; clientY: number; moved: boolean; view: MapView } | null>(null)
@@ -36,6 +66,25 @@ export function LandmarkMap({
   const [mapView, setMapView] = useState<MapView>(defaultMapView)
 
   const countryPaths = useMemo(() => worldCountryFeatures.map((feat) => ({ key: feat.properties.name, d: path(feat) ?? '' })), [path])
+
+  const boundaryFeatures = useMemo<BoundaryFeature[]>(() => {
+    if (mapScope === 'france') return (frRegions as GeoJSON.FeatureCollection).features as BoundaryFeature[]
+    return (ukAdmin as GeoJSON.FeatureCollection).features as BoundaryFeature[]
+  }, [mapScope])
+
+  const boundaryPaths = useMemo(
+    () => boundaryFeatures.map((feat) => ({ key: boundaryName(feat), d: path(feat) ?? '' })),
+    [boundaryFeatures, path],
+  )
+
+  const refCities = useMemo(() => {
+    return (mapScope === 'france' ? FR_REF_CITIES : UK_REF_CITIES)
+      .map((city) => {
+        const p = projection([city.lon, city.lat])
+        return p ? { ...city, x: p[0], y: p[1] } : null
+      })
+      .filter(Boolean) as Array<{ name: string; x: number; y: number }>
+  }, [mapScope, projection])
 
   const guessXY = guess ? projection(guess) : null
   const truePoint = review ? projection([landmark.lon, landmark.lat]) : null
@@ -112,6 +161,8 @@ export function LandmarkMap({
     zoomAt(rect.left + rect.width / 2, rect.top + rect.height / 2, direction)
   }
 
+  const isFrance = mapScope === 'france'
+
   return (
     <div className="city-map">
       <div className="city-map-controls">
@@ -130,13 +181,29 @@ export function LandmarkMap({
         onPointerCancel={handlePointerUp}
         onClick={handleClick}
         role="img"
-        aria-label={`Map of ${mapScope === 'uk' ? 'the United Kingdom' : mapScope === 'france' ? 'France' : ''}`}
+        aria-label={`Map of ${isFrance ? 'France' : 'the United Kingdom'}`}
       >
         <rect width={WIDTH} height={HEIGHT} className="city-ocean" />
         <g transform={mapTransform}>
           {countryPaths.map((c) => (
             <path key={c.key} d={c.d} className="city-country" />
           ))}
+
+          {boundaryPaths.map((b) => (
+            <path key={b.key} d={b.d} className="city-state" />
+          ))}
+
+          {refCities.map((city) => {
+            const cx = city.x
+            const cy = city.y
+            return (
+              <g key={city.name} transform={`translate(${cx} ${cy}) scale(${1 / mapView.scale})`}>
+                <circle className="ref-city-dot" r={2.5} />
+                <text className="ref-city-label" dx={5} dy={3.5}>{city.name}</text>
+              </g>
+            )
+          })}
+
           {guessXY ? (
             <g className={review ? (locationOk ? 'guess-marker ok' : 'guess-marker bad') : 'guess-marker'} transform={`translate(${guessXY[0]} ${guessXY[1]})`}>
               <circle r={5 / mapView.scale} />
