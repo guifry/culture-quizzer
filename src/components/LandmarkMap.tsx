@@ -285,7 +285,7 @@ export function LandmarkMap({
           ) : null}
         </g>
       </svg>
-      <p className="city-map-hint">{t.mapHint}</p>
+      <p className="city-map-hint">{t.mapHint}{isFrance ? ' · routes © IGN ROUTE 500 2021 · hydro Natural Earth' : ''}</p>
     </div>
   )
 }
