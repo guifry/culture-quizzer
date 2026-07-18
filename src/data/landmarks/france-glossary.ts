@@ -79,6 +79,15 @@ export const franceGlossary: GlossaryTerm[] = [
   { key: 'first-ascent', term: 'First ascent', definition: 'The first successful climb to the summit of a mountain; Mont Blanc\'s first ascent in 1786 marks the birth of modern mountaineering.' },
   { key: 'astronomical-clock', term: 'Astronomical clock', definition: 'A clock with moving figures and dials showing astronomical information such as planetary positions and the zodiac.' },
   { key: 'granite', term: 'Granite', definition: 'A hard, coarse-grained igneous rock; the Calanques de Piana are famous for their red granite formations eroded into fantastic shapes.' },
+  { key: 'second-empire', term: 'Second Empire', span: '1852–1870', definition: "Napoleon III's regime, when Haussmann rebuilt Paris with grand boulevards and opulent monuments such as the Palais Garnier." },
+  { key: 'capetian', term: 'Capetian dynasty', span: '987–1328', definition: 'The royal house that made Paris the capital and the Palais de la Cité the seat of French kingship.' },
+  { key: 'rayonnant-gothic', term: 'Rayonnant Gothic', span: 'c. 1240–1350', definition: 'The radiant phase of Gothic that dissolved walls into glass and tracery — the Sainte-Chapelle is its masterpiece.' },
+  { key: 'cistercian', term: 'Cistercian order', span: 'from 1098', definition: 'The reformed "white monk" order of Saint Bernard, whose austere abbeys (Fontenay) stripped Romanesque architecture to its essentials.' },
+  { key: 'world-war-two', term: 'Second World War', span: '1939–1945', definition: 'The war in which France fell in 1940 and was liberated from 1944, beginning with the Normandy landings.' },
+  { key: 'd-day', term: 'D-Day / Operation Overlord', span: '6 June 1944', definition: 'The Allied landings on five Normandy beaches — the largest seaborne invasion in history and the start of the liberation of western Europe.' },
+  { key: 'national-park', term: 'National park', definition: 'A landscape protected by the state for its nature; the Calanques (2012) form France\'s first national park bordering a major city.' },
+  { key: 'riviera', term: 'Riviera / Côte d\'Azur', definition: 'The Mediterranean coast from Cassis to Menton, invented as a winter resort by 19th-century aristocratic tourism.' },
+  { key: 'garden-cemetery', term: 'Garden cemetery', span: 'from 1804', definition: 'The landscaped burial ground movement that replaced overcrowded churchyards; Père-Lachaise was its model for the world.' },
 ]
 
 export const franceGlossaryByKey = new Map(franceGlossary.map((term) => [term.key, term]))

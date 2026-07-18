@@ -164,4 +164,49 @@ export const LANDMARKS = {
     terms: ['Landes forest Atlantic', 'Landes coast beach', 'Landes pine forest', 'Landes Hossegor surf', 'Landes sand dune', 'Landes ocean sunset', 'Landes maritime pine', 'Côte Argent Landes'],
     giveaways: ['Landes', 'Hossegor', 'Biarritz', 'Côte d\'Argent', 'Côte Argent'],
   },
+  'calanques-de-marseille': {
+    name: 'Calanques de Marseille',
+    terms: ['Calanque En Vau aerial', 'Calanques Marseille panorama', 'Calanque Sormiou', 'Calanque Morgiou', 'Calanque Port Pin', 'Calanques limestone cliffs sea', 'Calanques Cassis turquoise', 'Calanques hiking cliff'],
+    giveaways: ['Calanques', 'Marseille', 'Cassis', 'En-Vau', 'Sormiou', 'Morgiou'],
+  },
+  'arenes-de-nimes': {
+    name: 'Arènes de Nîmes',
+    terms: ['Nimes amphitheatre full exterior', 'Nimes arena aerial view', 'Nimes Roman amphitheatre facade', 'Nimes arena interior tiers', 'Nimes amphitheatre arches', 'Nimes arena night', 'Nimes amphitheatre street view', 'Nimes arena panorama'],
+    giveaways: ['Nîmes', 'Nimes', 'Arènes', 'Arenes'],
+  },
+  'les-invalides': {
+    name: 'Les Invalides',
+    terms: ['Hotel des Invalides full facade', 'Invalides golden dome Paris', 'Invalides aerial view', 'Invalides esplanade north front', 'Invalides courtyard honneur', 'Napoleon tomb sarcophagus dome', 'Invalides dome interior', 'Invalides Alexandre III bridge view'],
+    giveaways: ['Invalides', 'Napoléon', 'Napoleon', 'Musée de l\'Armée'],
+  },
+  'palais-garnier': {
+    name: 'Palais Garnier',
+    terms: ['Palais Garnier full facade', 'Opera Garnier grand staircase', 'Palais Garnier auditorium ceiling', 'Palais Garnier grand foyer', 'Opera Garnier exterior night', 'Palais Garnier apollo roof statue', 'Opera Garnier chandelier', 'Palais Garnier aerial'],
+    giveaways: ['Garnier', 'Opéra', 'Opera national de Paris'],
+  },
+  'pere-lachaise': {
+    name: 'Père-Lachaise Cemetery',
+    terms: ['Pere Lachaise cemetery avenue tombs', 'Pere Lachaise aerial autumn', 'Pere Lachaise cobbled lane graves', 'Oscar Wilde tomb sphinx', 'Chopin grave Pere Lachaise', 'Pere Lachaise chapel hill', 'Mur des Federes wall', 'Pere Lachaise sculptures tombs'],
+    giveaways: ['Père-Lachaise', 'Pere Lachaise', 'Wilde', 'Chopin', 'Morrison'],
+  },
+  'promenade-des-anglais': {
+    name: 'Promenade des Anglais',
+    terms: ['Promenade des Anglais aerial curve', 'Nice Baie des Anges panorama', 'Promenade des Anglais palm trees', 'Promenade des Anglais blue chairs', 'Hotel Negresco seafront', 'Nice beach promenade sunset', 'Promenade des Anglais cyclists', 'Nice seafront belle epoque'],
+    giveaways: ['Promenade des Anglais', 'Nice', 'Negresco', 'Baie des Anges'],
+  },
+  'palais-de-la-cite': {
+    name: 'Palais de la Cité',
+    terms: ['Conciergerie full facade Seine', 'Conciergerie towers river view', 'Sainte-Chapelle upper chapel stained glass', 'Sainte-Chapelle exterior spire', 'Conciergerie medieval hall', 'Palais de la Cite aerial', 'Tour de l Horloge Paris clock', 'Conciergerie night Seine'],
+    giveaways: ['Conciergerie', 'Sainte-Chapelle', 'Palais de la Cité', 'Palais de Justice'],
+  },
+  'normandy-american-cemetery': {
+    name: 'Normandy American Cemetery',
+    terms: ['Normandy American cemetery rows crosses', 'American cemetery Colleville aerial', 'Normandy cemetery memorial colonnade', 'American cemetery Omaha bluff view', 'Normandy cemetery reflecting pool', 'American cemetery headstones sunset', 'Spirit American Youth statue', 'Normandy cemetery walls missing'],
+    giveaways: ['Colleville', 'Omaha', 'American Cemetery', 'Normandy American'],
+  },
+  'abbaye-de-fontenay': {
+    name: 'Abbaye de Fontenay',
+    terms: ['Fontenay abbey full view gardens', 'Fontenay abbey church facade', 'Fontenay abbey cloister', 'Fontenay abbey nave romanesque', 'Fontenay abbey aerial', 'Fontenay abbey forge', 'Fontenay abbey dormitory', 'Fontenay abbey gardens pond'],
+    giveaways: ['Fontenay', 'Abbaye de Fontenay'],
+  },
 }

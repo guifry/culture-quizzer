@@ -17,9 +17,9 @@ export const landmarkTopics: Topic[] = [
   ),
   buildLandmarkTopic(
     'france-landmarks-game',
-    'Top 33 France Landmarks',
+    'Top 42 France Landmarks',
     'Locate the great cultural landmarks of France, name them from photos, or from a knowledge clue.',
-    'Thirty-three landmarks of France spanning prehistory, Roman Gaul, medieval cathedrals, Renaissance châteaux, modern monuments and natural wonders.',
+    'Forty-two landmarks of France spanning prehistory, Roman Gaul, medieval cathedrals, Renaissance châteaux, modern monuments and natural wonders.',
     ['landmark-locate', 'landmark-photos', 'landmark-clue'],
     franceLandmarks,
     franceGlossary,
