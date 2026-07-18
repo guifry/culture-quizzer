@@ -486,6 +486,45 @@
   stroke-linejoin: round;
 }
 
+.map-road {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  pointer-events: none;
+}
+
+.map-road.t1 {
+  stroke: #b0854d;
+  opacity: 0.85;
+}
+
+.map-road.t2 {
+  stroke: #c09d6d;
+  opacity: 0.75;
+}
+
+.map-road.t3 {
+  stroke: #ccb28d;
+  opacity: 0.65;
+}
+
+.map-river {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  pointer-events: none;
+}
+
+.map-river.r1 {
+  stroke: #92bedd;
+  opacity: 0.9;
+}
+
+.map-river.r2 {
+  stroke: #aacde6;
+  opacity: 0.75;
+}
+
 .city-map-controls {
   position: absolute;
   top: 8px;

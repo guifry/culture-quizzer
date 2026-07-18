@@ -1,9 +1,10 @@
-import { useMemo, useRef, useState, type PointerEvent as ReactPointerEvent, type WheelEvent as ReactWheelEvent } from 'react'
+import { useEffect, useMemo, useRef, useState, type PointerEvent as ReactPointerEvent, type WheelEvent as ReactWheelEvent } from 'react'
 import { geoPath } from 'd3-geo'
 import { Minus, Plus, RotateCcw } from 'lucide-react'
 import type { Landmark, MapScope } from '../data/types'
 import { WIDTH, HEIGHT, defaultMapView, clampMapView, buildProjection, type MapView } from '../map/projection'
 import { worldCountryFeatures } from '../map/features'
+import { loadGeoLayer } from '../map/geoLayers'
 import ukAdmin from '../data/geo/uk-counties-unitaries-2022.json'
 import frRegions from '../data/geo/fr-regions.json'
 import './CityQuiz.css'
@@ -66,6 +67,53 @@ export function LandmarkMap({
   const dragRef = useRef<{ pointerId: number; clientX: number; clientY: number; moved: boolean; view: MapView } | null>(null)
   const suppressClickRef = useRef(false)
   const [mapView, setMapView] = useState<MapView>(defaultMapView)
+  const isFrance = mapScope === 'france'
+
+  const [detailLayers, setDetailLayers] = useState<Record<string, GeoJSON.GeoJSON | null>>({})
+
+  useEffect(() => {
+    if (!isFrance) return
+    let active = true
+    for (const name of ['roads-fr-1', 'rivers-fr']) {
+      loadGeoLayer(name).then((geo) => {
+        if (active) setDetailLayers((previous) => ({ ...previous, [name]: geo }))
+      })
+    }
+    return () => {
+      active = false
+    }
+  }, [isFrance])
+
+  useEffect(() => {
+    if (!isFrance) return
+    const wanted = mapView.scale >= 4 ? ['roads-fr-2', 'roads-fr-3'] : mapView.scale >= 2 ? ['roads-fr-2'] : []
+    let active = true
+    for (const name of wanted) {
+      if (name in detailLayers) continue
+      loadGeoLayer(name).then((geo) => {
+        if (active) setDetailLayers((previous) => ({ ...previous, [name]: geo }))
+      })
+    }
+    return () => {
+      active = false
+    }
+  }, [isFrance, mapView.scale, detailLayers])
+
+  const roadPaths = useMemo(() => {
+    return ['roads-fr-1', 'roads-fr-2', 'roads-fr-3'].map((name, index) => {
+      const geo = detailLayers[name]
+      return { tier: index + 1, d: geo ? path(geo) ?? '' : '' }
+    })
+  }, [detailLayers, path])
+
+  const riverPaths = useMemo(() => {
+    const geo = detailLayers['rivers-fr'] as GeoJSON.FeatureCollection | null | undefined
+    if (!geo?.features) return []
+    return geo.features.map((feature) => ({
+      rank: Number((feature.properties as { r?: number } | null)?.r ?? 1),
+      d: path(feature) ?? '',
+    }))
+  }, [detailLayers, path])
 
   const countryPaths = useMemo(() => worldCountryFeatures.map((feat) => ({ key: feat.properties.name, d: path(feat) ?? '' })), [path])
 
@@ -166,8 +214,6 @@ export function LandmarkMap({
     zoomAt(rect.left + rect.width / 2, rect.top + rect.height / 2, direction)
   }
 
-  const isFrance = mapScope === 'france'
-
   return (
     <div className="city-map">
       <div className="city-map-controls">
@@ -197,6 +243,18 @@ export function LandmarkMap({
           {boundaryPaths.map((b) => (
             <path key={b.key} d={b.d} className="city-state" />
           ))}
+
+          {riverPaths.map((river) =>
+            river.d && (river.rank === 1 || mapView.scale >= 2) ? (
+              <path key={`river-${river.rank}`} d={river.d} className={`map-river r${river.rank}`} style={{ strokeWidth: (river.rank === 1 ? 0.8 : 0.5) / mapView.scale }} />
+            ) : null,
+          )}
+
+          {roadPaths.map((road) =>
+            road.d && (road.tier === 1 || (road.tier === 2 && mapView.scale >= 2) || (road.tier === 3 && mapView.scale >= 4)) ? (
+              <path key={`road-${road.tier}`} d={road.d} className={`map-road t${road.tier}`} style={{ strokeWidth: (road.tier === 1 ? 0.85 : road.tier === 2 ? 0.55 : 0.4) / mapView.scale }} />
+            ) : null,
+          )}
 
           {refCities.map((city) => {
             const cx = city.x
