@@ -27,7 +27,7 @@ const IMAGES_DIR = path.join(ROOT, 'public', 'images', 'landmarks')
 const CREDITS_PATH = path.join(IMAGES_DIR, 'credits.json')
 const OUT_ROOT = path.join(ROOT, 'tools', 'photo-curation', 'candidates')
 const UA = 'culture-quizzer/1.0 (educational quiz; https://github.com/guifry/culture-quizzer)'
-const CANDIDATE_TARGET = 10
+const CANDIDATE_TARGET = 12
 const MODEL = process.env.OPENAI_MODEL || 'gpt-4o'
 
 const REJECT = /locator|location|\bmap\b|\bplan\b|flag|coat of arms|\bseal\b|logo|blank|diagram|orthographic|globe|montage|collage|icon|emblem|\.svg$|postage|stamp|banknote|coin/i
@@ -261,6 +261,9 @@ async function gatherLandmark(deck, id, config, fetchNew) {
 
   if (fetchNew && candidates.length < CANDIDATE_TARGET) {
     let fetched = 0
+    // Multiple passes: each pass lets every search term place one more image, so decks
+    // with few terms can still reach CANDIDATE_TARGET.
+    for (let pass = 0; pass < 3 && candidates.length < CANDIDATE_TARGET; pass += 1) {
     for (const term of config.terms) {
       if (candidates.length >= CANDIDATE_TARGET) break
       let titles
@@ -312,6 +315,7 @@ async function gatherLandmark(deck, id, config, fetchNew) {
           console.log(`  x ${term}: ${err.message}`)
         }
       }
+    }
     }
   }
 

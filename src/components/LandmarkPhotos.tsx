@@ -1,39 +1,43 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useState } from 'react'
 import type { Landmark } from '../data/types'
 import { loadLandmarkCredits, type PhotoCredit } from '../data/landmarks/credits'
 import { landmarkQuizStrings, type LandmarkQuizStrings } from '../data/landmarks/quiz-strings'
 import { resolveImageUrl, shuffle } from '../utils'
 import { ImageLightbox } from './ImageLightbox'
 
+// Curated rule: when any photo is flagged "always include" (typically a full-building
+// view), one random flagged photo is guaranteed a slot; the rest fill up at random.
+function pickPhotos(credits: PhotoCredit[]): number[] {
+  const flagged = credits.filter((credit) => credit.flagged).map((credit) => credit.n)
+  const rest = credits.filter((credit) => !credit.flagged).map((credit) => credit.n)
+  if (!flagged.length) return shuffle(credits.map((credit) => credit.n)).slice(0, Math.min(3, credits.length))
+  const anchor = shuffle(flagged)[0]
+  return [anchor, ...shuffle([...flagged.filter((n) => n !== anchor), ...rest]).slice(0, Math.min(2, credits.length - 1))]
+}
+
 // Photo prompt for the landmark quiz: three random shots of the mystery landmark. The
 // available count is derived from the credits book (written by the fetch script), so no
 // per-landmark image count is stored in the data.
 export function LandmarkPhotos({ landmark, revealed = false, strings }: { landmark: Landmark; revealed?: boolean; strings?: LandmarkQuizStrings }) {
   const t = strings ?? landmarkQuizStrings('en')
-  const [credits, setCredits] = useState<PhotoCredit[] | null>(null)
+  const [photoSet, setPhotoSet] = useState<{ credits: PhotoCredit[]; picks: number[] } | null>(null)
+  const [openIndex, setOpenIndex] = useState<number | null>(null)
 
   useEffect(() => {
     let active = true
     loadLandmarkCredits().then((book) => {
-      if (active) setCredits(book[landmark.id] ?? [])
+      if (!active) return
+      const credits = book[landmark.id] ?? []
+      setPhotoSet({ credits, picks: credits.length ? pickPhotos(credits) : [] })
     })
     return () => {
       active = false
     }
   }, [landmark.id])
 
+  const credits = photoSet?.credits ?? null
+  const picks = photoSet?.picks ?? []
   const count = credits?.length ?? 0
-  // Curated rule: when any photo is flagged "always include" (typically a full-building
-  // view), one random flagged photo is guaranteed a slot; the rest fill up at random.
-  const picks = useMemo(() => {
-    if (!credits?.length) return []
-    const flagged = credits.filter((credit) => credit.flagged).map((credit) => credit.n)
-    const rest = credits.filter((credit) => !credit.flagged).map((credit) => credit.n)
-    if (!flagged.length) return shuffle(credits.map((credit) => credit.n)).slice(0, Math.min(3, credits.length))
-    const anchor = shuffle(flagged)[0]
-    return [anchor, ...shuffle([...flagged.filter((n) => n !== anchor), ...rest]).slice(0, Math.min(2, credits.length - 1))]
-  }, [credits])
-  const [openIndex, setOpenIndex] = useState<number | null>(null)
 
   if (credits === null) return <p className="mosaic-missing">{t.loadingPhotos}</p>
   if (!count) return <p className="mosaic-missing">{t.noPhotos}</p>
