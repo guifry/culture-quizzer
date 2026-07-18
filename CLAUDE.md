@@ -2,7 +2,8 @@
 
 React + TypeScript + Vite quiz app. SVG maps (d3-geo + world-atlas / us-atlas / local GeoJSON), reusable curriculum data.
 
-> Building a new curated "Top-N" recognition game (locate / photos / clue + course)? Follow `docs/game-authoring-playbook.md` — curation heuristic, course/clue/photo methodology, and the self-contained-variant architecture. Reference implementation: the UK Landmarks game (`src/data/landmarks/`, `src/components/Landmark*.tsx`).
+> Building a new curated "Top-N" recognition game (locate / photos / clue + course)? Follow `docs/game-authoring-playbook.md` — curation heuristic, course/clue/photo methodology, matching + map-interaction standards, and the self-contained-variant architecture. Reference implementation: the France Landmarks game (`src/data/landmarks/`, `src/components/Landmark*.tsx`).
+> Quiz images are NEVER AI-final: gather → human curates in `npm run curate` → apply. Protocol: `docs/photo-curation.md`.
 
 ## Layout
 - `src/data/curriculum.ts` — master `topics: Topic[]`. Register new topics here.
@@ -12,6 +13,9 @@ React + TypeScript + Vite quiz app. SVG maps (d3-geo + world-atlas / us-atlas / 
 - `src/App.tsx` — the shared quiz engine (per-item shuffle rounds) + `CultureMap`.
 - `src/components/` — self-contained game variants that don't fit the per-item engine (`HistoryDateQuiz`, `ColoniesQuiz`), each rendered via a `Topic.kind` branch in `App.tsx`.
 - `src/components/worldMap.ts` — shared world-map primitives (projection, feature list with French Guiana split, `normalizeName`, pan/zoom `clampMapView`).
+- `src/data/matching.ts` — THE shared answer matcher (diacritics, leading-article stripping, fuzzy). Never duplicate it.
+- `src/settings.ts` + `SettingsDialog` — global settings (language en/fr); per-game localisation via `src/data/landmarks/localise.ts` pattern.
+- `tools/photo-curation/` + `scripts/{gather-landmark-candidates,apply-photo-curation,serve-curation}.mjs` — image curation pipeline (`docs/photo-curation.md`).
 
 ## Conventions (do not re-ask the user these)
 - **Always randomise order.** Every deck/round shuffles its items/prompts each session (`shuffle`). The goal is learning — a fixed script lets the user memorise the sequence instead of the content. This applies to any new game.

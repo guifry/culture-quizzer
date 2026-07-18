@@ -106,15 +106,20 @@ Datasets are **one file per deck** under `src/data/<area>/`:
 
 ## 5. Matching & fuzzing
 
-- `normalize` (App) / `normalizeText` (`src/data/history/matching.ts`, `src/map/features.ts`):
-  NFD → strip diacritics → lowercase → alnum-space.
-- **Levenshtein** with a length-scaled threshold gives "moderately strict" fuzzy matching
-  (`matching.ts`, `src/data/cities/types.ts` `matchesCityName`).
-- **Dates:** `matchesDate` extracts year(s), requires the `bc` token for BC answers (disambiguates
-  e.g. `800` vs `800 BC`), accepts range endpoints/interiors.
-- **Map location correctness:** `src/map/containment.ts` `isRegionCorrect(city, [lon,lat])` uses
-  `geoContains` against the city's country polygon, and the US state polygon for US cities.
-  `distanceKm` is reserved for a future "expert" click-near mode.
+- **Shared answer matcher: `src/data/matching.ts`** — `normalizeAnswer` (NFD → strip diacritics
+  → lowercase → alnum-space → **strip leading articles** le/la/les/l'/the), `levenshtein`,
+  length-scaled `editThreshold` (0/1/2 edits), `fuzzyEquals`, `matchesAnyName`. Landmarks,
+  cities and paintings all use it — **never copy-paste a new matcher**. Items should carry
+  both English and French name forms; both are accepted regardless of UI language.
+- History dates keep their own token/era logic in `src/data/history/matching.ts` (`matchesDate`
+  requires the `bc` token for BC answers, accepts range endpoints/interiors; `matchesLocation`
+  does windowed token matching).
+- **Map location correctness:** `src/map/containment.ts` — `isRegionCorrect` (polygon
+  containment), `distanceKm` (haversine), and zone helpers `pointInRing` / `distanceToRingKm` /
+  `ringAreaKm2`. Landmark locate uses `evaluateLandmarkLocation`
+  (`src/data/landmarks/types.ts`): 40 km radius for points; for `zone` polygons inside = 0 km
+  correct, outside tolerance `clamp(40 − √area, 0, 40)` km; **the km distance is always
+  reported to the player**.
 
 ---
 
@@ -131,6 +136,14 @@ Datasets are **one file per deck** under `src/data/<area>/`:
 - Atlases: `world-atlas/countries-110m.json` (note: tiny states like Singapore are absent at 110m —
   pick cities whose country has a polygon, or nudge coastal coords inland so region-containment
   passes). US states: `us-atlas/states-10m.json`.
+- **Progressive detail layers (France):** `public/geo/roads-fr-{1,2,3}.json` (IGN ROUTE 500
+  motorways / trunk / regional, ~1.7 MB gz total) and `public/geo/rivers-fr.json` (Natural
+  Earth, 2 ranks). Fetched lazily by `src/map/geoLayers.ts` and revealed by zoom tier in
+  `LandmarkMap` (tier 2 at ≥2×, tier 3 at ≥4×). **All name attributes are stripped at build
+  time** so layers cannot spoil answers. Rebuild with `scripts/build-france-map-layers.sh`.
+- `clampMapView(view, panSlack)` — `panSlack` (fraction of viewport) permits dragging beyond
+  the strict fit; `LandmarkMap` passes 0.5 so the map pans at base zoom (e.g. to free Corsica
+  from under an overlay).
 
 ---
 
@@ -149,6 +162,12 @@ Datasets are **one file per deck** under `src/data/<area>/`:
 - `CityEntry.images` is the count of photos available; the mosaic picks 3 at random, the gallery
   shows all. Lost cities that lack good imagery can omit `images` (that mode shows a "not available"
   note).
+- **Landmark decks use the human-in-the-loop curation protocol** — see
+  [docs/photo-curation.md](photo-curation.md): gather ≥ 12 candidates (`scripts/
+  gather-landmark-candidates.mjs`), curate in the `npm run curate` app (keep / ⭐ always-include
+  / artwork notes), apply (`scripts/apply-photo-curation.mjs`). `credits.json` then carries
+  `flagged`, `kind` and artwork caption fields; `LandmarkPhotos` guarantees one flagged photo
+  among the three shown and captions paintings *title — painter (year)*.
 
 ---
 
@@ -165,6 +184,21 @@ City topics expose a **Play / Course** toggle (App's `view-control`, gated on `i
 
 Knowledge topics use the older `courseArticles` map + `CoursePanel` / `QuestionReferencePanel`
 (Practice / Course / Questions tabs). Course text for cities lives in `CityEntry.course`.
+
+---
+
+## 8b. Settings & localisation
+
+- Global settings live in `src/settings.ts` (`useSettings` via `useSyncExternalStore`,
+  persisted to `localStorage` key `culture-quizzer-settings`). UI: gear button at the bottom
+  of the sidebar → `SettingsDialog` (dark blurred backdrop). Only setting so far: **language
+  (en/fr)**.
+- Localisation is **per-game and data-driven**, not a global i18n framework:
+  `src/data/landmarks/localise.ts` swaps the France deck's names/blurbs/clues/courses from
+  `france-landmarks.fr.ts` and retitles the topic; `quiz-strings.ts` carries the quiz UI
+  strings. English mode still attaches `nameFr` so typed answers are accepted in both
+  languages either way. To localise another game, mirror this pattern (translation file keyed
+  by id + a `localise<X>Topic` applied where `activeTopic` is resolved in `App.tsx`).
 
 ---
 

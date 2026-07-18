@@ -1,6 +1,6 @@
 # France Cultural Landmarks — course & clue authoring draft
 
-Source of truth for the "Top 33 France Landmarks" game. Each entry: **Nutshell → six labelled
+Source of truth for the "Top 42 France Landmarks" game. Each entry: **Nutshell → six labelled
 angles (When / Who / People / Events / Concepts) → 4–5 clues → concept keys**. Concepts are
 defined once in the shared [Glossary](#glossary) and reused across entries.
 
@@ -9,7 +9,17 @@ defined once in the shared [Glossary](#glossary) and reused across entries.
 - The course is a superset of the clues — it carries knowledge the clue mode never tests
   (reserved for a future LLM-graded deep mode).
 
-## The list (33)
+> **July 2026 update — deck grew 33 → 42.** New entries (authored directly in
+> `src/data/landmarks/france-landmarks.ts` + `france-landmarks.fr.ts`, not yet mirrored in the
+> per-entry sections below): Calanques de Marseille (zone), Arènes de Nîmes, Les Invalides,
+> Palais Garnier, Père-Lachaise Cemetery, Promenade des Anglais, Palais de la Cité (royal
+> residence until the 14th century — Sainte-Chapelle + Conciergerie), Normandy American
+> Cemetery, Abbaye de Fontenay. The game also gained: zone polygons + always-on distance
+> feedback for locate (see the playbook's map-interaction standard), progressive
+> roads/rivers layers, a full French mode (settings gear), and the photo-curation protocol
+> ([photo-curation.md](photo-curation.md)).
+
+## The list (42)
 
 | # | Landmark | ★ | Region |
 |---|----------|---|--------|
@@ -46,8 +56,17 @@ defined once in the shared [Glossary](#glossary) and reused across entries.
 | 31 | Basilica of Notre-Dame de Fourvière | | Auvergne-Rhône-Alpes |
 | 32 | Centre Pompidou | | Île-de-France |
 | 33 | Les Landes Coast | | Nouvelle-Aquitaine |
+| 34 | Calanques de Marseille | | Provence-Alpes-Côte d'Azur |
+| 35 | Arènes de Nîmes | | Occitanie |
+| 36 | Les Invalides | | Île-de-France |
+| 37 | Palais Garnier | | Île-de-France |
+| 38 | Père-Lachaise Cemetery | | Île-de-France |
+| 39 | Promenade des Anglais | | Provence-Alpes-Côte d'Azur |
+| 40 | Palais de la Cité | | Île-de-France |
+| 41 | Normandy American Cemetery | | Normandy |
+| 42 | Abbaye de Fontenay | | Bourgogne-Franche-Comté |
 
-Tally: Île-de-France 8 · Occitanie 4 · Normandy 3 · Centre-Val de Loire 3 · Provence-Alpes-Côte d'Azur 3 · Nouvelle-Aquitaine 3 · Grand Est 2 · Auvergne-Rhône-Alpes 2 · Brittany 1 · Hauts-de-France 1 · Corsica 1 · Bourgogne-Franche-Comté 1 · ★ = 11.
+Tally (42): Île-de-France 12 · Occitanie 5 · Provence-Alpes-Côte d'Azur 5 · Normandy 4 · Centre-Val de Loire 3 · Nouvelle-Aquitaine 3 · Grand Est 2 · Auvergne-Rhône-Alpes 2 · Bourgogne-Franche-Comté 2 · Brittany 1 · Hauts-de-France 1 · Corsica 1 · ★ = 11.
 
 ---
 

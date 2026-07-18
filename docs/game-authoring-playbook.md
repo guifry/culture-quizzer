@@ -96,22 +96,31 @@ quiz that reads the whole course as context).
 
 ---
 
-## 4. Photo methodology (Wikimedia + AI spoiler gate)
+## 4. Photo methodology — AI gathers, the human curates
+
+> Full protocol, tooling and rationale: **[docs/photo-curation.md](photo-curation.md)**. The
+> AI is never the final curator of quiz images; it gathers ≥ 12 pre-annotated candidates per
+> item, the human selects in the `npm run curate` app, and an apply script ships the result.
 
 - **Same-item, multi-angle pattern.** Each item gets ~8 Commons search terms that all depict
-  *that item* from varied angles/features (this is the *Lost Cities* pattern, not the *World
-  Cities* pattern where each photo is a different landmark).
+  *that item* from varied angles/features. **For buildings, the first terms must ask for full
+  façade / general views** — several distinct ones.
 - **Giveaway list per item**: its name, aliases, and *giveaway sub-features* (e.g. Hadrian's Wall
   → `Housesteads, Vindolanda`; Loch Ness → `Nessie, Urquhart`).
 - **gpt-4o vision gate** screens every candidate for (1) is it really the item, (2) does readable
-  text name it / a giveaway, (3) is it a usable photo. Run at `temperature:0`, image
-  `detail:"high"` (needed to read small signage → no missed detections), forcing the model to
-  **quote the offending text** (grounding → no false flags). The crafted prompt lives in
-  `scripts/prep-landmark-images.mjs` — copy it.
-- **Skip rather than spoil.** If no clean, non-naming shot exists, leave the slot empty (some
-  items ship with < target count, e.g. Titanic Belfast). The UI derives the count from
-  `credits.json`, so no per-item image count lives in the data.
-- **Cost:** a full run (~250–500 gated candidates) is roughly **$2–4** on gpt-4o. Key is read
+  text name it / a giveaway, (3) is it usable. Run at `temperature:0`, image `detail:"high"`,
+  forcing the model to **quote the offending text**. It also classifies the medium
+  (photo / painting / historic photo) and whether the whole building is visible — it does
+  **not** decide what ships.
+- **Human curation** (the part that ships): click-to-keep mosaic, ⭐ "always include" flags
+  (the game guarantees one flagged photo among the three shown), artwork popovers with
+  keep/drop recommendations, building-landmark full-view warnings.
+- **Paintings policy**: only canonical artworks stay (Monet's Rouen tier), always captioned
+  *title — painter (year)* and echoed by an "In art" line in the course; incidental
+  illustrations and news-event photos are dropped.
+- **Skip rather than spoil.** If no clean, non-naming shot exists, leave the slot empty. The UI
+  derives the count from `credits.json`, so no per-item image count lives in the data.
+- **Cost:** a full gather (~250–500 gated candidates) is roughly **$2–4** on gpt-4o. Key is read
   from `.env` (`OPENAI_API_KEY`), which must be git-ignored.
 - **Attribution** (artist/license/source) is captured to `credits.json` and shown in the
   lightbox — keep it.
@@ -165,6 +174,32 @@ whatever is new.
 - **British English. No code comments** unless documenting a genuine edge case.
 - **Verify** before done: `npm run lint`, `npm run build`, and a browser smoke test.
 
+### Answer-matching standard
+
+- Use the **shared matcher** (`src/data/matching.ts`) — never copy-paste a new
+  normalise/levenshtein. `normalizeAnswer` strips diacritics, punctuation and **leading
+  articles** (le/la/les/l'/the), so "Le Mont Blanc" ≡ "Mont Blanc"; fuzzy threshold is 0/1/2
+  edits by length.
+- **Every item carries both English and French forms** (name + aliases) and both are always
+  accepted, whatever the display language. Include natural variants people actually say
+  ("Musée Pompidou" as well as "Centre Pompidou"), and avoid bare ambiguous aliases shared by
+  two items ("Calanques" alone could be Piana or Marseille — qualify it).
+
+### Map-interaction standard (locate games)
+
+- **Distance feedback always**: after every locate answer show the km distance (and it feeds
+  the history cards). Correct answers show it too ("correct — 12 km from the exact spot").
+- **Point items**: correct within `LOCATE_RADIUS_KM` (40 km).
+- **Areal/linear items** (a coast, a gorge, a massif) get a rough `zone` polygon instead of a
+  point: inside/on the border = correct at 0 km; outside, the tolerance **shrinks as the zone
+  grows** — `T = clamp(40 − √area_km², 0, 40)` — so a tiny zone forgives like a point and a
+  large region must actually be hit. The zone outline is drawn on reveal.
+- **Pan and zoom**: the map is draggable at any zoom level (clamp with `panSlack`), wheel-zoom
+  with Ctrl/⌘, visible zoom buttons + reset.
+- **Progressive detail, no labels**: reference layers (roads, rivers) may be added to teach
+  geography, revealed by zoom tier, but must ship with **all name attributes stripped** so
+  they can never spoil an answer (see `scripts/build-france-map-layers.sh`).
+
 ---
 
 ## 7. Definition of done (acceptance checklist)
@@ -175,8 +210,9 @@ whatever is new.
 - [ ] All three modes work; clue mode shows a random self-sufficient clue; photos degrade
       gracefully when absent.
 - [ ] Course renders Read / Pictures / Map; atlas markers, clustering, popups, "Learn more →" work.
-- [ ] Photos fetched + AI-gated; `credits.json` present; attribution shown; short items logged,
-      not silently dropped.
+- [ ] Photos gathered (≥ 12 candidates/item), **human-curated in the curation app**, applied;
+      `credits.json` present with flags/kinds; building items have a flagged full view;
+      attribution shown; short items logged, not silently dropped.
 - [ ] `npm run lint` + `npm run build` clean; browser smoke test passes; no console errors.
 - [ ] Committed and pushed to master (deploys Pages).
 
@@ -191,5 +227,7 @@ whatever is new.
 > sub-domains) — propose it and wait for sign-off. Then author the course (§2 structured angles +
 > shared glossary, ~120–180 words each) and 4–5 clues per item (§3). Then implement the
 > self-contained variant (§5), mirroring `src/data/landmarks/` and `src/components/Landmark*.tsx`.
-> Then fetch + AI-gate photos (§4). Verify against the §7 checklist and, on my go-ahead, commit
-> and push. Keep the standing conventions (§6): always randomise, British English, no comments.
+> Then gather photo candidates and hand me the curation app for selection (§4 +
+> docs/photo-curation.md). Verify against the §7 checklist and, on my go-ahead, commit
+> and push. Keep the standing conventions (§6): always randomise, shared matcher with
+> bilingual aliases, distance feedback + zones on locate maps, British English, no comments.
