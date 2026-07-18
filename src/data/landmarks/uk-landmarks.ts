@@ -20,7 +20,7 @@ export const ukLandmarks: Landmark[] = [
       when: `Royal palace from the 11th C; present building 1840–1876, in the Gothic Revival.`,
       who: `A royal residence until 1512, then home to Parliament — the seat of British democracy, Commons and Lords.`,
       people: [`Architects Charles Barry and Augustus Pugin.`, `"Big Ben" is the bell, not the tower, probably named after Sir Benjamin Hall.`, `Guy Fawkes tried to destroy it in 1605.`],
-      events: [`The Gunpowder Plot (1605); the 1834 fire that razed the old palace.`, `Westminster Hall (1097) survives as its oldest part, scene of the trials of Charles I and Thomas More.`],
+      events: [`The Gunpowder Plot (1605); the 1834 fire that razed the old palace.`, `Westminster Hall (1097) survives as its oldest part, scene of the trials of Charles I and Thomas More.`, `In art: Monet painted the palace nearly a hundred times through Thames fog (1900–1904) — a French master's most famous London motif.`],
       concepts: ['gothic-revival', 'perpendicular-gothic', 'constitutional-monarchy', 'gunpowder-plot'],
     },
     clues: [
@@ -401,7 +401,7 @@ export const ukLandmarks: Landmark[] = [
       when: `Norman origins (1070s), rebuilt over centuries; St George's Chapel is Perpendicular Gothic (15th–16th C).`,
       who: `A royal residence and seat of the Order of the Garter.`,
       people: [`William the Conqueror founded it.`, `Henry VIII, Charles I and Elizabeth II are buried in St George's Chapel.`],
-      events: [`In 1917 the royal family renamed itself "Windsor," dropping its German title during the First World War.`, `A serious fire struck in 1992.`],
+      events: [`In 1917 the royal family renamed itself "Windsor," dropping its German title during the First World War.`, `A serious fire struck in 1992.`, `In art: Turner painted and sketched the castle from the Thames — a canonical pairing of Britain's greatest landscape painter with a royal landmark.`],
       concepts: ['norman-conquest', 'order-of-the-garter', 'house-of-windsor', 'perpendicular-gothic'],
     },
     clues: [

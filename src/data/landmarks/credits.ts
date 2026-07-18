@@ -9,6 +9,11 @@ export type PhotoCredit = {
   source: string
   originalUrl: string
   originalSize?: string
+  flagged?: boolean
+  kind?: 'photo' | 'painting' | 'historic-photo'
+  artworkTitle?: string
+  artworkArtist?: string
+  artworkYear?: string
 }
 
 let cache: Record<string, PhotoCredit[]> | null = null

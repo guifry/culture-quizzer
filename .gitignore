@@ -25,3 +25,6 @@ dist-ssr
 
 # local secrets
 .env
+
+# photo curation: candidate images are regenerable (scripts/gather-landmark-candidates.mjs)
+tools/photo-curation/candidates/

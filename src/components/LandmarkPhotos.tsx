@@ -23,7 +23,16 @@ export function LandmarkPhotos({ landmark, revealed = false, strings }: { landma
   }, [landmark.id])
 
   const count = credits?.length ?? 0
-  const picks = useMemo(() => shuffle(Array.from({ length: count }, (_, index) => index + 1)).slice(0, Math.min(3, count)), [count])
+  // Curated rule: when any photo is flagged "always include" (typically a full-building
+  // view), one random flagged photo is guaranteed a slot; the rest fill up at random.
+  const picks = useMemo(() => {
+    if (!credits?.length) return []
+    const flagged = credits.filter((credit) => credit.flagged).map((credit) => credit.n)
+    const rest = credits.filter((credit) => !credit.flagged).map((credit) => credit.n)
+    if (!flagged.length) return shuffle(credits.map((credit) => credit.n)).slice(0, Math.min(3, credits.length))
+    const anchor = shuffle(flagged)[0]
+    return [anchor, ...shuffle([...flagged.filter((n) => n !== anchor), ...rest]).slice(0, Math.min(2, credits.length - 1))]
+  }, [credits])
   const [openIndex, setOpenIndex] = useState<number | null>(null)
 
   if (credits === null) return <p className="mosaic-missing">{t.loadingPhotos}</p>
@@ -32,14 +41,20 @@ export function LandmarkPhotos({ landmark, revealed = false, strings }: { landma
   return (
     <>
       <div className={revealed ? 'photo-mosaic revealed' : 'photo-mosaic'} aria-label="Landmark photos">
-        {picks.map((n) => (
-          <figure key={n} className="mosaic-figure">
-            <button type="button" className="mosaic-tile" onClick={() => setOpenIndex(n)} aria-label={t.enlargePhoto}>
-              <img src={resolveImageUrl(`/images/landmarks/${landmark.id}/${n}-mini.webp`)} alt={revealed ? landmark.name : t.mysteryPhotoAlt} loading="lazy" />
-            </button>
-            {revealed ? <figcaption>{landmark.name}</figcaption> : null}
-          </figure>
-        ))}
+        {picks.map((n) => {
+          const credit = credits.find((entry) => entry.n === n)
+          const artworkCaption = credit?.kind === 'painting' && credit.artworkArtist
+            ? `${credit.artworkTitle ?? landmark.name} — ${credit.artworkArtist}${credit.artworkYear ? ` (${credit.artworkYear})` : ''}`
+            : null
+          return (
+            <figure key={n} className="mosaic-figure">
+              <button type="button" className="mosaic-tile" onClick={() => setOpenIndex(n)} aria-label={t.enlargePhoto}>
+                <img src={resolveImageUrl(`/images/landmarks/${landmark.id}/${n}-mini.webp`)} alt={revealed ? landmark.name : t.mysteryPhotoAlt} loading="lazy" />
+              </button>
+              {revealed ? <figcaption>{artworkCaption ?? landmark.name}</figcaption> : null}
+            </figure>
+          )
+        })}
       </div>
       {revealed ? (
         <p className="city-blurb">

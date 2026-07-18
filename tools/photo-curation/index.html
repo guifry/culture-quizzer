@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Photo curation — Culture Quizzer</title>
+<style>
+  :root { --border: #ddd8ce; --ink: #1f2428; --muted: #6b7280; --ok: #1a7f45; --star: #b8860b; --warn: #b3261e; }
+  * { box-sizing: border-box; }
+  body { margin: 0; font: 14px/1.45 system-ui, sans-serif; color: var(--ink); background: #faf9f6; }
+  header { position: sticky; top: 0; z-index: 10; display: flex; align-items: center; gap: 14px; padding: 10px 16px; background: #fff; border-bottom: 1px solid var(--border); }
+  header h1 { font-size: 15px; margin: 0 12px 0 0; }
+  header .spacer { flex: 1; }
+  button { font: inherit; cursor: pointer; border: 1px solid var(--border); background: #fff; border-radius: 8px; padding: 6px 12px; }
+  button.primary { background: #1f2428; color: #fff; border-color: #1f2428; }
+  .deck-tab.active { background: #1f2428; color: #fff; }
+  .layout { display: grid; grid-template-columns: 280px 1fr; min-height: calc(100vh - 49px); }
+  nav { border-right: 1px solid var(--border); background: #f4f3ee; padding: 10px; overflow-y: auto; max-height: calc(100vh - 49px); position: sticky; top: 49px; }
+  nav button { display: flex; justify-content: space-between; width: 100%; border: none; background: none; padding: 7px 9px; border-radius: 7px; text-align: left; }
+  nav button.active { background: #e4e2d9; font-weight: 600; }
+  nav .count { color: var(--muted); font-size: 12px; }
+  nav .count.done { color: var(--ok); font-weight: 700; }
+  main { padding: 18px 22px 60px; }
+  .landmark-head { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+  .landmark-head h2 { margin: 0; }
+  .landmark-head .hint { color: var(--muted); }
+  .warning { margin: 10px 0; padding: 9px 12px; border-radius: 9px; background: #fdecea; color: var(--warn); border: 1px solid #f5c6c0; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 14px; margin-top: 14px; }
+  .tile { position: relative; border: 3px solid transparent; border-radius: 12px; overflow: hidden; background: #fff; box-shadow: 0 1px 4px rgb(0 0 0 / 8%); cursor: pointer; }
+  .tile img { width: 100%; height: 190px; object-fit: cover; display: block; }
+  .tile.selected { border-color: var(--ok); }
+  .tile .meta { padding: 7px 9px; font-size: 12px; color: var(--muted); display: flex; gap: 6px; align-items: center; min-height: 34px; }
+  .tile .badge { background: #f0e9d8; color: #7a5b12; border-radius: 6px; padding: 1px 6px; font-size: 11px; white-space: nowrap; }
+  .tile .badge.historic { background: #e3ecf5; color: #2d5b8a; }
+  .tile .star { position: absolute; top: 8px; right: 8px; border: none; background: rgb(255 255 255 / 88%); border-radius: 999px; width: 34px; height: 34px; font-size: 17px; line-height: 1; }
+  .tile .star.on { background: var(--star); color: #fff; }
+  .tile .origin { position: absolute; top: 8px; left: 8px; background: rgb(0 0 0 / 55%); color: #fff; border-radius: 6px; padding: 2px 7px; font-size: 11px; }
+  .tile .check { position: absolute; bottom: 44px; right: 8px; background: var(--ok); color: #fff; border-radius: 999px; width: 26px; height: 26px; display: none; align-items: center; justify-content: center; font-size: 15px; }
+  .tile.selected .check { display: flex; }
+  .popover { position: fixed; z-index: 50; max-width: 380px; background: #fff; border: 1px solid var(--border); border-radius: 12px; box-shadow: 0 14px 40px rgb(0 0 0 / 22%); padding: 12px 14px; font-size: 13px; display: none; }
+  .popover h4 { margin: 0 0 6px; font-size: 13px; }
+  .popover .verdict { font-weight: 700; }
+  .popover .verdict.keep { color: var(--ok); }
+  .popover .verdict.drop { color: var(--warn); }
+  .pager { display: flex; gap: 10px; margin-top: 20px; }
+  .empty { color: var(--muted); padding: 40px; text-align: center; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Photo curation</h1>
+  <span id="deck-tabs"></span>
+  <span class="spacer"></span>
+  <span id="progress" class="count"></span>
+  <button id="dl-json" class="primary">Download JSON</button>
+  <button id="dl-csv">Download CSV</button>
+</header>
+<div class="layout">
+  <nav id="nav"></nav>
+  <main id="main"><p class="empty">Loading manifest…</p></main>
+</div>
+<div class="popover" id="popover"></div>
+<script>
+const state = { deck: null, manifests: {}, current: null, store: {} }
+
+function storageKey(deck) { return 'photo-curation:' + deck }
+function loadStore(deck) {
+  try { return JSON.parse(localStorage.getItem(storageKey(deck)) || '{}') } catch { return {} }
+}
+function saveStore() {
+  localStorage.setItem(storageKey(state.deck), JSON.stringify(state.store))
+  render()
+}
+function entryFor(id) {
+  if (!state.store[id]) state.store[id] = { selected: [], flagged: [] }
+  return state.store[id]
+}
+
+async function boot() {
+  for (const deck of ['france', 'uk']) {
+    try {
+      const res = await fetch('candidates/' + deck + '/manifest.json')
+      if (res.ok) state.manifests[deck] = await res.json()
+    } catch { /* deck not gathered yet */ }
+  }
+  const decks = Object.keys(state.manifests)
+  if (!decks.length) {
+    document.getElementById('main').innerHTML = '<p class="empty">No candidates found.<br/>Run <code>node scripts/gather-landmark-candidates.mjs france</code> first.</p>'
+    return
+  }
+  selectDeck(decks[0])
+}
+
+function selectDeck(deck) {
+  state.deck = deck
+  state.store = loadStore(deck)
+  state.current = state.manifests[deck].landmarks[0]?.id ?? null
+  render()
+}
+
+function curatedCount() {
+  return state.manifests[state.deck].landmarks.filter((l) => (state.store[l.id]?.selected ?? []).length > 0).length
+}
+
+function render() {
+  const manifest = state.manifests[state.deck]
+  document.getElementById('deck-tabs').innerHTML = Object.keys(state.manifests)
+    .map((deck) => `<button class="deck-tab ${deck === state.deck ? 'active' : ''}" onclick="selectDeck('${deck}')">${deck}</button>`).join(' ')
+  document.getElementById('progress').textContent = curatedCount() + '/' + manifest.landmarks.length + ' curated'
+
+  document.getElementById('nav').innerHTML = manifest.landmarks.map((landmark) => {
+    const n = (state.store[landmark.id]?.selected ?? []).length
+    return `<button class="${landmark.id === state.current ? 'active' : ''}" onclick="showLandmark('${landmark.id}')">
+      <span>${landmark.name}${landmark.building ? ' 🏛' : ''}</span><span class="count ${n ? 'done' : ''}">${n || '–'}</span></button>`
+  }).join('')
+
+  const landmark = manifest.landmarks.find((l) => l.id === state.current)
+  if (!landmark) { document.getElementById('main').innerHTML = '<p class="empty">Pick a landmark.</p>'; return }
+  const entry = entryFor(landmark.id)
+  const flaggedSelected = entry.selected.filter((f) => entry.flagged.includes(f))
+  const warning = landmark.building && entry.selected.length > 0 && flaggedSelected.length === 0
+    ? `<div class="warning">Building landmark: flag (⭐) at least one selected whole-building view — it will then always be one of the three photos shown.</div>`
+    : ''
+
+  const index = manifest.landmarks.indexOf(landmark)
+  const prev = manifest.landmarks[index - 1]
+  const next = manifest.landmarks[index + 1]
+
+  document.getElementById('main').innerHTML = `
+    <div class="landmark-head">
+      <h2>${landmark.name}</h2>
+      <span class="hint">click = keep · ⭐ = always include in the three · hover 🎨 for artwork notes</span>
+    </div>
+    ${warning}
+    <div class="grid">
+      ${landmark.candidates.map((candidate) => tileHtml(landmark, candidate, entry)).join('')}
+    </div>
+    <div class="pager">
+      ${prev ? `<button onclick="showLandmark('${prev.id}')">← ${prev.name}</button>` : ''}
+      ${next ? `<button onclick="showLandmark('${next.id}')">${next.name} →</button>` : ''}
+    </div>`
+}
+
+function tileHtml(landmark, candidate, entry) {
+  const selected = entry.selected.includes(candidate.file)
+  const flagged = entry.flagged.includes(candidate.file)
+  const badge = candidate.kind === 'painting'
+    ? `<span class="badge" data-pop="${landmark.id}:${candidate.file}">🎨 painting</span>`
+    : candidate.kind === 'historic-photo'
+      ? `<span class="badge historic" data-pop="${landmark.id}:${candidate.file}">🕰 historic photo</span>`
+      : ''
+  const wholeBuilding = candidate.entireBuilding === true ? '<span class="badge">full view</span>' : ''
+  return `<figure class="tile ${selected ? 'selected' : ''}" data-file="${candidate.file}">
+    <span class="origin">${candidate.origin}</span>
+    <button class="star ${flagged ? 'on' : ''}" title="Always include in the three photos" onclick="toggleFlag(event, '${candidate.file}')">★</button>
+    <img src="candidates/${state.deck}/${landmark.id}/${candidate.file}" loading="lazy" onclick="toggleSelect('${candidate.file}')" />
+    <span class="check">✓</span>
+    <figcaption class="meta">${badge}${wholeBuilding}<span>${(candidate.artist || '').slice(0, 40)}</span></figcaption>
+  </figure>`
+}
+
+function toggleSelect(file) {
+  const entry = entryFor(state.current)
+  if (entry.selected.includes(file)) {
+    entry.selected = entry.selected.filter((f) => f !== file)
+    entry.flagged = entry.flagged.filter((f) => f !== file)
+  } else {
+    entry.selected.push(file)
+  }
+  saveStore()
+}
+
+function toggleFlag(event, file) {
+  event.stopPropagation()
+  const entry = entryFor(state.current)
+  if (entry.flagged.includes(file)) {
+    entry.flagged = entry.flagged.filter((f) => f !== file)
+  } else {
+    entry.flagged.push(file)
+    if (!entry.selected.includes(file)) entry.selected.push(file)
+  }
+  saveStore()
+}
+
+function showLandmark(id) {
+  state.current = id
+  render()
+  window.scrollTo(0, 0)
+}
+
+document.addEventListener('mouseover', (event) => {
+  const target = event.target.closest('[data-pop]')
+  const popover = document.getElementById('popover')
+  if (!target) { popover.style.display = 'none'; return }
+  const [landmarkId, file] = target.dataset.pop.split(':')
+  const landmark = state.manifests[state.deck].landmarks.find((l) => l.id === landmarkId)
+  const candidate = landmark?.candidates.find((c) => c.file === file)
+  const artwork = candidate?.artwork
+  popover.innerHTML = artwork
+    ? `<h4>${artwork.title} — ${artwork.artist}${artwork.year ? ' (' + artwork.year + ')' : ''}</h4>
+       <p>${artwork.importance}</p>
+       <p class="verdict ${artwork.verdict}">Recommendation: ${artwork.verdict === 'keep' ? 'keep — canonical, caption it' : 'drop — not canon'}</p>`
+    : `<h4>${candidate?.kind === 'historic-photo' ? 'Historic photograph' : 'Artwork'}</h4>
+       <p>Not in the known-canon list. Keep only if it is a genuinely famous depiction of the landmark; otherwise prefer a photograph.</p>`
+  popover.style.display = 'block'
+  const rect = target.getBoundingClientRect()
+  popover.style.left = Math.min(rect.left, window.innerWidth - 400) + 'px'
+  popover.style.top = (rect.bottom + 8) + 'px'
+})
+
+function exportData() {
+  const manifest = state.manifests[state.deck]
+  return {
+    deck: state.deck,
+    exportedAt: new Date().toISOString(),
+    landmarks: manifest.landmarks
+      .filter((landmark) => (state.store[landmark.id]?.selected ?? []).length)
+      .map((landmark) => ({
+        id: landmark.id,
+        selected: (state.store[landmark.id]?.selected ?? []).map((file) => ({
+          file,
+          flagged: (state.store[landmark.id]?.flagged ?? []).includes(file),
+        })),
+      })),
+  }
+}
+
+function download(name, text, type) {
+  const a = document.createElement('a')
+  a.href = URL.createObjectURL(new Blob([text], { type }))
+  a.download = name
+  a.click()
+}
+
+document.getElementById('dl-json').onclick = () =>
+  download('photo-curation-' + state.deck + '.json', JSON.stringify(exportData(), null, 2), 'application/json')
+
+document.getElementById('dl-csv').onclick = () => {
+  const rows = [['landmark', 'file', 'flagged']]
+  for (const landmark of exportData().landmarks) {
+    for (const pick of landmark.selected) rows.push([landmark.id, pick.file, pick.flagged])
+  }
+  download('photo-curation-' + state.deck + '.csv', rows.map((row) => row.join(',')).join('\n'), 'text/csv')
+}
+
+boot()
+</script>
+</body>
+</html>

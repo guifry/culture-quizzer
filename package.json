@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "curate": "node scripts/serve-curation.mjs"
   },
   "dependencies": {
     "@types/topojson-client": "^3.1.5",
