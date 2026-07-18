@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState, type FormEvent } from 'react'
 import { Check, ChevronRight, RotateCcw, X } from 'lucide-react'
 import type { Landmark, QuizMode, Topic } from '../data/types'
-import { isLandmarkLocationCorrect, matchesLandmarkName } from '../data/landmarks/types'
+import { evaluateLandmarkLocation, matchesLandmarkName } from '../data/landmarks/types'
 import { shuffle } from '../utils'
 import { LandmarkMap } from './LandmarkMap'
 import { LandmarkPhotos } from './LandmarkPhotos'
@@ -25,6 +25,8 @@ type LandmarkResult = {
   mode: QuizMode
   guess: LonLat | null
   locationOk: boolean
+  distanceKm: number | null
+  insideZone: boolean
   compound: boolean
   nameOk: boolean
   submittedName: string
@@ -67,6 +69,17 @@ function star(landmark: Landmark) {
 
 function modeLabel(mode: QuizMode) {
   return mode === 'landmark-locate' ? 'Locate' : mode === 'landmark-photos' ? 'Photos' : 'Clue'
+}
+
+function locationVerdictText(result: LandmarkResult, landmark: Landmark): string {
+  if (result.guess === null) return `not placed — it is in ${regionLabel(landmark)}.`
+  const km = result.distanceKm
+  if (result.locationOk) {
+    if (result.insideZone) return 'correct — inside the area.'
+    return km !== null && km > 0 ? `correct — ${km} km from the exact spot.` : 'correct — spot on.'
+  }
+  const away = km !== null ? ` Your click was ${km} km away.` : ''
+  return `it is in ${regionLabel(landmark)}.${away}`
 }
 
 function Stat({ label, value }: { label: string; value: string | number }) {
@@ -139,17 +152,42 @@ export function LandmarkQuiz({
       setGuess(lonLat)
       return
     }
-    const locationOk = isLandmarkLocationCorrect(landmark, lonLat)
-    commit({ id: `${landmark.id}:${position}`, landmark, mode, guess: lonLat, locationOk, compound: false, nameOk: false, submittedName: '', points: locationOk ? 1 : 0 })
+    const verdict = evaluateLandmarkLocation(landmark, lonLat)
+    commit({
+      id: `${landmark.id}:${position}`,
+      landmark,
+      mode,
+      guess: lonLat,
+      locationOk: verdict.ok,
+      distanceKm: verdict.distanceKm,
+      insideZone: verdict.insideZone,
+      compound: false,
+      nameOk: false,
+      submittedName: '',
+      points: verdict.ok ? 1 : 0,
+    })
   }
 
   function submitCompound(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
     if (review || !landmark) return
-    const locationOk = guess ? isLandmarkLocationCorrect(landmark, guess) : false
+    const verdict = guess ? evaluateLandmarkLocation(landmark, guess) : null
+    const locationOk = verdict?.ok ?? false
     const nameOk = matchesLandmarkName(nameInput, landmark)
     const points = (locationOk ? 0.5 : 0) + (nameOk ? 0.5 : 0)
-    commit({ id: `${landmark.id}:${position}`, landmark, mode, guess, locationOk, compound: true, nameOk, submittedName: nameInput, points })
+    commit({
+      id: `${landmark.id}:${position}`,
+      landmark,
+      mode,
+      guess,
+      locationOk,
+      distanceKm: verdict ? verdict.distanceKm : null,
+      insideZone: verdict?.insideZone ?? false,
+      compound: true,
+      nameOk,
+      submittedName: nameInput,
+      points,
+    })
   }
 
   const advance = useCallback(() => {
@@ -238,7 +276,7 @@ export function LandmarkQuiz({
       ) : null}
       <p className={review.locationOk ? 'verdict-line ok' : 'verdict-line bad'}>
         <span>{review.locationOk ? <Check size={15} /> : <X size={15} />}</span>
-        <span>Location: {review.locationOk ? 'correct' : `it is in ${regionLabel(landmark)}`}.</span>
+        <span>Location: {locationVerdictText(review, landmark)}</span>
       </p>
       <p className="city-fact-reveal">{landmark.course.nutshell}</p>
     </div>
@@ -252,7 +290,7 @@ export function LandmarkQuiz({
           <article key={result.id} className={`city-history-card ${tone}`}>
             <strong>{result.landmark.name}{star(result.landmark)}</strong>
             <p>
-              {result.compound ? `Name ${result.nameOk ? '✓' : '✗'} · ` : ''}Location {result.locationOk ? '✓' : `✗ (${regionLabel(result.landmark)})`}
+              {result.compound ? `Name ${result.nameOk ? '✓' : '✗'} · ` : ''}Location {result.locationOk ? '✓' : `✗ (${regionLabel(result.landmark)}${result.distanceKm !== null ? `, ${result.distanceKm} km off` : ''})`}
             </p>
           </article>
         )

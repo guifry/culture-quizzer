@@ -479,6 +479,13 @@
   stroke: none;
 }
 
+.true-zone {
+  fill: rgb(46 111 214 / 18%);
+  stroke: #2e6fd6;
+  stroke-dasharray: 4 3;
+  stroke-linejoin: round;
+}
+
 .city-map-controls {
   position: absolute;
   top: 8px;

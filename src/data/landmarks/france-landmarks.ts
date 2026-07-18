@@ -269,6 +269,7 @@ export const franceLandmarks: Landmark[] = [
     region: 'Haute-Savoie',
     lat: 45.8326,
     lon: 6.8652,
+    zone: [[6.75, 45.95], [6.95, 45.97], [7.05, 45.88], [6.93, 45.75], [6.72, 45.82]],
     essential: true,
     mapBlurb: `At 4,805 m, the highest peak in the Alps and in western Europe.`,
     course: {
@@ -545,6 +546,7 @@ export const franceLandmarks: Landmark[] = [
     region: 'Var',
     lat: 43.7667,
     lon: 6.2667,
+    zone: [[6.2, 43.8], [6.42, 43.85], [6.55, 43.82], [6.53, 43.72], [6.25, 43.7]],
     mapBlurb: `Europe's largest canyon, with turquoise water cutting through limestone 700 m deep.`,
     course: {
       nutshell: `Europe's largest canyon, carved by the turquoise Verdon river through limestone cliffs up to 700 m deep. Its river is famed for kayaking and its roads for vertiginous views; the emerald water has given it the name "Grand Canyon of Europe."`,
@@ -570,6 +572,7 @@ export const franceLandmarks: Landmark[] = [
     region: 'Seine-Maritime',
     lat: 49.707,
     lon: 0.207,
+    zone: [[0.14, 49.735], [0.23, 49.745], [0.245, 49.71], [0.16, 49.68]],
     mapBlurb: `Chalk cliffs with a natural arch and a needle-like pinnacle on the Normandy coast.`,
     course: {
       nutshell: `Spectacular chalk cliffs on the Alabaster Coast of Normandy, shaped by the sea into natural arches and a tall needle — the Aiguille. They have inspired artists from Monet to Arsène Lupin's The Hollow Needle.`,
@@ -620,6 +623,7 @@ export const franceLandmarks: Landmark[] = [
     region: 'Corse-du-Sud',
     lat: 42.2333,
     lon: 8.65,
+    zone: [[8.56, 42.3], [8.67, 42.29], [8.68, 42.21], [8.57, 42.2]],
     mapBlurb: `Blood-red granite cliffs plunging into the turquoise Mediterranean on the Gulf of Porto.`,
     course: {
       nutshell: `A breathtaking coastal landscape of blood-red granite cliffs and eroded rock formations plunging into the turquoise Mediterranean on the Gulf of Porto. The "calanques" (coves) of Piana are the most dramatic of Corsica's granite wonders, a UNESCO World Heritage site.`,
@@ -820,6 +824,7 @@ export const franceLandmarks: Landmark[] = [
     region: 'Landes',
     lat: 44.2,
     lon: -1.3,
+    zone: [[-1.35, 44.68], [-1.08, 44.65], [-1.28, 43.55], [-1.55, 43.6]],
     mapBlurb: `A 230-km coast of Atlantic surf, pine forest and sand — Europe's longest beachfront forest.`,
     course: {
       nutshell: `A 230-kilometre stretch of wild Atlantic coastline hemmed by Europe's largest maritime pine forest — the forest of Les Landes. Long sandy beaches, powerful surf and the region's unique culture of pastoral shepherds on stilts make it a distinctive natural and human landscape.`,

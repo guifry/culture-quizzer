@@ -108,6 +108,7 @@ export type Landmark = {
   region?: string
   lat: number
   lon: number
+  zone?: Array<[number, number]>
   essential?: boolean
   mapBlurb: string
   course: LandmarkCourse

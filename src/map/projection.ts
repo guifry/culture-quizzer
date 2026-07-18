@@ -12,15 +12,21 @@ export type MapView = {
 
 export const defaultMapView: MapView = { scale: 1, x: 0, y: 0 }
 
-export function clampMapView(view: MapView): MapView {
-  if (view.scale <= 1) return defaultMapView
-  const minX = WIDTH - WIDTH * view.scale
-  const minY = HEIGHT - HEIGHT * view.scale
+// panSlack (fraction of the viewport) lets the map be dragged beyond the strict fit — needed
+// to pan at base zoom, e.g. to pull Corsica out from under an overlay. 0 keeps the old
+// behaviour: no offset at base zoom, hard edges when zoomed.
+export function clampMapView(view: MapView, panSlack = 0): MapView {
+  const scale = Math.max(1, view.scale)
+  if (scale <= 1 && panSlack === 0) return defaultMapView
+  const slackX = WIDTH * panSlack
+  const slackY = HEIGHT * panSlack
+  const minX = WIDTH - WIDTH * scale - slackX
+  const minY = HEIGHT - HEIGHT * scale - slackY
 
   return {
-    scale: view.scale,
-    x: Math.min(0, Math.max(minX, view.x)),
-    y: Math.min(0, Math.max(minY, view.y)),
+    scale,
+    x: Math.min(slackX, Math.max(minX, view.x)),
+    y: Math.min(slackY, Math.max(minY, view.y)),
   }
 }
 

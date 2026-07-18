@@ -11,6 +11,8 @@ import './CityQuiz.css'
 type LonLat = [number, number]
 type BoundaryFeature = GeoJSON.Feature<GeoJSON.Geometry, Record<string, string | number | null>>
 
+const PAN_SLACK = 0.5
+
 const UK_REF_CITIES = [
   { name: 'London', lat: 51.5072, lon: -0.1276 },
   { name: 'Birmingham', lat: 52.4862, lon: -1.8904 },
@@ -87,7 +89,10 @@ export function LandmarkMap({
   }, [mapScope, projection])
 
   const guessXY = guess ? projection(guess) : null
-  const truePoint = review ? projection([landmark.lon, landmark.lat]) : null
+  const truePoint = review && !landmark.zone ? projection([landmark.lon, landmark.lat]) : null
+  const zonePath = review && landmark.zone && landmark.zone.length >= 3
+    ? path({ type: 'Polygon', coordinates: [[...landmark.zone, landmark.zone[0]]] })
+    : null
   const mapTransform = `translate(${mapView.x} ${mapView.y}) scale(${mapView.scale})`
 
   function mapPointFromClient(clientX: number, clientY: number): [number, number] | null {
@@ -109,7 +114,7 @@ export function LandmarkMap({
       const nextScale = Math.min(8, Math.max(1, previous.scale * (direction > 0 ? 1.4 : 1 / 1.4)))
       const worldX = (pointX - previous.x) / previous.scale
       const worldY = (pointY - previous.y) / previous.scale
-      return clampMapView({ scale: nextScale, x: pointX - worldX * nextScale, y: pointY - worldY * nextScale })
+      return clampMapView({ scale: nextScale, x: pointX - worldX * nextScale, y: pointY - worldY * nextScale }, PAN_SLACK)
     })
   }
 
@@ -120,7 +125,6 @@ export function LandmarkMap({
   }
 
   function handlePointerDown(event: ReactPointerEvent<SVGSVGElement>) {
-    if (mapView.scale <= 1) return
     dragRef.current = { pointerId: event.pointerId, clientX: event.clientX, clientY: event.clientY, moved: false, view: mapView }
     event.currentTarget.setPointerCapture(event.pointerId)
   }
@@ -133,7 +137,8 @@ export function LandmarkMap({
     const dx = ((event.clientX - drag.clientX) / rect.width) * WIDTH
     const dy = ((event.clientY - drag.clientY) / rect.height) * HEIGHT
     if (Math.hypot(event.clientX - drag.clientX, event.clientY - drag.clientY) > 4) drag.moved = true
-    setMapView(clampMapView({ ...drag.view, x: drag.view.x + dx, y: drag.view.y + dy }))
+    if (!drag.moved) return
+    setMapView(clampMapView({ ...drag.view, x: drag.view.x + dx, y: drag.view.y + dy }, PAN_SLACK))
   }
 
   function handlePointerUp(event: ReactPointerEvent<SVGSVGElement>) {
@@ -204,6 +209,7 @@ export function LandmarkMap({
             )
           })}
 
+          {zonePath ? <path className="true-zone" d={zonePath} style={{ strokeWidth: 1.6 / mapView.scale }} /> : null}
           {guessXY ? (
             <g className={review ? (locationOk ? 'guess-marker ok' : 'guess-marker bad') : 'guess-marker'} transform={`translate(${guessXY[0]} ${guessXY[1]})`}>
               <circle r={5 / mapView.scale} />
