@@ -2,6 +2,8 @@ import { useCallback, useEffect, useState, type FormEvent } from 'react'
 import { Check, ChevronRight, RotateCcw, X } from 'lucide-react'
 import type { Landmark, QuizMode, Topic } from '../data/types'
 import { evaluateLandmarkLocation, matchesLandmarkName } from '../data/landmarks/types'
+import { landmarkQuizStrings, frenchRegionName, type LandmarkQuizStrings } from '../data/landmarks/quiz-strings'
+import { useSettings } from '../settings'
 import { shuffle } from '../utils'
 import { LandmarkMap } from './LandmarkMap'
 import { LandmarkPhotos } from './LandmarkPhotos'
@@ -59,27 +61,24 @@ function pct(correct: number, attempts: number) {
   return attempts ? Math.round((correct / attempts) * 100) : 0
 }
 
-function regionLabel(landmark: Landmark) {
-  return landmark.region ? `${landmark.region}, ${landmark.nation}` : landmark.nation
+function regionLabel(landmark: Landmark, french = false) {
+  const nation = french ? frenchRegionName(landmark.nation) : landmark.nation
+  return landmark.region ? `${landmark.region}, ${nation}` : nation
 }
 
 function star(landmark: Landmark) {
   return landmark.essential ? ' ★' : ''
 }
 
-function modeLabel(mode: QuizMode) {
-  return mode === 'landmark-locate' ? 'Locate' : mode === 'landmark-photos' ? 'Photos' : 'Clue'
-}
-
-function locationVerdictText(result: LandmarkResult, landmark: Landmark): string {
-  if (result.guess === null) return `not placed — it is in ${regionLabel(landmark)}.`
+function locationVerdictText(result: LandmarkResult, landmark: Landmark, t: LandmarkQuizStrings, french: boolean): string {
+  const region = regionLabel(landmark, french)
+  if (result.guess === null) return t.notPlaced(region)
   const km = result.distanceKm
   if (result.locationOk) {
-    if (result.insideZone) return 'correct — inside the area.'
-    return km !== null && km > 0 ? `correct — ${km} km from the exact spot.` : 'correct — spot on.'
+    if (result.insideZone) return t.correctInside
+    return km !== null && km > 0 ? t.correctNear(km) : t.correctSpotOn
   }
-  const away = km !== null ? ` Your click was ${km} km away.` : ''
-  return `it is in ${regionLabel(landmark)}.${away}`
+  return t.wrongAt(region, km)
 }
 
 function Stat({ label, value }: { label: string; value: string | number }) {
@@ -111,6 +110,10 @@ export function LandmarkQuiz({
   const landmarks = topic.landmarks ?? []
   const compound = mode !== 'landmark-locate'
   const scoreKey = `${topic.id}:${mode}`
+  const { language } = useSettings()
+  const isFranceScope = topic.mapScope === 'france'
+  const french = isFranceScope && language === 'fr'
+  const t = landmarkQuizStrings(french ? 'fr' : 'en')
 
   const [order, setOrder] = useState<number[]>(() => shuffle(landmarks.map((_, index) => index)))
   const [cluePicks, setCluePicks] = useState<number[]>(() => pickClues(landmarks))
@@ -223,18 +226,18 @@ export function LandmarkQuiz({
 
   const promptBody = mode === 'landmark-locate' ? (
     <>
-      <span className="eyebrow">Locate on the map</span>
+      <span className="eyebrow">{t.locateEyebrow}</span>
       <h2>{landmark.name}{star(landmark)}</h2>
-      <p className="prompt-help">{`Click where this landmark is in ${topic.mapScope === 'france' ? 'France' : 'the United Kingdom'}.`}</p>
+      <p className="prompt-help">{french ? t.locateHelp : `Click where this landmark is in ${isFranceScope ? 'France' : 'the United Kingdom'}.`}</p>
     </>
   ) : mode === 'landmark-photos' ? (
     <>
-      <span className="eyebrow">{review ? 'What you were looking at' : 'Name the landmark from its photos'}</span>
-      <LandmarkPhotos key={`${landmark.id}:${position}`} landmark={landmark} revealed={Boolean(review)} />
+      <span className="eyebrow">{review ? t.photosReveal : t.photosAsk}</span>
+      <LandmarkPhotos key={`${landmark.id}:${position}`} landmark={landmark} revealed={Boolean(review)} strings={t} />
     </>
   ) : (
     <>
-      <span className="eyebrow">Name the landmark from this clue</span>
+      <span className="eyebrow">{t.clueEyebrow}</span>
       <p className="city-clue-text">{clue}</p>
     </>
   )
@@ -245,24 +248,24 @@ export function LandmarkQuiz({
         key={`name:${position}`}
         value={nameInput}
         onChange={(event) => setNameInput(event.target.value)}
-        placeholder="Type the landmark name"
+        placeholder={t.inputPlaceholder}
         autoComplete="off"
         readOnly={Boolean(review)}
         autoFocus
       />
       {review ? (
         <button type="button" className="primary-action" onClick={advance}>
-          Next <ChevronRight size={16} />
+          {t.next} <ChevronRight size={16} />
         </button>
       ) : (
         <button type="submit" disabled={!guess && !nameInput.trim()}>
-          Check
+          {t.check}
         </button>
       )}
     </form>
   ) : review ? (
     <button type="button" className="primary-action next-locate" onClick={advance}>
-      Next <ChevronRight size={16} />
+      {t.next} <ChevronRight size={16} />
     </button>
   ) : null
 
@@ -271,12 +274,12 @@ export function LandmarkQuiz({
       {compound ? (
         <p className={review.nameOk ? 'verdict-line ok' : 'verdict-line bad'}>
           <span>{review.nameOk ? <Check size={15} /> : <X size={15} />}</span>
-          <span>Name: {review.nameOk ? 'correct' : `it was ${landmark.name}`}{review.submittedName.trim() ? ` (you wrote "${review.submittedName.trim()}")` : ''}.</span>
+          <span>{t.nameLabel} {review.nameOk ? t.nameCorrect : t.nameWas(landmark.name)}{review.submittedName.trim() ? t.youWrote(review.submittedName.trim()) : ''}.</span>
         </p>
       ) : null}
       <p className={review.locationOk ? 'verdict-line ok' : 'verdict-line bad'}>
         <span>{review.locationOk ? <Check size={15} /> : <X size={15} />}</span>
-        <span>Location: {locationVerdictText(review, landmark)}</span>
+        <span>{t.locationLabel} {locationVerdictText(review, landmark, t, french)}</span>
       </p>
       <p className="city-fact-reveal">{landmark.course.nutshell}</p>
     </div>
@@ -290,7 +293,7 @@ export function LandmarkQuiz({
           <article key={result.id} className={`city-history-card ${tone}`}>
             <strong>{result.landmark.name}{star(result.landmark)}</strong>
             <p>
-              {result.compound ? `Name ${result.nameOk ? '✓' : '✗'} · ` : ''}Location {result.locationOk ? '✓' : `✗ (${regionLabel(result.landmark)}${result.distanceKm !== null ? `, ${result.distanceKm} km off` : ''})`}
+              {result.compound ? `${t.historyName} ${result.nameOk ? '✓' : '✗'} · ` : ''}{t.historyLocation} {result.locationOk ? '✓' : `✗ (${regionLabel(result.landmark, french)}${result.distanceKm !== null ? `, ${t.kmOff(result.distanceKm)}` : ''})`}
             </p>
           </article>
         )
@@ -300,17 +303,17 @@ export function LandmarkQuiz({
 
   const deckCompletePanel = (
     <section className="deck-complete">
-      <span className="eyebrow">Deck complete</span>
-      <h2>Round finished</h2>
+      <span className="eyebrow">{t.deckComplete}</span>
+      <h2>{t.roundFinished}</h2>
       <div className="deck-complete-stats">
-        <Stat label="Score" value={`${scorePct}%`} />
-        {compound ? <Stat label="Name accuracy" value={`${namePct}%`} /> : null}
-        <Stat label="Location accuracy" value={`${locationPct}%`} />
-        <Stat label="Best streak" value={score.bestStreak} />
+        <Stat label={t.score} value={`${scorePct}%`} />
+        {compound ? <Stat label={t.nameAccuracy} value={`${namePct}%`} /> : null}
+        <Stat label={t.locationAccuracy} value={`${locationPct}%`} />
+        <Stat label={t.bestStreak} value={score.bestStreak} />
       </div>
       <button className="primary-action" type="button" onClick={startNewRound}>
         <RotateCcw size={16} />
-        Start new shuffled round
+        {t.newRound}
       </button>
       <p className="coverage">{topic.coverage}</p>
     </section>
@@ -319,11 +322,11 @@ export function LandmarkQuiz({
   if (mobile) {
     const modeSelect = (
       <label className="mmg-select">
-        <span>Quiz type</span>
+        <span>{t.quizType}</span>
         <select value={mode} onChange={(event) => onMode?.(event.target.value as QuizMode)}>
           {topic.modes.map((availableMode) => (
             <option key={availableMode} value={availableMode}>
-              {modeLabel(availableMode)}
+              {t.modeLabel(availableMode)}
             </option>
           ))}
         </select>
@@ -331,10 +334,10 @@ export function LandmarkQuiz({
     )
     const viewSelect = onPageView ? (
       <label className="mmg-select">
-        <span>View</span>
+        <span>{t.view}</span>
         <select value={pageView === 'course' ? 'course' : 'practice'} onChange={(event) => onPageView(event.target.value as 'practice' | 'course')}>
-          <option value="practice">Play</option>
-          <option value="course">Course</option>
+          <option value="practice">{t.play}</option>
+          <option value="course">{t.course}</option>
         </select>
       </label>
     ) : null
@@ -353,17 +356,17 @@ export function LandmarkQuiz({
             {resetButton}
           </div>
           <div className="deck-complete">
-            <span className="eyebrow">Deck complete</span>
-            <h2>Round finished</h2>
+            <span className="eyebrow">{t.deckComplete}</span>
+            <h2>{t.roundFinished}</h2>
             <button className="primary-action" type="button" onClick={startNewRound}>
               <RotateCcw size={16} />
-              Start new shuffled round
+              {t.newRound}
             </button>
             <div className="deck-complete-stats">
-              <Stat label="Score" value={`${scorePct}%`} />
-              {compound ? <Stat label="Name accuracy" value={`${namePct}%`} /> : null}
-              <Stat label="Location accuracy" value={`${locationPct}%`} />
-              <Stat label="Best streak" value={score.bestStreak} />
+              <Stat label={t.score} value={`${scorePct}%`} />
+              {compound ? <Stat label={t.nameAccuracy} value={`${namePct}%`} /> : null}
+              <Stat label={t.locationAccuracy} value={`${locationPct}%`} />
+              <Stat label={t.bestStreak} value={score.bestStreak} />
             </div>
             <p className="coverage">{topic.coverage}</p>
           </div>
@@ -400,13 +403,13 @@ export function LandmarkQuiz({
     return (
       <div className="city-quiz city-complete">
         <section className="score-strip" aria-label="Current score">
-          <Stat label="Deck" value={landmarks.length} />
-          <Stat label="Progress" value={`${landmarks.length}/${landmarks.length}`} />
-          <Stat label="Score" value={`${scorePct}%`} />
-          {compound ? <Stat label="Name" value={`${namePct}%`} /> : null}
-          <Stat label="Location" value={`${locationPct}%`} />
-          <Stat label="Streak" value={score.streak} />
-          <Stat label="Best" value={score.bestStreak} />
+          <Stat label={t.deck} value={landmarks.length} />
+          <Stat label={t.progress} value={`${landmarks.length}/${landmarks.length}`} />
+          <Stat label={t.score} value={`${scorePct}%`} />
+          {compound ? <Stat label={t.name} value={`${namePct}%`} /> : null}
+          <Stat label={t.location} value={`${locationPct}%`} />
+          <Stat label={t.streak} value={score.streak} />
+          <Stat label={t.best} value={score.bestStreak} />
         </section>
         {deckCompletePanel}
       </div>
@@ -418,13 +421,13 @@ export function LandmarkQuiz({
       <LandmarkMap landmark={landmark} guess={displayGuess} review={Boolean(review)} locationOk={displayLocationOk} interactive={!review} onPick={handlePick} mapScope={topic.mapScope} />
 
       <section className="score-strip score-overlay" aria-label="Current score">
-        <Stat label="Deck" value={landmarks.length} />
-        <Stat label="Progress" value={`${Math.min(position + 1, landmarks.length)}/${landmarks.length}`} />
-        <Stat label="Score" value={`${scorePct}%`} />
-        {compound ? <Stat label="Name" value={`${namePct}%`} /> : null}
-        <Stat label="Location" value={`${locationPct}%`} />
-        <Stat label="Streak" value={score.streak} />
-        <Stat label="Best" value={score.bestStreak} />
+        <Stat label={t.deck} value={landmarks.length} />
+        <Stat label={t.progress} value={`${Math.min(position + 1, landmarks.length)}/${landmarks.length}`} />
+        <Stat label={t.score} value={`${scorePct}%`} />
+        {compound ? <Stat label={t.name} value={`${namePct}%`} /> : null}
+        <Stat label={t.location} value={`${locationPct}%`} />
+        <Stat label={t.streak} value={score.streak} />
+        <Stat label={t.best} value={score.bestStreak} />
       </section>
 
       <div className="quiz-overlay city-overlay">

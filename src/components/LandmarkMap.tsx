@@ -5,6 +5,8 @@ import type { Landmark, MapScope } from '../data/types'
 import { WIDTH, HEIGHT, defaultMapView, clampMapView, buildProjection, type MapView } from '../map/projection'
 import { worldCountryFeatures } from '../map/features'
 import { loadGeoLayer } from '../map/geoLayers'
+import { landmarkQuizStrings } from '../data/landmarks/quiz-strings'
+import { useSettings } from '../settings'
 import ukAdmin from '../data/geo/uk-counties-unitaries-2022.json'
 import frRegions from '../data/geo/fr-regions.json'
 import './CityQuiz.css'
@@ -68,6 +70,8 @@ export function LandmarkMap({
   const suppressClickRef = useRef(false)
   const [mapView, setMapView] = useState<MapView>(defaultMapView)
   const isFrance = mapScope === 'france'
+  const { language } = useSettings()
+  const t = landmarkQuizStrings(isFrance && language === 'fr' ? 'fr' : 'en')
 
   const [detailLayers, setDetailLayers] = useState<Record<string, GeoJSON.GeoJSON | null>>({})
 
@@ -232,7 +236,7 @@ export function LandmarkMap({
         onPointerCancel={handlePointerUp}
         onClick={handleClick}
         role="img"
-        aria-label={`Map of ${isFrance ? 'France' : 'the United Kingdom'}`}
+        aria-label={isFrance ? t.mapAria : 'Map of the United Kingdom'}
       >
         <rect width={WIDTH} height={HEIGHT} className="city-ocean" />
         <g transform={mapTransform}>
@@ -281,7 +285,7 @@ export function LandmarkMap({
           ) : null}
         </g>
       </svg>
-      <p className="city-map-hint">Ctrl/⌘ + scroll to zoom · drag to pan</p>
+      <p className="city-map-hint">{t.mapHint}</p>
     </div>
   )
 }

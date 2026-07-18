@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState, type CSSProperties, type FormEvent, type PointerEvent as ReactPointerEvent, type WheelEvent as ReactWheelEvent } from 'react'
 import { feature } from 'topojson-client'
 import { geoContains, geoPath } from 'd3-geo'
-import { BookOpen, Check, ChevronRight, Globe2, Image, MapPinned, Menu, RotateCcw, X } from 'lucide-react'
+import { BookOpen, Check, ChevronRight, Globe2, Image, MapPinned, Menu, RotateCcw, Settings, X } from 'lucide-react'
 import countries110m from 'world-atlas/countries-110m.json'
 import usStatesAtlas from 'us-atlas/states-10m.json'
 import frDepartments from './data/geo/fr-departments.json'
@@ -20,6 +20,9 @@ import { LandmarkQuiz } from './components/LandmarkQuiz'
 import { LandmarkCourse } from './components/LandmarkCourse'
 import { PaintingQuiz } from './components/PaintingQuiz'
 import { PaintingCourse } from './components/PaintingCourse'
+import { SettingsDialog } from './components/SettingsDialog'
+import { getSettings, useSettings } from './settings'
+import { localiseLandmarkTopic } from './data/landmarks/localise'
 import { WIDTH, HEIGHT, defaultMapView, buildProjection, type MapView } from './map/projection'
 
 type CountryFeature = GeoJSON.Feature<GeoJSON.Geometry, { name: string }>
@@ -149,6 +152,12 @@ function modeLabel(topic: Topic, mode: QuizMode) {
   if (topic.id === 'us-cities') {
     if (mode === 'map-click') return 'Locate the state'
     if (mode === 'type') return 'Type the city'
+  }
+
+  if (topic.id === 'france-landmarks-game' && getSettings().language === 'fr') {
+    if (mode === 'landmark-locate') return 'Situer'
+    if (mode === 'landmark-photos') return 'Photos'
+    if (mode === 'landmark-clue') return 'Indice'
   }
 
   return defaultModeLabels[mode]
@@ -2113,7 +2122,10 @@ function App() {
 
   const initialParams = useMemo(() => readGameParams(fullTopics), [fullTopics])
   const [topicId, setTopicId] = useState(initialParams.topicId)
-  const activeTopic = fullTopics.find((topic) => topic.id === topicId) ?? fullTopics[0]
+  const { language } = useSettings()
+  const [settingsOpen, setSettingsOpen] = useState(false)
+  const baseTopic = fullTopics.find((topic) => topic.id === topicId) ?? fullTopics[0]
+  const activeTopic = useMemo(() => localiseLandmarkTopic(baseTopic, language), [baseTopic, language])
   const [mode, setMode] = useState<QuizMode>(initialParams.mode)
   const [scope, setScope] = useState<string>(initialParams.scope)
   const [usGuess, setUsGuess] = useState<UsGuess>(initialParams.usGuess)
@@ -2484,7 +2496,14 @@ function App() {
             </section>
           ))}
         </nav>
+
+        <button className="settings-open" type="button" onClick={() => setSettingsOpen(true)}>
+          <Settings size={16} />
+          <span>Settings</span>
+        </button>
       </aside>
+
+      <SettingsDialog open={settingsOpen} onClose={() => setSettingsOpen(false)} />
 
       {mobileMapGame ? (
         <MobileMapGame
@@ -2564,7 +2583,11 @@ function App() {
           <div className="view-control" role="tablist" aria-label="Section view">
             {(isCoursePairTopic(activeTopic) ? (['practice', 'course'] as PageView[]) : (['practice', 'course', 'questions'] as PageView[])).map((view) => (
               <button key={view} className={activePageView === view ? 'view-button active' : 'view-button'} type="button" onClick={() => setPageView(view)}>
-                {isCoursePairTopic(activeTopic) ? (view === 'practice' ? 'Play' : 'Course') : view === 'practice' ? 'Practice' : view === 'course' ? 'Course' : 'Questions'}
+                {isCoursePairTopic(activeTopic)
+                  ? activeTopic.id === 'france-landmarks-game' && language === 'fr'
+                    ? view === 'practice' ? 'Jouer' : 'Cours'
+                    : view === 'practice' ? 'Play' : 'Course'
+                  : view === 'practice' ? 'Practice' : view === 'course' ? 'Course' : 'Questions'}
               </button>
             ))}
           </div>
@@ -2611,7 +2634,7 @@ function App() {
             ) : null}
 
             <div className="mode-control">
-              <span>Quiz type</span>
+              <span>{activeTopic.id === 'france-landmarks-game' && language === 'fr' ? 'Type de quiz' : 'Quiz type'}</span>
               <div className="mode-row" role="tablist" aria-label="Quiz type">
                 {activeTopic.modes.map((availableMode) => (
                   <button
