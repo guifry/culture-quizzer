@@ -102,6 +102,7 @@ export type LandmarkCourse = {
 export type Landmark = {
   id: string
   name: string
+  nameFr?: string
   aliases?: string[]
   nation: Nation
   region?: string

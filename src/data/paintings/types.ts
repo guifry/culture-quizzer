@@ -1,30 +1,5 @@
 import type { GlossaryTerm, Painting, QuizMode, Topic } from '../types'
-
-function normalize(value: string): string {
-  return value
-    .normalize('NFD')
-    .replace(/[̀-ͯ]/g, '')
-    .toLowerCase()
-    .replace(/&/g, 'and')
-    .replace(/[^a-z0-9]+/g, ' ')
-    .trim()
-}
-
-function levenshtein(a: string, b: string): number {
-  if (a === b) return 0
-  if (!a.length) return b.length
-  if (!b.length) return a.length
-  let previous = Array.from({ length: b.length + 1 }, (_, index) => index)
-  for (let i = 0; i < a.length; i += 1) {
-    const current = [i + 1]
-    for (let j = 0; j < b.length; j += 1) {
-      const cost = a[i] === b[j] ? 0 : 1
-      current.push(Math.min(current[j] + 1, previous[j + 1] + 1, previous[j] + cost))
-    }
-    previous = current
-  }
-  return previous[b.length]
-}
+import { levenshtein, normalizeAnswer as normalize } from '../matching'
 
 function fuzzyIncludes(text: string, needle: string): boolean {
   return text.includes(needle) || levenshtein(text, needle) <= 2

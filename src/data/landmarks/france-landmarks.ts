@@ -56,7 +56,7 @@ export const franceLandmarks: Landmark[] = [
   {
     id: 'palace-of-versailles',
     name: 'Palace of Versailles',
-    aliases: ['Versailles', 'Château de Versailles'],
+    aliases: ['Versailles', 'Château de Versailles', 'Palais de Versailles', 'Versailles Palace'],
     nation: 'Île-de-France',
     region: 'Versailles',
     lat: 48.8049,
@@ -82,7 +82,7 @@ export const franceLandmarks: Landmark[] = [
   {
     id: 'notre-dame-de-paris',
     name: 'Notre-Dame de Paris',
-    aliases: ['Notre Dame', 'Notre Dame de Paris', 'Notre-Dame'],
+    aliases: ['Notre Dame', 'Notre Dame de Paris', 'Notre-Dame', 'Cathédrale Notre-Dame de Paris', 'Notre Dame Cathedral'],
     nation: 'Île-de-France',
     region: 'Paris',
     lat: 48.853,
@@ -134,7 +134,7 @@ export const franceLandmarks: Landmark[] = [
   {
     id: 'mont-saint-michel',
     name: 'Mont-Saint-Michel',
-    aliases: ['Mont Saint Michel', 'Le Mont-Saint-Michel', 'Mont Saint-Michel'],
+    aliases: ['Mont Saint Michel', 'Le Mont-Saint-Michel', 'Mont Saint-Michel', 'Mont St Michel', 'Abbaye du Mont-Saint-Michel'],
     nation: 'Normandy',
     region: 'Manche',
     lat: 48.6361,
@@ -186,7 +186,7 @@ export const franceLandmarks: Landmark[] = [
   {
     id: 'chateau-de-chambord',
     name: 'Château de Chambord',
-    aliases: ['Chambord', 'Chateau de Chambord'],
+    aliases: ['Chambord', 'Chateau de Chambord', 'Chambord Castle'],
     nation: 'Centre-Val de Loire',
     region: 'Loir-et-Cher',
     lat: 47.6161,
@@ -238,7 +238,7 @@ export const franceLandmarks: Landmark[] = [
   {
     id: 'lascaux-cave',
     name: 'Lascaux Cave',
-    aliases: ['Lascaux', 'Grotte de Lascaux', 'Lascaux IV'],
+    aliases: ['Lascaux', 'Grotte de Lascaux', 'Lascaux IV', 'Lascaux Caves'],
     nation: 'Nouvelle-Aquitaine',
     region: 'Dordogne',
     lat: 45.0498,
@@ -290,7 +290,7 @@ export const franceLandmarks: Landmark[] = [
   {
     id: 'sacre-coeur',
     name: 'Sacré-Cœur Basilica',
-    aliases: ['Sacré-Cœur', 'Basilique du Sacré-Cœur', 'Sacre Coeur', 'Sacred Heart'],
+    aliases: ['Sacré-Cœur', 'Basilique du Sacré-Cœur', 'Sacre Coeur', 'Sacred Heart', 'Sacred Heart Basilica', 'Basilique du Sacré-Cœur de Montmartre'],
     nation: 'Île-de-France',
     region: 'Paris',
     lat: 48.8867,
@@ -340,7 +340,7 @@ export const franceLandmarks: Landmark[] = [
   {
     id: 'pantheon',
     name: 'Panthéon',
-    aliases: ['Pantheon', 'Panthéon Paris', 'Le Panthéon'],
+    aliases: ['Pantheon', 'Panthéon Paris', 'Le Panthéon', 'Panthéon de Paris'],
     nation: 'Île-de-France',
     region: 'Paris',
     lat: 48.8462,
@@ -440,7 +440,7 @@ export const franceLandmarks: Landmark[] = [
   {
     id: 'chateau-de-chenonceau',
     name: 'Château de Chenonceau',
-    aliases: ['Chenonceau', 'Chateau de Chenonceau'],
+    aliases: ['Chenonceau', 'Chateau de Chenonceau', 'Chenonceau Castle'],
     nation: 'Centre-Val de Loire',
     region: 'Indre-et-Loire',
     lat: 47.3252,
@@ -465,7 +465,7 @@ export const franceLandmarks: Landmark[] = [
   {
     id: 'palais-des-papes-avignon',
     name: 'Palais des Papes, Avignon',
-    aliases: ['Palais des Papes', "Pope's Palace", 'Avignon Papal Palace', 'Palais des Papes d Avignon'],
+    aliases: ['Palais des Papes', "Pope's Palace", 'Avignon Papal Palace', 'Palais des Papes d Avignon', 'Papal Palace'],
     nation: 'Provence-Alpes-Côte d\'Azur',
     region: 'Vaucluse',
     lat: 43.9508,
@@ -515,7 +515,7 @@ export const franceLandmarks: Landmark[] = [
   {
     id: 'dune-du-pilat',
     name: 'Dune du Pilat',
-    aliases: ['Dune du Pilat', 'Dune de Pilat', 'Pilat Dune'],
+    aliases: ['Dune du Pilat', 'Dune de Pilat', 'Pilat Dune', 'Great Dune of Pilat'],
     nation: 'Nouvelle-Aquitaine',
     region: 'Gironde',
     lat: 44.6007,
@@ -565,7 +565,7 @@ export const franceLandmarks: Landmark[] = [
   {
     id: 'etretat',
     name: 'Étretat',
-    aliases: ['Etretat', 'Falaise d Étretat', 'Étretat Cliffs'],
+    aliases: ['Etretat', 'Falaise d Étretat', 'Étretat Cliffs', 'Cliffs of Étretat', 'Falaises d\'Étretat'],
     nation: 'Normandy',
     region: 'Seine-Maritime',
     lat: 49.707,
@@ -665,7 +665,7 @@ export const franceLandmarks: Landmark[] = [
   {
     id: 'arles-amphitheatre',
     name: 'Arles Amphitheatre',
-    aliases: ['Arles Arena', 'Amphithéâtre d Arles', 'Arles Roman Amphitheatre'],
+    aliases: ['Arles Arena', 'Amphithéâtre d Arles', 'Arles Roman Amphitheatre', 'Arènes d\'Arles', 'Les Arènes d\'Arles'],
     nation: 'Provence-Alpes-Côte d\'Azur',
     region: 'Bouches-du-Rhône',
     lat: 43.6775,
@@ -790,7 +790,7 @@ export const franceLandmarks: Landmark[] = [
   {
     id: 'centre-pompidou',
     name: 'Centre Pompidou',
-    aliases: ['Pompidou Centre', 'Centre Georges Pompidou', 'Beaubourg'],
+    aliases: ['Pompidou Centre', 'Centre Georges Pompidou', 'Beaubourg', 'Musée Pompidou', 'Pompidou Museum', 'Musée national d\'art moderne', 'Centre Beaubourg'],
     nation: 'Île-de-France',
     region: 'Paris',
     lat: 48.8606,
