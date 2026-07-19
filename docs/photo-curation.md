@@ -87,12 +87,32 @@ network, no key needed).
 - selection state persists in `localStorage` per deck on every click;
 - **Download JSON / CSV** in the navbar produces the export for step 3.
 
+**"Search more photos"** (when the gathered set isn't good enough): each landmark page has a
+search bar querying **Wikimedia Commons and Openverse** live from the browser (no API keys).
+Click a result to add it to the landmark; added pictures show a 🌐 tile in the mosaic, can be
+⭐-flagged like any other, and are stored as **URL references only** — the app never downloads
+anything. The apply script does the downloading from the export. Two things to know:
+
+- **you are the spoiler gate for web picks** — the gpt-4o gate never sees them, so check for
+  visible names/signage yourself;
+- prefer results with a clear licence (both sources return CC/PD material; the licence and
+  creator are captured into `credits.json` on apply).
+
 ### 3 · Apply
 
-`apply-photo-curation.mjs` replaces each curated landmark's shipped images with the selected
-candidates (renumbered `1..N.webp` + regenerated `-mini.webp`), rewrites
-`credits.json` with the credit metadata plus the new fields, and commits the export to
-`src/data/landmarks/photo-curation.json` as the provenance record.
+`apply-photo-curation.mjs` replaces each curated landmark's shipped images with the selection
+(renumbered `1..N.webp` + regenerated `-mini.webp`): local candidates are copied from the
+candidates folder; **external (web-search) picks are downloaded from their public URL at this
+point** — resized to the standard 1200/500 px WebP pair, credited from the export's
+creator/licence/source fields. It rewrites `credits.json` and commits the export to
+`src/data/landmarks/photo-curation.json` as the provenance record. A failed external download
+is logged and skipped, never fatal.
+
+**Export formats.** The JSON is what the apply script consumes (`selected` = local files,
+`external` = URL references). The CSV carries the same information for humans/other agents,
+one row per picture: `landmark, type (local|external), file, url, flagged, title, creator,
+license, source, provider` — for `external` rows the `url` column is the public image URL to
+download.
 
 `credits.json` fields added by this protocol (see `PhotoCredit` in
 `src/data/landmarks/credits.ts`):

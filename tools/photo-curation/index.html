@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Photo curation — Culture Quizzer</title>
 <style>
-  :root { --border: #ddd8ce; --ink: #1f2428; --muted: #6b7280; --ok: #1a7f45; --star: #b8860b; --warn: #b3261e; }
+  :root { --border: #ddd8ce; --ink: #1f2428; --muted: #6b7280; --ok: #1a7f45; --star: #b8860b; --warn: #b3261e; --web: #2d5b8a; }
   * { box-sizing: border-box; }
   body { margin: 0; font: 14px/1.45 system-ui, sans-serif; color: var(--ink); background: #faf9f6; }
   header { position: sticky; top: 0; z-index: 10; display: flex; align-items: center; gap: 14px; padding: 10px 16px; background: #fff; border-bottom: 1px solid var(--border); }
@@ -27,11 +27,12 @@
   .warning { margin: 10px 0; padding: 9px 12px; border-radius: 9px; background: #fdecea; color: var(--warn); border: 1px solid #f5c6c0; }
   .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 14px; margin-top: 14px; }
   .tile { position: relative; border: 3px solid transparent; border-radius: 12px; overflow: hidden; background: #fff; box-shadow: 0 1px 4px rgb(0 0 0 / 8%); cursor: pointer; }
-  .tile img { width: 100%; height: 190px; object-fit: cover; display: block; }
+  .tile img { width: 100%; height: 190px; object-fit: cover; display: block; background: #eee; }
   .tile.selected { border-color: var(--ok); }
-  .tile .meta { padding: 7px 9px; font-size: 12px; color: var(--muted); display: flex; gap: 6px; align-items: center; min-height: 34px; }
+  .tile .meta { padding: 7px 9px; font-size: 12px; color: var(--muted); display: flex; gap: 6px; align-items: center; min-height: 34px; flex-wrap: wrap; }
   .tile .badge { background: #f0e9d8; color: #7a5b12; border-radius: 6px; padding: 1px 6px; font-size: 11px; white-space: nowrap; }
-  .tile .badge.historic { background: #e3ecf5; color: #2d5b8a; }
+  .tile .badge.historic { background: #e3ecf5; color: var(--web); }
+  .tile .badge.web { background: #e3ecf5; color: var(--web); }
   .tile .star { position: absolute; top: 8px; right: 8px; border: none; background: rgb(255 255 255 / 88%); border-radius: 999px; width: 34px; height: 34px; font-size: 17px; line-height: 1; }
   .tile .star.on { background: var(--star); color: #fff; }
   .tile .origin { position: absolute; top: 8px; left: 8px; background: rgb(0 0 0 / 55%); color: #fff; border-radius: 6px; padding: 2px 7px; font-size: 11px; }
@@ -44,6 +45,12 @@
   .popover .verdict.drop { color: var(--warn); }
   .pager { display: flex; gap: 10px; margin-top: 20px; }
   .empty { color: var(--muted); padding: 40px; text-align: center; }
+  .search-box { margin-top: 26px; padding: 14px 16px; border: 1px solid var(--border); border-radius: 12px; background: #fff; }
+  .search-box h3 { margin: 0 0 4px; font-size: 14px; }
+  .search-box .sub { margin: 0 0 10px; font-size: 12px; color: var(--muted); }
+  .search-row { display: flex; gap: 8px; }
+  .search-row input { flex: 1; font: inherit; padding: 8px 11px; border: 1px solid var(--border); border-radius: 9px; }
+  .search-status { margin-top: 8px; font-size: 12px; color: var(--muted); }
 </style>
 </head>
 <body>
@@ -61,7 +68,7 @@
 </div>
 <div class="popover" id="popover"></div>
 <script>
-const state = { deck: null, manifests: {}, current: null, store: {} }
+const state = { deck: null, manifests: {}, current: null, store: {}, search: { query: '', results: [], status: '' } }
 
 function storageKey(deck) { return 'photo-curation:' + deck }
 function loadStore(deck) {
@@ -72,7 +79,8 @@ function saveStore() {
   render()
 }
 function entryFor(id) {
-  if (!state.store[id]) state.store[id] = { selected: [], flagged: [] }
+  if (!state.store[id]) state.store[id] = { selected: [], flagged: [], external: [] }
+  if (!state.store[id].external) state.store[id].external = []
   return state.store[id]
 }
 
@@ -95,11 +103,15 @@ function selectDeck(deck) {
   state.deck = deck
   state.store = loadStore(deck)
   state.current = state.manifests[deck].landmarks[0]?.id ?? null
+  state.search = { query: '', results: [], status: '' }
   render()
 }
 
 function curatedCount() {
-  return state.manifests[state.deck].landmarks.filter((l) => (state.store[l.id]?.selected ?? []).length > 0).length
+  return state.manifests[state.deck].landmarks.filter((l) => {
+    const entry = state.store[l.id]
+    return entry && ((entry.selected ?? []).length + (entry.external ?? []).length) > 0
+  }).length
 }
 
 function render() {
@@ -109,7 +121,8 @@ function render() {
   document.getElementById('progress').textContent = curatedCount() + '/' + manifest.landmarks.length + ' curated'
 
   document.getElementById('nav').innerHTML = manifest.landmarks.map((landmark) => {
-    const n = (state.store[landmark.id]?.selected ?? []).length
+    const entry = state.store[landmark.id]
+    const n = entry ? (entry.selected ?? []).length + (entry.external ?? []).length : 0
     return `<button class="${landmark.id === state.current ? 'active' : ''}" onclick="showLandmark('${landmark.id}')">
       <span>${landmark.name}${landmark.building ? ' 🏛' : ''}</span><span class="count ${n ? 'done' : ''}">${n || '–'}</span></button>`
   }).join('')
@@ -117,8 +130,10 @@ function render() {
   const landmark = manifest.landmarks.find((l) => l.id === state.current)
   if (!landmark) { document.getElementById('main').innerHTML = '<p class="empty">Pick a landmark.</p>'; return }
   const entry = entryFor(landmark.id)
-  const flaggedSelected = entry.selected.filter((f) => entry.flagged.includes(f))
-  const warning = landmark.building && entry.selected.length > 0 && flaggedSelected.length === 0
+  const flaggedCount = entry.selected.filter((f) => entry.flagged.includes(f)).length
+    + entry.external.filter((x) => x.flagged).length
+  const anyPicked = entry.selected.length + entry.external.length > 0
+  const warning = landmark.building && anyPicked && flaggedCount === 0
     ? `<div class="warning">Building landmark: flag (⭐) at least one selected whole-building view — it will then always be one of the three photos shown.</div>`
     : ''
 
@@ -134,11 +149,30 @@ function render() {
     ${warning}
     <div class="grid">
       ${landmark.candidates.map((candidate) => tileHtml(landmark, candidate, entry)).join('')}
+      ${entry.external.map((item, i) => externalTileHtml(item, i)).join('')}
+    </div>
+    <div class="search-box">
+      <h3>Search more photos</h3>
+      <p class="sub">Wikimedia Commons + Openverse. Added pictures are kept as URL references only (nothing is downloaded here);
+        the apply script downloads them from the export. You are the spoiler gate for these — check for visible names.</p>
+      <div class="search-row">
+        <input id="search-input" placeholder="e.g. ${landmark.name} facade" value="${escapeHtml(state.search.query)}"
+          onkeydown="if(event.key==='Enter'){event.preventDefault();runSearch()}" />
+        <button class="primary" onclick="runSearch()">Search</button>
+      </div>
+      ${state.search.status ? `<p class="search-status">${state.search.status}</p>` : ''}
+      <div class="grid">
+        ${state.search.results.map((result, i) => searchTileHtml(result, i, entry)).join('')}
+      </div>
     </div>
     <div class="pager">
       ${prev ? `<button onclick="showLandmark('${prev.id}')">← ${prev.name}</button>` : ''}
       ${next ? `<button onclick="showLandmark('${next.id}')">${next.name} →</button>` : ''}
     </div>`
+}
+
+function escapeHtml(value) {
+  return String(value ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;')
 }
 
 function tileHtml(landmark, candidate, entry) {
@@ -150,12 +184,32 @@ function tileHtml(landmark, candidate, entry) {
       ? `<span class="badge historic" data-pop="${landmark.id}:${candidate.file}">🕰 historic photo</span>`
       : ''
   const wholeBuilding = candidate.entireBuilding === true ? '<span class="badge">full view</span>' : ''
-  return `<figure class="tile ${selected ? 'selected' : ''}" data-file="${candidate.file}">
+  return `<figure class="tile ${selected ? 'selected' : ''}">
     <span class="origin">${candidate.origin}</span>
     <button class="star ${flagged ? 'on' : ''}" title="Always include in the three photos" onclick="toggleFlag(event, '${candidate.file}')">★</button>
-    <img src="candidates/${state.deck}/${landmark.id}/${candidate.file}" loading="lazy" onclick="toggleSelect('${candidate.file}')" />
+    <img src="candidates/${state.deck}/${state.current}/${candidate.file}" loading="lazy" onclick="toggleSelect('${candidate.file}')" />
     <span class="check">✓</span>
-    <figcaption class="meta">${badge}${wholeBuilding}<span>${(candidate.artist || '').slice(0, 40)}</span></figcaption>
+    <figcaption class="meta">${badge}${wholeBuilding}<span>${escapeHtml((candidate.artist || '').slice(0, 40))}</span></figcaption>
+  </figure>`
+}
+
+function externalTileHtml(item, index) {
+  return `<figure class="tile selected">
+    <span class="origin">web</span>
+    <button class="star ${item.flagged ? 'on' : ''}" title="Always include in the three photos" onclick="toggleExternalFlag(event, ${index})">★</button>
+    <img src="${escapeHtml(item.thumb || item.url)}" loading="lazy" onclick="removeExternal(${index})" referrerpolicy="no-referrer" />
+    <span class="check">✓</span>
+    <figcaption class="meta"><span class="badge web">🌐 ${escapeHtml(item.provider)}</span><span>${escapeHtml((item.creator || '').slice(0, 30))} · ${escapeHtml(item.license || '')}</span></figcaption>
+  </figure>`
+}
+
+function searchTileHtml(result, index, entry) {
+  const added = entry.external.some((item) => item.url === result.url)
+  return `<figure class="tile ${added ? 'selected' : ''}">
+    <span class="origin">${escapeHtml(result.provider)}</span>
+    <img src="${escapeHtml(result.thumb)}" loading="lazy" onclick="toggleSearchResult(${index})" referrerpolicy="no-referrer" />
+    <span class="check">✓</span>
+    <figcaption class="meta"><span>${escapeHtml((result.creator || 'Unknown').slice(0, 30))} · ${escapeHtml(result.license || '?')}</span></figcaption>
   </figure>`
 }
 
@@ -182,8 +236,106 @@ function toggleFlag(event, file) {
   saveStore()
 }
 
+function toggleExternalFlag(event, index) {
+  event.stopPropagation()
+  const entry = entryFor(state.current)
+  if (entry.external[index]) entry.external[index].flagged = !entry.external[index].flagged
+  saveStore()
+}
+
+function removeExternal(index) {
+  const entry = entryFor(state.current)
+  entry.external.splice(index, 1)
+  saveStore()
+}
+
+function toggleSearchResult(index) {
+  const result = state.search.results[index]
+  if (!result) return
+  const entry = entryFor(state.current)
+  const existing = entry.external.findIndex((item) => item.url === result.url)
+  if (existing >= 0) entry.external.splice(existing, 1)
+  else entry.external.push({ ...result, flagged: false })
+  saveStore()
+}
+
+function runSearch() {
+  const query = document.getElementById('search-input').value.trim()
+  if (!query) return
+  state.search.query = query
+  state.search.status = 'Searching…'
+  state.search.results = []
+  render()
+  Promise.allSettled([searchCommons(query), searchOpenverse(query)]).then((outcomes) => {
+    const results = []
+    const seen = new Set()
+    const failures = []
+    outcomes.forEach((outcome, i) => {
+      if (outcome.status === 'fulfilled') {
+        for (const result of outcome.value) {
+          if (!seen.has(result.url)) { seen.add(result.url); results.push(result) }
+        }
+      } else {
+        failures.push(i === 0 ? 'Commons' : 'Openverse')
+      }
+    })
+    state.search.results = results
+    state.search.status = results.length
+      ? `${results.length} results${failures.length ? ` (${failures.join(', ')} failed)` : ''} — click to add`
+      : `No results${failures.length ? ` (${failures.join(', ')} failed)` : ''}`
+    render()
+  })
+}
+
+async function searchCommons(query) {
+  const url = 'https://commons.wikimedia.org/w/api.php?action=query&format=json&origin=*'
+    + '&generator=search&gsrnamespace=6&gsrlimit=18'
+    + '&gsrsearch=' + encodeURIComponent(query + ' filetype:bitmap')
+    + '&prop=imageinfo&iiprop=url%7Csize%7Cextmetadata&iiurlwidth=1280'
+  const res = await fetch(url)
+  if (!res.ok) throw new Error('commons ' + res.status)
+  const data = await res.json()
+  const pages = Object.values(data.query?.pages ?? {})
+  const strip = (value) => (value ?? '').replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim()
+  return pages
+    .map((page) => {
+      const info = page.imageinfo?.[0]
+      if (!info) return null
+      if (info.mime && !/^image\/(jpe?g|png|webp)$/.test(info.mime)) return null
+      if (info.width && info.width < 800) return null
+      const meta = info.extmetadata ?? {}
+      return {
+        provider: 'commons',
+        title: page.title ?? '',
+        url: info.thumburl ?? info.url,
+        thumb: info.thumburl ?? info.url,
+        creator: strip(meta.Artist?.value),
+        license: strip(meta.LicenseShortName?.value),
+        source: info.descriptionurl ?? '',
+      }
+    })
+    .filter(Boolean)
+}
+
+async function searchOpenverse(query) {
+  const url = 'https://api.openverse.org/v1/images/?page_size=18&q=' + encodeURIComponent(query)
+  const res = await fetch(url)
+  if (!res.ok) throw new Error('openverse ' + res.status)
+  const data = await res.json()
+  return (data.results ?? []).map((result) => ({
+    provider: 'openverse:' + (result.provider ?? 'unknown'),
+    title: result.title ?? '',
+    url: result.url,
+    thumb: result.thumbnail ?? result.url,
+    creator: result.creator ?? '',
+    license: ('CC ' + (result.license ?? '').toUpperCase() + ' ' + (result.license_version ?? '')).trim(),
+    source: result.foreign_landing_url ?? '',
+  }))
+}
+
 function showLandmark(id) {
   state.current = id
+  state.search = { query: '', results: [], status: '' }
   render()
   window.scrollTo(0, 0)
 }
@@ -197,8 +349,8 @@ document.addEventListener('mouseover', (event) => {
   const candidate = landmark?.candidates.find((c) => c.file === file)
   const artwork = candidate?.artwork
   popover.innerHTML = artwork
-    ? `<h4>${artwork.title} — ${artwork.artist}${artwork.year ? ' (' + artwork.year + ')' : ''}</h4>
-       <p>${artwork.importance}</p>
+    ? `<h4>${escapeHtml(artwork.title)} — ${escapeHtml(artwork.artist)}${artwork.year ? ' (' + escapeHtml(artwork.year) + ')' : ''}</h4>
+       <p>${escapeHtml(artwork.importance)}</p>
        <p class="verdict ${artwork.verdict}">Recommendation: ${artwork.verdict === 'keep' ? 'keep — canonical, caption it' : 'drop — not canon'}</p>`
     : `<h4>${candidate?.kind === 'historic-photo' ? 'Historic photograph' : 'Artwork'}</h4>
        <p>Not in the known-canon list. Keep only if it is a genuinely famous depiction of the landmark; otherwise prefer a photograph.</p>`
@@ -214,14 +366,30 @@ function exportData() {
     deck: state.deck,
     exportedAt: new Date().toISOString(),
     landmarks: manifest.landmarks
-      .filter((landmark) => (state.store[landmark.id]?.selected ?? []).length)
-      .map((landmark) => ({
-        id: landmark.id,
-        selected: (state.store[landmark.id]?.selected ?? []).map((file) => ({
-          file,
-          flagged: (state.store[landmark.id]?.flagged ?? []).includes(file),
-        })),
-      })),
+      .filter((landmark) => {
+        const entry = state.store[landmark.id]
+        return entry && ((entry.selected ?? []).length + (entry.external ?? []).length) > 0
+      })
+      .map((landmark) => {
+        const entry = state.store[landmark.id]
+        return {
+          id: landmark.id,
+          selected: (entry.selected ?? []).map((file) => ({
+            file,
+            flagged: (entry.flagged ?? []).includes(file),
+          })),
+          external: (entry.external ?? []).map((item) => ({
+            url: item.url,
+            thumb: item.thumb,
+            title: item.title,
+            creator: item.creator,
+            license: item.license,
+            source: item.source,
+            provider: item.provider,
+            flagged: Boolean(item.flagged),
+          })),
+        }
+      }),
   }
 }
 
@@ -232,15 +400,25 @@ function download(name, text, type) {
   a.click()
 }
 
+function csvCell(value) {
+  const text = String(value ?? '')
+  return /[",\n]/.test(text) ? '"' + text.replace(/"/g, '""') + '"' : text
+}
+
 document.getElementById('dl-json').onclick = () =>
   download('photo-curation-' + state.deck + '.json', JSON.stringify(exportData(), null, 2), 'application/json')
 
 document.getElementById('dl-csv').onclick = () => {
-  const rows = [['landmark', 'file', 'flagged']]
+  const rows = [['landmark', 'type', 'file', 'url', 'flagged', 'title', 'creator', 'license', 'source', 'provider']]
   for (const landmark of exportData().landmarks) {
-    for (const pick of landmark.selected) rows.push([landmark.id, pick.file, pick.flagged])
+    for (const pick of landmark.selected) {
+      rows.push([landmark.id, 'local', pick.file, '', pick.flagged, '', '', '', '', ''])
+    }
+    for (const item of landmark.external) {
+      rows.push([landmark.id, 'external', '', item.url, item.flagged, item.title, item.creator, item.license, item.source, item.provider])
+    }
   }
-  download('photo-curation-' + state.deck + '.csv', rows.map((row) => row.join(',')).join('\n'), 'text/csv')
+  download('photo-curation-' + state.deck + '.csv', rows.map((row) => row.map(csvCell).join(',')).join('\n'), 'text/csv')
 }
 
 boot()
