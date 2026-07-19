@@ -46,7 +46,7 @@ export const LANDMARKS = {
   },
   'lascaux-cave': {
     name: 'Lascaux Cave',
-    terms: ['Lascaux cave paintings bulls', 'Lascaux cave painting horses', 'Lascaux Hall of the Bulls', 'Lascaux cave art deer', 'Lascaux prehistoric painting', 'Lascaux IV replica', 'Lascaux cave painting close', 'Lascaux cave wall'],
+    terms: ['Lascaux cave paintings bulls', 'Lascaux cave painting horses', 'Lascaux Hall of the Bulls', 'Lascaux cave art deer', 'Lascaux prehistoric painting', 'Lascaux IV replica', 'Lascaux cave painting close', 'Lascaux cave wall', 'Lascaux aurochs panel', 'Lascaux painting reproduction'],
     giveaways: ['Lascaux', 'Hall of the Bulls'],
   },
   'mont-blanc': {
@@ -96,7 +96,7 @@ export const LANDMARKS = {
   },
   'millau-viaduct': {
     name: 'Millau Viaduct',
-    terms: ['Millau viaduct bridge', 'Millau viaduct aerial', 'Millau viaduct pylons', 'Millau viaduct valley', 'Millau viaduct sunset', 'Millau viaduct side view', 'Millau viaduct deck', 'Millau viaduct cable stayed'],
+    terms: ['Millau viaduct bridge', 'Millau viaduct aerial', 'Millau viaduct pylons', 'Millau viaduct valley', 'Millau viaduct sunset', 'Millau viaduct side view', 'Millau viaduct deck', 'Millau viaduct cable stayed', 'Millau viaduct clouds fog', 'Millau viaduct night', 'Viaduc Millau Tarn valley', 'Millau viaduct motorway'],
     giveaways: ['Millau', 'Viaduc de Millau', 'Viaduct'],
   },
   'dune-du-pilat': {
@@ -131,7 +131,7 @@ export const LANDMARKS = {
   },
   'arles-amphitheatre': {
     name: 'Arles Amphitheatre',
-    terms: ['Arles arena exterior', 'Arles amphitheatre interior', 'Arles Roman arena arches', 'Arles amphitheatre tiers', 'Arles amphitheatre aerial', 'Arles amphitheatre wall', 'Arles Roman monument', 'Arles amphitheatre bull'],
+    terms: ['Arles arena exterior', 'Arles amphitheatre interior', 'Arles Roman arena arches', 'Arles amphitheatre tiers', 'Arles amphitheatre aerial', 'Arles amphitheatre wall', 'Arles Roman monument', 'Arles amphitheatre bull', 'Arles arena medieval towers', 'Arles arena night', 'Arles amphitheatre panorama', 'Arles arena rooftops view'],
     giveaways: ['Arles', 'Arènes', 'arenes'],
   },
   'hospices-de-beaune': {
@@ -171,7 +171,7 @@ export const LANDMARKS = {
   },
   'arenes-de-nimes': {
     name: 'Arènes de Nîmes',
-    terms: ['Nimes amphitheatre full exterior', 'Nimes arena aerial view', 'Nimes Roman amphitheatre facade', 'Nimes arena interior tiers', 'Nimes amphitheatre arches', 'Nimes arena night', 'Nimes amphitheatre street view', 'Nimes arena panorama'],
+    terms: ['Nimes amphitheatre full exterior', 'Nimes arena aerial view', 'Nimes Roman amphitheatre facade', 'Nimes arena interior tiers', 'Nimes amphitheatre arches', 'Nimes arena night', 'Nimes amphitheatre street view', 'Nimes arena panorama', 'Arenes de Nimes exterior', 'Nimes amphitheatre gallery arcade', 'Nimes arena feria crowd', 'Nimes amphitheater France'],
     giveaways: ['Nîmes', 'Nimes', 'Arènes', 'Arenes'],
   },
   'les-invalides': {
@@ -186,7 +186,7 @@ export const LANDMARKS = {
   },
   'pere-lachaise': {
     name: 'Père-Lachaise Cemetery',
-    terms: ['Pere Lachaise cemetery avenue tombs', 'Pere Lachaise aerial autumn', 'Pere Lachaise cobbled lane graves', 'Oscar Wilde tomb sphinx', 'Chopin grave Pere Lachaise', 'Pere Lachaise chapel hill', 'Mur des Federes wall', 'Pere Lachaise sculptures tombs'],
+    terms: ['Pere Lachaise cemetery avenue tombs', 'Pere Lachaise aerial autumn', 'Pere Lachaise cobbled lane graves', 'Oscar Wilde tomb sphinx', 'Chopin grave Pere Lachaise', 'Pere Lachaise chapel hill', 'Mur des Federes wall', 'Pere Lachaise sculptures tombs', 'Pere Lachaise autumn path', 'Pere Lachaise mausoleums'],
     giveaways: ['Père-Lachaise', 'Pere Lachaise', 'Wilde', 'Chopin', 'Morrison'],
   },
   'promenade-des-anglais': {
