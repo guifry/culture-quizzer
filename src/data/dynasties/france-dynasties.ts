@@ -13,6 +13,8 @@ import type { Dynasty } from '../types'
 export const franceDynasties: Dynasty[] = [
   {
     id: 'merovingiens',
+    nameAliases: ['Mérovingiens', 'Mérovingien', 'Dynastie mérovingienne'],
+    rulerAliases: { 'Clovis Ier': ['Clovis', 'Clovis I'], 'Childéric III': ['Childéric'] },
     name: 'Mérovingiens',
     nameEn: 'Merovingians',
     start: 481,
@@ -25,6 +27,8 @@ export const franceDynasties: Dynasty[] = [
   },
   {
     id: 'carolingiens',
+    nameAliases: ['Carolingiens', 'Carolingien', 'Dynastie carolingienne'],
+    rulerAliases: { 'Pépin le Bref': ['Pépin', 'Pepin III'], 'Louis V': ['Louis V le Fainéant'] },
     name: 'Carolingiens',
     nameEn: 'Carolingians',
     start: 751,
@@ -36,6 +40,8 @@ export const franceDynasties: Dynasty[] = [
   },
   {
     id: 'capetiens',
+    nameAliases: ['Capétiens', 'Capétiens directs', 'Capétien', 'Dynastie capétienne'],
+    rulerAliases: { 'Hugues Capet': ['Hugues Capet'], 'Charles IV le Bel': ['Charles IV'] },
     name: 'Capétiens directs',
     nameEn: 'Direct Capetians',
     start: 987,
@@ -47,6 +53,8 @@ export const franceDynasties: Dynasty[] = [
   },
   {
     id: 'valois',
+    nameAliases: ['Valois', 'Maison de Valois'],
+    rulerAliases: { 'Philippe VI': ['Philippe VI de Valois'], 'Henri III': ['Henri III'] },
     name: 'Valois',
     nameEn: 'Valois',
     start: 1328,
@@ -63,6 +71,7 @@ export const franceDynasties: Dynasty[] = [
   },
   {
     id: 'bourbons',
+    nameAliases: ['Bourbons', 'Bourbons — Ancien Régime', 'Ancien Régime', 'Maison de Bourbon'],
     name: 'Bourbons — Ancien Régime',
     nameEn: 'Bourbons — Ancien Régime',
     start: 1589,
@@ -74,6 +83,7 @@ export const franceDynasties: Dynasty[] = [
   },
   {
     id: 'premiere-republique',
+    nameAliases: ['Première République', '1re République', '1ère République', 'Ire République'],
     name: 'Première République',
     nameEn: 'First Republic',
     start: 1792,
@@ -84,6 +94,9 @@ export const franceDynasties: Dynasty[] = [
   },
   {
     id: 'premier-empire',
+    nameAliases: ['Premier Empire', '1er Empire', 'Ier Empire'],
+    acceptEnd: [1814, 1815],
+    rulerAliases: { 'Napoléon Ier': ['Napoléon I', 'Napoléon Bonaparte', 'Bonaparte'] },
     name: 'Premier Empire',
     nameEn: 'First Empire',
     start: 1804,
@@ -114,6 +127,8 @@ export const franceDynasties: Dynasty[] = [
   },
   {
     id: 'seconde-restauration',
+    nameAliases: ['Restauration', 'Seconde Restauration', 'Bourbons — Restauration', 'Bourbons Restauration', 'Restauration bourbonienne'],
+    acceptStart: [1814, 1815],
     name: 'Seconde Restauration',
     nameEn: 'Second Bourbon Restoration',
     start: 1815,
@@ -127,6 +142,8 @@ export const franceDynasties: Dynasty[] = [
   },
   {
     id: 'monarchie-juillet',
+    nameAliases: ['Orléans', 'Monarchie de Juillet', 'Monarchie de Juillet — Orléans', 'Maison d\u2019Orléans'],
+    rulerAliases: { 'Louis-Philippe Ier': ['Louis-Philippe'] },
     name: 'Monarchie de Juillet — Orléans',
     nameEn: 'July Monarchy — Orléans',
     start: 1830,
@@ -138,6 +155,8 @@ export const franceDynasties: Dynasty[] = [
   },
   {
     id: 'deuxieme-republique',
+    nameAliases: ['Deuxième République', '2e République', 'IIe République', 'Seconde République'],
+    rulerAliases: { 'Louis-Napoléon Bonaparte': ['Louis-Napoléon', 'Napoléon III'] },
     name: 'Deuxième République',
     nameEn: 'Second Republic',
     start: 1848,
@@ -149,6 +168,7 @@ export const franceDynasties: Dynasty[] = [
   },
   {
     id: 'second-empire',
+    nameAliases: ['Second Empire', '2e Empire', 'IIe Empire', 'Deuxième Empire'],
     name: 'Second Empire',
     nameEn: 'Second Empire',
     start: 1852,
@@ -160,6 +180,7 @@ export const franceDynasties: Dynasty[] = [
   },
   {
     id: 'troisieme-republique',
+    nameAliases: ['Troisième République', '3e République', 'IIIe République'],
     name: 'Troisième République',
     nameEn: 'Third Republic',
     start: 1870,
@@ -171,6 +192,7 @@ export const franceDynasties: Dynasty[] = [
   },
   {
     id: 'vichy',
+    nameAliases: ['Vichy', 'État français', 'Régime de Vichy', 'État français — Vichy'],
     name: 'État français — Vichy',
     nameEn: 'French State — Vichy',
     start: 1940,
@@ -182,6 +204,7 @@ export const franceDynasties: Dynasty[] = [
   },
   {
     id: 'gprf',
+    nameAliases: ['Gouvernement provisoire', 'GPRF', 'Gouvernement provisoire de la République française'],
     name: 'Gouvernement provisoire de la République française',
     nameEn: 'Provisional Government of the French Republic',
     start: 1944,
@@ -193,6 +216,7 @@ export const franceDynasties: Dynasty[] = [
   },
   {
     id: 'quatrieme-republique',
+    nameAliases: ['Quatrième République', '4e République', 'IVe République'],
     name: 'Quatrième République',
     nameEn: 'Fourth Republic',
     start: 1946,
@@ -204,6 +228,7 @@ export const franceDynasties: Dynasty[] = [
   },
   {
     id: 'cinquieme-republique',
+    nameAliases: ['Cinquième République', '5e République', 'Ve République'],
     name: 'Cinquième République',
     nameEn: 'Fifth Republic',
     start: 1958,

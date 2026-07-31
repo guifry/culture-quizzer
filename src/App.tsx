@@ -118,8 +118,6 @@ const defaultModeLabels: Record<QuizMode, string> = {
   'paintings-clue': 'Clue',
   'paintings-expert': 'Expert',
   'dynasty-chain': 'Chain',
-  'dynasty-dates': 'Dates',
-  'dynasty-rulers': 'Leaders',
 }
 
 function isHistoryDateTopic(topic: Topic) {
@@ -675,6 +673,10 @@ function writeGameParams(topic: Topic, params: { mode: QuizMode; scope: string; 
   if (regionOptions(topic).length) query.set('region', params.scope)
   if (topic.id === 'us-cities') query.set('guess', params.usGuess)
   if (Boolean(courseArticles[topic.id]) || topic.kind === 'city-quiz') query.set('view', params.pageView)
+  if (topic.kind === 'dynasty-quiz') {
+    const current = new URLSearchParams(window.location.search).get('fields')
+    if (current !== null) query.set('fields', current)
+  }
   if (topic.kind === 'paintings-quiz') {
     const cur = new URLSearchParams(window.location.search)
     const t = cur.get('tier')
@@ -2603,7 +2605,7 @@ function App() {
 
         {activePageView === 'practice' ? (
           <>
-            {isColoniesTopic(activeTopic) ? null : (
+            {isColoniesTopic(activeTopic) || isDynastyTopic(activeTopic) ? null : (
             <div className="control-bar">
             {regionOptions(activeTopic).length ? (
               <div className="mode-control">
@@ -2696,7 +2698,7 @@ function App() {
             ) : isPaintingTopic(activeTopic) ? (
               <PaintingQuiz key={`${activeTopic.id}:${mode}`} topic={activeTopic} mode={mode} />
             ) : isDynastyTopic(activeTopic) ? (
-              <DynastyQuiz key={`${activeTopic.id}:${mode}`} topic={activeTopic} mode={mode} />
+              <DynastyQuiz key={activeTopic.id} topic={activeTopic} />
             ) : isHistoryDateTopic(activeTopic) ? (
               <HistoryDateQuiz key={`${activeTopic.id}:${mode}`} topic={activeTopic} mode={mode} />
             ) : activeTopic.id === 'solar-system' ? (

@@ -11,7 +11,7 @@
 
 .dynasty-board {
   width: 100%;
-  max-width: 640px;
+  max-width: 720px;
   margin: 0 auto;
 }
 
@@ -31,13 +31,52 @@
   cursor: pointer;
 }
 
+.dynasty-toggles {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.toggles-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #8a857d;
+  margin-right: 2px;
+}
+
+.toggle-btn {
+  padding: 6px 12px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: #fff;
+  color: var(--text);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.toggle-btn.active {
+  background: #243238;
+  border-color: #243238;
+  color: #fff;
+}
+
+.toggle-btn:hover:not(.active) {
+  background: #f0ede6;
+}
+
 .dynasty-help {
   margin: 0 0 10px;
   font-size: 13.5px;
   color: #75706b;
 }
 
-/* Chain mode */
 .chain-list {
   list-style: none;
   margin: 0;
@@ -48,15 +87,10 @@
 }
 
 .chain-item {
-  display: flex;
-  align-items: center;
-  gap: 9px;
   padding: 8px 10px;
   border: 1px solid var(--border);
   border-radius: 8px;
   background: #fff;
-  cursor: grab;
-  user-select: none;
 }
 
 .chain-item.dragging {
@@ -65,12 +99,18 @@
 
 .chain-item.ok {
   border-color: #1a7f45;
-  background: #eef8ee;
+  background: #f4fbf5;
 }
 
 .chain-item.bad {
   border-color: #b3261e;
-  background: #fdf0ef;
+  background: #fdf5f4;
+}
+
+.chain-head {
+  display: flex;
+  align-items: center;
+  gap: 9px;
 }
 
 .chain-rank {
@@ -79,11 +119,19 @@
   font-weight: 700;
   color: #8a857d;
   text-align: right;
+  flex: none;
 }
 
 .chain-grip {
+  display: inline-flex;
   color: #b8b3aa;
+  cursor: grab;
   flex: none;
+  touch-action: none;
+}
+
+.chain-grip:active {
+  cursor: grabbing;
 }
 
 .chain-name {
@@ -91,6 +139,19 @@
   font-size: 14.5px;
   font-weight: 600;
   color: var(--text-h);
+}
+
+.chain-name-input {
+  flex: 1;
+  min-width: 0;
+  padding: 7px 10px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font: inherit;
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--text-h);
+  background: #fdfdfb;
 }
 
 .chain-verdict {
@@ -129,6 +190,55 @@
   cursor: not-allowed;
 }
 
+.chain-fields {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 7px;
+  padding-left: 31px;
+}
+
+.chain-field {
+  flex: 1 1 96px;
+  min-width: 0;
+  padding: 7px 9px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font: inherit;
+  font-size: 13.5px;
+  background: #fdfdfb;
+  color: var(--text-h);
+}
+
+.chain-field.wide {
+  flex: 1 1 150px;
+}
+
+.chain-field.ok {
+  border-color: #1a7f45;
+  background: #f1faf3;
+}
+
+.chain-field.bad {
+  border-color: #b3261e;
+  background: #fdf1f0;
+}
+
+.chain-no-ruler {
+  flex: 1 1 200px;
+  align-self: center;
+  font-size: 12.5px;
+  color: #8a857d;
+  font-style: italic;
+}
+
+.chain-reveal {
+  margin: 7px 0 0;
+  padding-left: 31px;
+  font-size: 12.5px;
+  color: #8c2f28;
+}
+
 .dynasty-actions {
   margin-top: 14px;
   display: flex;
@@ -137,89 +247,14 @@
   align-items: flex-start;
 }
 
-.chain-solution {
-  margin: 14px 0 0;
-  padding-left: 20px;
-  columns: 2;
-  font-size: 13px;
-  color: var(--text);
-}
-
-/* Typed modes */
-.dynasty-card {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.dynasty-name {
-  margin: 0;
-  font-size: 22px;
-  color: var(--text-h);
-}
-
-.dynasty-form {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-end;
-  gap: 10px;
-}
-
-.dynasty-form label {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  flex: 1 1 190px;
-}
-
-.dynasty-form label span {
-  font-size: 11px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  color: #8a857d;
-}
-
-.dynasty-form input {
-  padding: 10px 12px;
-  border: 1px solid var(--border);
-  border-radius: 7px;
-  font: inherit;
-  font-size: 15px;
-  background: #fff;
-  color: var(--text-h);
-}
-
-.dynasty-form button[type='submit'] {
-  padding: 10px 14px;
-  border: 1px solid #243238;
-  border-radius: 7px;
-  background: #243238;
-  color: #fff;
-  font: inherit;
-  font-size: 14px;
-  cursor: pointer;
-  min-height: 42px;
-}
-
-.dynasty-form button[type='submit']:disabled {
-  opacity: 0.55;
-  cursor: not-allowed;
-}
-
-.dynasty-complete {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 10px;
-}
-
 @media (max-width: 640px) {
-  .chain-solution {
-    columns: 1;
+  .chain-fields,
+  .chain-reveal {
+    padding-left: 0;
   }
 
-  .dynasty-form label {
+  .chain-field,
+  .chain-field.wide {
     flex-basis: 100%;
   }
 }

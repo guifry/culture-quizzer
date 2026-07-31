@@ -21,8 +21,6 @@ export type QuizMode =
   | 'paintings-clue'
   | 'paintings-expert'
   | 'dynasty-chain'
-  | 'dynasty-dates'
-  | 'dynasty-rulers'
 
 export type TopicGroup =
   | 'Geography'
@@ -190,11 +188,19 @@ export type Dynasty = {
   end: number | null
   startLabel?: string
   endLabel?: string
+  // Extra years accepted as correct, where the regime's span is legitimately reported two
+  // ways (e.g. the chain's Restauration link absorbs the Cent-Jours, so 1814 or 1815).
+  acceptStart?: number[]
+  acceptEnd?: number[]
+  // Accepted spellings when the player types the regime name. Matched EXACTLY (after
+  // normalising accents/punctuation) — fuzzy matching would let "IIe" pass for "IIIe".
+  nameAliases?: string[]
   // Part of the sixteen-link minimal chain to memorise.
   chain?: boolean
   chainLabel?: string
   branches?: DynastyBranch[]
   // Absent where the regime had no single head of state (e.g. the First Republic).
   rulers?: { first: string; last: string }
+  rulerAliases?: Record<string, string[]>
   note: string
 }
