@@ -7,6 +7,7 @@
 }
 
 .sidebar {
+  display: flex;
   border-right: 1px solid var(--border);
   background: #f7f7f4;
   min-height: 100vh;
@@ -2184,8 +2185,9 @@
   cursor: pointer;
 }
 
+/* `display` lives in the base .sidebar rule above so the mobile `display: none` media
+   query (which comes later in the file) still wins. */
 .sidebar {
-  display: flex;
   flex-direction: column;
   max-height: 100vh;
   overflow-y: auto;

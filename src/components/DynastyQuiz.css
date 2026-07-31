@@ -1,0 +1,225 @@
+.dynasty-quiz {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.dynasty-quiz .score-strip {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  margin-bottom: 0;
+}
+
+.dynasty-board {
+  width: 100%;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+/* .primary-action defaults to var(--result-accent), undefined outside the results scope. */
+.dynasty-quiz .primary-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 42px;
+  padding: 10px 14px;
+  border: 1px solid #243238;
+  border-radius: 7px;
+  background: #243238;
+  color: #fff;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.dynasty-help {
+  margin: 0 0 10px;
+  font-size: 13.5px;
+  color: #75706b;
+}
+
+/* Chain mode */
+.chain-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.chain-item {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #fff;
+  cursor: grab;
+  user-select: none;
+}
+
+.chain-item.dragging {
+  opacity: 0.5;
+}
+
+.chain-item.ok {
+  border-color: #1a7f45;
+  background: #eef8ee;
+}
+
+.chain-item.bad {
+  border-color: #b3261e;
+  background: #fdf0ef;
+}
+
+.chain-rank {
+  min-width: 22px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #8a857d;
+  text-align: right;
+}
+
+.chain-grip {
+  color: #b8b3aa;
+  flex: none;
+}
+
+.chain-name {
+  flex: 1;
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--text-h);
+}
+
+.chain-verdict {
+  display: inline-flex;
+  flex: none;
+}
+
+.chain-item.ok .chain-verdict {
+  color: #1a7f45;
+}
+
+.chain-item.bad .chain-verdict {
+  color: #b3261e;
+}
+
+.chain-moves {
+  display: inline-flex;
+  gap: 3px;
+  flex: none;
+}
+
+.chain-moves button {
+  width: 26px;
+  height: 26px;
+  display: inline-grid;
+  place-items: center;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: #faf9f5;
+  cursor: pointer;
+  color: var(--text);
+}
+
+.chain-moves button:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.dynasty-actions {
+  margin-top: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.chain-solution {
+  margin: 14px 0 0;
+  padding-left: 20px;
+  columns: 2;
+  font-size: 13px;
+  color: var(--text);
+}
+
+/* Typed modes */
+.dynasty-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.dynasty-name {
+  margin: 0;
+  font-size: 22px;
+  color: var(--text-h);
+}
+
+.dynasty-form {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 10px;
+}
+
+.dynasty-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1 1 190px;
+}
+
+.dynasty-form label span {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #8a857d;
+}
+
+.dynasty-form input {
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  font: inherit;
+  font-size: 15px;
+  background: #fff;
+  color: var(--text-h);
+}
+
+.dynasty-form button[type='submit'] {
+  padding: 10px 14px;
+  border: 1px solid #243238;
+  border-radius: 7px;
+  background: #243238;
+  color: #fff;
+  font: inherit;
+  font-size: 14px;
+  cursor: pointer;
+  min-height: 42px;
+}
+
+.dynasty-form button[type='submit']:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.dynasty-complete {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+@media (max-width: 640px) {
+  .chain-solution {
+    columns: 1;
+  }
+
+  .dynasty-form label {
+    flex-basis: 100%;
+  }
+}

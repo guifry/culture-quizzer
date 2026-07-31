@@ -19,6 +19,7 @@ import { CityCourse } from './components/CityCourse'
 import { LandmarkQuiz } from './components/LandmarkQuiz'
 import { LandmarkCourse } from './components/LandmarkCourse'
 import { PaintingQuiz } from './components/PaintingQuiz'
+import { DynastyQuiz } from './components/DynastyQuiz'
 import { PaintingCourse } from './components/PaintingCourse'
 import { SettingsDialog } from './components/SettingsDialog'
 import { getSettings, useSettings } from './settings'
@@ -116,6 +117,9 @@ const defaultModeLabels: Record<QuizMode, string> = {
   'paintings-identify': 'Identify',
   'paintings-clue': 'Clue',
   'paintings-expert': 'Expert',
+  'dynasty-chain': 'Chain',
+  'dynasty-dates': 'Dates',
+  'dynasty-rulers': 'Leaders',
 }
 
 function isHistoryDateTopic(topic: Topic) {
@@ -136,6 +140,10 @@ function isLandmarkTopic(topic: Topic) {
 
 function isPaintingTopic(topic: Topic) {
   return topic.kind === 'paintings-quiz'
+}
+
+function isDynastyTopic(topic: Topic) {
+  return topic.kind === 'dynasty-quiz'
 }
 
 // City, landmark and painting games share the same "Play / Course" shell (no generic
@@ -2177,7 +2185,7 @@ function App() {
   // Cities and landmarks are map-first (full-bleed map + floating overlays). Paintings is a
   // course-pair game too, but it has no map — it uses the normal, padded document workspace.
   const mapCoursePair = activePageView === 'practice' && (isCityTopic(activeTopic) || isLandmarkTopic(activeTopic))
-  const paintingPractice = activePageView === 'practice' && isPaintingTopic(activeTopic)
+  const paintingPractice = activePageView === 'practice' && (isPaintingTopic(activeTopic) || isDynastyTopic(activeTopic))
   // Paintings gets the compact header (reclaims vertical space) but NOT the full-bleed map shell.
   const compactHeader = mapWorkspace || coloniesStage || mapCoursePair || paintingPractice
   const fullBleedWorkspace = showingMapStage || coloniesStage || mapCoursePair
@@ -2668,7 +2676,7 @@ function App() {
             </div>
             )}
 
-            {isHistoryDateTopic(activeTopic) || isColoniesTopic(activeTopic) || isCoursePairTopic(activeTopic) || showingMapStage ? null : (
+            {isHistoryDateTopic(activeTopic) || isColoniesTopic(activeTopic) || isCoursePairTopic(activeTopic) || isDynastyTopic(activeTopic) || showingMapStage ? null : (
               <section className="score-strip" aria-label="Current score">
                 <Stat label="Deck" value={pool.length} />
                 <Stat label="Progress" value={activeRound.completed ? `${pool.length}/${pool.length}` : `${Math.min(activeRound.position + 1, pool.length)}/${pool.length}`} />
@@ -2687,6 +2695,8 @@ function App() {
               <LandmarkQuiz key={`${activeTopic.id}:${mode}`} topic={activeTopic} mode={mode} />
             ) : isPaintingTopic(activeTopic) ? (
               <PaintingQuiz key={`${activeTopic.id}:${mode}`} topic={activeTopic} mode={mode} />
+            ) : isDynastyTopic(activeTopic) ? (
+              <DynastyQuiz key={`${activeTopic.id}:${mode}`} topic={activeTopic} mode={mode} />
             ) : isHistoryDateTopic(activeTopic) ? (
               <HistoryDateQuiz key={`${activeTopic.id}:${mode}`} topic={activeTopic} mode={mode} />
             ) : activeTopic.id === 'solar-system' ? (

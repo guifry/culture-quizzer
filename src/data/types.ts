@@ -20,6 +20,9 @@ export type QuizMode =
   | 'paintings-identify'
   | 'paintings-clue'
   | 'paintings-expert'
+  | 'dynasty-chain'
+  | 'dynasty-dates'
+  | 'dynasty-rulers'
 
 export type TopicGroup =
   | 'Geography'
@@ -162,11 +165,36 @@ export type Topic = {
   boundaryTarget?: boolean
   items: QuizItem[]
   coverage: string
-  kind?: 'history-dates' | 'colonies' | 'city-quiz' | 'landmark-quiz' | 'paintings-quiz'
+  kind?: 'history-dates' | 'colonies' | 'city-quiz' | 'landmark-quiz' | 'paintings-quiz' | 'dynasty-quiz'
   dates?: HistoryDate[]
   colonies?: ColonyRelation[]
   cities?: CityEntry[]
   landmarks?: Landmark[]
   paintings?: Painting[]
+  dynasties?: Dynasty[]
   glossary?: GlossaryTerm[]
+}
+
+export type DynastyBranch = {
+  name: string
+  start: number
+  end: number
+}
+
+export type Dynasty = {
+  id: string
+  name: string
+  nameEn: string
+  start: number
+  // null for the current regime.
+  end: number | null
+  startLabel?: string
+  endLabel?: string
+  // Part of the sixteen-link minimal chain to memorise.
+  chain?: boolean
+  chainLabel?: string
+  branches?: DynastyBranch[]
+  // Absent where the regime had no single head of state (e.g. the First Republic).
+  rulers?: { first: string; last: string }
+  note: string
 }
