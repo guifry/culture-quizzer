@@ -1,0 +1,693 @@
+.poems-game {
+  display: flex;
+  gap: 0;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: #fff;
+  min-height: 62vh;
+  overflow: hidden;
+}
+
+/* .primary-action's var(--result-accent) is only set inside results panels; give the
+   in-game buttons a concrete colour so they are actually visible. */
+.poems-game .primary-action,
+.poems-game-mobile .primary-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 38px;
+  background: #0f766e;
+  border-color: #0f766e;
+  color: #fff;
+}
+
+.poems-game .ghost-action,
+.poems-game-mobile .ghost-action {
+  background: #fff;
+  border-color: var(--border);
+  color: var(--text-h);
+}
+
+.poems-sidebar {
+  width: 264px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid var(--border);
+  background: #faf9f4;
+}
+
+.poems-mode-toggle {
+  display: flex;
+  gap: 6px;
+  padding: 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+.poems-mode-button {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--text);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.poems-mode-button.active {
+  background: #0f766e;
+  border-color: #0f766e;
+  color: #fff;
+}
+
+.poem-list {
+  flex: 1;
+  overflow-y: auto;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.poem-list-button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 8px 10px;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--text);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.poem-list-button:hover {
+  background: #efece2;
+}
+
+.poem-list-button.active {
+  background: #e2edea;
+}
+
+.poem-list-index {
+  flex: 0 0 auto;
+  width: 22px;
+  height: 22px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #ece9df;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.poem-list-button.active .poem-list-index {
+  background: #0f766e;
+  color: #fff;
+}
+
+.poem-list-text {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.poem-list-text strong {
+  font-size: 13px;
+  color: var(--text-h);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.poem-list-text small {
+  font-size: 11.5px;
+  color: var(--text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.poem-list-score {
+  flex: 0 0 auto;
+  font-size: 11px;
+  font-weight: 700;
+  color: #155833;
+  background: #e0f4e7;
+  border-radius: 999px;
+  padding: 2px 7px;
+}
+
+.poems-sidebar-foot {
+  border-top: 1px solid var(--border);
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.poem-options {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 12.5px;
+}
+
+.poem-options label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.poems-current-score {
+  margin: 0;
+  font-size: 11.5px;
+  color: var(--text);
+}
+
+.poems-main {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.poems-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--border);
+}
+
+.poems-topbar h2 {
+  margin: 0;
+  font-size: 17px;
+  color: var(--text-h);
+}
+
+.poems-topbar p {
+  margin: 2px 0 0;
+  font-size: 12.5px;
+  color: var(--text);
+}
+
+.poems-face {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.poem-learn-face {
+  flex: 1;
+  overflow-y: auto;
+  padding: 28px 36px;
+}
+
+.poem-learn-head {
+  max-width: 640px;
+  margin: 0 auto 26px;
+  text-align: center;
+}
+
+.poem-description {
+  margin: 0;
+  font-size: 14.5px;
+  color: var(--text-h);
+  line-height: 1.55;
+}
+
+.poem-text-note {
+  margin: 10px 0 0;
+  font-size: 12px;
+  color: var(--text);
+}
+
+.poem-body {
+  margin: 0 auto;
+  max-width: 620px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 16.5px;
+  line-height: 1.75;
+  color: var(--text-h);
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.poem-editor-face {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px 20px 20px;
+}
+
+.poem-editor-shell {
+  position: relative;
+  flex: 1;
+  min-height: 380px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  background: #fffdf8;
+}
+
+.poem-editor-input,
+.poem-editor-mirror,
+.poem-editor-hints {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  padding: 18px 20px;
+  font-family: "SF Mono", ui-monospace, Menlo, Consolas, monospace;
+  font-size: 14px;
+  line-height: 1.7;
+  letter-spacing: 0;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.poem-editor-hints {
+  overflow: hidden;
+  color: #d8d3c4;
+  pointer-events: none;
+}
+
+.poem-editor-input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  resize: none;
+  background: transparent;
+  color: var(--text-h);
+  overflow: auto;
+}
+
+.poem-editor-input::placeholder {
+  color: #b3aea2;
+}
+
+.poem-editor-invisible {
+  color: transparent;
+  caret-color: var(--text-h);
+}
+
+.poem-editor-invisible::selection {
+  background: rgba(15, 118, 110, 0.25);
+  color: transparent;
+}
+
+.poem-editor-mirror {
+  overflow: hidden;
+  color: var(--text);
+  pointer-events: none;
+}
+
+.poem-mirror-pending {
+  color: #c9c4b6;
+}
+
+.poem-mirror-ok {
+  color: var(--text-h);
+}
+
+.poem-mirror-bad {
+  color: #b3261e;
+  text-decoration: underline;
+  text-decoration-color: #b3261e;
+}
+
+.poem-editor-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.poem-editor-progress {
+  font-size: 12.5px;
+  color: var(--text);
+}
+
+.poem-results-face {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px 24px 32px;
+}
+
+.poem-results-hero {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.poem-results-hero h2 {
+  margin: 4px 0 0;
+  font-size: 20px;
+  color: var(--text-h);
+}
+
+.poem-results-hero p {
+  margin: 4px 0 0;
+  font-size: 13px;
+  color: var(--text);
+}
+
+.poem-results-actions {
+  flex-shrink: 0;
+}
+
+.poem-diff-stats {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 12px 16px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: #faf9f4;
+  margin-bottom: 14px;
+}
+
+.poem-accuracy {
+  display: flex;
+  flex-direction: column;
+}
+
+.poem-accuracy strong {
+  font-size: 24px;
+  color: #0f766e;
+  line-height: 1.1;
+}
+
+.poem-accuracy span {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text);
+}
+
+.poem-diff-counts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 14px;
+  font-size: 12.5px;
+  color: var(--text);
+}
+
+.poem-diff {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  font-family: "SF Mono", ui-monospace, Menlo, Consolas, monospace;
+  font-size: 13.5px;
+  line-height: 1.65;
+}
+
+.poem-diff-head {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: #faf9f4;
+  border-bottom: 1px solid var(--border);
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text);
+}
+
+.poem-diff-head span {
+  padding: 8px 14px;
+}
+
+.poem-diff-head span + span {
+  border-left: 1px solid var(--border);
+}
+
+.poem-diff-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.poem-diff-row + .poem-diff-row .poem-diff-cell {
+  border-top: 1px solid #f0ede4;
+}
+
+.poem-diff-cell {
+  padding: 1px 14px;
+  white-space: pre-wrap;
+  word-break: break-word;
+  min-height: 1.65em;
+  color: var(--text-h);
+  background: #fff;
+}
+
+.poem-diff-cell.poem-diff-right {
+  border-left: 1px solid var(--border);
+}
+
+.poem-diff-cell.poem-diff-empty {
+  background: #faf9f4;
+}
+
+.poem-diff-cell.poem-diff-removed {
+  background: #fae8e8;
+}
+
+.poem-diff-cell.poem-diff-added {
+  background: #e0f4e7;
+}
+
+.poem-diff-del {
+  color: #8b1d1d;
+  background: #f3c9c9;
+  text-decoration: line-through;
+}
+
+.poem-diff-ins {
+  color: #155833;
+  background: #bfe6cb;
+}
+
+/* Mobile */
+
+.poems-game-mobile {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  height: 100%;
+  border: none;
+  border-radius: 0;
+  background: var(--bg);
+}
+
+.poems-mobile-topbar {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 14px;
+  background: #fff;
+  border-bottom: 1px solid var(--border);
+}
+
+.poems-mobile-title {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.poems-mobile-title strong {
+  font-size: 15px;
+  color: var(--text-h);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.poems-mobile-title span {
+  font-size: 12px;
+  color: var(--text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.poems-mobile-best {
+  flex-shrink: 0;
+  font-size: 12px;
+  font-weight: 700;
+  color: #155833;
+  background: #e0f4e7;
+  border-radius: 999px;
+  padding: 3px 9px;
+}
+
+.poems-mobile-face {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.poems-game-mobile .poem-learn-face {
+  padding: 20px 18px;
+}
+
+.poems-game-mobile .poem-body {
+  font-size: 15.5px;
+}
+
+.poems-game-mobile .poem-editor-face {
+  padding: 10px;
+  gap: 8px;
+}
+
+.poems-game-mobile .poem-editor-shell {
+  min-height: 0;
+}
+
+.poems-game-mobile .poem-results-face {
+  padding: 14px 12px 24px;
+}
+
+.poems-tray {
+  flex-shrink: 0;
+  display: flex;
+  align-items: stretch;
+  border-top: 1px solid var(--border);
+  background: #fff;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.tray-button {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  padding: 8px 4px;
+  border: none;
+  background: transparent;
+  color: var(--text);
+  font: inherit;
+  font-size: 11px;
+  cursor: pointer;
+}
+
+.tray-button.active {
+  color: #0f766e;
+  font-weight: 700;
+}
+
+.tray-toggle {
+  flex: 1.4;
+  display: flex;
+  border-left: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+}
+
+.tray-toggle .tray-button {
+  flex: 1;
+  flex-direction: row;
+  gap: 5px;
+  font-size: 12px;
+}
+
+.tray-submit {
+  flex: 1.4;
+  background: #0f766e;
+  color: #fff;
+  font-weight: 700;
+  flex-direction: row;
+  gap: 6px;
+  font-size: 13px;
+}
+
+.poem-sheet-scrim {
+  position: fixed;
+  inset: 0;
+  background: rgba(21, 21, 21, 0.45);
+  z-index: 30;
+}
+
+.poem-sheet {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 31;
+  max-height: 82%;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border-radius: 16px 16px 0 0;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.poem-sheet-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px 8px;
+}
+
+.poem-sheet-head strong {
+  font-size: 15px;
+  color: var(--text-h);
+}
+
+.poem-sheet-head button {
+  border: none;
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+  padding: 4px;
+}
+
+.poem-sheet-stats {
+  display: flex;
+  gap: 8px;
+  padding: 0 18px 10px;
+  font-size: 12.5px;
+  color: var(--text);
+}
+
+.poem-sheet-stats b {
+  color: var(--text-h);
+}
+
+.poem-sheet .poem-list {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.poem-sheet .poem-options {
+  padding: 12px 18px 16px;
+  border-top: 1px solid var(--border);
+}

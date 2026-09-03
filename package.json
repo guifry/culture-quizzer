@@ -7,6 +7,7 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
+    "test": "vitest run",
     "preview": "vite preview",
     "curate": "node scripts/serve-curation.mjs"
   },
@@ -15,6 +16,7 @@
     "clsx": "^2.1.1",
     "d3-array": "^3.2.4",
     "d3-geo": "^3.1.1",
+    "diff": "^9.0.0",
     "lucide-react": "^1.14.0",
     "react": "^19.2.5",
     "react-dom": "^19.2.5",
@@ -25,6 +27,8 @@
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
+    "@testing-library/dom": "^10.4.1",
+    "@testing-library/react": "^16.3.3",
     "@types/d3-array": "^3.2.2",
     "@types/d3-geo": "^3.1.0",
     "@types/node": "^24.12.2",
@@ -35,9 +39,11 @@
     "eslint-plugin-react-hooks": "^7.1.1",
     "eslint-plugin-react-refresh": "^0.5.2",
     "globals": "^17.5.0",
+    "jsdom": "^29.1.1",
     "sharp": "^0.35.3",
     "typescript": "~6.0.2",
     "typescript-eslint": "^8.58.2",
-    "vite": "^8.0.10"
+    "vite": "^8.0.10",
+    "vitest": "^4.1.11"
   }
 }

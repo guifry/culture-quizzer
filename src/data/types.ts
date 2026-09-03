@@ -163,7 +163,7 @@ export type Topic = {
   boundaryTarget?: boolean
   items: QuizItem[]
   coverage: string
-  kind?: 'history-dates' | 'colonies' | 'city-quiz' | 'landmark-quiz' | 'paintings-quiz' | 'dynasty-quiz'
+  kind?: 'history-dates' | 'colonies' | 'city-quiz' | 'landmark-quiz' | 'paintings-quiz' | 'dynasty-quiz' | 'poems'
   dates?: HistoryDate[]
   colonies?: ColonyRelation[]
   cities?: CityEntry[]
