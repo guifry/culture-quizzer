@@ -5,6 +5,7 @@ import { cityTopics } from './cities'
 import { landmarkTopics } from './landmarks'
 import { paintingTopics } from './paintings'
 import { dynastyTopics } from './dynasties'
+import { poemTopics } from './poems'
 import type { QuizItem, Topic } from './types'
 
 export type { CityEntry, HistoryDate, MapScope, QuizItem, QuizMode, Topic, TopicGroup } from './types'
@@ -688,4 +689,5 @@ export const topics: Topic[] = [
   ...landmarkTopics,
   ...paintingTopics,
   ...dynastyTopics,
+  ...poemTopics,
 ]

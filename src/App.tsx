@@ -20,6 +20,7 @@ import { LandmarkQuiz } from './components/LandmarkQuiz'
 import { LandmarkCourse } from './components/LandmarkCourse'
 import { PaintingQuiz } from './components/PaintingQuiz'
 import { DynastyQuiz } from './components/DynastyQuiz'
+import { PoemsGame } from './components/PoemsGame'
 import { PaintingCourse } from './components/PaintingCourse'
 import { SettingsDialog } from './components/SettingsDialog'
 import { getSettings, useSettings } from './settings'
@@ -142,6 +143,10 @@ function isPaintingTopic(topic: Topic) {
 
 function isDynastyTopic(topic: Topic) {
   return topic.kind === 'dynasty-quiz'
+}
+
+function isPoemsTopic(topic: Topic) {
+  return topic.kind === 'poems'
 }
 
 // City, landmark and painting games share the same "Play / Course" shell (no generic
@@ -2191,7 +2196,8 @@ function App() {
   // Paintings gets the compact header (reclaims vertical space) but NOT the full-bleed map shell.
   const compactHeader = mapWorkspace || coloniesStage || mapCoursePair || paintingPractice
   const fullBleedWorkspace = showingMapStage || coloniesStage || mapCoursePair
-  const mobileSelfContained = isMobile && (coloniesStage || mapCoursePair)
+  const poemsStage = activePageView === 'practice' && isPoemsTopic(activeTopic)
+  const mobileSelfContained = isMobile && (coloniesStage || mapCoursePair || poemsStage)
   const mobileMapActive = mobileMapGame || mobileSelfContained
 
   const advanceRound = useCallback(() => {
@@ -2423,6 +2429,7 @@ function App() {
     localStorage.removeItem('culture-quizzer-scores')
     localStorage.removeItem('culture-quizzer-history-scores')
     localStorage.removeItem('culture-quizzer-city-scores')
+    localStorage.removeItem('culture-quizzer-poems-scores')
     setScores({})
     setHistories({})
     setRoundResults({})
@@ -2576,6 +2583,8 @@ function App() {
           onMode={(nextMode) => activateMode(activeTopic, nextMode)}
           onReset={resetScores}
         />
+      ) : mobileSelfContained && isPoemsTopic(activeTopic) ? (
+        <PoemsGame key={activeTopic.id} topic={activeTopic} mobile />
       ) : (
       <section className={['workspace', compactHeader ? 'map-workspace' : '', fullBleedWorkspace ? 'map-full' : ''].filter(Boolean).join(' ')}>
         <header className="topbar">
@@ -2605,7 +2614,7 @@ function App() {
 
         {activePageView === 'practice' ? (
           <>
-            {isColoniesTopic(activeTopic) || isDynastyTopic(activeTopic) ? null : (
+            {isColoniesTopic(activeTopic) || isDynastyTopic(activeTopic) || isPoemsTopic(activeTopic) ? null : (
             <div className="control-bar">
             {regionOptions(activeTopic).length ? (
               <div className="mode-control">
@@ -2678,7 +2687,7 @@ function App() {
             </div>
             )}
 
-            {isHistoryDateTopic(activeTopic) || isColoniesTopic(activeTopic) || isCoursePairTopic(activeTopic) || isDynastyTopic(activeTopic) || showingMapStage ? null : (
+            {isHistoryDateTopic(activeTopic) || isColoniesTopic(activeTopic) || isPoemsTopic(activeTopic) || isCoursePairTopic(activeTopic) || isDynastyTopic(activeTopic) || showingMapStage ? null : (
               <section className="score-strip" aria-label="Current score">
                 <Stat label="Deck" value={pool.length} />
                 <Stat label="Progress" value={activeRound.completed ? `${pool.length}/${pool.length}` : `${Math.min(activeRound.position + 1, pool.length)}/${pool.length}`} />
@@ -2691,6 +2700,8 @@ function App() {
 
             {isColoniesTopic(activeTopic) ? (
               <ColoniesQuiz key={activeTopic.id} topic={activeTopic} />
+            ) : isPoemsTopic(activeTopic) ? (
+              <PoemsGame key={activeTopic.id} topic={activeTopic} />
             ) : isCityTopic(activeTopic) ? (
               <CityQuiz key={`${activeTopic.id}:${mode}`} topic={activeTopic} mode={mode} />
             ) : isLandmarkTopic(activeTopic) ? (
